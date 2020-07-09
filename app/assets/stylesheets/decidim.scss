@@ -1,0 +1,149 @@
+// // Variables
+// 
+// $primary: #ef604d;
+// $primary-rgb: 239,96,77;
+// $secondary: #599aa6;
+// $secondary-rgb: 89,154,166;
+// $success: #57d685;
+// $success-rgb: 87,214,133;
+// $warning: #ffae00;
+// $warning-rgb: 255,174,0;
+// $alert: #ec5840;
+// $alert-rgb: 236,88,64;
+// 
+// $proposals: #238ff7;
+// $actions: #57d685;
+// $debates: #fa6c96;
+// $meetings: #fabc6c;
+// 
+// $twitter: #55acee;
+// $facebook: #3b5998;
+// $google: #dd4b39;
+// 
+// // background colors used in public diff views
+// $color-addition: #e6ffed;
+// $color-removal: #ffeef0;
+// 
+// // Define custom properties as css color variables
+// 
+// :root{
+//   --primary: #{$primary};
+//   --primary-rgb: #{$primary-rgb};
+//   --secondary: #{$secondary};
+//   --secondary-rgb: #{$secondary-rgb};
+//   --success: #{$success};
+//   --success-rgb: #{$success-rgb};
+//   --warning: #{$warning};
+//   --warning-rgb: #{$warning-rgb};
+//   --alert: #{$alert};
+//   --alert-rgb: #{$alert-rgb};
+//   --proposals: #{$proposals};
+//   --actions: #{$actions};
+//   --debates: #{$debates};
+//   --meetings: #{$meetings};
+//   --twitter: #{$twitter};
+//   --facebook: #{$facebook};
+//   --google: #{$google};
+// }
+
+@font-face {
+  font-family: 'StyreneA';
+  font-weight: normal;
+  src:  font-url('StyreneA-Regular-Web.woff2') format('woff2'),
+        font-url('StyreneA-Regular-Web.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'StyreneA';
+  font-weight: bold;
+  src:  font-url('StyreneA-Bold-Web.woff2') format('woff2'),
+        font-url('StyreneA-Bold-Web.woff') format('woff');
+}
+
+@import "decidim/application";
+
+// MODIFICATIONS FOR DECIDIM ZUERICH
+
+h1, h2, h3, h4, h5, h6, .button {
+  font-family: "StyreneA", "Source Sans Pro", Helvetica, Roboto, Arial, sans-serif !important;
+}
+
+.hero::after, .highligted-content-banner::after, .process-header__main::after, .consultations-header__main::after {
+  background-color: transparent !important;
+}
+
+.title-bar, .navbar, .off-canvas {
+  background-color: initial;
+  color: $black !important;
+
+  a {
+    color: inherit !important;
+  }
+  a:hover, a:focus {
+    color: var(--primary) !important;
+  }
+
+  .close-button {
+    color: $black !important;
+  }
+
+  .topbar__dropmenu.language-choose {
+    left: 0;
+    right: 0;
+    padding-left: .5rem;
+    background: $light-gray;
+  }
+}
+.logo-wrapper span {
+  color: inherit !important;
+}
+.off-canvas {
+  background-color: $light-gray;
+}
+.topbar__search, .topbar__search {
+  input, input:focus {
+    color: $black !important;
+    background: inherit !important;
+
+    &::placeholder {
+      color: $dark-gray !important;
+    }
+  }
+  .icon {
+    color: $black !important;
+  }
+}
+
+.main-nav__link a, .card__link, .author__name {
+  color: var(--primary) !important;
+}
+
+.process_stats .process_stats-item .icon, .white-button, .white-button:hover, .supports-list .author .author__name {
+  color: var(--secondary);
+}
+
+.process-stats__data::after {
+  border-left: 2px solid var(--primary)
+}
+
+.button.secondary {
+  background-color: var(--secondary)
+}
+
+.upcoming-events .card {
+  a {
+    color: var(--primary) !important;
+  }
+}
+
+// By default, hide maps, and show them using JS
+.google-map {
+  display: none;
+}
+
+
+.subhero {
+  text-align: left;
+}
+
+// END MODIFICATIONS

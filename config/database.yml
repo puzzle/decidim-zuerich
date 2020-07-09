@@ -1,0 +1,24 @@
+---
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+  host: <%= ENV.fetch('RAILS_DB_HOST') { 'localhost' } %>
+  port: <%= ENV.fetch('RAILS_DB_PORT') { '5432' } %>
+  username: <%= ENV.fetch('RAILS_DB_USERNAME') { 'decidim_zuerich' } %>
+  password: <%= ENV.fetch('RAILS_DB_PASSWORD') { 'dN5GH8y3lX' } %>
+
+development:
+  <<: *default
+  database: decidim_zuerich_development
+
+test:
+  <<: *default
+  database: <%= ENV.fetch('RAILS_TEST_DB_NAME') { 'decidim_zuerich_test' } %>
+  username: <%= ENV.fetch('RAILS_TEST_DB_USERNAME') { 'decidim_zuerich' } %>
+  password: <%= ENV.fetch('RAILS_TEST_DB_PASSWORD') { 'dN5GH8y3lX' } %>
+
+production:
+  <<: *default
+  database: decidim_zuerich_production
+  url: <%= ENV['DATABASE_URL'] %>
