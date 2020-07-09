@@ -2,11 +2,11 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = "= 0.21"
+DECIDIM_VERSION = '= 0.21'
 
 ruby RUBY_VERSION
 
-gem 'rails' '= 5.2.4.3'
+gem 'rails', '= 5.2.4.3'
 
 gem 'decidim', DECIDIM_VERSION
 gem 'decidim-proposals', DECIDIM_VERSION
