@@ -21,6 +21,9 @@ module DecidimZuerich
     # Precompile fonts
     config.assets.paths << Rails.root.join("app","assets","fonts")
 
+    # Fall back to german and then to english if some translation does not exist
+    config.i18n.fallbacks = [:de, :en]
+
     # Configure an application wide address suffix to pass to the geocoder.
     # This is to make sure that the addresses are not incorrectly mapped outside
     # of the wanted area.
