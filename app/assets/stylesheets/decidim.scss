@@ -46,26 +46,12 @@
 //   --google: #{$google};
 // }
 
-@font-face {
-  font-family: 'StyreneA';
-  font-weight: normal;
-  src:  font-url('StyreneA-Regular-Web.woff2') format('woff2'),
-        font-url('StyreneA-Regular-Web.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'StyreneA';
-  font-weight: bold;
-  src:  font-url('StyreneA-Bold-Web.woff2') format('woff2'),
-        font-url('StyreneA-Bold-Web.woff') format('woff');
-}
-
 @import "decidim/application";
 
 // MODIFICATIONS FOR DECIDIM ZUERICH
 
 h1, h2, h3, h4, h5, h6, .button {
-  font-family: "StyreneA", "Source Sans Pro", Helvetica, Roboto, Arial, sans-serif !important;
+  font-family: HelveticaNeueLTW01_55Roman,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .hero::after, .highligted-content-banner::after, .process-header__main::after, .consultations-header__main::after {
