@@ -637,7 +637,7 @@ de:
   layouts:
     decidim:
       cookie_warning:
-        description_html: Diese Seite verwendet Cookies. Durch die weitere Verwendung dieser Seite stimmst Du der Verwendung von Cookies zu. Wir verwenden Matomo für anonymisierte Statistiken. Erfahre %{link} mehr darüber.
+        description_html: Diese Seite verwendet Cookies. Durch die weitere Verwendung dieser Seite stimmst Du der Verwendung von Cookies zu. Erfahre %{link} mehr darüber.
         link_label: hier
         ok: Ich stimme zu
       participatory_process_groups:
