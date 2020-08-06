@@ -143,7 +143,7 @@ de:
             'false': Published
             'true': Unpublished
         search_placeholder:
-          title_cont: ':collection nach Titel suchen'
+          title_cont: '%{collection} nach Titel suchen'
       initiative:
         attachments: Anhänge
       menu:
