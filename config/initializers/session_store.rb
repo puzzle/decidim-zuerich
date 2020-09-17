@@ -8,7 +8,7 @@ Rails.application.config.session_store(
   memcache_server: ['127.0.0.1'],
   namespace:       'sessions',
   key:             '_session',
-  :expire_after => 30.minutes
+  expire_after:    24.hours,
 )
 
 def dalli_reachable?
