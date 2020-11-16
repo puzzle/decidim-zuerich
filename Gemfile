@@ -11,6 +11,7 @@ gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-consultations', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-term_customizer', git: 'https://github.com/mainio/decidim-module-term_customizer', branch: 'master'
+gem "decidim-navigation_maps", git: "https://github.com/Platoniq/decidim-module-navigation_maps"
 
 gem 'bootsnap', '~> 1.3'
 

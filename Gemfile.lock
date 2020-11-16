@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/Platoniq/decidim-module-navigation_maps
+  revision: d816e695300a9ccc9e424a8986cd51ad256fa722
+  specs:
+    decidim-navigation_maps (1.0)
+      decidim-admin (>= 0.18.0)
+      decidim-core (>= 0.18.0)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: 2bf8f4ff65899aabb43b76784f3ed986cb4d098f
   branch: master
@@ -782,6 +790,7 @@ DEPENDENCIES
   dalli
   decidim (~> 0.22)
   decidim-dev (~> 0.22)
+  decidim-navigation_maps!
   decidim-proposals (~> 0.22)
   decidim-term_customizer!
   delayed_job_active_record

@@ -250,6 +250,8 @@ de:
             offensive: Er ist rassistisch, antisemitisch, sexistisch, homophob oder andersweitig diskriminierend oder bedrohend.
             spam: Er ist offensichtlich Spam, unerwünschte Werbung oder ähnliches.
           title: Problematischen Inhalt melden
+      navigation_maps:
+        name: Navigationskarten
       proposals:
         settings:
           global:
@@ -532,6 +534,46 @@ de:
     menu:
       help: Info & Hilfe
       processes: Mitmachen
+    navigation_maps:
+      admin:
+        areas:
+          create:
+            error: Ein Fehler ist aufgetreten beim erstellen eines Bereiches
+            success: Bereich erfolgreich erstellt
+          form:
+            no_popup: Verwende kein Popup, verlinke diesen Bereich direkt
+          new:
+            area: Neue Bereichsdetails
+            cancel: Abbrechen
+            save: Speichern
+          show:
+            area: Bereichsdetails
+            cancel: Abbrechen
+            link_suggestions: 'Tipp: Benutze %{map} um auf andere Tabs zu verlinken'
+            save: Speichern
+          update:
+            error: Ein Fehler ist aufgetreten beim anpassen eines Bereiches
+            success: Bereich erfolgreich gespeichert
+      content_blocks:
+        name: Navigationskarten
+        navigation_map:
+          view: Teilnehmen
+        navigation_map_settings_form:
+          add: Hinzufügen
+          blueprint_image: Bildvorschau
+          description: Beschreibung
+          editor: Karteneditor
+          id: Id
+          image_missing: Bitte füge ein Bild hinzu um anzufangen
+          info: Informationen
+          link: Link
+          remove_blueprint: Bild löschen
+          title: Titel
+          type: Art
+          upload_image: Bild hochladen
+      create:
+        error: Fehler beim erstellen der Karte
+        success: Karte erfolgreich erstellt
     notifications_settings:
       show:
         email_on_notification: Ich möchte jedes Mal eine E-Mail erhalten, wenn ich benachrichtigt werde.
