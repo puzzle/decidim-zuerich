@@ -38,6 +38,15 @@ de:
         has_address: Hat einen Standort
         state: Status
         user_group_id: Unter welchem Namen möchtest du deinen kollaborativen Entwurf veröffentlichen?
+      config:
+        intergram_chat_id: Intergram Chat ID
+        intergram_require_login: Nur für eingeloggte Benutzer
+        intergram_use_floating_button: Nach Aktivierung, wird der Chat als Button anstatt als Text angezeigt.
+        intergram_color: Intergram Farben
+        intergram_title_open: Titel bei geöffnetem Intergram
+        intergram_title_closed: Titel bei geschlossenem Intergram
+        intergram_intro_message: Erste Nachricht wenn der Benutzer den Chat zum ersten Mal öffnet
+        intergram_auto_no_response: Eine Nachricht die eine Minute nach der ersten Nachricht ohne Antwort versendet wird
       debate:
         user_group_id: Unter welchem Namen möchtest du deine Debatte veröffentlichen?
       dummy_resource:
@@ -155,6 +164,7 @@ de:
           attachments: Anhänge
         conferences_submenu:
           attachments: Anhänge
+        decidim_awesome: Decidim Awesome
         participatory_processes_submenu:
           attachments: Anhänge
       models:
@@ -294,6 +304,51 @@ de:
           fields:
             end_date: Ende
             start_date: Beginn
+    decidim_awesome:
+      admin:
+        config:
+          constraints:
+            add_condition: Einschränkung hinzufügen
+            always: Immer
+            title: Einschränkungen
+          experimental: Experimentell
+          form:
+            help:
+              allow_images_in_full_editor: Bilder im vollen Editor erlauben
+              allow_images_in_markdown_editor: Bilder im Markdown Editor erlauben
+              allow_images_in_small_editor: Bilder in kleinem Editor erlauben
+              drag_and_drop_supported: Drag and Drop unterstützen
+              intergram_about: Über Intergram
+              use_markdown_editor: Markdown Editor benutzen
+              intergram_config: Intergram Konfiguration
+              allow_images_in_proposals: Bilder in Vorschlägen erlauben
+              auto_save_forms: Formulare automatisch speichern
+          show:
+            title: Decidim Awesome
+            update: Aktualisieren
+          rich_text_editor_in_public_views: "Warnung: \"Erweiterter Text Editor für Teilnehmer\" ist aktiviert, diese Option ist inaktiv. Benutze die editor hacks um Bilder in Vorschlägen zu aktivieren."
+        checks:
+          index:
+            admin_head_tags: Admin Head Tags
+            head_tags: Head Tags
+            title: Checks
+            decidim_version: Decidim Version
+            decidim-admin: decidim-admin
+            decidim-core: decidim-core
+            decidim-proposals: decidim-proposals
+        menu:
+          editors: Editoren
+          surveys: Umfragen
+          proposals: Vorschläge
+          livechat: Live Chat
+          checks: Checks
+      credits: Danksagungen
+      config:
+        intergram:
+          title_open: Lass uns chatten!
+          title_closed: Klicken um zu chatten!
+          intro_message: Hallo! Wie können wir dir helfen?
+          auto_no_response: Es scheint, dass im Moment niemand verfügbar ist. Bitte sage uns wie wir dich erreichen können und wir melden uns bei dir sobald wir können.
     devise:
       omniauth_registrations:
         new:
@@ -826,10 +881,23 @@ de:
   hello: "Hallo Welt"
   layouts:
     decidim:
+      admin:
+        decidim_awesome:
+          title: Decidim Awesome
       cookie_warning:
         description_html: Diese Seite verwendet Cookies. Durch die weitere Verwendung dieser Seite stimmst Du der Verwendung von Cookies zu. Wir verwenden Matomo für anonymisierte Statistiken. Erfahre %{link} mehr darüber.
         link_label: hier
         ok: Ich stimme zu
+      decidim_awesome:
+        awesome_config:
+          amendments: Änderungsvorschläge
+          autosaved_error: Automatisches Speichern fehlgeschlagen
+          autosaved_retrieved: Text automatisch wiederhergestellt
+          autosaved_success: Text automatisch gespeichert
+          categories: Kategorien
+          drag_and_drop_image: Drag and Drop Bild
+          meetings: Meetings
+          proposals: Vorschläge
       participatory_process_groups:
         participatory_process_group:
           browse: Durchsuchen
