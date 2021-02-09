@@ -483,7 +483,7 @@ de:
           questionnaire_answered:
             body: Sie haben diesen Fragebogen bereits beantwortet.
             title: ''
-          tos_agreement: 'Mit der Teilnahme stimmst Du folgenden Nutzungsbedingungen zu:'
+          tos_agreement: 'Mit der Teilnahme stimmen Sie folgenden Nutzungsbedingungen zu:'
     gamification:
       badges:
         attended_meetings:
