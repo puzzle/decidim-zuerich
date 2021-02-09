@@ -216,7 +216,7 @@ de:
           are_you_sure: Sind Sie einverstanden?
           description: Folgende Projekte haben Sie für das Budget ausgewählt.
         budget_excess:
-          description: Mit Ihrer Projektauswahl überschreiten Sie das maximale Budget. Bitte wählen Sie weniger Projekte aus. Wenn Sie andere Projekte auswählen müssen, müssen Sie zuerst bereits ausgewählt Projekte abwählen.
+          description: Mit Ihrer Projektauswahl überschreiten Sie das maximale Budget. Bitte wählen Sie weniger Projekte aus. Wenn Sie andere Projekte auswählen müssen, müssen Sie zuerst bereits ausgewählte Projekte abwählen.
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen möchten?
           checked_out:
