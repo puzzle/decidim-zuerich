@@ -37,7 +37,7 @@ de:
       collaborative_draft:
         has_address: Hat einen Standort
         state: Status
-        user_group_id: Unter welchem Namen möchten Sie hren kollaborativen Entwurf veröffentlichen?
+        user_group_id: Unter welchem Namen möchten Sie Ihren kollaborativen Entwurf veröffentlichen?
       config:
         intergram_chat_id: Intergram Chat ID
         intergram_require_login: Nur für eingeloggte Benutzer
