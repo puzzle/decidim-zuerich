@@ -362,7 +362,7 @@ de:
           newsletter_title: Kontakterlaubnis
           nickname_help: Darf keine Abstände, Umlaute oder Sonderzeichen aufweisen.
           password_help: "Das Passwort muss mindestens %{minimun_characters} Zeichen lang sein. Es darf nicht zu gewöhnlich sein (z. B. 123456) und darf weder Ihren Benutzernamen noch Ihre E-Mail-Adresse enthalten."
-          subtitle: Registriere Sie sich, um an Beteiligungsprozessen teilzunehmen und Vorschläge einzureichen.
+          subtitle: Registrieren Sie sich, um an Beteiligungsprozessen teilzunehmen und Vorschläge einzureichen.
           tos_agreement: Ich stimme den %{link} zu.
           username_help: Wenn Sie nicht Ihren eigenen Namen angeben möchten, können Sie auch einen erfinden.
       sessions:
