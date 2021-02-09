@@ -643,7 +643,7 @@ de:
     pages:
       home:
         extended:
-          meetings_explanation: Finde heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
+          meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
         footer_sub_hero:
           footer_sub_hero_body: Ideen entwickeln. Diskutieren. Budgetieren.
           footer_sub_hero_headline: '%{organization} - deine lokale Beteiligungsplattform.'
