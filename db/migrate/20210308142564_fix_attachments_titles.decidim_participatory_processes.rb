@@ -12,7 +12,7 @@ class FixAttachmentsTitles < ActiveRecord::Migration[5.2]
         attached_to = attachment.attached_to
         locale = attached_to.try(:locale).presence ||
                  attached_to.try(:default_locale).presence ||
-                 attached_to.try(:organization).try(:default_locale).presence ||
+                 #attached_to.try(:organization).try(:default_locale).presence ||
                  Decidim.default_locale
 
         # rubocop:disable Rails/SkipsModelValidations
