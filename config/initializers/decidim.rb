@@ -8,6 +8,32 @@ Decidim.configure do |config|
   config.default_locale = :de
   config.available_locales = %i[en de fr it]
 
+  config.maps = {
+      dynamic: {
+          provider: :swisstopo,
+          default_center: {
+              lat: 47.378,
+              lng: 8.540
+          },
+      },
+      static: false,
+      geocoding: {
+          provider: :osm,
+          timeout: 5,
+          units: :km,
+      },
+      autocomplete: {
+          provider: :osm,
+          url: "https://photon.komoot.io/api?lat=47.378&lon=8.540&bbox=8.39,47.32,8.595,47.43",
+          address_format: [
+              "name",
+              ["street", "housenumber"],
+              "postcode",
+              "city",
+          ]
+      }
+  }
+
   # Geocoder configuration
   config.geocoder = {
     static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview",

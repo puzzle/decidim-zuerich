@@ -24,18 +24,6 @@ module DecidimZuerich
     # Fall back to german and then to english if some translation does not exist
     config.i18n.fallbacks = [:de, :en]
 
-    # Configure an application wide address suffix to pass to the geocoder.
-    # This is to make sure that the addresses are not incorrectly mapped outside
-    # of the wanted area.
-    config.address_suffix = "District Zurich, Zurich, Switzerland"
-
-    # Re-configure the geocoding service to move away from here.com towards the
-    # free nominatim service. This needs to be done after the decidim gem
-    # initializers.
-    config.after_initialize do
-      Geocoder.configure(Geocoder.config.merge(lookup: :nominatim, :units => :km))
-    end
-
     config.to_prepare do
       Rails.root.glob('app/overrides/**/*_override.rb').each do |override|
         require_dependency override

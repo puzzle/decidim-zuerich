@@ -12,10 +12,8 @@
 //
 //= require rails-ujs
 //= require activestorage
-
-// Change the import strategy to manually import all required scripts, because
-// we had issues with JQuery when the tree was required before decidim.
+//= require jquery3
+// Change the import strategy to manually import all required scripts
 // require_tree .
 //= require cable.js
-
 //= require decidim
