@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '~> 0.22'
+DECIDIM_VERSION = '~> 0.23'
 
 ruby RUBY_VERSION
 
@@ -10,12 +10,9 @@ gem 'decidim', DECIDIM_VERSION
 gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-consultations', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
-gem 'decidim-decidim_awesome', '~> 0.6.1'
-gem 'decidim-navigation_maps',
-    git: 'https://github.com/Platoniq/decidim-module-navigation_maps'
-gem 'decidim-term_customizer',
-    git: 'https://github.com/mainio/decidim-module-term_customizer',
-    branch: 'master'
+gem 'decidim-decidim_awesome', '~> 0.6.6'
+gem 'decidim-navigation_maps', '~> 1.1.1'
+gem 'decidim-term_customizer', '~> 0.23.0'
 
 gem 'bootsnap', '~> 1.3'
 

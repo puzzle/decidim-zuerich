@@ -7,10 +7,9 @@
 # applied directly through the validator, not throught the attribute.
 class GeocodingValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    if Decidim.geocoder.present? && record.component.present?
-      organization = record.component.organization
-      Geocoder.configure(Geocoder.config.merge(http_headers: { "Referer" => organization.host }))
-      coordinates = Geocoder.coordinates(geocoder_value(value))
+    if Decidim::Map.available?(:geocoding) && record.component.present?
+      geocoder = geocoder_for(record.component.organization)
+      coordinates = geocoder.coordinates(geocoder_value(value))
 
       if coordinates.present?
         record.latitude = coordinates.first
@@ -24,6 +23,10 @@ class GeocodingValidator < ActiveModel::EachValidator
   end
 
   private
+
+  def geocoder_for(organization)
+    Decidim::Map.geocoding(organization: organization)
+  end
 
   def geocoder_value(value_base)
     if value_base
