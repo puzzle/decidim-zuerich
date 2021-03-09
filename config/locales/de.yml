@@ -963,5 +963,14 @@ de:
         notifications_settings: Benachrichtigungen
         title: Kontoeinstellungen
         user_groups: Gruppen
+  time:
+    formats:
+      day_of_month: "%d. %b"
+      day_of_week_long: "%a %e."
+      default: "%a, %d. %b %Y %H:%M:%S %z"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%d. %B %Y %H:%M"
+      long: "%d. %B %Y %H:%M"
   total_budget: Gesamtbudget CHF
-  
