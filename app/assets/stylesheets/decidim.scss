@@ -86,19 +86,6 @@ h1, h2, h3, h4, h5, h6, .button {
 .off-canvas {
   background-color: $light-gray;
 }
-.topbar__search, .topbar__search {
-  input, input:focus {
-    color: $black !important;
-    background: inherit !important;
-
-    &::placeholder {
-      color: $dark-gray !important;
-    }
-  }
-  .icon {
-    color: $black !important;
-  }
-}
 
 .main-nav__link a, .card__link, .author__name {
   color: var(--primary) !important;
@@ -242,16 +229,70 @@ body, .off-canvas-wrapper, .home-section:nth-of-type(2n+1) {
   }
 }
 
+form[action="/search"] .input-group {
+  border: 1px solid #999;
+  border-radius: 3px;
+  background: #fff;
+  transition: color .3s ease-in-out;
+  position: relative;
+
+  input {
+    color: var(--primary) !important;
+  }
+
+  input:focus {
+    color: #070250 !important;
+  }
+
+  input, input:focus {
+    background: inherit !important;
+    border: none;
+    padding: .565rem 4.5rem .565rem .565rem;
+    box-shadow: none;
+
+    &::placeholder {
+      color: var(--primary) !important;
+    }
+  }
+  .icon {
+    color: $black !important;
+  }
+
+  .button-wrapper, .input-group-button {
+    position: initial;
+    display: initial;
+
+    button {
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0xMi45IDEyLjFMOC4zIDcuNmMuNy0uOCAxLjEtMS44IDEuMS0yLjlDOS40IDIuMSA3LjMgMCA0LjcgMFMwIDIuMSAwIDQuN3MyLjEgNC43IDQuNyA0LjdjMS4xIDAgMi4xLS40IDIuOS0xLjFsNC41IDQuNWMuMS4xLjIuMS40LjFzLjMgMCAuNC0uMWMuMS0uMS4xLS41IDAtLjd6TTEgNC43QzEgMi43IDIuNyAxIDQuNyAxczMuNyAxLjcgMy43IDMuNy0xLjcgMy43LTMuNyAzLjdTMSA2LjcgMSA0Ljd6Ii8+PC9zdmc+);
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 13px;
+      height: 14px;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      right: .5rem;
+      -webkit-transition: right .6s ease-in-out .3s;
+      transition: right .6s ease-in-out .3s;
+      background-color: transparent;
+      border: none;
+      font-size: 0;
+      z-index: 3;
+      padding: 0 8px;
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  &:focus-within, &:hover {
+    color: #070250;
+    border-color: #070250;
+  }
+}
+
 // END MODIFICATIONS
-
-// Fix search button background color
-.topbar__search:not(:focus-within) button#submit {
-  background: inherit;
-  color: black;
-}
-
-.topbar__search:focus-within button#submit {
-  background: inherit;
-  color: black;
-}
 
