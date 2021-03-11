@@ -229,7 +229,7 @@ body, .off-canvas-wrapper, .home-section:nth-of-type(2n+1) {
   }
 }
 
-form[action="/search"] .input-group {
+form[action^="/search"] .input-group {
   border: 1px solid #999;
   border-radius: 3px;
   background: #fff;
