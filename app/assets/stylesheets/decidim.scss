@@ -375,6 +375,15 @@ form[action^="/search"] .input-group {
   }
 }
 
+.topbar__edit__link {
+  margin-left: 10px;
+}
+
+.logo-wrapper img {
+  max-width: 265px;
+  max-height: 53px;
+}
+
 @media (min-width: 640px) {
   .main-nav {
 
