@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6, .button {
   background-color: $light-gray;
 }
 
-.main-nav__link a, .card__link, .author__name {
+.card__link, .author__name {
   color: var(--primary) !important;
 }
 
@@ -369,6 +369,39 @@ form[action^="/search"] .input-group {
             border-color: var(--primary);
             color: #fff !important;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  .main-nav {
+
+    .main-nav__link {
+      font-weight: bold;
+      padding: 0;
+
+      a {
+        color: var(--secondary) !important;
+        box-shadow: none;
+        padding: 2.4375rem .9375rem;
+      }
+
+      &.main-nav__link--active {
+        box-shadow: inset 0 -3px 0 0 #DEDEDE;
+
+        a {
+          color: #737373 !important;
+        }
+      }
+
+      &:hover {
+        box-shadow: inset 0 -3px 0 0 var(--primary);
+
+        a {
+          color: var(--primary) !important;
+          text-decoration: none;
         }
       }
     }
