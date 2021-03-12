@@ -417,5 +417,31 @@ form[action^="/search"] .input-group {
   }
 }
 
+[type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], [type="color"], textarea {
+  box-shadow: none;
+  border: 1px solid #999;
+  border-radius: 3px;
+  color: var(--secondary);
+  padding: .65625rem 1rem;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+
+  &:hover, &:focus {
+    color: var(--primary);
+    border-color: #070250;
+    outline: 0;
+  }
+
+  &.is-invalid-input {
+    border-color: #d0021b;
+    color: #d0021b;
+    background: none;
+  }
+}
+
+.is-invalid-label {
+  color: #d0021b;
+}
+
 // END MODIFICATIONS
 
