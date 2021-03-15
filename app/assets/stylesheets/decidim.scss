@@ -390,6 +390,8 @@ form[action^="/search"] .input-group {
 
     &:hover {
       color: #fff !important;
+      background-color: var(--primary);
+      border-color: var(--primary);
     }
 
     &:after {
