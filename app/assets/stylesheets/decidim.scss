@@ -136,6 +136,17 @@ h5, .heading5 {
   }
 }
 
+.page-title-wrapper, .subheading1 {
+  margin: 0;
+  text-align: unset;
+}
+
+.page-title {
+  padding-bottom: 1.125rem;
+  margin-bottom: 1.875rem;
+  border-bottom: 1px solid #DEDEDE;
+}
+
 .hero::after, .highligted-content-banner::after, .process-header__main::after, .consultations-header__main::after {
   background-color: transparent !important;
 }
@@ -271,7 +282,6 @@ body, .off-canvas-wrapper, .home-section:nth-of-type(2n+1) {
   .menu.is-dropdown-submenu.submenu {
     top: 1.95rem;
     left: -.75rem;
-    box-shadow: none;
     border: 1px solid #DEDEDE;
     border-radius: 0;
     text-decoration: none;
