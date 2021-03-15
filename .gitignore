@@ -37,3 +37,6 @@
 
 # Ignore public uploads
 public/uploads
+
+/.idea
+/bin/bundle
