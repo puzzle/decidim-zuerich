@@ -459,6 +459,10 @@ form[action^="/search"] .input-group {
   }
 }
 
+.navbar .row {
+  padding: 0;
+}
+
 .topbar__edit__link {
   margin-left: 10px;
 }
@@ -470,6 +474,7 @@ form[action^="/search"] .input-group {
 
 @media (min-width: 640px) {
   .main-nav {
+    border-bottom: 1px solid #DEDEDE;
 
     .main-nav__link {
       font-weight: bold;
