@@ -147,7 +147,18 @@ en:
       proposals:
         filters:
           activity: Kind
+    system:
+      organizations:
+        omniauth_settings:
+          oidc:
+            issuer: Issuer URL (e.g. https://login.integ.stadt-zuerich.ch:443/login/op)
+            client_id: Client ID
+            client_secret: Client secret
+            redirect_url: Redirect URL (e.g. https://my.decidim.domain/users/auth/oidc/callback)
   devise:
+    shared:
+      links:
+        sign_in_with_provider: Log in via "Mein Konto"
     mailer:
       confirmation_instructions:
         subject: "Decidim Zürich: Confirm E-Mail"

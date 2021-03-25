@@ -829,7 +829,12 @@ de:
           reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet
           secondary_hosts_hint: Geben Sie jeden Host auf einer separaten Zeile an
         omniauth_settings:
-          enabled: Omniauth aktiviert
+          enabled: Aktiviert
+          oidc:
+            issuer: Issuer URL (z.B. https://login.integ.stadt-zuerich.ch:443/login/op)
+            client_id: Client ID
+            client_secret: Client secret
+            redirect_url: Redirect URL (z.B. https://my.decidim.domain/users/auth/oidc/callback)
         update:
           error: Beim Bearbeiten dieser Organisation ist ein Fehler aufgetreten.
           success: Die Organisation wurde erfolgreich gespeichert.
@@ -925,6 +930,7 @@ de:
       updated_not_active: Ihr Passwort wurde erfolgreich geändert.
     shared:
       links:
+        sign_in_with_provider: Mit "Mein Konto" anmelden
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungsmail erhalten?
         didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
