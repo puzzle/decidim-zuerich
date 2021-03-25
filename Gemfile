@@ -23,6 +23,7 @@ gem 'prometheus_exporter'
 gem 'pry-rails'
 gem 'puma', '~> 4.3'
 gem 'uglifier', '~> 4.1'
+gem 'omniauth_openid_connect'
 
 group :development, :test do
   gem 'byebug', '~> 11.0', platform: :mri
