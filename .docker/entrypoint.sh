@@ -9,6 +9,7 @@ echo "Decidim::System::Admin.where(email: 'decidim_zuerich@puzzle.ch').first_or_
 if [ ! -f "/db-init/done" ]; then
   echo 'ActiveRecord::Base.connection.execute(IO.read(".docker/database-init.sql"))' | bundle exec rails console
   echo 'user = Decidim::User.where(email: "decidim_zuerich@puzzle.ch").first; user.invite!; "*************************************************** ACTIVATE YOUR ACCOUNT **************************************************** decidim_zuerich@puzzle.ch / decidim on http://localhost:3000/users/invitation/accept?invitation_token=#{user.raw_invitation_token}"' | bundle exec rails console
+  rake decidim_anonymous_proposals:generate_anonymous_group[Anonym,Anonym,anonym@mitwirken.zuerich.ch]
   date > /db-init/done
 else
   echo "Skipping database initialization because already done on $(cat /db-init/done)"

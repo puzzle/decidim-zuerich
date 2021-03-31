@@ -13,6 +13,7 @@ gem 'decidim-proposals', DECIDIM_VERSION
 gem 'decidim-decidim_awesome', '~> 0.6.6'
 gem 'decidim-navigation_maps', '~> 1.1.1'
 gem 'decidim-term_customizer', '~> 0.23.0'
+gem "decidim-anonymous_proposals", git: "https://github.com/PopulateTools/decidim-module-anonymous_proposals", branch: :main
 
 gem 'bootsnap', '~> 1.3'
 
