@@ -604,6 +604,10 @@ form[action^="/search"] .input-group {
   .main-nav {
     border-bottom: 1px solid #DEDEDE;
 
+    ul > li {
+      flex: unset;
+    }
+
     .main-nav__link {
       font-weight: bold;
       padding: 0;
