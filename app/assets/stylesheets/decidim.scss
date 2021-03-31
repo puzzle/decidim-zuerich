@@ -167,6 +167,17 @@ h1.text-highlight {
   }
 }
 
+.main-footer, .mini-footer {
+  background-color: #f2f2f2;
+  color: black;
+
+  .decidim-logo {
+    background-color: red;
+    padding: 0.5em;
+    border-radius: 10px;
+  }
+}
+
 .section-heading {
   text-transform: none;
   letter-spacing: initial;
