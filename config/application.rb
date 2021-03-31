@@ -24,6 +24,11 @@ module DecidimZuerich
     # Fall back to german and then to english if some translation does not exist
     config.i18n.fallbacks = [:de, :en]
 
+    # Fix a weird interplay of anonymous proposals using deface, deface using I18n.transliterate,
+    # I18n.transliterate using the term customizer and the term customizer wanting to access the
+    # database, all during an assets:precompile...
+    I18n.enforce_available_locales = false
+
     config.to_prepare do
       Rails.root.glob('app/overrides/**/*_override.rb').each do |override|
         require_dependency override
