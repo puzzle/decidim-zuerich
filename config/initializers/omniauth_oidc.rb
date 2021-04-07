@@ -9,12 +9,12 @@ if Rails.application.secrets.dig(:omniauth, :oidc).present?
           env["omniauth.strategy"].options[:client_options] ||= {}
           env["omniauth.strategy"].options[:issuer] = provider_config[:issuer]
           env["omniauth.strategy"].options[:client_options][:identifier] = provider_config[:client_id]
-          env["omniauth.strategy"].options[:client_options][:secret] = provider_config[:client_id]
+          env["omniauth.strategy"].options[:client_options][:secret] = provider_config[:client_secret]
           env["omniauth.strategy"].options[:client_options][:redirect_uri] = provider_config[:redirect_url]
         },
         name: :oidc,
         discovery: true,
-        client_auth_method: :jwks,
+        client_auth_method: :basic,
         scope: [:openid, :stzh_profile_basic],
     )
   end
