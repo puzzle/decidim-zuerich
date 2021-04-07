@@ -426,6 +426,11 @@ body, .off-canvas-wrapper, .home-section:nth-of-type(2n+1) {
   }
 }
 
+.position-right {
+  width: 100%;
+  transform: translateX(100%);
+}
+
 .title-bar .topbar__dropmenu.language-choose {
   border: 1px solid #DEDEDE;
   border-radius: 3px;
