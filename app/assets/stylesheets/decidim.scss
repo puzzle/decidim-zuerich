@@ -209,6 +209,14 @@ h1.text-highlight {
   background-color: transparent !important;
 }
 
+.cookie-warning {
+  z-index: 101;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 .title-bar {
   padding-top: 0;
   padding-bottom: 0;
