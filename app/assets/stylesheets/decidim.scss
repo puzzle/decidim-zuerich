@@ -92,6 +92,10 @@
   font-style: normal !important;
 }
 
+body a {
+  color: var(--secondary)
+}
+
 body, h3, h4, h5, h6, .button {
   font-family: HelveticaNeueLTW01_55Roman,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
