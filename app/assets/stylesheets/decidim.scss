@@ -397,6 +397,7 @@ h5, .heading5 {
   padding-top: 0;
   padding-bottom: 0;
   border-bottom: 1px solid #DEDEDE;
+  border-top: none !important;
 }
 
 .title-bar, .navbar, .off-canvas {
@@ -630,6 +631,10 @@ body, .off-canvas-wrapper, .home-section:nth-of-type(2n+1) {
   transform: translateX(100%);
 }
 
+.row {
+  max-width: 1260px;
+}
+
 .mod_header--bar {
   font-size: .875rem;
   padding-top: 3.75rem;
@@ -643,14 +648,14 @@ body, .off-canvas-wrapper, .home-section:nth-of-type(2n+1) {
   .mod_header__topbar {
     padding-left: calc((100vw - 1260px)/ 2);
     padding-right: calc((100vw - 1260px)/ 2);
+    margin-left: calc((100vw - 100%)/ -2) !important;
+    margin-right: calc((100vw - 100%)/ -2) !important;
     height: 3.6875rem;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     background-color: #F2F2F2;
-    margin-left: calc((100vw - 100%)/ -2) !important;
-    margin-right: calc((100vw - 100%)/ -2) !important;
     z-index: 100;
   }
 
