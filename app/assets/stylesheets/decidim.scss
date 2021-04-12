@@ -135,10 +135,6 @@ h5, .heading5 {
   color: #4D4D4D;
 }
 
-.hero-heading {
-  text-shadow: none;
-}
-
 .text-highlight {
   text-shadow: none;
 }
@@ -276,6 +272,14 @@ h5, .heading5 {
         font-size: 3.75rem;
         line-height: 1.1;
         margin-bottom: 2.0625rem;
+
+        @media (max-width: 1023px) {
+          font-size: 2.8125rem;
+        }
+
+        @media (max-width: 599px) {
+          font-size: 1.75rem;
+        }
       }
       .heading-small {
         color: white;
@@ -284,11 +288,99 @@ h5, .heading5 {
         line-height: 1.5;
         font-weight: normal;
         font-family: HelveticaNeueLTW01_41488878,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+        @media (max-width: 599px) {
+          font-size: 1rem;
+        }
       }
     }
 
     .process-header__phase {
       color: #3d393c;
+    }
+  }
+}
+
+.hero.home-section {
+  width: 100%;
+  max-width: 1440px;
+  height: 34.6875rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    height: unset;
+    min-height: 34.6875rem;
+  }
+
+  .hero__container {
+    flex-basis: 50%;
+    background-color: var(--secondary);
+    color: #fff;
+    padding: 0 3.125rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (max-width: 1023px) {
+      padding: 3.125rem;
+    }
+
+    @media (max-width: 599px) {
+      padding: 1.125rem 1.125rem 3.75rem;
+    }
+
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .columns {
+      width: 100%;
+      text-align: left;
+      padding-left: 0;
+      padding-right: 0;
+
+      .hero-heading {
+        text-shadow: none;
+        color: #fff;
+        text-align: left;
+        font-size: 3.75rem;
+        line-height: 1.1;
+        letter-spacing: -.01em;
+        margin-bottom: 2.0625rem;
+        font-weight: 400;
+
+        @media (max-width: 1023px) {
+          font-size: 2.8125rem;
+        }
+
+        @media (max-width: 599px) {
+          font-size: 1.75rem;
+          margin-bottom: 1.375rem;
+        }
+      }
+
+      .hero-cta {
+        margin-top: 1rem;
+        width: unset;
+        display: inline-block;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        background: transparent !important;
+        border: none !important;
+        font-size: 1.375rem;
+        font-family: HelveticaNeueLTW01_41488878,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        letter-spacing: normal;
+
+        @media (max-width: 599px) {
+          font-size: 1rem;
+        }
+      }
     }
   }
 }
@@ -432,7 +524,7 @@ h5, .heading5 {
 }
 
 body, .off-canvas-wrapper, .home-section:nth-of-type(2n+1) {
-  background: #fff;
+  background-color: #fff;
 }
 
 .card {
