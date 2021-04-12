@@ -213,6 +213,86 @@ h1.text-highlight {
   background-color: transparent !important;
 }
 
+.process-header {
+  background: none;
+
+  .process-header__inner {
+    height: 34.6875rem;
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: var(--secondary);
+    justify-content: initial;
+
+    @media (max-width: 1023px) {
+      flex-direction: column;
+      height: unset;
+    }
+  }
+
+  .process-header__main {
+    display: block;
+    width: 50%;
+    height: 100%;
+    clip-path: none;
+    background-position: center;
+
+    @media (max-width: 1023px) {
+      width: 100%;
+      height: 20.8125rem;
+      position: initial;
+    }
+  }
+
+  .process-header__container {
+    display: block;
+    width: 50%;
+    padding: 0 3.125rem;
+    color: white;
+    transform: translateY(-50%);
+    top: 50%;
+    position: absolute;
+    right: 0;
+
+    @media (max-width: 1023px) {
+      width: 100% !important;
+      position: initial;
+      transform: none;
+      padding: 3.125rem;
+    }
+
+    @media (max-width: 599px) {
+      padding: 1.125rem 1.125rem 3.75rem;
+    }
+
+    & > .columns {
+      width: 100%;
+    }
+
+    .process-header__info {
+      .heading2 {
+        color: white;
+        font-weight: 400;
+        font-family: HelveticaNeueLTW05_85Heavy,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 3.75rem;
+        line-height: 1.1;
+        margin-bottom: 2.0625rem;
+      }
+      .heading-small {
+        color: white;
+        text-shadow: none;
+        font-size: 1.375rem;
+        line-height: 1.5;
+        font-weight: normal;
+        font-family: HelveticaNeueLTW01_41488878,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      }
+    }
+
+    .process-header__phase {
+      color: #3d393c;
+    }
+  }
+}
+
 .cookie-warning {
   z-index: 101;
   position: fixed;
@@ -298,7 +378,8 @@ h1.text-highlight {
 .button.hero-cta, #highlighted-processes .card--full__image .button, .highligted-content-banner__container .button {
   font-family: HelveticaNeueLTW01_71488914,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 400;
-  padding: .6875rem 4.5625rem .6875rem 2rem;
+  padding-left: 2rem;
+  padding-right: 4.5625rem;
   text-align: left;
 
   &:after {
@@ -737,7 +818,7 @@ form[action^="/search"] .input-group {
   ul {
     list-style: none;
 
-    li {
+    li:not(.card-data__item) {
       position: relative;
       padding-left: 1.8125rem;
 
