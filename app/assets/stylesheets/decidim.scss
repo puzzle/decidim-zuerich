@@ -298,6 +298,8 @@ h1.text-highlight {
 .button.hero-cta, #highlighted-processes .card--full__image .button, .highligted-content-banner__container .button {
   font-family: HelveticaNeueLTW01_71488914,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 400;
+  padding: .6875rem 4.5625rem .6875rem 2rem;
+  text-align: left;
 
   &:after {
     -webkit-transition: all .3s;
