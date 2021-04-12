@@ -727,6 +727,25 @@ form[action^="/search"] .input-group {
   max-height: 79px;
 }
 
+.card__content, .card__text--paragraph, .floating-helper__content-inner, .timeline__content, .lead, .process-header + .wrapper .section {
+  ul {
+    list-style: none;
+
+    li {
+      position: relative;
+      padding-left: 1.8125rem;
+
+      &::before {
+        content: '\2014';
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+}
+
 @media (min-width: 640px) {
   .main-nav {
     border-bottom: 1px solid #DEDEDE;
