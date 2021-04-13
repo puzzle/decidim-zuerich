@@ -7,6 +7,16 @@ CarrierWave.configure do |config|
   config.directory_permissions = 0o777
   config.storage = :file
   config.enable_processing = !Rails.env.test?
+
+  config.asset_host = proc do |file|
+    host = if file.model.class.name == "Decidim::Organization"
+             file.model.host
+           else
+             file.model.organization.host
+           end
+
+    "https://#{host}"
+  end
 end
 
 # Setup CarrierWave to use Amazon S3. Add `gem "fog-aws" to your Gemfile.
