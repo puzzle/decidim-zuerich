@@ -216,7 +216,7 @@ h5, .heading5 {
     height: 34.6875rem;
     max-width: 1440px;
     margin: 0 auto;
-    background-color: var(--secondary);
+    background-color: var(--highlight-alternative);
     justify-content: initial;
 
     @media (max-width: 1023px) {
@@ -318,7 +318,7 @@ h5, .heading5 {
 
   .hero__container {
     flex-basis: 50%;
-    background-color: var(--secondary);
+    background-color: var(--highlight);
     color: #fff;
     padding: 0 3.125rem;
     display: flex;
