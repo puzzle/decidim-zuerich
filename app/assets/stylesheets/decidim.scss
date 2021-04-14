@@ -197,6 +197,11 @@ h5, .heading5 {
 .page-title-wrapper, .subheading1 {
   margin: 0;
   text-align: unset;
+
+  &.intro--text {
+    max-width: unset;
+    font-size: inherit;
+  }
 }
 
 .page-title {
