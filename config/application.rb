@@ -29,6 +29,9 @@ module DecidimZuerich
     # database, all during an assets:precompile...
     I18n.enforce_available_locales = false
 
+    # This option silences the logging of Redirector related SQL queries in your log file
+    config.redirector.silence_sql_logs = true
+
     config.to_prepare do
       Rails.root.glob('app/overrides/**/*_override.rb').each do |override|
         require_dependency override
