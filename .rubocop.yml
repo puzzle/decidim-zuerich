@@ -1,1 +1,11 @@
+---
 require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+
+  # Ignore folders that have a lot of foreign code
+  # or are not controlled by us
+  Exclude:
+    - 'db/migrate/*.rb'
+    - 'db/schema.rb'
