@@ -1011,5 +1011,22 @@ form[action^="/search"] .input-group {
   color: #d0021b;
 }
 
+.timeline__phase {
+  background: var(--secondary);
+}
+
+.timeline__item--current .timeline__header {
+  background-color: white;
+}
+
+h4, .heading4 {
+  color: var(--secondary);
+}
+
+.timeline__item--current .timeline__date {
+  color: var(--secondary);
+}
+
+
 // END MODIFICATIONS
 
