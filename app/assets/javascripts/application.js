@@ -17,3 +17,4 @@
 // require_tree .
 //= require cable.js
 //= require decidim
+//= require custom.js

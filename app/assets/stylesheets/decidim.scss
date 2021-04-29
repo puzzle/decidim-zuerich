@@ -723,6 +723,16 @@ body, .off-canvas-wrapper, .home-section:nth-of-type(2n+1) {
   }
 }
 
+.topbar__notifications .icon,
+.topbar__conversations .icon {
+  fill: black;
+  opacity: 0.50;
+}
+
+#process-nav-content {
+  scroll-margin-top: 59px;
+}
+
 .title-bar .topbar__dropmenu.language-choose {
   border: 1px solid #DEDEDE;
   border-radius: 3px;
