@@ -1,0 +1,45 @@
+<div class="main-footer">
+  <div class="row" style="height:42.3px;">
+    <div class="medium-2 large-1 columns">
+      <div class="decidim-logo" style="width: 100px;">
+        <a rel="decidim noopener" href="https://decidim.org/" target="_blank">
+          <img alt="Decidim Logo" src="/assets/decidim/decidim-logo-6da7ef07152230a060672770d7114cb5b612a724895cacb1b176560927c25060.svg">
+        </a>
+      </div>
+    </div>
+    <div class="medium-6 large-8 columns">
+      <a rel="license noopener" class="cc-badge" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+        <img alt="Creative Commons License" src="/assets/decidim/cc-badge-7df25c24ce76b70a8e6a8918d35bd19a4e7c5676256370997d22a9c7039dab0c.png">
+      </a>
+      Website made with <a target="_blank" href="https://github.com/decidim/decidim" class="external-link-container">free software&nbsp;<span class="external-link-indicator"><svg class="icon icon--external-link" role="none presentation"><use href="/assets/decidim/icons-12032a129d2a2668259128b86df2c8829ea6cdaa07beb8538a61c4872aa66328.svg#icon-external-link"></use></svg><span class="show-for-sr">(External link)</span></span></a>.
+    </div>
+  </div>
+  <div class="row" style="height: 100px;"></div>
+  <% if current_organization.official_img_footer? %>
+    <%= link_to current_organization.official_url, class: "main-footer__badge" do %>
+      <%= image_tag current_organization.official_img_footer.url.to_s , alt: current_organization.name %>
+    <% end %>
+  <% end %>
+  <div class="row">
+    <div class="medium-8 large-6 large-offset-3 column">
+      <nav class="main__footer__nav">
+        <ul class="footer-nav">
+          <% organization_pages = current_organization.static_pages_accessible_for(current_user) %>
+          <% if organization_pages.any? %>
+            <% current_organization.static_page_topics.where(show_in_footer: true).each do |page_topic| %>
+              <% topic_pages = page_topic.accessible_pages_for(current_user) %>
+              <% if topic_pages.any? %>
+                <li><%= link_to translated_attribute(page_topic.title), decidim.page_path(topic_pages.first) %></li>
+              <% end %>
+            <% end %>
+            <% organization_pages.where(show_in_footer: true).each do |page| %>
+              <li><%= link_to translated_attribute(page.title), decidim.page_path(page) %></li>
+            <% end %>
+          <% end %>
+          <li><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
+        </ul>
+      </nav>
+    </div>
+    <%= render partial: "layouts/decidim/social_media_links" %>
+  </div>
+</div>
