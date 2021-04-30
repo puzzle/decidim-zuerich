@@ -16,6 +16,9 @@ gem 'decidim-navigation_maps', '~> 1.2.0'
 gem 'decidim-anonymous_proposals',
     git: 'https://github.com/PopulateTools/decidim-module-anonymous_proposals',
     branch: :main
+gem 'decidim-homepage_interactive_map',
+    git: 'https://github.com/puzzle/decidim-module-homepage_interactive_map.git',
+    tag: '0.24.0'
 gem 'decidim-term_customizer',
     git: 'https://github.com/mainio/decidim-module-term_customizer'
 gem 'decidim-url_aliases',
@@ -40,6 +43,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'letter_opener_web', '~> 1.3'
   gem 'listen', '~> 3.1'
   gem 'spring', '~> 2.0'
