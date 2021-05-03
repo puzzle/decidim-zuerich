@@ -178,6 +178,49 @@ h5, .heading5 {
   }
 }
 
+.main-footer--row {
+  display: flex;
+  align-items: center;
+  //height: 42.3px;
+  gap: 1em;
+  padding: 0 1em 0 1em;
+}
+
+.main-footer--row > * {
+  flex: 0 0 content;
+}
+
+.main__footer__nav {
+  justify-self: end;
+  flex: 1 0 auto;
+  text-align: inherit;
+}
+
+.footer-nav {
+  text-align: right;
+}
+
+.footer-nav li {
+  display: block;
+}
+
+.main__footer__social {
+  text-align: unset;
+}
+
+.logos-area .decidim-logo {
+  width: 100px;
+  margin: inherit;
+}
+
+.cc-area {
+  font-size: smaller;
+  flex-wrap: nowrap;
+}
+.cc-badge img {
+  width: 60px;
+}
+
 .section-heading {
   text-transform: none;
   letter-spacing: initial;
