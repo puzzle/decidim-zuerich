@@ -8,7 +8,7 @@ module Decidim
   module Map
     module Provider
       module DynamicMap
-        autoload :Swisstopo, "decidim/map/provider/dynamic_map/swisstopo"
+        autoload :Swisstopo, 'decidim/map/provider/dynamic_map/swisstopo'
       end
     end
   end
