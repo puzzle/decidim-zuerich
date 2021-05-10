@@ -1080,6 +1080,11 @@ h4, .heading4 {
   color: var(--secondary);
 }
 
+// Highly specific, because I really dislike overwriting .text-center
+#content > .wrapper > div:nth-child(2) > .row > .section {
+  & > .extra, & > .tech-info, & > .text-center {
+    text-align: left;
+  }
+}
 
 // END MODIFICATIONS
-
