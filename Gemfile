@@ -2,9 +2,11 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '= 0.24.0'
+DECIDIM_VERSION = '0.24.2'
 
 ruby RUBY_VERSION
+
+gem 'execjs', '= 2.7.0'
 
 gem 'decidim', DECIDIM_VERSION
 gem 'decidim-proposals', DECIDIM_VERSION
@@ -18,7 +20,7 @@ gem 'decidim-anonymous_proposals',
     branch: :main
 gem 'decidim-homepage_interactive_map',
     git: 'https://github.com/puzzle/decidim-module-homepage_interactive_map.git',
-    tag: '0.24.0'
+    tag: DECIDIM_VERSION
 gem 'decidim-term_customizer',
     git: 'https://github.com/mainio/decidim-module-term_customizer'
 gem 'decidim-url_aliases',

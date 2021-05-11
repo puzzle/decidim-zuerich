@@ -232,7 +232,7 @@ de:
       accountability:
         name: Umsetzungsstand
       add_comment_form:
-        account_message:  <a href="%{sign_in_url}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_url}">registrieren Sie sich</a>, um einen Kommentar hinzuzufügen.
+        account_message: <a href="%{sign_in_url}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_url}">registrieren Sie sich</a>, um einen Kommentar hinzuzufügen.
         form:
           body:
             placeholder: Was meinen Sie dazu?
@@ -957,6 +957,9 @@ de:
           drag_and_drop_image: Drag and Drop Bild
           meetings: Meetings
           proposals: Vorschläge
+          hashtags: Hashtags
+          items: Items
+          select_deselect_all: Alles auswählen / Auswahl aufheben
       participatory_process_groups:
         participatory_process_group:
           browse: Durchsuchen
@@ -980,3 +983,8 @@ de:
             accept_until_format: "%d. %B %Y %H:%M"
       long: "%d. %B %Y %H:%M"
   total_budget: Gesamtbudget CHF
+  forms:
+    length_validator:
+      minimum:
+        one: mindestens %{count} Buchstabe
+        other: mindestens %{count} Buchstaben
