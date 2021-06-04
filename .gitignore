@@ -20,7 +20,7 @@
 # Puma is unhappy without this
 !/tmp/pids
 /tmp/pids/*
-!/tmp/pids/.keep 
+!/tmp/pids/.keep
 
 # Ignore uploaded files in development
 /storage/*
@@ -40,3 +40,6 @@ public/uploads
 
 /.idea
 /bin/bundle
+
+# Ignore local gems
+/vendor/bundle/
