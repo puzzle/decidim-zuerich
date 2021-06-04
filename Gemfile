@@ -12,7 +12,12 @@ gem 'decidim', DECIDIM_VERSION
 gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-consultations', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
-gem 'decidim-decidim_awesome', git: 'https://github.com/Platoniq/decidim-module-decidim_awesome.git', ref: 'custom-fields'
+
+# PR pending: https://github.com/Platoniq/decidim-module-decidim_awesome/pull/96
+# Switch back to Platoniq after it is approved
+# gem 'decidim-decidim_awesome', git: 'https://github.com/Platoniq/decidim-module-decidim_awesome.git', ref: 'custom-fields'
+gem 'decidim-decidim_awesome', git: 'https://github.com/Kagemaru/decidim-module-decidim_awesome.git', ref: 'patch-1'
+
 gem 'decidim-navigation_maps', '~> 1.2.0'
 
 gem 'decidim-anonymous_proposals',
