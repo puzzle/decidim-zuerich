@@ -29,7 +29,8 @@ gem 'decidim-homepage_interactive_map',
 gem 'decidim-term_customizer',
     git: 'https://github.com/mainio/decidim-module-term_customizer'
 gem 'decidim-url_aliases',
-    git: 'https://github.com/OpenSourcePolitics/decidim-urlaliases'
+    git: 'https://github.com/OpenSourcePolitics/decidim-urlaliases',
+    ref: '1679661dca37d4833be21f9183801a70f2129319'
 
 gem 'bootsnap', '~> 1.3'
 
