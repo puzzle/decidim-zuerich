@@ -10,11 +10,11 @@ GIT
 
 GIT
   remote: https://github.com/PopulateTools/decidim-module-anonymous_proposals
-  revision: 855c07ec22835a8f92e4ab51fcf025011fd12055
+  revision: f3ce445affd1992f2bfc660acf50d37c5c144fea
   branch: main
   specs:
     decidim-anonymous_proposals (0.1)
-      decidim-core (>= 0.23.0)
+      decidim-core (>= 0.24.0)
       deface (~> 1.5)
 
 GIT
@@ -481,7 +481,7 @@ GEM
     faraday-excon (1.1.0)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
-    ffi (1.15.1)
+    ffi (1.15.3)
     file_validators (2.3.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -930,7 +930,7 @@ GEM
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
     webrick (1.7.0)
-    websocket-driver (0.7.4)
+    websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     wicked_pdf (1.4.0)
