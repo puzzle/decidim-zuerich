@@ -13,10 +13,10 @@ gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-consultations', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
 
-# PR pending: https://github.com/Platoniq/decidim-module-decidim_awesome/pull/96
+# Hotfix for this issue: https://github.com/Platoniq/decidim-module-decidim_awesome/pull/96
 # Switch back to Platoniq after it is approved
 # gem 'decidim-decidim_awesome', git: 'https://github.com/Platoniq/decidim-module-decidim_awesome.git', ref: 'custom-fields'
-gem 'decidim-decidim_awesome', git: 'https://github.com/Kagemaru/decidim-module-decidim_awesome.git', ref: 'patch-1'
+gem 'decidim-decidim_awesome', git: 'https://github.com/puzzle/decidim-module-decidim_awesome.git', ref: 'custom-fields'
 
 gem 'decidim-navigation_maps', '~> 1.2.0'
 

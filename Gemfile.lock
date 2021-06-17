@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/Kagemaru/decidim-module-decidim_awesome.git
-  revision: 4f7ad4ad5f1b78930eeda0de8274b32dd6d320bf
-  ref: patch-1
-  specs:
-    decidim-decidim_awesome (0.7.1)
-      decidim-admin (>= 0.23.0, < 0.25)
-      decidim-core (>= 0.23.0, < 0.25)
-      sassc (~> 2.3)
-
-GIT
   remote: https://github.com/OpenSourcePolitics/decidim-urlaliases
   revision: 1679661dca37d4833be21f9183801a70f2129319
   ref: 1679661dca37d4833be21f9183801a70f2129319
@@ -34,6 +24,16 @@ GIT
     decidim-term_customizer (0.24.0)
       decidim-admin (~> 0.24.0)
       decidim-core (~> 0.24.0)
+
+GIT
+  remote: https://github.com/puzzle/decidim-module-decidim_awesome.git
+  revision: 7ee09500259854984d1b3e03a66a915135fe4df3
+  ref: custom-fields
+  specs:
+    decidim-decidim_awesome (0.7.1)
+      decidim-admin (>= 0.23.0, < 0.25)
+      decidim-core (>= 0.23.0, < 0.25)
+      sassc (~> 2.3)
 
 GIT
   remote: https://github.com/puzzle/decidim-module-homepage_interactive_map.git
@@ -976,7 +976,7 @@ DEPENDENCIES
   web-console (~> 3.5)
 
 RUBY VERSION
-   ruby 2.7.3p183
+   ruby 2.7.1p83
 
 BUNDLED WITH
    2.2.16
