@@ -9,6 +9,16 @@ GIT
       redirector
 
 GIT
+  remote: https://github.com/Platoniq/decidim-module-decidim_awesome.git
+  revision: 7853f162057f40fbf459f869c191513f9456e4cb
+  ref: custom-fields
+  specs:
+    decidim-decidim_awesome (0.7.1)
+      decidim-admin (>= 0.23.0, < 0.25)
+      decidim-core (>= 0.23.0, < 0.25)
+      sassc (~> 2.3)
+
+GIT
   remote: https://github.com/PopulateTools/decidim-module-anonymous_proposals
   revision: f3ce445affd1992f2bfc660acf50d37c5c144fea
   branch: main
@@ -24,16 +34,6 @@ GIT
     decidim-term_customizer (0.24.0)
       decidim-admin (~> 0.24.0)
       decidim-core (~> 0.24.0)
-
-GIT
-  remote: https://github.com/puzzle/decidim-module-decidim_awesome.git
-  revision: 7ee09500259854984d1b3e03a66a915135fe4df3
-  ref: custom-fields
-  specs:
-    decidim-decidim_awesome (0.7.1)
-      decidim-admin (>= 0.23.0, < 0.25)
-      decidim-core (>= 0.23.0, < 0.25)
-      sassc (~> 2.3)
 
 GIT
   remote: https://github.com/puzzle/decidim-module-homepage_interactive_map.git
@@ -492,7 +492,7 @@ GEM
       mime-types
     fog-local (0.6.0)
       fog-core (>= 1.27, < 3.0)
-    formatador (0.2.5)
+    formatador (0.3.0)
     foundation-rails (6.6.2.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0)
