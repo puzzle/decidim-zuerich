@@ -91,6 +91,15 @@ de:
       decidim/proposals/collaborative_draft:
         one: Kollaborativer Entwurf
         other: Kollaborative Entwürfe
+  custom_fields:
+    budget:
+      placeholder: Bitte wähle ein Budget aus
+      label: Budget
+      # help: Dies ist die Hilfe
+      option-1: Option 1
+      option-2: Option 2
+      option-3: Option 3
+      option-4: Option 4
   decidim:
     account:
       delete:

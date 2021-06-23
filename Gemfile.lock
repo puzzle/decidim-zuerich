@@ -9,16 +9,6 @@ GIT
       redirector
 
 GIT
-  remote: https://github.com/Platoniq/decidim-module-decidim_awesome.git
-  revision: 7853f162057f40fbf459f869c191513f9456e4cb
-  ref: custom-fields
-  specs:
-    decidim-decidim_awesome (0.7.1)
-      decidim-admin (>= 0.23.0, < 0.25)
-      decidim-core (>= 0.23.0, < 0.25)
-      sassc (~> 2.3)
-
-GIT
   remote: https://github.com/PopulateTools/decidim-module-anonymous_proposals
   revision: f3ce445affd1992f2bfc660acf50d37c5c144fea
   branch: main
@@ -34,6 +24,16 @@ GIT
     decidim-term_customizer (0.24.0)
       decidim-admin (~> 0.24.0)
       decidim-core (~> 0.24.0)
+
+GIT
+  remote: https://github.com/puzzle/decidim-module-decidim_awesome.git
+  revision: 2e49e1f239415f61cb49dd8034774fe401f69031
+  ref: custom-fields
+  specs:
+    decidim-decidim_awesome (0.7.1)
+      decidim-admin (>= 0.23.0, < 0.25)
+      decidim-core (>= 0.23.0, < 0.25)
+      sassc (~> 2.3)
 
 GIT
   remote: https://github.com/puzzle/decidim-module-homepage_interactive_map.git
@@ -417,8 +417,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.9.4)
-      devise (>= 4.7.1)
+    devise-i18n (1.10.0)
+      devise (>= 4.8.0)
     devise_invitable (1.7.5)
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
