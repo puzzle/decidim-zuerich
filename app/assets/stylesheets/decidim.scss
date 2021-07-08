@@ -1091,6 +1091,10 @@ h4, .heading4 {
   color: var(--secondary);
 }
 
+.leaflet-marker-icon.svg-icon svg > path {
+  fill: var(--highlight-alternative) !important;
+}
+
 // Highly specific, because I really dislike overwriting .text-center
 #content > .wrapper > div:nth-child(2) > .row > .section {
   & > .extra, & > .tech-info, & > .text-center {
