@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/puzzle/decidim-module-decidim_awesome.git
-  revision: 2e49e1f239415f61cb49dd8034774fe401f69031
+  revision: 716af8ed9f71025c67801e8a637a15139b894236
   ref: custom-fields
   specs:
     decidim-decidim_awesome (0.7.1)
@@ -748,7 +748,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rainbow (3.0.0)
-    rake (13.0.5)
+    rake (13.0.6)
     ransack (2.1.1)
       actionpack (>= 5.0)
       activerecord (>= 5.0)
