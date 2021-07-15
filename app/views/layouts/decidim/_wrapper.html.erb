@@ -34,8 +34,15 @@
         <!-- Topbar -->
         <%# START Modifications for decidim Zürich %>
         <div class="title-bar">
-          <div class="mod_header mod_header--bar is_sticky_topbar" data-init="header" style="">
-            <div class="mod_header__topbar" data-header="topbar" style="transform: none;">
+          <div id="header" class="mod_header mod_header--bar is_sticky_topbar" data-init="header" style="">
+            <div id="logobar" class="mod_header__logobar" data-header="logobar">
+              <div class="mod_header__logobar-inner">
+                <div class="mod_header__logobar-logo">
+                  <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+                </div>
+              </div>
+            </div>
+            <div id="topbar" class="mod_header__topbar" data-header="topbar" style="transform: none;">
               <div class="mod_header__topbar-inner">
                 <div class="top_actions" data-header="topactions">
                   <%= render partial: "layouts/decidim/topbar_search" %>
@@ -85,13 +92,6 @@
                       </div>
                     </div>
                   <% end %>
-                </div>
-              </div>
-            </div>
-            <div class="mod_header__logobar" data-header="logobar">
-              <div class="mod_header__logobar-inner">
-                <div class="mod_header__logobar-logo">
-                  <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
                 </div>
               </div>
             </div>
