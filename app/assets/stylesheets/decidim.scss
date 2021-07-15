@@ -356,6 +356,10 @@ h5, .heading5 {
 
     .process-header__phase {
       color: #3d393c;
+
+      a.show-for-medium {
+        display: inline-block !important;
+      }
     }
   }
 }
