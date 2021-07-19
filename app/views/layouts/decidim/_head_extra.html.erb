@@ -1,0 +1,11 @@
+<% if mandant = ENV['ANALYTICS_META_MANDANT'] %>
+    <!-- Adobe Analytics Mandant -->
+    <meta name="mandant" content="<%=mandant%>">
+    <!-- End Adobe Analytics Mandant -->
+<% end %>
+
+<% if source = ENV['ANALYTICS_SCRIPT_SOURCE'] %>
+  <!-- Adobe Analytics Source -->
+  <script src="<%=source%>" async></script>
+  <!-- End Adobe Analytics Source -->
+<% end %>
