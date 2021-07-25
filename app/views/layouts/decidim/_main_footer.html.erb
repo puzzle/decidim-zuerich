@@ -1,21 +1,11 @@
 <div class="main-footer">
   <div class="main-footer--row">
     <div class="logos-area">
-      <div class="decidim-logo">
-        <a rel="decidim noopener" href="https://decidim.org/" target="_blank">
-          <img alt="Decidim Logo" src="/assets/decidim/decidim-logo-6da7ef07152230a060672770d7114cb5b612a724895cacb1b176560927c25060.svg">
-        </a>
-      </div>
-    </div>
-    <div class="cc-area">
-      <%# = render partial: "layouts/decidim/social_media_links" %>
-      <a rel="license noopener" class="cc-badge" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
-        <img alt="Creative Commons License" src="/assets/decidim/cc-badge-7df25c24ce76b70a8e6a8918d35bd19a4e7c5676256370997d22a9c7039dab0c.png">
-      </a>
-      Website made with <a target="_blank" href="https://github.com/decidim/decidim" class="external-link-container">free software&nbsp;<span class="external-link-indicator"><svg class="icon icon--external-link" role="none presentation"><use href="/assets/decidim/icons-12032a129d2a2668259128b86df2c8829ea6cdaa07beb8538a61c4872aa66328.svg#icon-external-link"></use></svg><span class="show-for-sr">(External link)</span></span></a>.
+      <%= link_to image_tag('/ico_social_media_icongroup.svg'), 'https://www.stadt-zuerich.ch/socialmedia', alt: 'Stadt Zürich Social Media' %>
     </div>
     <nav class="main__footer__nav">
       <ul class="footer-nav">
+        <li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">Stadt Zürich, 2021, CC BY-SA 4.0</a></li>
         <% organization_pages = current_organization.static_pages_accessible_for(current_user) %>
         <% if organization_pages.any? %>
           <% current_organization.static_page_topics.where(show_in_footer: true).each do |page_topic| %>
