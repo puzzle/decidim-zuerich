@@ -1132,5 +1132,15 @@ h4, .heading4 {
   margin-right: unset;
 }
 
+.icon.icon--external-link {
+  display: none;
+}
+
+.external-link-indicator {
+  content: url(/ico_external_links.svg);
+  width: 10px;
+  height: 10px;
+}
+
 
 // END MODIFICATIONS
