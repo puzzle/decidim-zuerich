@@ -1114,4 +1114,23 @@ h4, .heading4 {
   }
 }
 
+// Remove uppercase text
+.card-data__item.creation_date_status strong,
+.card__icondata ul li:not(:first-child) strong,
+.card__block ul li:not(:first-child) strong,
+.home-pam__title {
+  text-transform: unset;
+}
+
+// Remove text center
+.card-data__item {
+  text-align: unset;
+  align-items: unset;
+}
+.card-data__item .card-data__item--centerblock {
+  margin-left: unset;
+  margin-right: unset;
+}
+
+
 // END MODIFICATIONS
