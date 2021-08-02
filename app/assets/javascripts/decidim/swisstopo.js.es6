@@ -28,7 +28,10 @@
         this.setCoordinateReferenceSystem()
         this.addTileLayers()
 
-        // decidim adds the markers for us
+        // decidim adds the markers for us, but if navigation maps are active,
+        // a different L without the markercluster plugin is used for some reason.
+        // Workaround is to overwrite the global L again from here.
+        exports.L = L
         super.start()
 
         this.setViewport()
