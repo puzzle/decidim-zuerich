@@ -298,6 +298,17 @@ de:
           open_votes: Stimmen offen
         footer_button_text:
           view: Ansehen
+    content_blocks:
+      last_blog_posts:
+        name: Neueste Blogbeiträge
+        title: Neueste Blogbeiträge
+        view_all: Alle anzeigen
+      html2:
+        name: HTML-Block 2
+      html3:
+        name: HTML-Block 3
+      html4:
+        name: HTML-Block 4
     data_portability:
       show:
         download_data_description: Hier können Sie alle Daten, die wir von Ihnen gespeichert haben, herunterladen und ansehen. Wir stellen Ihnen einen Link an <strong>%{user_email}</strong> zu.
