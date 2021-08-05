@@ -4,6 +4,7 @@ Decidim::ParticipatoryProcesses::Permissions.prepend DecidimZuerich::Participato
 Decidim::Assemblies::AssembliesHelper.prepend DecidimZuerich::Assemblies::AssembliesHelper
 Decidim::ApplicationMailer.prepend DecidimZuerich::ApplicationMailer
 Decidim::Proposals::DiffRenderer.prepend DecidimZuerich::Proposals::DiffRenderer
+Decidim::Proposals::ProposalsController.include DecidimZuerich::Proposals::ProposalsController
 
 module Decidim
   module Map
