@@ -3,6 +3,7 @@ Decidim::Debates::CreateDebateEvent.include DecidimZuerich::Debates::CreateDebat
 Decidim::ParticipatoryProcesses::Permissions.prepend DecidimZuerich::ParticipatoryProcesses::Permissions
 Decidim::Assemblies::AssembliesHelper.prepend DecidimZuerich::Assemblies::AssembliesHelper
 Decidim::ApplicationMailer.prepend DecidimZuerich::ApplicationMailer
+Decidim::Proposals::DiffRenderer.prepend DecidimZuerich::Proposals::DiffRenderer
 
 module Decidim
   module Map
