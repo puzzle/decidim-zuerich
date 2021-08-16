@@ -171,6 +171,9 @@ h5, .heading5 {
   background-color: white;
   border-top: 1px solid #DEDEDE;
   color: black;
+  font-family: HelveticaNeueLTW01_55Roman, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 12px;
 
   .decidim-logo {
     background-color: red;
@@ -199,14 +202,14 @@ h5, .heading5 {
 
 .footer-nav {
   color: rgb(115, 115, 115);
-  display: inline-flex;
-  font-family: HelveticaNeueLTW01_55Roman, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  text-align: right;
+  display: flex;
+  justify-content: right;
+  padding-top: 0;
 }
 
 .footer-nav li {
   display: block;
+  padding: 0 0.5rem;
 }
 
 .footer-nav li a:hover {
@@ -217,18 +220,21 @@ h5, .heading5 {
   text-align: unset;
 }
 
-.logos-area .decidim-logo {
-  width: 100px;
-  margin: inherit;
-}
+.logos-area a {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #737373;
 
-.cc-area {
-  font-size: smaller;
-  white-space: nowrap;
-}
+  &:hover {
+    color: #070250;
+  }
 
-.cc-badge img {
-  width: 60px;
+  svg {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .section-heading {
