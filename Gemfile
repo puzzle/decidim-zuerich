@@ -40,6 +40,7 @@ gem 'omniauth_openid_connect'
 gem 'prometheus_exporter'
 gem 'pry-rails'
 gem 'puma'
+gem 'sentry-raven'
 gem 'uglifier', '~> 4.1'
 
 group :development, :test do

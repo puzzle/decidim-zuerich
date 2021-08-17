@@ -43,3 +43,6 @@ public/uploads
 
 # Ignore local gems
 /vendor/bundle/
+
+# Ignore .envrc
+/.envrc
