@@ -45,4 +45,4 @@ public/uploads
 /vendor/bundle/
 
 # Ignore .envrc
-/.envrc
+.envrc
