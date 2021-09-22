@@ -46,3 +46,6 @@ public/uploads
 
 # Ignore .envrc
 .envrc
+
+# Ignore local environment variables file
+/.env.local

@@ -197,3 +197,9 @@ en:
         link_label: here
         ok: I agree
   total_budget: Total budget CHF
+  decidim_zuerich:
+    verifications:
+      sms:
+        aspsms_gateway:
+          sms_text: '%{code} is your access code for %{organization}'
+          sms_originator_max_11_alphabetic_characters: DECIDIM

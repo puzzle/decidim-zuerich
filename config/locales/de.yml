@@ -1008,3 +1008,9 @@ de:
       minimum:
         one: mindestens %{count} Buchstabe
         other: mindestens %{count} Buchstaben
+  decidim_zuerich:
+    verifications:
+      sms:
+        aspsms_gateway:
+          sms_text: '%{code} ist dein Zugangscode auf %{organization}'
+          sms_originator_max_11_alphabetic_characters: DECIDIM
