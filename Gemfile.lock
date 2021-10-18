@@ -26,16 +26,6 @@ GIT
       decidim-core (~> 0.24.0)
 
 GIT
-  remote: https://github.com/puzzle/decidim-module-decidim_awesome.git
-  revision: 716af8ed9f71025c67801e8a637a15139b894236
-  ref: custom-fields
-  specs:
-    decidim-decidim_awesome (0.7.1)
-      decidim-admin (>= 0.23.0, < 0.25)
-      decidim-core (>= 0.23.0, < 0.25)
-      sassc (~> 2.3)
-
-GIT
   remote: https://github.com/puzzle/decidim-module-homepage_interactive_map.git
   revision: 154c274c199eb41287e7a0a175196d17442081fb
   tag: 0.24.3
@@ -313,6 +303,10 @@ GEM
       decidim-core (= 0.24.3)
       kaminari (~> 1.2, >= 1.2.1)
       searchlight (~> 4.1)
+    decidim-decidim_awesome (0.7.2)
+      decidim-admin (>= 0.23.0, < 0.25)
+      decidim-core (>= 0.23.0, < 0.25)
+      sassc (~> 2.3)
     decidim-dev (0.24.3)
       byebug (~> 11.0)
       capybara (~> 3.24)
@@ -959,7 +953,7 @@ DEPENDENCIES
   dalli
   decidim (= 0.24.3)
   decidim-anonymous_proposals!
-  decidim-decidim_awesome!
+  decidim-decidim_awesome (~> 0.7.2)
   decidim-dev (= 0.24.3)
   decidim-homepage_interactive_map!
   decidim-navigation_maps (~> 1.2.0)
