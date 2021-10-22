@@ -239,6 +239,11 @@ GEM
       decidim-core (= 0.24.3)
       jquery-rails (~> 4.4)
       redcarpet (~> 3.5, >= 3.5.1)
+    decidim-conferences (0.24.3)
+      decidim-core (= 0.24.3)
+      decidim-meetings (= 0.24.3)
+      wicked_pdf (~> 1.4)
+      wkhtmltopdf-binary (~> 0.12)
     decidim-core (0.24.3)
       active_link_to (~> 1.0)
       anchored (~> 1.1)
@@ -953,6 +958,7 @@ DEPENDENCIES
   dalli
   decidim (= 0.24.3)
   decidim-anonymous_proposals!
+  decidim-conferences (= 0.24.3)
   decidim-decidim_awesome (~> 0.7.2)
   decidim-dev (= 0.24.3)
   decidim-homepage_interactive_map!
