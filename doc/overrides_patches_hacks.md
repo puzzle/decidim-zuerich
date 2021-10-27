@@ -37,7 +37,7 @@ Hier sammeln wir alle Fixes zusammen mit den Gründen warum wir sie brauchen und
 | [decidim/newsletter_base.html.erb](app/views/layouts/decidim/newsletter_base.html.erb)                                | ?                     | ?                                                              | ?                                                                                                     | -                  |
 | [layouts/mailer.html.erb](app/views/layouts/mailer.html.erb)                                                          | ?                     | ?                                                              | ?                                                                                                     | -                  |
 | [decidim_zuerich_customization.rb](config/initializers/decidim_zuerich_customization.rb)                              | ?                     | ?                                                              | ?                                                                                                     | -                  |
-
+| [resource_locator_presenter.rb](app/presenters/decidim_zuerich/resource_locator_presenter.rb)                         | Fix für Notifications | ?                                                              | ?                                                                                                     | -                  |
 # Archivierte Fixes
 | Grund | Commit | Anmerkungen |
 | ----- | ------ | ----------- |

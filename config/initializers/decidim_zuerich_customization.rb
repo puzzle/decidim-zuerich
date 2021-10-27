@@ -6,6 +6,7 @@ Decidim::Assemblies::AssembliesHelper.prepend DecidimZuerich::Assemblies::Assemb
 Decidim::Proposals::MapHelper.prepend DecidimZuerich::Proposals::MapHelper
 Decidim::ApplicationMailer.prepend DecidimZuerich::ApplicationMailer
 Decidim::Proposals::DiffRenderer.prepend DecidimZuerich::Proposals::DiffRenderer
+Decidim::ResourceLocatorPresenter.prepend DecidimZuerich::ResourceLocatorPresenter
 
 module Decidim
   module Map
