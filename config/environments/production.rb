@@ -128,4 +128,21 @@ Rails.application.configure do
       affiliate_id: ENV['ASPSMS_AFFILIATE_ID']
   }
 
+  # Use log rage
+  config.lograge.enabled = true
+  config.lograge.ignore_actions = ['StatusController#health', 'StatusController#readiness']
+  config.lograge.custom_payload do |controller|
+    {
+      host: controller.request.host,
+      user_id: controller.current_user.try(:id)
+    }
+  end
+  config.lograge.custom_options = lambda do |event|
+    exceptions = %w[controller action format id]
+    {
+      time: Time.zone.now.utc,
+      params: event.payload[:params].except(*exceptions)
+    }
+  end
+
 end
