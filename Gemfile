@@ -12,6 +12,7 @@ gem 'decidim', DECIDIM_VERSION
 gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-consultations', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
+gem 'decidim-antivirus', git: 'https://github.com/mainio/decidim-module-antivirus'
 gem 'decidim-conferences', DECIDIM_VERSION
 
 gem 'decidim-decidim_awesome', '~> 0.7.2'

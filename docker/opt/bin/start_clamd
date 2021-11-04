@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euo pipefail
+
+# Create virus database for the first time
+freshclam
+
+# Periodically update virus definitions in background
+(
+    while true; do
+        sleep $FRESHCLAM_SLEEP_DURATION
+        freshclam
+        if (( $? != 0 )); then
+            echo "freshclam failed"
+            killall clamd # Stop container
+        fi
+    done
+) &
+
+exec clamd -F
