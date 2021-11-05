@@ -69,7 +69,7 @@ RUN adduser --disabled-password --uid 1001 --gid 0 --gecos "" --shell /bin/bash 
 ARG BUNDLE_WITHOUT='development:metrics:test'
 ARG BUNDLER_VERSION="2.2.27"
 ARG RUN_PACKAGES="clamav clamav-daemon git graphicsmagick libicu-dev libpq5 nodejs poppler-utils"
-ARG PS1="$SENTRY_CURRENT_ENV:\\w$ "
+ARG PS1='$SENTRY_CURRENT_ENV:$PWD$ '
 ENV PS1=$PS1
 ARG TZ="Europe/Zurich"
 ENV TZ=$TZ
@@ -79,7 +79,7 @@ ENV TZ=$TZ
 RUN    export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get upgrade -y \
-# Install libpaper1 seperately, because statx is broken on APPUiO build
+    # Install libpaper1 seperately, because statx is broken on APPUiO build
     && apt-get install -y ucf \
     && apt-get download libpaper1 \
     && dpkg --unpack libpaper1*.deb \
@@ -87,12 +87,12 @@ RUN    export DEBIAN_FRONTEND=noninteractive \
     && dpkg --configure libpaper1 \
     && apt-get install -yf \
     && rm libpaper1*.deb \
-# Install the Packages we need at runtime
+    # Install the Packages we need at runtime
     && apt-get -y install ${RUN_PACKAGES} \
-       vim-tiny curl \
-# HACK: Maybe move to different image... gives clamav the right to execute
+    vim-tiny curl \
+    # HACK: Maybe move to different image... gives clamav the right to execute
     && usermod -a -G 0 clamav \
-# Clean up after ourselves
+    # Clean up after ourselves
     && unset DEBIAN_FRONTEND
 
 # Copy deployment ready source code from build
@@ -107,15 +107,15 @@ RUN    mkdir /var/run/clamav \
     && chown clamav /run/clamav \
     && sed -i 's/^chown/# chown/' /etc/init.d/clamav-daemon \
     && chgrp -R 0 /app-src \
-                  /var/log/clamav \
-                  /var/lib/clamav \
-                  /var/run/clamav \
-                  /run/clamav \
+    /var/log/clamav \
+    /var/lib/clamav \
+    /var/run/clamav \
+    /run/clamav \
     && chmod -R u+w,g=u /app-src \
-                        /var/log/clamav \
-                        /var/lib/clamav \
-                        /var/run/clamav \
-                        /run/clamav \
+    /var/log/clamav \
+    /var/lib/clamav \
+    /var/run/clamav \
+    /run/clamav \
     && freshclam
 
 
