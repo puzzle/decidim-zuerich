@@ -73,6 +73,7 @@ ARG PS1='$SENTRY_CURRENT_ENV:$PWD$ '
 ENV PS1=$PS1
 ARG TZ="Europe/Zurich"
 ENV TZ=$TZ
+ENV PATH=/app-src/bin:$PATH
 
 
 # Prepare apt-get
