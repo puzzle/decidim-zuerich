@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
+
 Decidim.configure do |config|
   config.application_name = 'DecidimZuerich'
   config.mailer_sender = 'info@puzzle.ch'
