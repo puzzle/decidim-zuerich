@@ -13,7 +13,7 @@ module Decidim
           class Builder < Decidim::Map::DynamicMap::Builder
             # @see Decidim::Map::DynamicMap::Builder#javascript_snippets
             def javascript_snippets
-              template.javascript_include_tag("decidim/swisstopo")
+              template.javascript_pack_tag("decidim/swisstopo")
             end
           end
         end
