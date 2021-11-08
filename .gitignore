@@ -49,3 +49,10 @@ public/uploads
 
 # Ignore local environment variables file
 /.env.local
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
