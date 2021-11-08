@@ -14,9 +14,10 @@ gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
 
-# gem 'decidim-decidim_awesome', '~> 0.7.2'
-gem 'decidim-decidim_awesome', git: 'https://github.com/puzzle/decidim-module-decidim_awesome'
-gem 'decidim-navigation_maps', git: 'https://github.com/puzzle/decidim-module-navigation_maps', ref: '4066b5f7d44c577fd17f6b0befff91b40ad72f20'
+# gem 'decidim-decidim_awesome',
+#     git: 'https://github.com/puzzle/decidim-module-decidim_awesome'
+gem 'decidim-navigation_maps',
+    git: 'https://github.com/puzzle/decidim-module-navigation_maps'
 gem 'decidim-anonymous_proposals',
     git: 'https://github.com/PopulateTools/decidim-module-anonymous_proposals',
     branch: :main
@@ -29,7 +30,7 @@ gem 'decidim-url_aliases',
     git: 'https://github.com/OpenSourcePolitics/decidim-urlaliases',
     ref: '1679661dca37d4833be21f9183801a70f2129319'
 
-gem 'bootsnap', '~> 1.3'
+gem 'bootsnap'
 
 gem 'dalli'
 gem 'delayed_job_active_record'
