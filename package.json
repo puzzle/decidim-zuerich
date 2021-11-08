@@ -2,9 +2,10 @@
   "name": "app",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^6.0.0-rc.6",
-    "webpack": "^5.53.0",
-    "webpack-cli": "^4.8.0"
+    "@decidim/browserslist-config": "^0.25.1",
+    "@decidim/core": "^0.25.1",
+    "@decidim/elections": "^0.25.1",
+    "@decidim/webpacker": "^0.25.1"
   },
   "version": "0.1.0",
   "babel": {
@@ -13,10 +14,11 @@
     ]
   },
   "browserslist": [
-    "defaults"
+    "extends @decidim/browserslist-config"
   ],
   "devDependencies": {
-    "@webpack-cli/serve": "^1.6.0",
-    "webpack-dev-server": "^4.4.0"
+    "@decidim/dev": "^0.25.1",
+    "@decidim/eslint-config": "^0.25.1",
+    "@decidim/stylelint-config": "^0.25.1"
   }
 }
