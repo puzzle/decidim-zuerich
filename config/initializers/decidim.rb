@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
+# Inform Decidim about the assets folder
+if Decidim.respond_to?(:register_assets_path)
+  Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
+end
 
 Decidim.configure do |config|
   config.application_name = 'DecidimZuerich'

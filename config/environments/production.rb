@@ -47,10 +47,10 @@ Rails.application.configure do
   # Use a different cache store in production.
   memcached_host = ENV['RAILS_MEMCACHED_HOST'] || 'localhost'
   memcached_port = ENV['RAILS_MEMCACHED_PORT'] || '11211'
-  config.cache_store = :dalli_store, "#{memcached_host}:#{memcached_port}"
+  config.cache_store = :mem_cache_store, "#{memcached_host}:#{memcached_port}"
   # Silence the cache store, the decidim-term_customizer module doesn't work otherwise
   config.after_initialize do
-    Rails.cache.logger.level = Logger::INFO
+    # Rails.cache.logger.level = Logger::INFO
   end
 
   # Use a real queuing backend for Active Job (and separate queues per environment)

@@ -13,6 +13,8 @@ default: &default
   additional_paths:
     - node_modules
     - app/packs
+    - app/packs/src
+
 
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false

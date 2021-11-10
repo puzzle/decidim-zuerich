@@ -34,7 +34,8 @@ module DecidimZuerich
     config.redirector.silence_sql_logs = true
 
     config.to_prepare do
-      Rails.root.glob('app/overrides/**/*_override.rb').each do |override|
+      overrides = Rails.root.glob('lib/overrides/**/*_override.rb')
+      overrides.each do |override|
         require_dependency override
       end
     end

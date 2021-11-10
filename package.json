@@ -2,17 +2,15 @@
   "name": "app",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
     "@decidim/browserslist-config": "^0.25.1",
     "@decidim/core": "^0.25.1",
     "@decidim/elections": "^0.25.1",
-    "@decidim/webpacker": "^0.25.1"
+    "@decidim/webpacker": "^0.25.1",
+    "@rails/webpacker": "^5.4.3"
   },
   "version": "0.1.0",
-  "babel": {
-    "presets": [
-      "./node_modules/@rails/webpacker/package/babel/preset.js"
-    ]
-  },
   "browserslist": [
     "extends @decidim/browserslist-config"
   ],
