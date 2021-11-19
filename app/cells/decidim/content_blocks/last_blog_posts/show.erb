@@ -2,15 +2,33 @@
   <div class="row">
     <h3 class="section-heading"><%= t("decidim.content_blocks.last_blog_posts.title") %></h3>
     <div class="row">
-      <% valid_activities.each_slice(4) do |column_activities| %>
-        <div class="columns medium-6">
-          <%= cell "decidim/activities", column_activities %>
+      <div class="column medium-6">
+        <div class="first-blog-post card">
+          <%= image_tag blog_image_src(first_post) %>
+          <div class="first-blog-post-description">
+            <%= link_to resource_locator(first_post).path do %>
+              <span class="card__title"><%= translated_attribute first_post.title %></span>
+            <% end %>
+            <div class="card__author" style="margin: 0.5rem 0 0">
+              <%= assembly_or_space(first_post.component&.participatory_space) %>
+            </div>
+          </div>
         </div>
-      <% end %>
-    </div>
-    <div class="row">
-      <div class="column">
-        <%= link_to t("decidim.content_blocks.last_blog_posts.view_all"), last_activities_path({ 'filter[resource_type]': 'Decidim::Blogs::Post' }), class: "button hollow button--sc pull-right" %>
+      </div>
+      <div class="column medium-6 older-blog-posts">
+        <% older_posts.each do |post| %>
+          <div class="older-blog-post card">
+            <%= image_tag blog_image_src(post) %>
+            <div class="older-blog-post-description">
+              <%= link_to resource_locator(post).path do %>
+                <span class="card__title"><%= translated_attribute post.title %></span>
+              <% end %>
+              <div class="card__author" style="margin: 0.5rem 0 0">
+                <%= assembly_or_space(post.component&.participatory_space) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
