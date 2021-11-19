@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="p-s">
+    <div class="card__header">
+      <%= link_to meeting_path, class: "card__link" do %>
+        <span class="card__title">
+          <%= title %>
+        </span>
+      <% end %>
+    </div>
+    <div class="card__text">
+      <div class="row collapse text-medium">
+        <div class="column medium-5">
+          <div class="row">
+            <time datetime="<%= l(model.start_time, format: :long_dashed) %>" class="column icon--container">
+              <%= icon "datetime", class: "primary", role: "img", "aria-hidden": true %>
+              &nbsp;
+              <%= l start_date, format: :decidim_with_month_name %>
+              &nbsp;-&nbsp;
+              <%= formatted_start_time %>
+            </time>
+          </div>
+          <div class="row">
+            <time datetime="<%= l(model.start_time, format: :long_dashed) %>" class="column icon--container">
+              <%= icon "arrow-thin-right", class: "primary", role: "img", "aria-hidden": true %>
+              &nbsp;
+              <%= l end_date, format: :decidim_with_month_name %>
+              &nbsp;-&nbsp;
+              <%= formatted_end_time %>
+            </time>
+          </div>
+        </div>
+        <span class="column medium-7">
+          <%= participatory_space_class_name %>
+          &nbsp;
+          <%= link_to participatory_space_title, participatory_space_path %>
+        </span>
+      </div>
+      <div class="row collapse text-medium">
+      </div>
+    </div>
+  </div>
+</div>
