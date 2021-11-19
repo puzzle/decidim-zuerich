@@ -234,6 +234,10 @@ de:
         project:
           view: Ansehen
     components:
+      surveys:
+        settings:
+          global:
+            notified_email: E-Mail für Benachrichtigungen
       accountability:
         name: Umsetzungsstand
       add_comment_form:
@@ -1003,6 +1007,12 @@ de:
         one: mindestens %{count} Buchstabe
         other: mindestens %{count} Buchstaben
   decidim_zuerich:
+    surveys:
+      survey_answered_mailer:
+        answered:
+          answered_survey: 'Jemand hat an der Umfrage "%{survey_name}" teilgenommen.'
+          subject: 'Neue Antwort auf Umfrage "%{survey_name}"'
+          view: 'Zur Umfrage'
     verifications:
       sms:
         aspsms_gateway:
