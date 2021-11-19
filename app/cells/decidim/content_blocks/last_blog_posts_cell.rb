@@ -6,6 +6,9 @@ module Decidim
     # in a Decidim Organization.
     class LastBlogPostsCell < Decidim::ViewModel
       include Decidim::Core::Engine.routes.url_helpers
+      include LastBlogPostsHelper
+      include Decidim::ResourceHelper
+      include Decidim::ApplicationHelper
 
       def show
         return if valid_activities.empty?
@@ -40,6 +43,14 @@ module Decidim
         end
 
         @valid_activities
+      end
+
+      def first_post
+        @first_post ||= valid_activities.first&.resource
+      end
+
+      def older_posts
+        @older_posts ||= valid_activities.drop(1).first(3).map(&:resource)
       end
 
       private

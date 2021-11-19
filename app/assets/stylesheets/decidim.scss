@@ -1208,4 +1208,57 @@ h4,
   height: 15px;
 }
 
+.first-blog-post {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+
+  &> img {
+    object-fit: cover;
+    object-position: center center;
+    height: 400px;
+    width: 100%;
+  }
+
+  .first-blog-post-description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1.5rem;
+  }
+}
+
+.older-blog-posts {
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  gap: 20px;
+}
+
+.older-blog-post {
+  position: relative;
+  max-height: 120px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-start;
+  align-items: center;
+
+  &.card {
+    margin-bottom: 0;
+  }
+
+  &> img {
+    object-fit: cover;
+    object-position: center center;
+    height: 120px;
+    width: 120px;
+  }
+
+  .older-blog-post-description {
+    padding: 0 1.5rem;
+  }
+}
+
 // END MODIFICATIONS
