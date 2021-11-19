@@ -7,6 +7,7 @@ Decidim::Proposals::MapHelper.prepend DecidimZuerich::Proposals::MapHelper
 Decidim::ApplicationMailer.prepend DecidimZuerich::ApplicationMailer
 Decidim::Proposals::DiffRenderer.prepend DecidimZuerich::Proposals::DiffRenderer
 Decidim::ResourceLocatorPresenter.prepend DecidimZuerich::ResourceLocatorPresenter
+Decidim::Forms::AnswerQuestionnaire.prepend DecidimZuerich::Forms::AnswerQuestionnaire
 
 module Decidim
   module Map
