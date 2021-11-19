@@ -1,0 +1,14 @@
+<% if resource_image_path.present? %>
+  <div class="meeting-image">
+    <%= link_to resource_path do %>
+      <%= image_tag resource_image_path, class: "card__image", alt: title %>
+    <% end %>
+    <span class="meeting-follower-count">
+      <span class="icon-wrap">
+        <%= icon "bell", aria_hidden: true %>
+        <span aria-hidden="true"><%= followers_count %></span>
+        <span class="show-for-sr"><%= t("decidim.followers.followers_count", count: followers_count) %></span>
+      </span>
+    </span>
+  </div>
+<% end %>
