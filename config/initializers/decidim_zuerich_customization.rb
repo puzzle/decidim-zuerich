@@ -9,6 +9,7 @@ Decidim::Proposals::DiffRenderer.prepend DecidimZuerich::Proposals::DiffRenderer
 Decidim::ResourceLocatorPresenter.prepend DecidimZuerich::ResourceLocatorPresenter
 Decidim::Forms::AnswerQuestionnaire.prepend DecidimZuerich::Forms::AnswerQuestionnaire
 Decidim::Meetings::MeetingMCell.prepend DecidimZuerich::Meetings::MeetingMCell
+Decidim::Assemblies::AssemblyMCell.prepend DecidimZuerich::Assemblies::AssemblyMCell
 Decidim::Meetings::MeetingPresenter.prepend DecidimZuerich::Meetings::MeetingPresenter
 
 module Decidim
