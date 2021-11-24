@@ -14,16 +14,9 @@ $(() => {
 /**
  * Redirect to external participatory processes
  */
-$(() => {
-  const announcement = document.querySelector('.process-header + .wrapper .callout.announcement');
-  if (announcement == null) return;
-
-  // Convention: Only redirect if the announcement text starts and ends with three dashes.
-  const text = announcement.textContent.trim();
-  if (text.match(/^---.*---$/) === null) return;
-
-  const redirectLink = announcement.querySelector('a');
-  if (redirectLink == null || !redirectLink.getAttribute('href')) return;
-
-  window.location.replace(redirectLink.getAttribute('href'));
+window.addEventListener("load", (event) => {
+  const redirectLink = document.querySelector('.process-header + .wrapper .callout.announcement a');
+  if (redirectLink != null) {
+    window.location.replace(redirectLink.getAttribute('href'));
+  }
 });
