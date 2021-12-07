@@ -26,6 +26,15 @@ GIT
       decidim-core (~> 0.24.0)
 
 GIT
+  remote: https://github.com/puzzle/decidim-module-decidim_awesome
+  revision: 001c221a2f7e15213c8f6cebe4dc8f612475ed15
+  specs:
+    decidim-decidim_awesome (0.7.2)
+      decidim-admin (>= 0.23.0, < 0.26)
+      decidim-core (>= 0.23.0, < 0.26)
+      sassc (~> 2.3)
+
+GIT
   remote: https://github.com/puzzle/decidim-module-homepage_interactive_map.git
   revision: 154c274c199eb41287e7a0a175196d17442081fb
   tag: 0.24.3
@@ -308,10 +317,6 @@ GEM
       decidim-core (= 0.24.3)
       kaminari (~> 1.2, >= 1.2.1)
       searchlight (~> 4.1)
-    decidim-decidim_awesome (0.7.2)
-      decidim-admin (>= 0.23.0, < 0.25)
-      decidim-core (>= 0.23.0, < 0.25)
-      sassc (~> 2.3)
     decidim-dev (0.24.3)
       byebug (~> 11.0)
       capybara (~> 3.24)
@@ -959,7 +964,7 @@ DEPENDENCIES
   decidim (= 0.24.3)
   decidim-anonymous_proposals!
   decidim-conferences (= 0.24.3)
-  decidim-decidim_awesome (~> 0.7.2)
+  decidim-decidim_awesome!
   decidim-dev (= 0.24.3)
   decidim-homepage_interactive_map!
   decidim-navigation_maps (~> 1.2.0)
