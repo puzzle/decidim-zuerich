@@ -1,16 +1,16 @@
-Decidim::DiffCell.include DecidimZuerich::DiffCell
-Decidim::Debates::CreateDebateEvent.include DecidimZuerich::Debates::CreateDebateEvent
-Decidim::Comments::CommentVotedEvent.include DecidimZuerich::Comments::CommentVotedEvent
-Decidim::ParticipatoryProcesses::Permissions.prepend DecidimZuerich::ParticipatoryProcesses::Permissions
-Decidim::Assemblies::AssembliesHelper.prepend DecidimZuerich::Assemblies::AssembliesHelper
-Decidim::Proposals::MapHelper.prepend DecidimZuerich::Proposals::MapHelper
 Decidim::ApplicationMailer.prepend DecidimZuerich::ApplicationMailer
-Decidim::Proposals::DiffRenderer.prepend DecidimZuerich::Proposals::DiffRenderer
-Decidim::ResourceLocatorPresenter.prepend DecidimZuerich::ResourceLocatorPresenter
+Decidim::Assemblies::AssembliesHelper.prepend DecidimZuerich::Assemblies::AssembliesHelper
+Decidim::Assemblies::AssemblyMCell.prepend DecidimZuerich::Assemblies::AssemblyMCell
+Decidim::Comments::CommentVotedEvent.include DecidimZuerich::Comments::CommentVotedEvent
+Decidim::Debates::CreateDebateEvent.include DecidimZuerich::Debates::CreateDebateEvent
+Decidim::DiffCell.include DecidimZuerich::DiffCell
 Decidim::Forms::AnswerQuestionnaire.prepend DecidimZuerich::Forms::AnswerQuestionnaire
 Decidim::Meetings::MeetingMCell.prepend DecidimZuerich::Meetings::MeetingMCell
-Decidim::Assemblies::AssemblyMCell.prepend DecidimZuerich::Assemblies::AssemblyMCell
 Decidim::Meetings::MeetingPresenter.prepend DecidimZuerich::Meetings::MeetingPresenter
+Decidim::ParticipatoryProcesses::Permissions.prepend DecidimZuerich::ParticipatoryProcesses::Permissions
+Decidim::Proposals::DiffRenderer.prepend DecidimZuerich::Proposals::DiffRenderer
+Decidim::Proposals::MapHelper.prepend DecidimZuerich::Proposals::MapHelper
+Decidim::ResourceLocatorPresenter.prepend DecidimZuerich::ResourceLocatorPresenter
 
 module Decidim
   module Map
