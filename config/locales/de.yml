@@ -962,7 +962,7 @@ de:
         decidim_awesome:
           title: Decidim Awesome
       cookie_warning:
-        description_html: %{organization} verwendet Cookies. Durch die weitere Verwendung dieser Seite stimmen Sie der Verwendung von Cookies zu. Wir verwenden Adobe Analytics für anonymisierte Statistiken. Erfahren Sie %{link} mehr darüber. %{organization} läuft auf allen modernen Browsern (Chrome, Edge, Firefox, Safari o.ä.). Bitte beachten Sie, dass der Internet Explorer nicht unterstützt wird.
+        description_html: "%{organization} verwendet Cookies. Durch die weitere Verwendung dieser Seite stimmen Sie der Verwendung von Cookies zu. Wir verwenden Adobe Analytics für anonymisierte Statistiken. Erfahren Sie %{link} mehr darüber. %{organization} läuft auf allen modernen Browsern (Chrome, Edge, Firefox, Safari o.ä.). Bitte beachten Sie, dass der Internet Explorer nicht unterstützt wird."
         link_label: hier
         ok: Ich stimme zu
       decidim_awesome:
