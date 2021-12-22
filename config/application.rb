@@ -31,7 +31,7 @@ module DecidimZuerich
     I18n.enforce_available_locales = false
 
     # This option silences the logging of Redirector related SQL queries in your log file
-    config.redirector.silence_sql_logs = true
+    #config.redirector.silence_sql_logs = true
 
     config.to_prepare do
       overrides = Rails.root.glob('lib/overrides/**/*_override.rb')
