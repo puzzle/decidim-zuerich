@@ -65,4 +65,7 @@ Rails.application.configure do
       password: ENV['ASPSMS_API_PASSWORD'],
       affiliate_id: ENV['ASPSMS_AFFILIATE_ID']
   }
+
+  config.hosts << /meinquartier\.local/
+  config.hosts << /mitwirken\.local/
 end
