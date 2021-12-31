@@ -1,10 +1,12 @@
 <div class="main-footer">
   <div class="main-footer--row">
-    <div class="footer-logo">
-      <a class="footer-logo--link" href="https://decidim.org">
-        <img class="footer-logo--image" src="uploads/decidim/organization/logo/1/medium_LongHighRes_Zeichenfläche_1.png" alt="Stadt Zuerich Logo" />
-      </a>
-    </div>
+    <% if current_organization.official_img_footer? %>
+      <div class="footer-logo">
+        <%= link_to current_organization.official_url, class: "main-footer__badge" do %>
+          <%= image_tag current_organization.official_img_footer.url.to_s , alt: current_organization.name %>
+        <% end %>
+      </div>
+    <% end %>
     <div class="logos-area">
       <%= link_to 'https://www.stadt-zuerich.ch/socialmedia', alt: 'Stadt Zürich Social Media' do %>
           <svg class="social_media__icon" viewBox="0 0 54 58">
@@ -15,7 +17,8 @@
     </div>
     <nav class="main__footer__nav">
       <ul class="footer-nav">
-        <li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">Stadt Zürich, 2021, CC BY-SA 4.0</a></li>
+        <li id="footer__cc-link"><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">Stadt Zürich, 2021, CC BY-SA 4.0</a></li>
+        <li id="footer__decidim-link"><a href="https://decidim.org"><%= t('layouts.decidim.footer.decidim_link') %></a></li>
         <% organization_pages = current_organization.static_pages_accessible_for(current_user) %>
         <% if organization_pages.any? %>
           <% current_organization.static_page_topics.where(show_in_footer: true).each do |page_topic| %>
@@ -28,7 +31,7 @@
             <li><%= link_to translated_attribute(page.title), decidim.page_path(page) %></li>
           <% end %>
         <% end %>
-        <li><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
+        <li id="footer__open-data-link"><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
       </ul>
     </nav>
   </div>

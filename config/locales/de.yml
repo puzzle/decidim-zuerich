@@ -978,6 +978,8 @@ de:
           hashtags: Hashtags
           items: Items
           select_deselect_all: Alles auswählen / Auswahl aufheben
+      footer:
+        decidim_link: 'Webseite mit der freien Software decidim.org erstellt'
       participatory_process_groups:
         participatory_process_group:
           browse: Durchsuchen
