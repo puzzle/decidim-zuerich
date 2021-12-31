@@ -7,6 +7,7 @@ Decidim::DiffCell.include DecidimZuerich::DiffCell
 Decidim::Forms::AnswerQuestionnaire.prepend DecidimZuerich::Forms::AnswerQuestionnaire
 Decidim::Meetings::MeetingMCell.prepend DecidimZuerich::Meetings::MeetingMCell
 Decidim::Meetings::MeetingPresenter.prepend DecidimZuerich::Meetings::MeetingPresenter
+Decidim::OrganizationLogoUploader.prepend DecidimZuerich::OrganizationLogoUploader
 Decidim::ParticipatoryProcesses::Permissions.prepend DecidimZuerich::ParticipatoryProcesses::Permissions
 Decidim::Proposals::DiffRenderer.prepend DecidimZuerich::Proposals::DiffRenderer
 Decidim::Proposals::MapHelper.prepend DecidimZuerich::Proposals::MapHelper
