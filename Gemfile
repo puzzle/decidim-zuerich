@@ -15,7 +15,10 @@ gem 'decidim-proposals', DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
 
 # gem 'decidim-decidim_awesome', '~> 0.7.2'
-gem 'decidim-decidim_awesome', git: 'https://github.com/puzzle/decidim-module-decidim_awesome'
+gem 'decidim-decidim_awesome',
+    git: 'https://github.com/Platoniq/decidim-module-decidim_awesome.git',
+    branch: 'main'
+
 
 gem 'decidim-navigation_maps', '~> 1.2.0'
 
