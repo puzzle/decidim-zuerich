@@ -1,1 +1,1 @@
-FROM decidim/decidim:0.20.0
+FROM decidim/decidim:0.25.1
