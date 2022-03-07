@@ -7,6 +7,6 @@
 // By default this is empty.
 
 // Maybe not needed if all are replacing existing files
-// @import app/packs/stylesheets/application.css
-// @import app/packs/stylesheets/decidim.scss
-// @import app/packs/stylesheets/email.css
+// @import 'app/packs/stylesheets/application.css';
+@import 'app/packs/stylesheets/decidim.scss';
+@import 'app/packs/stylesheets/email.scss';

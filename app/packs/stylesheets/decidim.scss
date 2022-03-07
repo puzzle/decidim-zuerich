@@ -46,8 +46,6 @@
 //   --google: #{$google};
 // }
 
-@import "decidim/application";
-
 // MODIFICATIONS FOR DECIDIM ZUERICH
 
 /**
@@ -1200,12 +1198,6 @@ h4,
 
 .icon.icon--external-link {
   display: none;
-}
-
-.external-link-indicator {
-  content: url(/ico_external_links.svg);
-  width: 20px;
-  height: 15px;
 }
 
 // END MODIFICATIONS
