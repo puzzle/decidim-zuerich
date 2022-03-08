@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/Platoniq/decidim-module-decidim_awesome
+  revision: 706c9ad6b62e6bdcd704c7a5eae263aadfea5086
+  specs:
+    decidim-decidim_awesome (0.8.1)
+      decidim-admin (>= 0.25.0, < 0.27)
+      decidim-core (>= 0.25.0, < 0.27)
+      sassc (~> 2.3)
+
+GIT
   remote: https://github.com/netsphere-labs/omniauth-openid-connect.git
   revision: f47f02aa1b4217e04a05c51e6493254a11e2f5ff
   specs:
@@ -754,6 +763,8 @@ GEM
       nokogiri (>= 1.10.8)
       rubyzip (>= 1.3.0)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     searchlight (4.1.0)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
@@ -875,6 +886,7 @@ DEPENDENCIES
   dalli
   decidim (= 0.25.1)
   decidim-conferences (= 0.25.1)
+  decidim-decidim_awesome!
   decidim-dev (= 0.25.1)
   decidim-proposals (= 0.25.1)
   delayed_job_active_record
@@ -895,7 +907,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 2.7.5p203
 
 BUNDLED WITH
    2.2.21

@@ -14,21 +14,13 @@ gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
 
-# gem 'decidim-decidim_awesome',
-#     git: 'https://github.com/puzzle/decidim-module-decidim_awesome'
-# gem 'decidim-navigation_maps',
-#     git: 'https://github.com/puzzle/decidim-module-navigation_maps'
+gem 'decidim-decidim_awesome',
+    git: 'https://github.com/Platoniq/decidim-module-decidim_awesome'
 # gem 'decidim-anonymous_proposals',
 #     git: 'https://github.com/PopulateTools/decidim-module-anonymous_proposals',
 #     branch: 'release/0.25'
-# gem 'decidim-homepage_interactive_map',
-#     git: 'https://github.com/puzzle/decidim-module-homepage_interactive_map',
-#     tag: DECIDIM_VERSION
 # gem 'decidim-term_customizer',
 #     git: 'https://github.com/puzzle/decidim-module-term_customizer'
-# gem 'decidim-url_aliases',
-#     git: 'https://github.com/OpenSourcePolitics/decidim-urlaliases',
-#     ref: '1679661dca37d4833be21f9183801a70f2129319'
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
