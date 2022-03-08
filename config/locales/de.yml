@@ -839,6 +839,9 @@ de:
             smtp_settings: SMTP Einstellungen
             omniauth_settings: Omniauth Einstellungen
       organizations:
+        advanced_settings:
+          show: Fortgeschrittene Einstellungen einblenden
+          hide: Fortgeschrittene Einstellungen ausblenden
         create:
           error: Beim Erstellen der neuen Organisation ist ein Fehler aufgetreten.
         edit:
