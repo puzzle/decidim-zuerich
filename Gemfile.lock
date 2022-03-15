@@ -8,6 +8,15 @@ GIT
       sassc (~> 2.3)
 
 GIT
+  remote: https://github.com/PopulateTools/decidim-module-anonymous_proposals
+  revision: 11f93677b920f061d4d4f465d9e874748df37aff
+  branch: release/0.25-stable
+  specs:
+    decidim-anonymous_proposals (0.25.2)
+      decidim-core (>= 0.25.0)
+      deface (~> 1.5)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: 437042198ed04cdd5582b29d5df83b032ecc518f
   specs:
@@ -363,6 +372,12 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
+    deface (1.8.2)
+      actionview (>= 5.2)
+      nokogiri (>= 1.6)
+      polyglot
+      railties (>= 5.2)
+      rainbow (>= 2.1.0)
     delayed_job (4.1.9)
       activesupport (>= 3.0, < 6.2)
     delayed_job_active_record (4.1.6)
@@ -615,6 +630,7 @@ GEM
     pg_search (2.3.5)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    polyglot (0.3.5)
     premailer (1.15.0)
       addressable
       css_parser (>= 1.6.0)
@@ -893,6 +909,7 @@ DEPENDENCIES
   byebug
   dalli
   decidim (= 0.25.1)
+  decidim-anonymous_proposals!
   decidim-conferences (= 0.25.1)
   decidim-decidim_awesome!
   decidim-dev (= 0.25.1)
