@@ -19,8 +19,8 @@ gem 'decidim-decidim_awesome',
 # gem 'decidim-anonymous_proposals',
 #     git: 'https://github.com/PopulateTools/decidim-module-anonymous_proposals',
 #     branch: 'release/0.25'
-# gem 'decidim-term_customizer',
-#     git: 'https://github.com/puzzle/decidim-module-term_customizer'
+gem 'decidim-term_customizer',
+    git: 'https://github.com/mainio/decidim-module-term_customizer'
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 

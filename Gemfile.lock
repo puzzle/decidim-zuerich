@@ -8,6 +8,14 @@ GIT
       sassc (~> 2.3)
 
 GIT
+  remote: https://github.com/mainio/decidim-module-term_customizer
+  revision: 437042198ed04cdd5582b29d5df83b032ecc518f
+  specs:
+    decidim-term_customizer (0.25.0)
+      decidim-admin (~> 0.25.0)
+      decidim-core (~> 0.25.0)
+
+GIT
   remote: https://github.com/netsphere-labs/omniauth-openid-connect.git
   revision: f47f02aa1b4217e04a05c51e6493254a11e2f5ff
   specs:
@@ -889,6 +897,7 @@ DEPENDENCIES
   decidim-decidim_awesome!
   decidim-dev (= 0.25.1)
   decidim-proposals (= 0.25.1)
+  decidim-term_customizer!
   delayed_job_active_record
   execjs
   faker
