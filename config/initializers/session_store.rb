@@ -25,9 +25,15 @@ def memcache_configured?
   end
 end
 
+def skip_memcache_check
+  ENV['SKIP_MEMCACHE_CHECK'].present?
+end
+
+
 # We expect memcache to work in production.
 # Prevents an error with the rails console on OpenShift
-if memcache_configured? &&
+if !skip_memcache_check &&
+   memcache_configured? &&
    !Rails.env.production? &&
    !dalli_reachable?
   raise 'As CSRF tokens are read from cache, we require a memcache instance to start'

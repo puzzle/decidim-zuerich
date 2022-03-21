@@ -12,6 +12,7 @@ gem 'decidim', DECIDIM_VERSION
 gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-consultations', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
+gem 'decidim-antivirus', git: 'https://github.com/mainio/decidim-module-antivirus'
 gem 'decidim-conferences', DECIDIM_VERSION
 
 gem 'decidim-decidim_awesome',
@@ -27,7 +28,8 @@ gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-
 gem 'bootsnap'
 gem 'dalli'
 gem 'delayed_job_active_record'
-gem 'faker'                    #, '~> 1.9'
+gem 'faker', '~> 1.9'
+gem 'omniauth_openid_connect'
 gem 'lograge'
 gem 'prometheus_exporter'
 gem 'pry-rails'

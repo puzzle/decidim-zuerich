@@ -1,10 +1,20 @@
-<% if mandant = ENV['ANALYTICS_META_MANDANT'] %>
+<%
+  source = ENV['ANALYTICS_SCRIPT_SOURCE']
+
+  mandant =
+    case current_organization.reference_prefix
+    when "quartiere" then ENV['ANALYTICS_META_MANDANT_QUARTIERE']
+    else                  ENV['ANALYTICS_META_MANDANT']
+    end
+%>
+
+<% if mandant %>
     <!-- Adobe Analytics Mandant -->
     <meta name="mandant" content="<%=mandant%>">
     <!-- End Adobe Analytics Mandant -->
 <% end %>
 
-<% if source = ENV['ANALYTICS_SCRIPT_SOURCE'] %>
+<% if source %>
   <!-- Adobe Analytics Source -->
   <script src="<%=source%>" async></script>
   <!-- End Adobe Analytics Source -->
