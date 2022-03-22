@@ -28,10 +28,10 @@ Rails.application.configure do
   end
   memcached_host = ENV['RAILS_MEMCACHED_HOST'] || 'localhost'
   memcached_port = ENV['RAILS_MEMCACHED_PORT'] || '11211'
-  config.cache_store = :dalli_store, "#{memcached_host}:#{memcached_port}"
+  config.cache_store = :mem_cache_store, "#{memcached_host}:#{memcached_port}"
   # Silence the cache store, the decidim-term_customizer module doesn't work otherwise
   config.after_initialize do
-    Rails.cache.logger.level = Logger::INFO
+    # Rails.cache.logger.level = Logger::INFO
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
@@ -53,14 +53,6 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-  # Debug mode disables concatenation and preprocessing of assets.
-  # This option may cause significant delays in view rendering with a large
-  # number of complex assets.
-  config.assets.debug = true
-
-  # Suppress logger output for asset requests.
-  config.assets.quiet = true
-
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
@@ -68,12 +60,12 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  # No precompilation on demand on first request
-  config.assets.check_precompiled_asset = false
-
   config.aspsms = {
       user_key: ENV['ASPSMS_API_USER_KEY'],
       password: ENV['ASPSMS_API_PASSWORD'],
       affiliate_id: ENV['ASPSMS_AFFILIATE_ID']
   }
+
+  config.hosts << /meinquartier\.local/
+  config.hosts << /mitwirken\.local/
 end

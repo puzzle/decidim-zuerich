@@ -33,11 +33,11 @@ de:
   activemodel:
     attributes:
       close_meeting:
-        proposal_ids: Im Event entstandene Vorschläge
+        proposal_ids: Erarbeitete Vorschläge
       collaborative_draft:
         has_address: Hat einen Standort
         state: Status
-        user_group_id: Unter welchem Namen möchten Sie Ihren kollaborativen Entwurf veröffentlichen?
+        user_group_id: Unter welchem Namen möchten Sie Ihren gemeinsamen Entwurf veröffentlichen?
       config:
         intergram_chat_id: Intergram Chat ID
         intergram_require_login: Nur für eingeloggte Benutzer
@@ -55,7 +55,7 @@ de:
       initiative:
         state: Status
       meeting:
-        private_meeting: Privater Event
+        private_meeting: Private Veranstaltung
       proposal:
         has_address: Hat einen Standort
         state: Status
@@ -67,13 +67,13 @@ de:
         start_date: Beginn
       user:
         about: Über mich
-        avatar: Bild
+        avatar: Profilbild
         email: Meine E-Mail
-        name: Mein Name
-        nickname: Mein Spitzname
+        name: Mein Name / Pseudonym
+        nickname: Mein Kürzel
         password_confirmation: Passwort bestätigen
         personal_url: Meine Website
-        remove_avatar: Bild entfernen
+        remove_avatar: Profilbild entfernen
     errors:
       models:
         proposal:
@@ -81,19 +81,19 @@ de:
             attachment:
               needs_to_be_reattached: Der Anhang muss nochmals hinzugefügt werden.
     models:
-      decidim/meetings/close_meeting_event: Event geschlossen
-      decidim/meetings/create_meeting_event: Event
-      decidim/meetings/upcoming_meeting_event: Kommender Event
+      decidim/meetings/close_meeting_event: Veranstaltung abgeschlossen
+      decidim/meetings/create_meeting_event: Veranstaltung
+      decidim/meetings/upcoming_meeting_event: Nächste Veranstaltung
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Event
+        one: Veranstaltung
       decidim/proposals/collaborative_draft:
-        one: Kollaborativer Entwurf
-        other: Kollaborative Entwürfe
+        one: Gemeinsamer Entwurf
+        other: Gemeinsame Entwürfe
   custom_fields:
     budget:
-      placeholder: Bitte wähle ein Budget aus
+      placeholder: Wählen Sie ein Budget aus.
       label: Budget
       # help: Dies ist die Hilfe
       option-1: Option 1
@@ -124,7 +124,7 @@ de:
     admin:
       actions:
         browse: Durchsuchen
-        import_process: Beteiligungsprozess importieren
+        import_process: Mitwirkungsprozess importieren
         per_page: Pro Seite
       admin_terms_of_use:
         accept:
@@ -137,18 +137,18 @@ de:
           title: Nutzungsbedingungen akzeptieren
         title: Admin Nutzungsbedingungen
         required_review:
-          alert: 'Required: Review our admin terms of use'
+          alert: 'Sie müssen die Admin-Nutzungsbedingungen akzeptieren'
           callout: Bitte nehmen Sie sich einen Moment Zeit, um die Nutzungsbedingungen anzusehen. Ansonsten können Sie die Plattform nicht administrieren.
           cta: Jetzt ansehen
       attachments:
         create:
-          success: Anhang erfolgreich erstellt
+          success: Anhang erstellt
         destroy:
-          success: Anhang erfolgreich entfernt
+          success: Anhang entfernt
         index:
           attachments_title: Anhänge
         update:
-          success: Anhang erfolgreich aktualisiert
+          success: Anhang aktualisiert
       filters:
         filter_label: Filter
         private_space_eq:
@@ -157,10 +157,10 @@ de:
             'false': Öffentlich
             'true': Privat
         published_at_null:
-          label: Published
+          label: Veröffentlicht
           values:
-            'false': Published
-            'true': Unpublished
+            'false': Veröffentlicht
+            'true': Nicht veröffentlicht
         search_placeholder:
           title_cont: '%{collection} nach Titel suchen'
         state_eq:
@@ -191,28 +191,24 @@ de:
       questions:
         attachments: Anhänge
     admin_terms_of_use:
-      default_body: "<h2>ADMIN NUTZUNGSBEDINGUNGEN</h2><p>Wir nehmen an du hast die übliche Lektion vom lokalen Systemadministrator bekommen. Üblicherweise geht es um folgende drei Punkte:</p><ol><li>Privatsphäre anderer respektieren.</li><li>Denken bevor man klickt.</li><li>Mit grosser Macht kommt grosse Verantwortung.</li></ol>"
+      default_body: "<h2>BACKEND-NUTZUNGSBEDINGUNGEN</h2><p>Wir nehmen an du hast die übliche Lektion vom lokalen Systemadministrator bekommen. Üblicherweise geht es um folgende drei Punkte:</p><ol><li>Privatsphäre anderer respektieren.</li><li>Denken bevor man klickt.</li><li>Mit grosser Macht kommt grosse Verantwortung.</li></ol>"
     amendments:
       amendable:
         button: '%{model_name} ändern'
-        help_text: ""
+        help_text: "Sie können eine Anpassung vorschlagen."
       emendation:
         announcement:
           accepted: |-
-            Diese Änderung für %{amendable_type} %{proposal_link} wurde
-            am <strong>%{date}</strong> akzeptiert.
+            Die Änderung für den %{amendable_type} «%{proposal_link}» wurde am <strong>%{date}</strong> akzeptiert.
           evaluating: |-
-            Diese Änderung für %{amendable_type} %{proposal_link} wird
-            bewertet.
+            Die Änderung für den %{amendable_type} «%{proposal_link}» wird bewertet.
           rejected: |-
-            Diese Änderung für %{amendable_type} %{proposal_link} wurde
-            am <strong>%{date}</strong>abgelehnt.
+            Die Änderung für den %{amendable_type} «%{proposal_link}» wurde am <strong>%{date}</strong> abgelehnt.
           withdrawn: |-
-            Diese Änderung für %{amendable_type} %{proposal_link} wurde
-            vom Autor zurückgezogen.
+            Die Änderung für den %{amendable_type} «%{proposal_link}» wurde vom/von der AutorIn zurückgezogen.
     application:
       photos:
-        related_photos: Zugehörige Bilder
+        related_photos: Bilder
     blogs:
       posts:
         show:
@@ -223,13 +219,13 @@ de:
       projects:
         budget_confirm:
           are_you_sure: Sind Sie einverstanden?
-          description: Folgende Projekte haben Sie für das Budget ausgewählt.
+          description: Sie haben folgende Projekte Ihr Budget ausgewählt.
         budget_excess:
-          description: Mit Ihrer Projektauswahl überschreiten Sie das maximale Budget. Bitte wählen Sie weniger Projekte aus. Wenn Sie andere Projekte auswählen müssen, müssen Sie zuerst bereits ausgewählte Projekte abwählen.
+          description: Mit Ihrer Auswahl überschreiten Sie das maximale Budget. Bitte wählen Sie weniger Projekte aus. Wenn Sie andere Projekte auswählen möchten, müssen Sie zuerst bereits ausgewählte Projekte abwählen.
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen möchten?
           checked_out:
-            description: Sie haben für die Verteilung des Budets abgestimmt. Falls Sie Ihre Meinung geändert haben, können Sie die Abstimmung nochmals neu beginnen.
+            description: Sie haben für die Verteilung des Budets abgestimmt. Falls Sie Ihre Meinung geändert haben, können Sie mit der Abstimmung nochmals neu beginnen.
             title: Abstimmung abgeschlossen
           description: Welche Projekte sollen finanziert werden? Wählen Sie so viele gewünschte Projekte aus, bis das Budget ausgeschöpft ist. Sie müssen mindestens CHF %{minimum_budget}.- ausgeben. Bestätigen Sie Ihre endgültige Auswahl mit einem Klick auf «Abstimmen».
           title: Sie entscheiden über das Budget
@@ -278,7 +274,7 @@ de:
       proposals:
         settings:
           global:
-            collaborative_drafts_enabled: Kollaborative Entwürfe aktiviert
+            collaborative_drafts_enabled: Gemeinsame Entwürfe aktiviert
     conferences:
       admin:
         send_conference_diploma_mailer:
@@ -315,7 +311,7 @@ de:
         name: HTML-Block 4
     data_portability:
       show:
-        download_data_description: Hier können Sie alle Daten, die wir von Ihnen gespeichert haben, herunterladen und ansehen. Wir stellen Ihnen einen Link an <strong>%{user_email}</strong> zu.
+        download_data_description: Hier können Sie alle Daten, die wir von Ihnen gespeichert haben, herunterladen und ansehen. Wir senden Ihnen einen Link per Mail an <strong>%{user_email}</strong> zu.
     debates:
       debates:
         debate:
@@ -376,32 +372,30 @@ de:
     devise:
       omniauth_registrations:
         new:
-          nickname_help: Darf keine Abstände, Umlaute oder Sonderzeichen aufweisen.
-          password_help: "Das Passwort muss mindestens %{minimun_characters} Zeichen lang sein. Es darf nicht zu gewöhnlich sein (z. B. 123456) und darf weder Ihren Benutzernamen noch Ihre E-Mail-Adresse enthalten."
-          username_help: Wenn Sie nicht Ihren eigenen Namen angeben möchten, können Sie auch einen erfinden.
+          nickname_help: Geben Sie hier ein Kürzel ein. Es darf keine Abstände, Umlaute oder Sonderzeichen enthalten. Andere Nutzende können Sie mit @Kürzel in Beiträgen verlinken.
+          password_help: "Das Passwort muss mindestens %{minimun_characters} Zeichen lang sein. Es darf nicht zu gewöhnlich sein (z. B. 123456) und darf weder Ihr Kürzel noch Ihre E-Mail-Adresse enthalten."
+          username_help: Was Sie in diesem Feld eingeben, wird bei Ihren Beiträgen (Vorschläge / Kommentare etc.) angezeigt. Sie können hier Ihren Namen oder ein Pseudonym setzen.
       registrations:
         new:
           already_have_an_account?: Sie haben bereits ein Konto?
           newsletter: Ich möchte gelegentlich per Newsletter über Neuigkeiten informiert werden.
-          newsletter_title: Kontakterlaubnis
-          nickname_help: Darf keine Abstände, Umlaute oder Sonderzeichen aufweisen.
-          password_help: "Das Passwort muss mindestens %{minimun_characters} Zeichen lang sein. Es darf nicht zu gewöhnlich sein (z. B. 123456) und darf weder Ihren Benutzernamen noch Ihre E-Mail-Adresse enthalten."
-          subtitle: Registrieren Sie sich, um an Beteiligungsprozessen teilzunehmen und Vorschläge einzureichen.
+          newsletter_title: Newsletter abonnieren
+          nickname_help: Geben Sie hier ein Kürzel ein. Es darf keine Abstände, Umlaute oder Sonderzeichen enthalten. Andere Nutzende können Sie mit @Kürzel in Beiträgen verlinken.
+          password_help: "Das Passwort muss mindestens %{minimun_characters} Zeichen lang sein. Es darf nicht zu gewöhnlich sein (z. B. 123456) und darf weder Ihr Kürzel noch Ihre E-Mail-Adresse enthalten."
+          subtitle: Registrieren Sie sich, um mitzuwirken.
           tos_agreement: Ich stimme den %{link} zu.
-          username_help: Wenn Sie nicht Ihren eigenen Namen angeben möchten, können Sie auch einen erfinden.
+          username_help: Was Sie in diesem Feld eingeben, wird bei Ihren Beiträgen (Vorschläge / Kommentare etc.) angezeigt. Sie können hier Ihren Namen oder ein Pseudonym setzen.
       sessions:
-        already_signed_out: Erfolgreich abgemeldet
-        signed_out: Erfolgreich abgemeldet
+        already_signed_out: Sie wurden bereits abgemeldet
+        signed_out: Sie haben sich abgemeldet
       shared:
         newsletter_modal:
           buttons:
-            check: Newsletter erhalten
-            unckeck: Newsletter nicht erhalten
+            check: Newsletter abonnieren
+            unckeck: Newsletter nicht abonnieren
           notice: |-
             <p>Guten Tag! Sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
-            Für uns ist es sehr wichtig, dass wir Sie gelegentlich kontaktieren können, um Ihnen Neuigkeiten auf der Plattform mitteilen zu können - zum Beispiel, wenn es neue Mitwirkungsprozesse gibt.</p>
-            <p>Falls Sie dennoch nicht durch weitere Newsletter belästigt werden möchten, verstehen wir diese Entscheidung natürlich auch. So oder so können Sie diese Entscheidung jederzeit in Ihren Kontoeinstellungen unter "Benachrichtigungen" wieder anpassen.</p>
-            <p>Danke fürs Lesen!</p>
+            Für uns ist es sehr wichtig, dass wir Sie gelegentlich kontaktieren können, um Ihnen Neuigkeiten auf der Plattform mitteilen zu können. Sie können Ihre Präferenzen jederzeit in den <a href="/notifications_settings">Benachrichtungseinstellungen</a> anpassen.</p>
     errors:
       internal_server_error:
         try_later: Bitte versuchen Sie es später nochmal.
@@ -412,95 +406,95 @@ de:
       amendments:
         amendment_created:
           affected_user:
-            notification_title: Für die Idee «<a href="%{amendable_path}">%{amendable_title}</a>» wurde eine Änderung vorgeschlagen.
+            notification_title: Für den %{amendable_type} «<a href="%{amendable_path}">%{amendable_title}</a>» wurde eine Änderung vorgeschlagen.
           follower:
-            notification_title: Für die Idee «<a href="%{amendable_path}">%{amendable_title}</a>» wurde eine Änderung vorgeschlagen.
+            notification_title: Für den %{amendable_type} «<a href="%{amendable_path}">%{amendable_title}</a>» wurde eine Änderung vorgeschlagen.
       comments:
         comment_by_followed_user:
-          email_subject: "%{author_name} hat die Idee «%{resource_title}» kommentiert."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die Idee «<a href="%{resource_path}">%{resource_title}</a>» kommentiert.
+          email_subject: "%{author_name} hat den Vorschlag «%{resource_title}» kommentiert."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den Vorschlag «<a href="%{resource_path}">%{resource_title}</a>» kommentiert.
         comment_created:
-          email_subject: "%{author_name} hat die Idee «%{resource_title}» kommentiert."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die Idee «<a href="%{resource_path}">%{resource_title}</a>» kommentiert.
+          email_subject: "%{author_name} hat den Vorschlag «%{resource_title}» kommentiert."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den Vorschlag «<a href="%{resource_path}">%{resource_title}</a>» kommentiert.
       components:
         component_published:
-          email_intro: 'Die Komponente «%{resource_title}» wurde für «%{participatory_space_title}» aktiviert. Sie können es auf dieser Seite sehen:'
+          email_intro: 'Die Komponente «%{resource_title}» wurde für «%{participatory_space_title}» aktiviert:'
           notification_title: Die Komponente «%{resource_title}» wurde für «<a href="%{resource_path}">%{participatory_space_title}</a>» aktiviert
       groups:
         join_request_created:
-          email_intro: Es gibt eine neue Beitrittsanfrage für die Gruppe «%{user_group_name}». Sie können sie auf der <a href="%{resource_url}">Gruppenseite</a> bestätigen.
+          email_intro: Es gibt eine neue Beitrittsanfrage für die Gruppe «%{user_group_name}». Jetzt auf der <a href="%{resource_url}">Gruppenseite</a> bestätigen.
           email_subject: Es gibt eine neue Beitrittsanfrage für die Gruppe «%{user_group_name}»!
-          notification_title: Es gibt eine neue Beitrittsanfrage für die Gruppe «%{user_group_name}». Sie können sie auf der <a href="%{resource_path}">Gruppenseite</a> bestätigen.
+          notification_title: Es gibt eine neue Beitrittsanfrage für die Gruppe «%{user_group_name}». Jetzt auf der <a href="%{resource_path}">Gruppenseite</a> bestätigen.
       meetings:
         meeting_closed:
           affected_user:
-            notification_title: Der Event <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
+            notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde abgeschlossen.
           follower:
-            notification_title: Der Event <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
+            notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde abgeschlossen.
         meeting_registrations_over_percentage:
           email_intro: Die verfügbaren Plätze an der Veranstaltung «%{resource_title}» sind zu %{percentage}% belegt.
           email_subject: Die verfügbaren Plätze an der Veranstaltung «%{resource_title}» sind zu %{percentage}% belegt.
         meeting_updated:
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Sie können den Empfang von Benachrichtungen über den angegebenen Link steuern.
+          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie der Veranstaltung «%{resource_title}» folgen. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigten Link.
         registrations_enabled:
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Sie können den Empfang von Benachrichtungen über den angegebenen Link steuern.
+          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie der Veranstaltung «%{resource_title}» folgen. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigten Link.
         upcoming_meeting:
-          email_intro: Die Veranstaltung "%{resource_title}" beginnt in weniger als 48 Stunden.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Veranstaltung "%{resource_title}" folgen. Sie können den Empfang von Benachrichtungen über den angegebenen Link steuern.
+          email_intro: Die Veranstaltung «%{resource_title}» beginnt in weniger als 48 Stunden.
+          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie der Veranstaltung «%{resource_title}» folgen. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
           email_subject: Die Veranstaltung "%{resource_title}" beginnt in weniger als 48 Stunden.
       participatory_process:
         step_activated:
-          notification_title: Die Phase «%{resource_title}» wurde für den Mitwirkungsprozess «<a href="%{resource_path}">%{participatory_space_title}</a>» aktiviert.
+          notification_title: Der Schritt «%{resource_title}» wurde für den Mitwirkungsprozess «<a href="%{resource_path}">%{participatory_space_title}</a>» aktiviert.
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} wurde als Mitwirkende*r beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> akzeptiert.'
-          email_outro: Sie haben diese Mitteilung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">%{resource_title}</a> berechtigt sind.
+          email_intro: '%{requester_name} wurde zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> akzeptiert.'
+          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">%{resource_title}</a> berechtigt sind. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
           email_subject: "%{requester_name} bei %{resource_title} akzeptiert"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>als Mitwirkende*r</strong> beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>akzeptiert</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>zum Beitragen*r</strong> beim gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>akzeptiert</strong>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} wurde als Mitwirkende*r beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> abgelehnt.'
-          email_outro: Sie haben diese Mitteilung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">%{resource_title}</a> berechtigt sind.
+          email_intro: '%{requester_name} wurde zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> abgelehnt.'
+          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">%{resource_title}</a> berechtigt sind.
           email_subject: "%{requester_name} bei %{resource_title} abgelehnt"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>als Mitwirkende*r</strong> bei <a href="%{resource_path}">%{resource_title}</a> <strong>abgelehnt</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>zum Beitragen</strong> bei <a href="%{resource_path}">«%{resource_title}»</a> <strong>abgelehnt</strong>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} hat um Zugriff auf deinen kollaborativen Entwurf angefragt. Du kannst den Antrag direkt auf der Entwurfsseite <a href="%{resource_path}">%{resource_title}</a> <strong>annehmen oder ablehnen</strong>.'
-          email_outro: Sie haben diese Mitteilung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">%{resource_title}</a> berechtigt sind.
+          email_intro: '%{requester_name} hat um Zugriff für Ihren gemeinsamen Entwurf angefragt. Sie können den Antrag auf der Entwurfsseite <a href="%{resource_path}">«%{resource_title}»</a> <strong>annehmen oder ablehnen</strong>.'
+          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">«%{resource_title}»</a> berechtigt sind. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
           email_subject: "%{requester_name} möchte bei %{resource_title} mitwirken"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> hat beantragt, beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitzuwirken. Bitte <strong>akzeptiere</strong> den Antrag oder <strong>lehne ihn ab</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> hat beantragt, beim gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitzuwirken. Bitte <strong>akzeptieren</strong> Sie den Antrag oder <strong>lehnen ihn ab</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Sie wurden als Mitwirkende*r beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> akzeptiert.
-          email_outro: Sie haben diese Mitteilung erhalten, weil Sie angefordert haben, beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitzuwirken.
-          email_subject: Als Mitwirkende*r bei %{resource_title} angenommen
-          notification_title: Sie wurden <strong>als Mitwirkende*r</strong> beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> akzeptiert.
+          email_intro: Sie wurden zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> hinzugefügt.
+          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie angefordert haben, beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> mitzuwirken. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
+          email_subject: Anfrage zum Beitragen bei «%{resource_title}» angenommen
+          notification_title: Sie wurden zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> akzeptiert.
         collaborative_draft_access_requester_rejected:
-          email_intro: Sie wurden als Mitwirkende*r beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> abgelehnt.
-          email_outro: Sie haben diese Mitteilung erhalten, weil Sie angefordert haben, beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitzuwirken.
-          email_subject: Als Mitwirkende*r bei %{resource_title} abgelehnt
-          notification_title: Sie wurden <strong>als Mitwirkende*r</strong> beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>abgelehnt</strong>.
+          email_intro: Sie wurden zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> abgelehnt.
+          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie angefordert hatten, beim gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}»</a> mitzuwirken. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
+          email_subject: Anfrage zum Beitragen bei «%{resource_title}» abgelehnt
+          notification_title: Sie wurden zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> <strong>abgelehnt</strong>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> zurückgezogen.
-          email_outro: Sie haben diese Mitteilung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">%{resource_title}</a> berechtigt sind.
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> zurückgezogen.
+          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">%{resource_title}</a> berechtigt sind. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
           email_subject: "Gemeinsamer Entwurf %{resource_title} von %{author_name} %{author_nickname} zurückgezogen."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>zurückgezogen</strong>.
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>zurückgezogen</strong>.
         proposal_accepted:
           affected_user:
-            email_intro: 'Ihr Vorschlag "%{resource_title}" wurde angenommen. Sie können die Begründung auf folgender Seite nachlesen:'
-            notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde angenommen.
+            email_intro: 'Ihr Vorschlag «%{resource_title}» wurde angenommen. Sie finden weitere Informationen hier:'
+            notification_title: Ihr Vorschlag <a href="%{resource_path}">«%{resource_title}»</a> wurde angenommen.
         proposal_evaluating:
           follower:
-            notification_title: Der Vorschlag «<a href="%{resource_path}">%{resource_title}</a>» wird überprüft.
+            notification_title: Der Vorschlag «<a href="%{resource_path}">«%{resource_title}»</a>» wird überprüft.
         proposal_published_for_space:
-          notification_title: Der Vorschlag «<a href="%{resource_path}">%{resource_title}</a>» wurde zum Mitwirkungsprozess «%{participatory_space_title}» hinzugefügt.
+          notification_title: Der Vorschlag «<a href="%{resource_path}">«%{resource_title}»</a>» wurde zur Seite «%{participatory_space_title}» hinzugefügt.
         proposal_rejected:
           follower:
-            notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
+            notification_title: Der Vorschlag <a href="%{resource_path}">«%{resource_title}»</a> wurde abgelehnt.
     filters:
       linked_classes:
-        collaborative_draft: Kollaborativer Entwurf
+        collaborative_draft: Gemeinsamer Entwurf
         project: Projektiert
     follows:
       create:
-        participatory_space: Sie folgen bereits dem Mitwirkungsprozess «%{space_name}»
+        participatory_space: Sie folgen bereits «%{space_name}»
     forms:
       questionnaires:
         show:
@@ -512,12 +506,12 @@ de:
       badges:
         attended_meetings:
           description: Dieses Abzeichen wird gewährt, wenn Sie mehrere persönliche Events besuchen.
-          description_own: Sie haben an %{score} Events teilgenommen.
-          name: Besuchte Events
-          next_level_in: Nehmen Sie an %{score} weiteren Events teil, um das nächste Level zu erreichen!
+          description_own: Sie haben an %{score} Veranstaltungen teilgenommen.
+          name: Besuchte Veranstaltungen
+          next_level_in: Nehmen Sie an %{score} weiteren Veranstaltungen teil, um das nächste Level zu erreichen!
     groups:
       new:
-        subtitle: Erstellen Sie eine Gruppe und laden Sie andere dazu ein, Teil Ihrer Gruppe zu sein.
+        subtitle: Erstellen Sie eine Gruppe und laden Sie andere Nutzende zu Ihrer Gruppe ein.
     help:
       main_topic:
         default_page:
@@ -538,7 +532,7 @@ de:
     meetings:
       actions:
         attachments: Anhänge
-        new: Neuer Event
+        new: Neue Veranstaltung
       admin:
         agenda:
           form:
@@ -548,52 +542,52 @@ de:
           meetings: Events
         meeting_closes:
           edit:
-            close: Schliessen
-            title: Event schliessen
+            close: Abschliessen
+            title: Veranstaltung abschliessen
         meetings:
           close:
-            success: Event erfolgreich abgeschlossen
+            success: Veranstaltung erfolgreich abgeschlossen
           update:
-            success: Event erfolgreich aktualisiert
+            success: Verantstaltung erfolgreich aktualisiert
         models:
           meeting:
-            name: Event
+            name: Veranstaltung
       admin_log:
         invite:
-          create: "%{user_name} hat %{attendee_name} eingeladen, dem Event %{resource_name} in %{space_name} beizutreten"
-          deleted: "%{user_name} hat %{attendee_name} aus dem Event %{resource_name} in %{space_name} ausgeladen"
-          update: "%{user_name} hat %{attendee_name} eingeladen, dem Event %{resource_name} in %{space_name} beizutreten"
+          create: "%{user_name} hat %{attendee_name} eingeladen, der Veranstaltung %{resource_name} von «%{space_name}» beizutreten"
+          deleted: "%{user_name} hat %{attendee_name} aus der Veranstaltung %{resource_name} von «%{space_name}» ausgeladen"
+          update: "%{user_name} hat %{attendee_name} eingeladen, der Veranstaltung «%{resource_name}» von «%{space_name}» beizutreten"
         meeting:
-          close: "%{user_name} hat den Event %{resource_name} in %{space_name} geschlossen"
-          create: "%{user_name} hat den Event %{resource_name} in %{space_name} erstellt"
-          delete: "%{user_name} hat den Event %{resource_name} in %{space_name} gelöscht"
-          export_registrations: "%{user_name} hat die Registrierungen des Events %{resource_name} in %{space_name} exportiert"
-          update: "%{user_name} hat den Event %{resource_name} in %{space_name} aktualisiert"
+          close: "%{user_name} hat die Veranstaltung %{resource_name} in %{space_name} abgeschlossen"
+          create: "%{user_name} hat die Veranstaltung %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat die Veranstaltung %{resource_name} in %{space_name} gelöscht"
+          export_registrations: "%{user_name} hat die Anmekdungen für die Veranstaltung %{resource_name} in %{space_name} exportiert"
+          update: "%{user_name} hat die Veranstaltung %{resource_name} in %{space_name} aktualisiert"
         minutes:
-          create: "%{user_name} hat das Protokoll des Events %{resource_name} in %{space_name} erstellt"
-          update: "%{user_name} hat das Protokoll des Events %{resource_name} in %{space_name} aktualisiert"
+          create: "%{user_name} hat das Protokoll der Veranstaltung %{resource_name} in %{space_name} erstellt"
+          update: "%{user_name} hat das Protokoll der Veranstaltung %{resource_name} in %{space_name} aktualisiert"
       content_blocks:
         upcoming_events:
-          name: Kommende Events
-          upcoming_events: Kommende Events
+          name: Kommende Veranstaltungen
+          upcoming_events: Nächste Veranstaltungen
       directory:
         meetings:
           index:
-            past: Vergangene Events
-            upcoming: Kommende Events
+            past: Vergangene Veranstaltungen
+            upcoming: Nächste Veranstaltungen
       last_activity:
-        new_meeting_at_html: "<span>Neuer Event unter %{link}</span>"
+        new_meeting_at_html: "<span>Neue Veranstaltung unter %{link}</span>"
       meetings:
         filters:
-          past: Vergangene Events
-          upcoming: Kommende Events
+          past: Vergangene Veranstaltungen
+          upcoming: Nächste Veranstaltungen
         meetings:
           no_meetings_warning: Keine Veranstaltung entspricht deinen Suchkriterien oder es ist keine Veranstaltung geplant.
           upcomming_meetings_warning: Momentan sind keine Veranstaltungen geplant. Hier finden Sie alle vergangenen Veranstaltungen.
         meeting_minutes:
           meeting_minutes: Protokolle
         show:
-          join: Tritt dem Event bei
+          join: Treten Sie der Veranstaltung bei
           view: Ansehen
       models:
         meeting:
@@ -602,25 +596,25 @@ de:
             start_date: Beginn
       registration_mailer:
         confirmation:
-          confirmed_html: Ihre Registrierung für den Event <a href="%{url}">%{title}</a> wurde bestätigt.
+          confirmed_html: Ihre Anmeldung für die Veranstaltung <a href="%{url}">«%{title}»</a> wurde bestätigt.
       types:
-        private_meeting: Privater Event
+        private_meeting: Private Veranstaltung
     meetings_map:
       view_meeting: Veranstaltung anzeigen
     metrics:
       meetings:
-        object: Events
+        object: Veranstaltung
     menu:
       help: Info & Hilfe
-      processes: Mitmachen
+      processes: Mitwirkungsprozesse
     navigation_maps:
       admin:
         areas:
           create:
-            error: Ein Fehler ist aufgetreten beim Erstellen eines Bereiches
-            success: Bereich erfolgreich erstellt
+            error: Beim Erstellen des Bereichs ist ein Fehler aufgetreten
+            success: Bereich erstellt
           form:
-            no_popup: Verwende kein Popup, verlinke diesen Bereich direkt
+            no_popup: Verwenden Sie kein Popup, sondern verlinken Sie diesen Bereich direkt
           new:
             area: Neue Bereichsdetails
             cancel: Abbrechen
@@ -631,8 +625,8 @@ de:
             link_suggestions: 'Tipp: Benutze %{map} um auf andere Tabs zu verlinken'
             save: Speichern
           update:
-            error: Ein Fehler ist aufgetreten beim Anpassen eines Bereiches
-            success: Bereich erfolgreich gespeichert
+            error: Beim Aktualisierune des Bereichs ist ein Fehler aufgetreten
+            success: Bereich aktualisiert
       content_blocks:
         name: Navigationskarten
         navigation_map:
@@ -652,7 +646,7 @@ de:
           upload_image: Bild hochladen
       create:
         error: Fehler beim Erstellen der Karte
-        success: Karte erfolgreich erstellt
+        success: Karte erstellt
     notifications_settings:
       show:
         email_on_notification: Ich möchte jedes Mal eine E-Mail erhalten, wenn ich benachrichtigt werde.
@@ -670,7 +664,7 @@ de:
           meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
         footer_sub_hero:
           footer_sub_hero_body: Ideen entwickeln. Diskutieren. Budgetieren.
-          footer_sub_hero_headline: '%{organization} - deine lokale Beteiligungsplattform.'
+          footer_sub_hero_headline: '%{organization} - Ihre lokale Mitwirkungsplattform.'
       index:
         subheading: Hier finden Sie Fragen und Antworten rund um %{name}.
       terms_and_conditions:
@@ -698,17 +692,17 @@ de:
             see_all_processes: Alle Prozesse anzeigen
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings_meetings: Vergangene Events
-          upcoming_meetings: Nächste Events
+          past_meetings_meetings: Vergangene Veranstaltungen
+          upcoming_meetings: Nächste Veranstaltungen
       show:
         end_date: Ende
         start_date: Beginn
     participatory_spaces:
       highlighted_meetings:
-        past_meetings_meetings: Vergangene Events
-        upcoming_meetings: Nächste Events
+        past_meetings_meetings: Vergangene Veranstaltungen
+        upcoming_meetings: Nächste Veranstaltungen
       upcoming_meeting_for_card:
-        upcoming_meeting: Kommender Event
+        upcoming_meeting: Nächste Veranstaltung
     proposals:
       admin:
         proposal_answers:
@@ -718,46 +712,46 @@ de:
         evaluating: In Überprüfung
       application_helper:
         filter_origin_values:
-          citizens: Einzelpersonen
-          meetings: Events
+          citizens: Nutzende
+          meetings: Veranstaltungen
           user_groups: Gruppen
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Bei der Veröffentlichung des kollaborativen Entwurfs sind Fehler aufgetreten.
+            error: Bei der Veröffentlichung des gemeinsamen Entwurfs sind Fehler aufgetreten.
         compare:
-          mine_is_different: Mein kollaborativer Entwurf ist anders
+          mine_is_different: Mein gemeinsamer Entwurf ist anders
         complete:
-          title: Kollaborativen Entwurf vervollständigen
+          title: Gemeinsamer Entwurf vervollständigen
         edit:
           attachment_legend: (Optional) Sie können einen Anhang hinzufügen
-          title: Kollaborativen Entwurf bearbeiten
+          title: Gemeinsamen Entwurf bearbeiten
         new:
-          title: Kollaborativen Entwurf erstellen
+          title: Gemeinsamen Entwurf erstellen
         new_collaborative_draft_button:
-          new_collaborative_draft: Neuer kollaborativer Entwurf
+          new_collaborative_draft: Neuer gemeinsamer Entwurf
         orders:
           label: 'Sortieren nach:'
         show:
-          edit: Kollaborativen Entwurf bearbeiten
-          info-message: Dies ist ein <strong>kollaborativer Vorschlags-Entwurf</strong>. Das bedeutet, dass Sie den Verfasser*innen helfen können, die Idee weiter zu entwickeln, indem Sie unten Kommentare hinzufügen oder direkt Zugriff auf den Entwurf anfordern. Sobald die Verfasser*innen Ihnen Zugriff gewähren, können Sie Änderungen direkt am Entwurf vornehmen.
+          edit: Gemeinsamer Entwurf bearbeiten
+          info-message: Dies ist ein <strong>gemeinsamer Vorschlags-Entwurf</strong>. Das bedeutet, dass Sie zusammen den Vorschlag weiter entwickeln können, indem Sie unten Kommentare hinzufügen oder direkt Zugriff auf den Entwurf anfordern. Sobald der Zugriff Ihnen gewährt wird, können Sie Änderungen direkt am Entwurf vornehmen.
           publish_info: Veröffentlichen Sie diese Version des Entwurfs oder
           withdraw: ziehen Sie den Entwurf zurück
         states:
           open: Offen
         update:
-          error: Beim Speichern des kollaborativen Entwurfs sind Fehler aufgetreten.
-        view_collaborative_draft: Kollaborativen Entwurf anzeigen
+          error: Beim Speichern des gemeinsamen Entwurfs sind Fehler aufgetreten.
+        view_collaborative_draft: Gemeinsamer Entwurf anzeigen
         withdraw:
-          error: Es gab Fehler beim Schliessen des kollaborativen Entwurfs.
+          error: Es gab Fehler beim Schliessen des gemeinsamen Entwurfs.
           irreversible_action_modal:
-            ok: Kollaborativen Entwurf zurückziehen
+            ok: Gemeinsamer Entwurf zurückziehen
         wizard_aside:
-          info: Du erstellst einen <strong>kollaborativen Entwurf</strong>.
+          info: Sie erstellen einen <strong>gemeinsamen Entwurf</strong>.
         wizard_steps:
-          step_1: Kollaborativen Entwurf erstellen
-          step_2: Mit anderen kollaborativen Entwürfen vergleichen
-          step_3: Kollaborativen Entwurf vervollständigen
+          step_1: Gemeinsamen Entwurf erstellen
+          step_2: Mit anderen gemeinsamen Entwürfen vergleichen
+          step_3: Gemeinsamer Entwurf vervollständigen
       models:
         proposal:
           fields:
@@ -771,7 +765,7 @@ de:
           state: Status
           voted: Gewählte Vorschläge
         index:
-          collaborative_drafts_list: Liste der kollaborativen Entwürfe
+          collaborative_drafts_list: Liste der gemeinsamen Entwürfe
           see_all_withdrawn: Alle zurückgezogenen Vorschläge anzeigen
         orders:
           most_commented: Anzahl Kommentare
@@ -782,12 +776,12 @@ de:
           with_more_authors: Von mehreren Autoren erstellt
         preview:
           proposal_edit_before_minutes:
-            one: Sie können diesen Vorschlag in der ersten Minute nach seiner Veröffentlichung noch unbemerkt bearbeiten. Nach Ablauf dieses Zeitfensters kann der Vorschlag zwar noch verändert werden, aber diese Änderungen werden dann für andere Nutzer*innen stets überprüfbar sein.
-            other: Sie können diesen Vorschlag in den ersten %{count} Minuten nach seiner Veröffentlichung noch unbemerkt bearbeiten. Nach Ablauf dieses Zeitfensters kann der Vorschlag zwar noch verändert werden, aber diese Änderungen werden dann für andere Nutzer*innen stets überprüfbar sein.
+            one: Sie können diesen Vorschlag in der ersten Minute nach seiner Veröffentlichung noch unbemerkt bearbeiten.
+            other: Sie können diesen Vorschlag in den ersten %{count} Minuten nach seiner Veröffentlichung noch unbemerkt bearbeiten.
         show:
           changes_at_title: Ergänzungen zu "%{title}"
-          link_to_collaborative_draft_help_text: Dieser Vorschlag ist das Ergebnis eines kollaborativen Entwurfs. Ältere Versionen vergleichen.
-          link_to_collaborative_draft_text: Kollaborativen Entwurf anzeigen
+          link_to_collaborative_draft_help_text: Dieser Vorschlag ist das Ergebnis eines gemeinsamen Entwurfs. Ältere Versionen vergleichen.
+          link_to_collaborative_draft_text: Gemeinsamer Entwurf anzeigen
           proposal_in_evaluation_reason: Dieser Vorschlag wird geprüft
           withdraw_confirmation: |
             Sind Sie sicher, dass Sie Ihren Vorschlag zurückziehen möchten?
@@ -796,17 +790,17 @@ de:
           info: Sie erstellen einen Vorschlag
       versions:
         stats:
-          back_to_collaborative_draft: Zurück zum kollaborativen Entwurf
-          version_author: Verfasser*in dieser Version
+          back_to_collaborative_draft: Zurück zum gemeinsamen Entwurf
+          version_author: VerfasserIn dieser Version
     resource_links:
       included_projects:
         result_project: Dieses Ergebnis basiert auf folgenden Projekten
       included_proposals:
         result_proposal: Dieses Ergebnis basiert auf folgenden Vorschlägen
       meetings_through_proposals:
-        result_meeting: 'Ähnliche Events:'
+        result_meeting: 'Veranstaltungen, die an diesem Resultat mitgewirkt haben:'
       proposals_from_meeting:
-        proposal_meeting: 'Ähnliche Events:'
+        proposal_meeting: 'Veranstaltungen, die an diesem Vorschlag mitgewirkt haben:'
     shared:
       flag_modal:
         close: Schliessen
@@ -827,7 +821,7 @@ de:
         confirm_destroy: Möchten Sie das wirklich löschen?
       admins:
         create:
-          error: Beim Erstellen des neuen Administrators ist ein Fehler aufgetreten.
+          error: Beim Erteilen der Admin-Rechte ist ein Fehler aufgetreten.
         edit:
           update: Bearbeiten
       menu:
@@ -839,12 +833,15 @@ de:
             email: E-Mail
         organization:
           actions:
-            save_and_invite: Organisation erstellen & Admin einladen
+            save_and_invite: Organisation erstellen & AdministratorIn einladen
           fields:
             created_at: Erstellt am
             smtp_settings: SMTP Einstellungen
             omniauth_settings: Omniauth Einstellungen
       organizations:
+        advanced_settings:
+          show: Fortgeschrittene Einstellungen einblenden
+          hide: Fortgeschrittene Einstellungen ausblenden
         create:
           error: Beim Erstellen der neuen Organisation ist ein Fehler aufgetreten.
         edit:
@@ -863,8 +860,8 @@ de:
           error: Beim Bearbeiten dieser Organisation ist ein Fehler aufgetreten.
           success: Die Organisation wurde erfolgreich gespeichert.
         users_registration_mode:
-          disabled: Benutzer können sich nur mit externen Konten anmelden
-          enabled: Benutzern erlauben, sich zu registrieren und sich anzumelden
+          disabled: Nutzende können sich nur mit externen Konten anmelden
+          enabled: Nutzenden erlauben, sich zu registrieren und sich anzumelden
           existing: Registrationen sind deaktiviert, bestehende Benutzer können sich aber weiterhin anmelden
       shared:
         notices:
@@ -968,7 +965,7 @@ de:
         decidim_awesome:
           title: Decidim Awesome
       cookie_warning:
-        description_html: Diese Seite verwendet Cookies. Durch die weitere Verwendung dieser Seite stimmen Sie der Verwendung von Cookies zu. Wir verwenden Matomo für anonymisierte Statistiken. Erfahren Sie %{link} mehr darüber.
+        description_html: "Diese Seite verwendet Cookies. Durch die weitere Verwendung dieser Seite stimmen Sie der Verwendung von Cookies zu. Wir verwenden Adobe Analytics für anonymisierte Statistiken. Erfahren Sie %{link} mehr darüber. Diese Seite läuft auf allen modernen Browsern (Chrome, Edge, Firefox, Safari o.ä.). Bitte beachten Sie, dass der Internet Explorer nicht unterstützt wird."
         link_label: hier
         ok: Ich stimme zu
       decidim_awesome:
@@ -978,8 +975,8 @@ de:
           autosaved_retrieved: Text automatisch wiederhergestellt
           autosaved_success: Text automatisch gespeichert
           categories: Kategorien
-          drag_and_drop_image: Drag and Drop Bild
-          meetings: Meetings
+          drag_and_drop_image: Bilder können in das Textfeld gezogen werden
+          meetings: Veranstaltungen
           proposals: Vorschläge
           hashtags: Hashtags
           items: Items

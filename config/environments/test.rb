@@ -44,9 +44,6 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  # No precompilation on demand on first request
-  config.assets.check_precompiled_asset = false
-
   config.aspsms = {
       user_key: ENV['ASPSMS_API_USER_KEY'],
       password: ENV['ASPSMS_API_PASSWORD'],

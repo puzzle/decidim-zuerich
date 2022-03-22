@@ -2,7 +2,11 @@
 
 require_relative 'boot'
 
-require 'rails/all'
+require "decidim/rails"
+# Add the frameworks used by your app that are not loaded by Decidim.
+# require "action_cable/engine"
+# require "action_mailbox/engine"
+# require "action_text/engine"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -18,9 +22,6 @@ module DecidimZuerich
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    # Precompile fonts
-    config.assets.paths << Rails.root.join("app","assets","fonts")
-
     # Fall back to german and then to english if some translation does not exist
     config.i18n.fallbacks = [:de, :en]
 
@@ -30,10 +31,11 @@ module DecidimZuerich
     I18n.enforce_available_locales = false
 
     # This option silences the logging of Redirector related SQL queries in your log file
-    config.redirector.silence_sql_logs = true
+    #config.redirector.silence_sql_logs = true
 
     config.to_prepare do
-      Rails.root.glob('app/overrides/**/*_override.rb').each do |override|
+      overrides = Rails.root.glob('lib/overrides/**/*_override.rb')
+      overrides.each do |override|
         require_dependency override
       end
     end

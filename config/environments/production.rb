@@ -22,15 +22,6 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  # Compress JavaScripts and CSS.
-  config.assets.js_compressor = Uglifier.new(:harmony => true)
-  # config.assets.css_compressor = :sass
-
-  # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
-
-  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
-
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
 
@@ -56,10 +47,10 @@ Rails.application.configure do
   # Use a different cache store in production.
   memcached_host = ENV['RAILS_MEMCACHED_HOST'] || 'localhost'
   memcached_port = ENV['RAILS_MEMCACHED_PORT'] || '11211'
-  config.cache_store = :dalli_store, "#{memcached_host}:#{memcached_port}"
+  config.cache_store = :mem_cache_store, "#{memcached_host}:#{memcached_port}"
   # Silence the cache store, the decidim-term_customizer module doesn't work otherwise
   config.after_initialize do
-    Rails.cache.logger.level = Logger::INFO
+    # Rails.cache.logger.level = Logger::INFO
   end
 
   # Use a real queuing backend for Active Job (and separate queues per environment)

@@ -41,15 +41,12 @@ services:
   cache:
     image: memcached:1.5-alpine
     command: [ memcached, -l, '0.0.0.0', -p, '11211' ]
-
-  adminer:
-    image: adminer
-    ports:
-      - '8080:8080'
-    links:
-      - pg:db
-    depends_on:
-      - pg
+  webpack:
+    <<: *app
+    depends_on: []
+    ports: []
+    entrypoint: ./.docker/webpack-entrypoint.sh
+    command: [ 'bin/webpack-dev-server' ]
 
   mail:
     image: schickling/mailcatcher:latest
@@ -61,12 +58,6 @@ services:
     ports: []
     entrypoint: []
     command: [ rake, 'jobs:work' ]
-  ruby:
-    build:
-      context: .
-      dockerfile: ./.docker/Dockerfile
-      target: dev
-    command: []
 
 volumes:
   node_modules: {}
