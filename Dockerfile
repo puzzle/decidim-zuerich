@@ -4,7 +4,7 @@
 
 FROM ruby:2.7 AS build
 
-ARG BUILD_PACKAGES="git libicu-dev libpq-dev nodejs npm"
+ARG BUILD_PACKAGES="git libicu-dev libpq-dev"
 ARG BUILD_SCRIPT="npm install -g npm && \
     npm install -g yarn && \
     yarn set version 1.22.10"
@@ -26,6 +26,18 @@ RUN    apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y ${BUILD_PACKAGES}
 
+# Installs nodejs as a dependency
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
+    && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg && apt-key add /root/yarn-pubkey.gpg \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
+    && apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
+      nodejs \
+    && apt-get clean \
+    && rm -rf /var/cache/apt/archives/* \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && truncate -s 0 /var/log/*log
+
 RUN [[ ${BUILD_SCRIPT} ]] && bash -c "${BUILD_SCRIPT}"
 
 # Install specific versions of dependencies
@@ -42,6 +54,9 @@ RUN    bundle config set --local deployment 'true' \
     && bundle package \
     && bundle install \
     && bundle clean
+
+COPY ./package.json ./package-lock.json ./yarn.lock /app-src/
+RUN yarn
 
 # set up app-src directory
 COPY . /app-src
