@@ -16,6 +16,6 @@ module LastBlogPostsHelper
     return image_from_text if image_from_text.present?
     return post.photos.min_by(&:weight).url if post.photos.count.positive?
 
-    'organization-default-image.png'
+    asset_pack_path('media/images/organization-default-image.png')
   end
 end

@@ -25,7 +25,7 @@ module DecidimZuerich
       private
 
       def resource_image_path
-        present(model).image_path.presence || 'organization-default-image.png'
+        present(model).image_path.presence || asset_pack_path('media/images/organization-default-image.png')
       end
 
       def followers_count

@@ -10,3 +10,12 @@
 // @import 'app/packs/stylesheets/application.css';
 @import 'app/packs/stylesheets/decidim.scss';
 @import 'app/packs/stylesheets/email.scss';
+
+// MODIFICATIONS FOR DECIDIM ZUERICH
+
+// Referencing images from stylesheets doesn't work at all, no matter what way I write the path
+// #highlighted-assemblies .card__image-top {
+//   background-image: url("./organization-default-image.png");
+// }
+
+// END MODIFICATIONS

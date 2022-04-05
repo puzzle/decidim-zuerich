@@ -29,7 +29,7 @@ module DecidimZuerich
       private
 
       def resource_image_path
-        model.hero_image.url.presence || 'organization-default-image.png'
+        model.hero_image.url.presence || asset_pack_path('media/images/organization-default-image.png')
       end
 
       def statuses
