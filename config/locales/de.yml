@@ -150,6 +150,19 @@ de:
         update:
           success: Anhang aktualisiert
       filters:
+        meetings:
+          origin_eq:
+            label: Erstellt von
+          is_upcoming_true:
+            label: Bevorstehend
+          closed_at_present:
+            label: Geschlossen
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Scope
+          type_eq:
+            label: Typ
         filter_label: Filter
         private_space_eq:
           label: Privat
@@ -234,6 +247,14 @@ de:
         project:
           view: Ansehen
     components:
+      meetings:
+        settings:
+          global:
+            maps_enabled: Karten aktiviert
+      awesome_map:
+        name: Awesome Karte
+      awesome_iframe:
+        name: Awesome iFrame
       surveys:
         settings:
           global:
@@ -325,6 +346,9 @@ de:
             end_date: Ende
             start_date: Beginn
     decidim_awesome:
+      content_blocks:
+        map:
+          name: Awesome Karte
       admin:
         config:
           constraints:
@@ -531,6 +555,7 @@ de:
           state: Status
     meetings:
       actions:
+        manage_poll: Umfrage verwalten
         attachments: Anhänge
         new: Neue Veranstaltung
       admin:
@@ -539,12 +564,15 @@ de:
             end_date: Ende
             start_date: Beginn
         exports:
+          answers: Antworten exportieren
           meetings: Events
         meeting_closes:
           edit:
             close: Abschliessen
             title: Veranstaltung abschliessen
         meetings:
+          form:
+            show_embedded_iframe_help: iFrame-Hilfe anzeigen
           close:
             success: Veranstaltung erfolgreich abgeschlossen
           update:
@@ -578,6 +606,13 @@ de:
       last_activity:
         new_meeting_at_html: "<span>Neue Veranstaltung unter %{link}</span>"
       meetings:
+        calendar_modal:
+          add_to_calendar: Zum Kalender hinzufügen
+          apple: Add to Apple calendar
+          close_window: Fenster schliessen
+          full_details_html: For full details go to %{link}
+          google: Add to Google calendar
+          outlook: Zu Outlook hinzufügen
         filters:
           past: Vergangene Veranstaltungen
           upcoming: Nächste Veranstaltungen
@@ -592,6 +627,7 @@ de:
       models:
         meeting:
           fields:
+            id: ID
             end_date: Ende
             start_date: Beginn
       registration_mailer:
