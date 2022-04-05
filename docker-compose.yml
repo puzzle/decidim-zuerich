@@ -44,7 +44,8 @@ services:
   webpack:
     <<: *app
     depends_on: []
-    ports: []
+    ports:
+      - 3035:3035
     entrypoint: ./.docker/webpack-entrypoint.sh
     command: [ 'bin/webpack-dev-server' ]
 
