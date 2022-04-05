@@ -7,9 +7,6 @@
 // import app/packs/src/application.js;
 // import app/packs/src/cable.js;
 // import app/packs/src/custom.js;
-// import app/packs/src/leaflet-tilelayer-swiss.js;
-
-import "../swisstopo";
 
 // Load images
 require.context("../../images", true)

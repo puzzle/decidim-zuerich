@@ -1,10 +1,9 @@
-// = require leaflet
-// = require leaflet-tilelayer-swiss
-// = require leaflet-svg-icon
-// = require leaflet.markercluster
-// = require jquery-tmpl
-// = require_self
-// = require decidim/map
+import 'leaflet'
+import 'leaflet-tilelayer-swiss'
+import 'leaflet-svgicon'
+import 'leaflet.markercluster'
+import MapMarkersController from 'src/decidim/map/controller/markers.js'
+import MapStaticController from 'src/decidim/map/controller/static.js'
 
 /**
  * NOTE:
@@ -20,9 +19,6 @@
 
   $(() => {
     exports.Decidim = exports.Decidim || {};
-    const MapMarkersController = exports.Decidim.MapMarkersController;
-    const MapStaticController = exports.Decidim.MapStaticController;
-
     class SwisstopoMapController extends MapMarkersController {
       start() {
         this.setCoordinateReferenceSystem()
