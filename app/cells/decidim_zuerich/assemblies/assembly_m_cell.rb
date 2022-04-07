@@ -29,7 +29,9 @@ module DecidimZuerich
       private
 
       def resource_image_path
-        model.hero_image.url.presence || asset_pack_path('media/images/organization-default-image.png')
+        model.hero_image.attached? ?
+            model.attached_uploader(:hero_image).path :
+            asset_pack_path('media/images/organization-default-image.png')
       end
 
       def statuses
