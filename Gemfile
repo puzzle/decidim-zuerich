@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.25.2'
+DECIDIM_VERSION = '0.26.1'
 
 ruby RUBY_VERSION
 
@@ -12,16 +12,17 @@ gem 'decidim', DECIDIM_VERSION
 gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-consultations', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
-gem 'decidim-antivirus', git: 'https://github.com/mainio/decidim-module-antivirus'
+gem 'decidim-antivirus', git: 'https://github.com/puzzle/decidim-module-antivirus'
 gem 'decidim-conferences', DECIDIM_VERSION
 
 gem 'decidim-decidim_awesome',
     git: 'https://github.com/Platoniq/decidim-module-decidim_awesome'
 gem "decidim-anonymous_proposals",
-    git: "https://github.com/PopulateTools/decidim-module-anonymous_proposals",
-    branch: "release/0.25-stable"
+    git: "https://github.com/puzzle/decidim-module-anonymous_proposals",
+    branch: "release/0.26-stable"
 gem 'decidim-term_customizer',
-    git: 'https://github.com/mainio/decidim-module-term_customizer'
+    git: 'https://github.com/puzzle/decidim-module-term_customizer',
+    branch: "v0.26"
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
