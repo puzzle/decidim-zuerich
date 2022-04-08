@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_08_101222) do
+ActiveRecord::Schema.define(version: 2022_04_08_130000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -848,6 +848,7 @@ ActiveRecord::Schema.define(version: 2022_04_08_101222) do
     t.boolean "visible"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position", default: 0
     t.index ["decidim_meeting_id"], name: "index_decidim_meetings_agendas_on_decidim_meeting_id"
   end
 
