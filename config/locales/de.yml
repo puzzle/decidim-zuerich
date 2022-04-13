@@ -101,6 +101,12 @@ de:
       option-3: Option 3
       option-4: Option 4
   decidim:
+    accessibility:
+      front_page_link: Link zur Startseite
+    assemblies:
+      assemblies:
+        show:
+          title: Gremium
     account:
       delete:
         alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich mit diesem Konto nicht mehr anmelden und Sie müssen sich neu registrieren.
@@ -150,6 +156,8 @@ de:
         update:
           success: Anhang aktualisiert
       filters:
+        decidim_assemblies_type_id_eq:
+          label: Typ
         meetings:
           origin_eq:
             label: Erstellt von
