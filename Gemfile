@@ -26,6 +26,7 @@ gem 'decidim-term_customizer',
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
+gem 'aws-sdk-s3'
 gem 'bootsnap'
 gem 'dalli'
 gem 'delayed_job_active_record'

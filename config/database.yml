@@ -10,7 +10,7 @@ default: &default
 
 development:
   <<: *default
-  database: decidim_zuerich_development
+  database: <%= ENV.fetch('RAILS_DB_NAME', 'decidim_zuerich_development') %>
 
 test:
   <<: *default
