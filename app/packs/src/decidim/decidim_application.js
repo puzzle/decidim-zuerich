@@ -45,7 +45,7 @@ window.addEventListener('scroll', () => {
 })
 
 window.addEventListener("load", (event) => {
-  const process_nav = document.querySelector('#process-nav-content');
+  const process_nav = document.querySelector('#process-nav-content > ul');
   if (process_nav == null) {
     return;
   }
