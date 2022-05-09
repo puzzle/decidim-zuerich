@@ -13,6 +13,7 @@ Decidim::Proposals::DiffRenderer.prepend DecidimZuerich::Proposals::DiffRenderer
 Decidim::Proposals::MapHelper.prepend DecidimZuerich::Proposals::MapHelper
 Decidim::ResourceLocatorPresenter.prepend DecidimZuerich::ResourceLocatorPresenter
 Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.prepend DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper
+
 module Decidim
   module Map
     module Provider
