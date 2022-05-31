@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/Platoniq/decidim-module-decidim_awesome
-  revision: 706c9ad6b62e6bdcd704c7a5eae263aadfea5086
+  revision: 658d226e9ed164ffdca2efbde4dfaf79b02c295e
   specs:
-    decidim-decidim_awesome (0.8.1)
+    decidim-decidim_awesome (0.8.3)
       decidim-admin (>= 0.25.0, < 0.27)
       decidim-core (>= 0.25.0, < 0.27)
       sassc (~> 2.3)
