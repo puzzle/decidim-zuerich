@@ -21,6 +21,12 @@ Decidim.configure do |config|
               lat: 47.378,
               lng: 8.540
           },
+          map_limits: {
+              lat_min: 47.312,
+              lat_max: 47.442,
+              lng_min: 8.43,
+              lng_max: 8.64
+          },
       },
       static: false,
       geocoding: {
@@ -30,7 +36,7 @@ Decidim.configure do |config|
       },
       autocomplete: {
           provider: :osm,
-          url: "https://photon.komoot.io/api?lat=47.378&lon=8.540&bbox=8.39,47.32,8.595,47.43",
+          url: "https://photon.komoot.io/api?lat=47.378&lon=8.540&bbox=8.43,47.312,8.64,47.442",
           address_format: [
               "name",
               ["street", "housenumber"],
