@@ -17,6 +17,15 @@ import MapStaticController from 'src/decidim/map/controller/static.js'
       this.setCoordinateReferenceSystem()
       this.addTileLayers()
 
+      // Don't render any markers that are out of bounds due to wrong geocoding
+      // or because they're simply located someplace the GIS maps don't cover
+      this.config.markers = this.config.markers.filter(marker => {
+        return marker.latitude > this.config.mapLimits.latMin &&
+          marker.latitude < this.config.mapLimits.latMax &&
+          marker.longitude > this.config.mapLimits.lngMin &&
+          marker.longitude < this.config.mapLimits.lngMax
+      })
+
       // decidim adds the markers for us, but if navigation maps are active,
       // a different L without the markercluster plugin is used for some reason.
       // Workaround is to overwrite the global L again from here.
