@@ -1056,6 +1056,9 @@ de:
         one: mindestens %{count} Buchstabe
         other: mindestens %{count} Buchstaben
   decidim_zuerich:
+    maps:
+      gis_zh:
+        basiskarte_schraeg: Stadt Zürich Basiskarte
     surveys:
       survey_answered_mailer:
         answered:

@@ -16,7 +16,8 @@ Decidim.configure do |config|
 
   config.maps = {
       dynamic: {
-          provider: :swisstopo,
+          provider: :gis_zh,
+          # provider: :swisstopo,
           default_center: {
               lat: 47.378,
               lng: 8.540
@@ -27,6 +28,12 @@ Decidim.configure do |config|
               lng_min: 8.43,
               lng_max: 8.64
           },
+          layers: {
+              '0': {
+                  name: ->(*_args) { I18n.t('decidim_zuerich.maps.gis_zh.basiskarte_schraeg') },
+                  url: 'https://www.ogc.stadt-zuerich.ch/mapproxy/wmts/1.0.0/basiskarte_zuerich_gebaeudeschraegansicht/default/ktzh/{z}/{y}/{x}.png'
+              },
+          }
       },
       static: false,
       geocoding: {

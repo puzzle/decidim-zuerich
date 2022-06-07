@@ -19,6 +19,7 @@ module Decidim
     module Provider
       module DynamicMap
         autoload :Swisstopo, 'decidim/map/provider/dynamic_map/swisstopo'
+        autoload :GisZh, 'decidim/map/provider/dynamic_map/gis_zh'
       end
     end
   end
