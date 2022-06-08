@@ -32,6 +32,9 @@ import MapStaticController from 'src/decidim/map/controller/static.js'
       super.start()
 
       this.setViewport()
+
+      // Remove leaflet attribution
+      this.map.attributionControl.setPrefix(false)
     }
 
     setCoordinateReferenceSystem() {
