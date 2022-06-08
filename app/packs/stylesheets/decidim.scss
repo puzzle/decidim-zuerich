@@ -1200,4 +1200,9 @@ h4,
   display: none;
 }
 
+.map-info__content #bodyContent {
+  overflow: auto;
+  max-height: 10rem;
+}
+
 // END MODIFICATIONS
