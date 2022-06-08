@@ -1059,6 +1059,7 @@ de:
     maps:
       gis_zh:
         basiskarte_schraeg: Stadt Zürich Basiskarte
+        orthofoto: Stadt Zürich Luftbild
     surveys:
       survey_answered_mailer:
         answered:

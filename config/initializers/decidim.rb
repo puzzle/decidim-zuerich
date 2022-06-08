@@ -30,6 +30,10 @@ Decidim.configure do |config|
           },
           layers: {
               '0': {
+                  name: ->(*_args) { I18n.t('decidim_zuerich.maps.gis_zh.orthofoto') },
+                  url: 'https://www.ogc.stadt-zuerich.ch/mapproxy/wmts/1.0.0/basiskarte_zuerich_orthofoto/default/ktzh/{z}/{y}/{x}.png'
+              },
+              '1': {
                   name: ->(*_args) { I18n.t('decidim_zuerich.maps.gis_zh.basiskarte_schraeg') },
                   url: 'https://www.ogc.stadt-zuerich.ch/mapproxy/wmts/1.0.0/basiskarte_zuerich_gebaeudeschraegansicht/default/ktzh/{z}/{y}/{x}.png'
               },
