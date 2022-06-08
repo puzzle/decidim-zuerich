@@ -20,7 +20,7 @@ Decidim.configure do |config|
           # provider: :swisstopo,
           default_center: {
               lat: 47.378,
-              lng: 8.540
+              lng: 8.550
           },
           map_limits: {
               lat_min: 47.312,
