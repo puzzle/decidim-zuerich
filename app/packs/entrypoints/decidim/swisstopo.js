@@ -60,6 +60,16 @@ import MapStaticController from 'src/decidim/map/controller/static.js'
 
   // We need to replace the dynamic map controller of decidim and use our own
   exports.Decidim.createMapController = (mapId, config) => {
+
+    // Fix mistakenly escaped href attribute in <template id="marker-popup">
+    const markerPopupTemplate = document.querySelector('template#marker-popup');
+    if (markerPopupTemplate) {
+      const links = markerPopupTemplate.content.querySelectorAll('a[href="%24%7Blink%7D"]');
+      links.forEach(link => {
+        link.setAttribute('href', '${link}');
+      });
+    }
+
     if (config.type === "static") {
       return new MapStaticController(mapId, config);
     }
