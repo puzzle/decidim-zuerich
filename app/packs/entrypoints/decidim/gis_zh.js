@@ -78,7 +78,7 @@ import MapStaticController from 'src/decidim/map/controller/static.js'
         this.map.fitBounds(bounds, {padding: [100, 100], maxZoom: 2});
       } else {
         const bounds = new L.LatLngBounds(this.config.markers.map((markerData) => [markerData.latitude, markerData.longitude]));
-        this.map.fitBounds(bounds, {padding: [100, 100], maxZoom: 6});
+        this.map.fitBounds(bounds, {padding: [10, 10], maxZoom: 6});
       }
     }
   }
