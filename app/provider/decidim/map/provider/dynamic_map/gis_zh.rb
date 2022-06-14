@@ -13,7 +13,10 @@ module Decidim
           class Builder < Decidim::Map::DynamicMap::Builder
             # @see Decidim::Map::DynamicMap::Builder#javascript_snippets
             def javascript_snippets
-              template.javascript_pack_tag("decidim/gis_zh")
+              [
+                  template.javascript_pack_tag("decidim/gis_zh"),
+                  template.javascript_pack_tag("decidim_proposals")
+              ].join
             end
           end
         end
