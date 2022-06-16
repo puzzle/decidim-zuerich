@@ -9,7 +9,7 @@ ARG BUILD_SCRIPT="npm install -g npm && \
     npm install -g yarn && \
     yarn set version 1.22.10"
 ARG BUNDLE_WITHOUT="development:metrics:test"
-ARG BUNDLER_VERSION="2.2.27"
+ARG BUNDLER_VERSION="2.3.16"
 ARG POST_BUILD_SCRIPT="bin/rails assets:precompile"
 ARG SKIP_MEMCACHE_CHECK="true"
 ARG RAILS_ENV="production"
@@ -82,7 +82,7 @@ RUN adduser --disabled-password --uid 1001 --gid 0 --gecos "" --shell /bin/bash 
 # RUN adduser --disabled-password --uid 1002 --gid 0 --gecos "" clamav
 
 ARG BUNDLE_WITHOUT='development:metrics:test'
-ARG BUNDLER_VERSION="2.2.27"
+ARG BUNDLER_VERSION="2.3.16"
 ARG RUN_PACKAGES="clamav clamav-daemon git graphicsmagick libicu-dev libpq5 nodejs poppler-utils"
 ARG PS1='$SENTRY_CURRENT_ENV:$PWD$ '
 ENV PS1=$PS1
