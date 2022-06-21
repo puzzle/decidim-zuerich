@@ -302,7 +302,29 @@ de:
         name: Navigationskarten
       proposals:
         settings:
+          step:
+            default_sort_order_options:
+              with_more_authors: Mehrere Autoren
+              most_followed: Meiste Followers
+              most_commented: Meist kommentiert
+              most_endorsed: Meist unterstützt
+              most_voted: Meiste Stimmen
+              recent: Neueste
+              random: Zufällig
+              default: Standard
+            default_sort_order: Standard-Reihenfolge
+            creation_enabled: Erstellung aktiviert
           global:
+            default_sort_order_options:
+              with_more_authors: Mehrere Autoren
+              most_followed: Meiste Followers
+              most_commented: Meist kommentiert
+              most_endorsed: Meist unterstützt
+              most_voted: Meiste Stimmen
+              recent: Neueste
+              random: Zufällig
+              default: Standard
+            default_sort_order: Standard-Reihenfolge
             collaborative_drafts_enabled: Gemeinsame Entwürfe aktiviert
     conferences:
       admin:
@@ -1002,7 +1024,6 @@ de:
   errors:
     messages:
       too_many_marks: enthält zu viele aufeinanderfolgende Satzzeichen (z.B. "!" und "?")
-  hello: "Hallo Welt"
   layouts:
     decidim:
       admin:
