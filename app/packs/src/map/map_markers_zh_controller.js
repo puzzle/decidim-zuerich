@@ -13,6 +13,16 @@ export default function(baseClass) {
       // decidim adds the markers for us
       super.start()
 
+      // Remove the href from any popup close buttons, to prevent tampering with
+      // the meeting filters when closing a map marker popup
+      if (this.markerClusters !== null) {
+        this.markerClusters.on('popupopen', function (event) {
+          document.querySelectorAll('.leaflet-popup-close-button').forEach(button => {
+            button.removeAttribute('href');
+          });
+        });
+      }
+
       this.setViewport()
     }
 
