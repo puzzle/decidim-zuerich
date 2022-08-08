@@ -19,11 +19,11 @@ export default function(baseClass) {
     setViewport() {
       if (this.config.markers.length === 1) {
         const bounds = new L.LatLngBounds(this.config.markers.map((markerData) => [markerData.latitude, markerData.longitude]));
-        this.map.fitBounds(bounds, {padding: [10, 10], maxZoom: 6});
+        this.map.fitBounds(bounds, {padding: [10, 10], maxZoom: this.getSingleMarkerMaxZoom()});
       } else {
         const center = this.config.defaultCenter ? [this.config.defaultCenter.lat, this.config.defaultCenter.lng] : [0,0];
         const bounds = new L.LatLngBounds([center, center]);
-        this.map.fitBounds(bounds, {padding: [100, 100], maxZoom: 2});
+        this.map.fitBounds(bounds, {padding: [100, 100], maxZoom: this.getMarkerMaxZoom()});
       }
     }
   }

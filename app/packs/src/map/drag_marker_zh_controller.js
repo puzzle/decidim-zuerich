@@ -15,10 +15,10 @@ export default function(baseClass) {
       if (!this.marker || !latitude) {
         const center = this.config.defaultCenter ? [this.config.defaultCenter.lat, this.config.defaultCenter.lng] : [0,0];
         const bounds = new L.LatLngBounds([center, center]);
-        this.map.fitBounds(bounds, {padding: [100, 100], maxZoom: 2});
+        this.map.fitBounds(bounds, {padding: [100, 100], maxZoom: this.getNoMarkerMaxZoom()});
       } else {
         const bounds = new L.LatLngBounds([[latitude, longitude]]);
-        this.map.fitBounds(bounds, {padding: [10, 10], maxZoom: 6});
+        this.map.fitBounds(bounds, {padding: [10, 10], maxZoom: this.getSingleMarkerMaxZoom()});
       }
     }
 

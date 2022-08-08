@@ -65,6 +65,18 @@ import DragMarkerZhController from '../../src/map/drag_marker_zh_controller'
 
         L.control.layers(tileLayers).addTo(this.map);
       }
+
+      getNoMarkerMaxZoom() {
+        return 2;
+      }
+
+      getSingleMarkerMaxZoom() {
+        return 6;
+      }
+
+      getMarkerMaxZoom() {
+        return 2;
+      }
     }
 
     return GisZhMapControllerClass;

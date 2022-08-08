@@ -36,9 +36,6 @@ import DragMarkerZhController from '../../src/map/drag_marker_zh_controller'
         super.start()
 
         this.setViewport()
-
-        // Remove leaflet attribution
-        this.map.attributionControl.setPrefix(false)
       }
 
       setCoordinateReferenceSystem() {
@@ -50,15 +47,16 @@ import DragMarkerZhController from '../../src/map/drag_marker_zh_controller'
         L.tileLayer.swiss().addTo(this.map);
       }
 
-      setViewport() {
-        if (this.config.markers.length === 0) {
-          const center = this.config.defaultCenter ? [this.config.defaultCenter.lat, this.config.defaultCenter.lng] : [0, 0];
-          const bounds = new L.LatLngBounds([center, center]);
-          this.map.fitBounds(bounds, {padding: [100, 100], maxZoom: 19});
-        } else {
-          const bounds = new L.LatLngBounds(this.config.markers.map((markerData) => [markerData.latitude, markerData.longitude]));
-          this.map.fitBounds(bounds, {padding: [100, 100], maxZoom: 23});
-        }
+      getNoMarkerMaxZoom() {
+        return 19;
+      }
+
+      getSingleMarkerMaxZoom() {
+        return 23;
+      }
+
+      getMarkerMaxZoom() {
+        return 23;
       }
     }
 
