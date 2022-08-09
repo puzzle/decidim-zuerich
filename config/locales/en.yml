@@ -203,3 +203,4 @@ en:
         aspsms_gateway:
           sms_text: '%{code} is your access code for %{organization}'
           sms_originator_max_11_alphabetic_characters: DECIDIM
+    reply_to: mitwirken-kontakt@zuerich.ch

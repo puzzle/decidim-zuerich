@@ -5,11 +5,9 @@ module DecidimZuerich
   # mailers.
   module ApplicationMailer
     def set_smtp
-      return if @organization.nil? || @organization.smtp_settings.blank?
+      mail.reply_to ||= I18n.t('decidim_zuerich.reply_to', default: "").presence
 
-      reply_to = mail.reply_to
       super
-      mail.reply_to = reply_to || Decidim.config.mailer_reply
     end
   end
 end
