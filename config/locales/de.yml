@@ -986,6 +986,15 @@ de:
           index:
             actions: Aktionen
             selected: Ausgewählt
+          edit:
+            title: Bearbeiten
+            save: Speichern
+          form:
+            title: TermCustomizer
+            help_title: Hilfe
+            help_html: Hilfe HTML
+            term_help_title: Term
+            term_help_html: Term Hilfe HTML
       menu:
         term_customizer: Term Customizer
     user_interests:
