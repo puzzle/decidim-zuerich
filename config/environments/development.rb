@@ -37,9 +37,15 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
+  # Use mailcatcher
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV['RAILS_SMTP_ADDRESS'] || '127.0.0.1',
+    port: ENV['RAILS_SMTP_PORT'] || 1025
+  }
+
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.delivery_method = :letter_opener_web
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { port: 3000 }
 
   config.action_mailer.perform_caching = false
