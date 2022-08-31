@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/Kagemaru/decidim-module-question_captcha.git
+  revision: 112dd874fcbf88cb9fb42ac596eb2afa8befb8ab
+  specs:
+    decidim-question_captcha (0.26.1)
+      acts_as_textcaptcha (~> 4.5.1)
+      decidim-core (= 0.26.1)
+
+GIT
   remote: https://github.com/Platoniq/decidim-module-decidim_awesome
   revision: 658d226e9ed164ffdca2efbde4dfaf79b02c295e
   specs:
@@ -106,6 +114,7 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     acts_as_list (0.9.19)
       activerecord (>= 3.0)
+    acts_as_textcaptcha (4.5.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     aes_key_wrap (1.1.0)
@@ -906,6 +915,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  acts_as_textcaptcha (~> 4.5.1)
   aws-sdk-s3
   better_errors
   binding_of_caller
@@ -920,6 +930,7 @@ DEPENDENCIES
   decidim-decidim_awesome!
   decidim-dev (= 0.26.1)
   decidim-proposals (= 0.26.1)
+  decidim-question_captcha!
   decidim-term_customizer!
   delayed_job_active_record
   execjs

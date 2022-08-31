@@ -20,12 +20,14 @@ gem 'decidim-decidim_awesome',
 gem "decidim-anonymous_proposals",
     git: "https://github.com/puzzle/decidim-module-anonymous_proposals",
     branch: "release/0.26-stable"
+gem 'decidim-question_captcha', github: 'Kagemaru/decidim-module-question_captcha'
 gem 'decidim-term_customizer',
     git: 'https://github.com/puzzle/decidim-module-term_customizer',
     branch: "v0.26"
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
+gem 'acts_as_textcaptcha', '~> 4.5.1'
 gem 'aws-sdk-s3'
 gem 'bootsnap'
 gem 'dalli'

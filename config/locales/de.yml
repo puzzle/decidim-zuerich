@@ -80,6 +80,11 @@ de:
           attributes:
             attachment:
               needs_to_be_reattached: Der Anhang muss nochmals hinzugefügt werden.
+        user:
+          attributes:
+            textcaptcha_answer:
+              expired: "Die Sicherheitsfrage ist abgelaufen, bitte versuche es erneut."
+              incorrect: "Die Antwort ist leider nicht korrekt, bitte versuche es erneut."
     models:
       decidim/meetings/close_meeting_event: Veranstaltung abgeschlossen
       decidim/meetings/create_meeting_event: Veranstaltung
@@ -432,6 +437,9 @@ de:
       registrations:
         new:
           already_have_an_account?: Sie haben bereits ein Konto?
+          captcha_legend: Sicherheitsfrage
+          captcha_instructions: Bitte beantworte die folgende Frage, um zu beweisen dass du ein Mensch bist.
+          textcaptcha_answer: Antwort
           newsletter: Ich möchte gelegentlich per Newsletter über Neuigkeiten informiert werden.
           newsletter_title: Newsletter abonnieren
           nickname_help: Geben Sie hier ein Kürzel ein. Es darf keine Abstände, Umlaute oder Sonderzeichen enthalten. Andere Nutzende können Sie mit @Kürzel in Beiträgen verlinken.
