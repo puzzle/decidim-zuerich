@@ -50,8 +50,7 @@ Decidim.configure do |config|
           address_format: [
               "name",
               ["street", "housenumber"],
-              "postcode",
-              "city",
+              ["postcode", "city"],
           ]
       }
   }
