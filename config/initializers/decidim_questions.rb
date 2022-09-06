@@ -2,7 +2,7 @@ Decidim::QuestionCaptcha.configure do |config|
   config.questions = {
     de: [
       {
-        'question' => 'Nennen Sie eine der beiden Farben des Stadt Zürich Wappens.',
+        'question' => 'Nennen Sie eine der beiden Farben des Wappens der Stadt Zürich.',
         'answers' => 'weiss,blau,Weiss,Blau'
       }
     ],
