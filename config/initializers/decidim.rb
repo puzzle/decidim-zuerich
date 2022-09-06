@@ -7,7 +7,6 @@ end
 
 Decidim.configure do |config|
   config.application_name = 'DecidimZuerich'
-  config.mailer_sender = 'info@puzzle.ch'
 
   # Change these lines to set your preferred locales
   config.default_locale = :de

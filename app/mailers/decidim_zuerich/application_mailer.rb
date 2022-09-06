@@ -5,7 +5,8 @@ module DecidimZuerich
   # mailers.
   module ApplicationMailer
     def set_smtp
-      mail.reply_to ||= I18n.t('decidim_zuerich.reply_to', default: "").presence
+      reply_to = I18n.t('decidim_zuerich.reply_to', default: "").presence
+      mail.reply_to = [reply_to] if mail.reply_to.blank? && reply_to
 
       super
     end
