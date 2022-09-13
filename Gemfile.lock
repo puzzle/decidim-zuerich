@@ -941,6 +941,7 @@ DEPENDENCIES
   decidim-dev (= 0.26.1)
   decidim-proposals (= 0.26.1)
   decidim-question_captcha!
+  decidim-templates (= 0.26.1)
   decidim-term_customizer!
   delayed_job_active_record
   execjs
