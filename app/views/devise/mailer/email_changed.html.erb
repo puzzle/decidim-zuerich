@@ -1,0 +1,9 @@
+<% scope = Decidim.config.devise_custom_scope.(@organization) %>
+
+<p><%=t('.greeting', scope: scope, recipient: @email) %></p>
+
+<% if @resource.try(:unconfirmed_email?) %>
+  <p><%= t('.message_unconfirmed', scope: scope, email: @resource.unconfirmed_email) %></p>
+<% else %>
+  <p><%= t('.message', scope: scope, email: @resource.email) %></p>
+<% end %>

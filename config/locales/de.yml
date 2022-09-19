@@ -1017,7 +1017,7 @@ de:
       already_authenticated: Sie sind bereits angemeldet.
     mailer:
       confirmation_instructions:
-        subject: "Decidim Zürich: E-Mail bestätigen"
+        subject: "E-Mail bestätigen"
       reset_password_instructions:
         action: Mein Passwort ändern
         greeting: Hallo %{recipient}!
@@ -1038,6 +1038,46 @@ de:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungsmail erhalten?
         didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
+  decidim_zuerich:
+    devise:
+      mitwirken:
+        devise:
+          mailer:
+            confirmation_instructions:
+              action: "Bestätigen Sie Ihr Konto"
+              greeting: "Willkommen %{recipient}!"
+              instruction: "Bitte bestätigen sie Ihre E-Mail-Adresse über den folgenden Link:"
+            email_changed:
+              greeting: "Hallo %{recipient}!"
+              message: "Ihre E-Mail-Adresse wurde zu %{email} geändert."
+              message_unconfirmed: "Ihre E-Mail-Adresse wurde erfolgreich zu %{email} geändert."
+            invitation_instructions:
+              accept: "Einladung annehmen"
+              accept_until: "Diese Einladung ist bis %{due_date} gültig."
+              decline: "Einladung ablehnen"
+              hello: "Hallo %{email},"
+              ignore: "Wenn Sie die Einladung nicht annehmen möchten, ignorieren diese E-Mail.<br /> Ihr Konto wird erst erstellt, Wenn Sie den angegebenen Link zugreifen und Ihren Namen und Ihr Passwort festlegst."
+              invited_you_as_admin: "%{invited_by} hat Sie als Adminstrator*in von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren:"
+              invited_you_as_private_user: "%{invited_by} hat Sie als private*r Benutzer*in von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren:"
+              someone_invited_you: "Jemand hat Sie zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren:"
+              someone_invited_you_as_admin: "Jemand hat Sie als Adminstrator*in von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren:"
+              someone_invited_you_as_private_user: "Jemand hat Sie als private*r Benutzer*in von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
+            password_change:
+              greeting: "Hallo %{recipient}!"
+              message: "Ihr Passwort wurde erfolgreich geändert."
+              subject: "Passwort geändert"
+            reset_password_instructions:
+              action: "Mein Passwort ändern"
+              greeting: "Hallo %{recipient}!"
+              instruction: "Jemand hat einen Link angefordert, um Ihr Passwort zu ändern. Falls Sie das selbst waren, dann folgen Sie diesem Link:"
+              instruction_2: "Falls Sie das nicht selbst waren, können Sie diese E-Mail ignorieren."
+              instruction_3: "Ihr Passwort ändert sich erst, wenn Sie auf den angegebenen Link zugreifen und ein neues Passwort erstellen."
+            unlock_instructions:
+              action: "Entsperre mein Konto"
+              greeting: "Hallo %{recipient}!"
+              instruction: "Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:"
+              message: "Ihr Konto wurde aufgrund einer übermässigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt."
+      # meinquartier: null
   errors:
     messages:
       too_many_marks: enthält zu viele aufeinanderfolgende Satzzeichen (z.B. "!" und "?")

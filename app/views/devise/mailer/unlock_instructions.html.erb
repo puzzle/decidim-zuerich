@@ -1,0 +1,9 @@
+<% scope = Decidim.config.devise_custom_scope.(@organization) %>
+
+<p class="email-greeting"><%= t(".greeting", scope: scope, recipient: @resource.email) %></p>
+
+<p class="email-instructions"><%= t(".message", scope: scope) %></p>
+
+<p class="email-instructions"><%= t(".instruction", scope: scope) %></p>
+
+<p class="email-button email-button__cta"><%= link_to t(".action", scope: scope), unlock_url(@resource, unlock_token: @token, host: @resource.organization.host) %></p>

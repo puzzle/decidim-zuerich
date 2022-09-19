@@ -1,0 +1,11 @@
+<% scope = Decidim.config.devise_custom_scope.(@organization) %>
+
+<% if @resource.unconfirmed_email.blank? %>
+  <p class="email-greeting">
+    <%= t('.greeting', scope: scope, recipient: @email) %>
+  </p>
+<% end %>
+
+<p class="email-instructions"><%= t('.instruction', scope: scope) %></p>
+
+<p class="email-button email-button__cta"><%= link_to t('.action', scope: scope), confirmation_url(@resource, confirmation_token: @token, host: @resource.organization.host) %></p>

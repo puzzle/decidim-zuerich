@@ -181,7 +181,7 @@ en:
         sign_in_with_provider: Log in via "Mein Konto"
     mailer:
       confirmation_instructions:
-        subject: "Decidim Zürich: Confirm E-Mail"
+        subject: "Confirm E-Mail"
       reset_password_instructions:
         action: Change my password
         greeting: Hello %{recipient}!
@@ -189,6 +189,10 @@ en:
         instruction_2: If you did not request this change, you may ignore this email.
         instruction_3: Your password will only reset once you click the link and set a new one.
         subject: Reset password
+  decidim_zuerich:
+    devise:
+      # mitwirken: null
+      # meinquartier: null
   hello: "Hello world"
   layouts:
     decidim:

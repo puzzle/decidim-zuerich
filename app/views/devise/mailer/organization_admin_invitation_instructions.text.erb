@@ -1,0 +1,13 @@
+<% scope = Decidim.config.devise_custom_scope.(@organization) %>
+
+<%= t("devise.mailer.invitation_instructions.hello", scope: scope, email: @resource.email) %>
+
+<%= t("devise.mailer.invitation_instructions.someone_invited_you", scope: scope, application: @resource.organization.name) %>
+
+<%= accept_invitation_url(@resource, invitation_token: @token, invite_redirect: decidim_admin.root_path, host: @resource.organization.host) %>
+
+<% if @resource.invitation_due_at %>
+  <%= t("devise.mailer.invitation_instructions.accept_until", scope: scope, due_date: l(@resource.invitation_due_at, format: :long)) %>
+<% end %>
+
+<%= strip_tags t("devise.mailer.invitation_instructions.ignore", scope: scope) %>

@@ -35,3 +35,19 @@ end
 
 # Override default for surveys
 Decidim.find_component_manifest(:surveys).settings(:global).attributes[:clean_after_publish].default = false
+
+# Add the Devise custom scope to the Decidim config
+# Find all instances with: <% scope = Decidim.config.devise_custom_scope.(@organization) %>
+Decidim.config[:devise_custom_scope] = lambda { |org, base = nil|
+  base ||= %i[decidim_zuerich devise]
+
+  org_scope =
+    case org.id
+    when 1 then :mitwirken
+    when 2 then :meinquartier
+    else :other
+    end
+
+  # Ensure that the current tenant is using custom translations for the devise mails
+  base + [org_scope] if I18n.t(org_scope, scope: base, default: nil)
+}
