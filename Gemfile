@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.26.1'
+DECIDIM_VERSION = '0.26.2'
 
 ruby RUBY_VERSION
 
@@ -21,10 +21,10 @@ gem 'decidim-decidim_awesome',
 gem "decidim-anonymous_proposals",
     git: "https://github.com/puzzle/decidim-module-anonymous_proposals",
     branch: "release/0.26-stable"
-gem 'decidim-question_captcha', github: 'Kagemaru/decidim-module-question_captcha'
+gem 'decidim-question_captcha', github: 'Kagemaru/decidim-module-question_captcha', tag: 'v0.26.2'
 gem 'decidim-term_customizer',
     git: 'https://github.com/puzzle/decidim-module-term_customizer',
-    branch: "v0.26"
+    tag: "v0.26.2"
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
