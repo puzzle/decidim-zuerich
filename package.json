@@ -5,7 +5,7 @@
     "@decidim/browserslist-config": "^0.26.1",
     "@decidim/core": "^0.26.1",
     "@decidim/elections": "^0.26.1",
-    "@decidim/webpacker": "^0.26.1",
+    "@decidim/webpacker": "^0.27.0-rc2",
     "codemirror": "^5.65.2",
     "europa": "^4.0.0",
     "form-storage": "^1.3.5",
