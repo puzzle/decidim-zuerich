@@ -9,7 +9,7 @@ ARG BUILD_SCRIPT="npm install -g npm && \
     npm install -g yarn && \
     yarn set version 1.22.10"
 ARG BUNDLE_WITHOUT="development:metrics:test"
-ARG BUNDLER_VERSION="2.3.16"
+ARG BUNDLER_VERSION="2.3.22"
 ARG POST_BUILD_SCRIPT="bin/rails assets:precompile"
 ARG SKIP_MEMCACHE_CHECK="true"
 ARG RAILS_ENV="production"
