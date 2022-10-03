@@ -18,13 +18,13 @@ gem 'decidim-templates', DECIDIM_VERSION
 
 gem 'decidim-decidim_awesome',
     git: 'https://github.com/Platoniq/decidim-module-decidim_awesome'
-gem "decidim-anonymous_proposals",
-    git: "https://github.com/puzzle/decidim-module-anonymous_proposals",
-    branch: "release/0.26-stable"
+gem 'decidim-anonymous_proposals',
+    git: 'https://github.com/puzzle/decidim-module-anonymous_proposals',
+    branch: 'release/0.26-stable'
 gem 'decidim-question_captcha', github: 'Kagemaru/decidim-module-question_captcha', tag: 'v0.26.3'
 gem 'decidim-term_customizer',
     git: 'https://github.com/puzzle/decidim-module-term_customizer',
-    tag: "v0.26.3"
+    tag: 'v0.26.3'
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
