@@ -5,7 +5,7 @@
     "@decidim/browserslist-config": "^0.26.3",
     "@decidim/core": "^0.26.3",
     "@decidim/elections": "^0.26.3",
-    "@decidim/webpacker": "^0.26.3",
+    "@decidim/webpacker": "^0.27.0",
     "async": "2.6.4",
     "codemirror": "^5.65.2",
     "dset": "3.1.2",
