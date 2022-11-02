@@ -34,16 +34,16 @@ gem 'bootsnap'
 gem 'dalli'
 gem 'delayed_job_active_record'
 gem 'faker', '~> 1.9'
-gem 'omniauth_openid_connect'
 gem 'lograge'
+gem 'omniauth_openid_connect'
 gem 'prometheus_exporter'
 gem 'pry-rails'
 gem 'puma'
 gem 'sentry-raven'
-gem 'uglifier'                 #, '~> 4.1'
+gem 'uglifier'                 # , '~> 4.1'
 
 group :development, :test do
-  gem 'byebug', platform: :mri #, '~> 11.0'
+  gem 'byebug', platform: :mri # , '~> 11.0'
   gem 'pry-byebug'
 
   gem 'decidim-dev', DECIDIM_VERSION
@@ -52,12 +52,15 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'listen'                 #, '~> 3.1'
-  gem 'spring'                 #, '~> 2.0'
-  gem 'spring-watcher-listen'  #, '~> 2.0'
-  gem 'web-console'            #, '~> 3.5'
+  gem 'listen'                 # , '~> 3.1'
+  gem 'spring'                 # , '~> 2.0'
+  gem 'spring-watcher-listen'  # , '~> 2.0'
+  gem 'web-console'            # , '~> 3.5'
 end
 
 group :production do
   gem 'bleib'
 end
+
+# Needs to be loaded after all other delayed_job gems
+gem 'delayed_cron_job'

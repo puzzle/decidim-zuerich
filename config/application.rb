@@ -31,7 +31,11 @@ module DecidimZuerich
     I18n.enforce_available_locales = false
 
     # This option silences the logging of Redirector related SQL queries in your log file
-    #config.redirector.silence_sql_logs = true
+    # config.redirector.silence_sql_logs = true
+
+    # Use a real queuing backend for Active Job (and separate queues per environment)
+    config.active_job.queue_adapter     = :delayed_job
+    config.active_job.queue_name_prefix = "decidim_zuerich_#{Rails.env}"
 
     config.to_prepare do
       overrides = Rails.root.glob('lib/overrides/**/*_override.rb')
