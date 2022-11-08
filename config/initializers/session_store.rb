@@ -6,10 +6,14 @@
 Rails.application.config.session_store(
   ActionDispatch::Session::CacheStore,
   memcache_server: ['127.0.0.1'],
-  namespace:       'sessions',
-  key:             '_session',
-  expire_after:    24.hours,
+  namespace: 'sessions',
+  key: '_session',
+  expire_after: 4.hours,
+  secure: true,
+  same_site: :lax
 )
+
+Decidim.config.expire_session_after = 4.hours
 
 def dalli_reachable?
   Rails.cache.stats.values.any?
