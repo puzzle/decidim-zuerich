@@ -758,6 +758,9 @@ de:
           body: Bitte nehmen Sie sich einen Moment Zeit, um sich über die Aktualisierungen unserer Nutzungsbedingungen zu informieren und diese anzunehmen. Andernfalls können Sie die Plattform nicht mehr nutzen.
           title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
     participatory_processes:
+      index:
+        participatory_process_group:
+          more_info: Mehr Informationen
       pages:
         home:
           highlighted_processes:
