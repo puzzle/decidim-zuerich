@@ -169,9 +169,12 @@ Decidim.configure do |config|
   #   api_key: Rails.application.secrets.etherpad[:api_key],
   #   api_version: Rails.application.secrets.etherpad[:api_version]
   # }
+
+  config.after_initialize do
+    Decidim::Api::Schema.max_complexity = 5000
+    Decidim::Api::Schema.max_depth = 50
+  end
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
-Decidim::Api::Schema.max_complexity = 5000
-Decidim::Api::Schema.max_depth = 50
