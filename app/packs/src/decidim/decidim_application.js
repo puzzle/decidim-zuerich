@@ -9,7 +9,7 @@
 // import app/packs/src/custom.js;
 
 // Load images
-require.context("../../images", true)
+require.context("../../images", true);
 
 /**
  * Make the search bar (topbar) in the page header scroll out of sight AFTER
@@ -72,4 +72,25 @@ window.addEventListener("load", (event) => {
   if (redirectLink == null || !redirectLink.getAttribute('href')) return;
 
   window.location.replace(redirectLink.getAttribute('href'));
+});
+
+/**
+ * Scroll to beginning of step in a questionnaire
+ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  function scrollToStep() {
+    setTimeout(() => {
+      const step = $('.questionnaire-step:not(.hide)')[0];
+      step.scrollIntoView({behavior: "smooth"});
+    }, 1)
+  }
+
+  const buttons = document.querySelectorAll('.questionnaire-step a[data-toggle]');
+
+  buttons.forEach(button => {
+    button.removeAttribute('href');
+    $(button).on('click', () => scrollToStep());
+  });
+
 });
