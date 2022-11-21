@@ -11,6 +11,7 @@ Decidim::OrganizationLogoUploader.prepend DecidimZuerich::OrganizationLogoUpload
 Decidim::ParticipatoryProcesses::Permissions.prepend DecidimZuerich::ParticipatoryProcesses::Permissions
 Decidim::Proposals::DiffRenderer.prepend DecidimZuerich::Proposals::DiffRenderer
 Decidim::Proposals::MapHelper.prepend DecidimZuerich::Proposals::MapHelper
+Decidim::ParticipatoryProcesses::ProcessFiltersCell.prepend DecidimZuerich::ParticipatoryProcesses::ProcessFiltersCell
 Decidim::ResourceLocatorPresenter.prepend DecidimZuerich::ResourceLocatorPresenter
 Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.prepend DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper
 
