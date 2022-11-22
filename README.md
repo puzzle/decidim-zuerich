@@ -8,3 +8,5 @@ Decidim Installationen für die Stadt Zürich. Derzeit befinden sich zwei Plattf
 
 # Referenzen
 Dieses Open-Source repository für Decidim Zürich basiert auf [Decidim](https://github.com/decidim/decidim).
+
+For all significant changes from decidim (modules and CSS excluded), see label [Enhancement](https://github.com/puzzle/decidim-zuerich/issues?q=is%3Aissue+label%3Aenhancement+is%3Aclosed)
