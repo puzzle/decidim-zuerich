@@ -19,10 +19,6 @@ jobs:
   build:
     runs-on: 'ubuntu-latest'
 
-    strategy:
-      matrix:
-        ruby: ['2.7']  # TODO: Reenable 3.0 when it's compatible
-
     services:
       postgres:
         image: 'postgres:11'
@@ -42,10 +38,8 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v2
 
-      - name: 'Set up Ruby ${{ matrix.ruby }}'
+      - name: 'Set up Ruby'
         uses: actions/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
 
       - name: Install required package
         run: |
