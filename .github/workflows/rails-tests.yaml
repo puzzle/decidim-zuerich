@@ -19,13 +19,9 @@ jobs:
   build:
     runs-on: 'ubuntu-latest'
 
-    strategy:
-      matrix:
-        ruby: ['2.7']  # TODO: Reenable 3.0 when it's compatible
-
     services:
       postgres:
-        image: 'postgres:11'
+        image: 'postgres:11.6-alpine'
         env:
           POSTGRES_PASSWORD: 'postgres'
         ports: ['5432:5432']
@@ -42,10 +38,8 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v2
 
-      - name: 'Set up Ruby ${{ matrix.ruby }}'
+      - name: 'Set up Ruby'
         uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
 
       - name: Install required package
         run: |
@@ -59,7 +53,6 @@ jobs:
             ruby-${{ matrix.ruby }}-gem-
       - name: 'Build and test with Rake'
         env:
-          RAILS_TEST_DB_NAME: 'postgres'
           RAILS_TEST_DB_USERNAME: 'postgres'
           RAILS_TEST_DB_PASSWORD: 'postgres'
           RAILS_ENV: 'test'
