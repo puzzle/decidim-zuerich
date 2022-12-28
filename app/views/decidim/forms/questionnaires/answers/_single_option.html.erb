@@ -1,0 +1,43 @@
+<%
+require 'dropdown.rb'
+custom = CustomSingleOptionSurvey.new(self, answer, answer_idx, disabled)
+%>
+
+<% if custom.dropdown? %>
+  <%= custom.select_tag %>
+  <%= raw custom.dropdown_javascript %>
+<% end %>
+
+<div class="radio-button-collection <%=custom.radio_button_class%>">
+  <% choice = answer.choices.first %>
+
+  <%# <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
+  <% custom.radio_button_options.each do |answer_option, idx| %>
+    <% choice_id = "#{field_id}_choices_#{idx}" %>
+
+    <div class="collection-input">
+      <%= label_tag "#{choice_id}_body" do %>
+        <%= radio_button_tag "questionnaire[responses][#{answer_idx}][choices][][body]",
+                             translated_attribute(answer_option.body),
+                             answer_option.id == custom.selected_option,
+                             id: "#{choice_id}_body",
+                             disabled: disabled %>
+
+        <%= translated_attribute(answer_option.body) %>
+
+        <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][][answer_option_id]",
+                            answer_option.id,
+                            id: "#{choice_id}_answer_option",
+                            disabled: true %>
+      <% end %>
+
+      <% if answer_option.free_text %>
+        <%= text_field_tag "questionnaire[responses][#{answer_idx}][choices][][custom_body]",
+        choice.try(:custom_body),
+        id: "#{choice_id}_custom_body",
+        disabled: true,
+        maxlength: maxlength %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
