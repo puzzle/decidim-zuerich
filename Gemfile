@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.26.3'
+DECIDIM_VERSION = '0.26.4'
 
 ruby RUBY_VERSION
 
@@ -16,15 +16,11 @@ gem 'decidim-antivirus', git: 'https://github.com/puzzle/decidim-module-antiviru
 gem 'decidim-conferences', DECIDIM_VERSION
 gem 'decidim-templates', DECIDIM_VERSION
 
-gem 'decidim-decidim_awesome',
-    git: 'https://github.com/Platoniq/decidim-module-decidim_awesome'
-gem 'decidim-anonymous_proposals',
-    git: 'https://github.com/puzzle/decidim-module-anonymous_proposals',
-    branch: 'release/0.26-stable'
-gem 'decidim-question_captcha', github: 'Kagemaru/decidim-module-question_captcha', tag: 'v0.26.3'
-gem 'decidim-term_customizer',
-    git: 'https://github.com/puzzle/decidim-module-term_customizer',
-    tag: 'v0.26.3'
+gem 'decidim-anonymous_proposals', github: 'puzzle/decidim-module-anonymous_proposals', branch: 'release/0.26-stable'
+gem 'decidim-cleaner', github: 'OpenSourcePolitics/decidim-module-cleaner', branch: 'release/0.26-stable'
+gem 'decidim-decidim_awesome', github: 'Platoniq/decidim-module-decidim_awesome'
+gem 'decidim-question_captcha', github: 'Kagemaru/decidim-module-question_captcha', tag: 'v0.26.4'
+gem 'decidim-term_customizer', github: 'mainio/decidim-module-term_customizer', branch: 'release/0.26-stable'
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
