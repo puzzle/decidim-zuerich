@@ -18,7 +18,7 @@ gem 'decidim-templates', DECIDIM_VERSION
 
 gem 'decidim-anonymous_proposals', github: 'puzzle/decidim-module-anonymous_proposals', branch: 'release/0.26-stable'
 gem 'decidim-cleaner', github: 'OpenSourcePolitics/decidim-module-cleaner', branch: 'release/0.26-stable'
-gem 'decidim-decidim_awesome', github: 'Platoniq/decidim-module-decidim_awesome'
+gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome'
 gem 'decidim-question_captcha', github: 'Kagemaru/decidim-module-question_captcha', tag: 'v0.26.4'
 gem 'decidim-term_customizer', github: 'mainio/decidim-module-term_customizer', branch: 'release/0.26-stable'
 

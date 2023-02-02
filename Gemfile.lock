@@ -16,12 +16,12 @@ GIT
       decidim-core (= 0.26.4)
 
 GIT
-  remote: https://github.com/Platoniq/decidim-module-decidim_awesome.git
-  revision: ca9dd20c7c95343e6f077a1a07f174d41a1bee80
+  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
+  revision: 3496e1125b88d11c335b3f19cd8b242ad24e66a4
   specs:
-    decidim-decidim_awesome (0.8.3)
-      decidim-admin (>= 0.25.0, < 0.27)
-      decidim-core (>= 0.25.0, < 0.27)
+    decidim-decidim_awesome (0.9.0)
+      decidim-admin (>= 0.26.0, < 0.28)
+      decidim-core (>= 0.26.0, < 0.28)
       sassc (~> 2.3)
 
 GIT
