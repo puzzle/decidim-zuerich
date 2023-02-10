@@ -170,6 +170,13 @@ Decidim.configure do |config|
   #   api_version: Rails.application.secrets.etherpad[:api_version]
   # }
 
+  # Machine Translation Configuration
+  #
+  # Enable machine translations
+  config.enable_machine_translations = true
+  config.machine_translation_service = "DecidimZuerich::MicrosoftTranslator"
+  config.machine_translation_delay = 0.seconds
+
   config.after_initialize do
     Decidim::Api::Schema.max_complexity = 5000
     Decidim::Api::Schema.max_depth = 50
