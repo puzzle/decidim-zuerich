@@ -1,0 +1,33 @@
+<div class="fieldset">
+  <h4><%= t("decidim.system.models.organization.fields.smtp_settings") %></h4>
+  <%= f.fields_for :smtp_settings do %>
+    <fieldset class="fieldset">
+      <legend><%= t(".fieldsets.sender") %></legend>
+      <%= f.email_field :from_email, placeholder: t(".placeholder.from_email") %>
+      <%= f.text_field :from_label, placeholder: t(".placeholder.from_label") %>
+      <p class="help-text"><%= t(".instructions.from_label") %></p>
+    </fieldset>
+    <div class="field">
+      <%= f.text_field :user_name %>
+    </div>
+    <div class="field">
+      <%= f.text_field :password %>
+    </div>
+    <div class="field">
+      <%= f.text_field :address %>
+    </div>
+    <div class="field">
+      <%= f.number_field :port %>
+    </div>
+  <% end %>
+</div>
+
+<div class="fieldset">
+  <h4><%= t("decidim.system.models.organization.fields.tenant_type") %></h4>
+  <div class="field">
+    <%= f.select :tenant_type,
+                 { "Mitwirken Stadt Zürich": :mitwirken, "Meinquartier.Zürich": :meinquartier },
+                 { include_blank: t("decidim.system.organizations.tenant_type.none") },
+                 { multiple: false } %>
+  </div>
+</div>

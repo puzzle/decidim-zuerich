@@ -171,7 +171,13 @@ en:
         filters:
           activity: Kind
     system:
+      models:
+        organization:
+          fields:
+            tenant_type: special features
       organizations:
+        tenant_type:
+          none: None
         omniauth_settings:
           oidc:
             issuer: Issuer URL (e.g. https://login.integ.stadt-zuerich.ch:443/login/op)

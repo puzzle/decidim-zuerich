@@ -56,6 +56,12 @@ de:
         state: Status
       meeting:
         private_meeting: Private Veranstaltung
+      organization:
+        delete_admin_logs: Aktiviere das Löschen der Admin Logs
+        delete_admin_logs_after: Löschen der Admin Logs nach (Tagen, Standart 365)
+        delete_inactive_users: Aktiviere das Löschen inaktiver User
+        delete_inactive_users_after: Löschen der inaktiven User nach (Tagen, Standart 390)
+        delete_inactive_users_email_after: Schike eine Mail an inaktive User nach (Tagen, Standart 365)
       proposal:
         has_address: Hat einen Standort
         state: Status
@@ -197,6 +203,7 @@ de:
       menu:
         assemblies_submenu:
           attachments: Anhänge
+        clean: Datenbereinigung
         conferences_submenu:
           attachments: Anhänge
         decidim_awesome: Decidim Awesome
@@ -259,6 +266,27 @@ de:
           view: Ansehen
         project:
           view: Ansehen
+    cleaner:
+      admin:
+        organization_cleaner:
+          edit:
+            update: Aktualisieren
+          form:
+            admin_log_cleaner_title: Bereinigung der Admin Logs
+            inactive_users_cleaner_title: Bereinigung der inaktiven Nutzer
+      inactive_users_mailer:
+        warning_deletion:
+          body_1: Du warst seit %{days} Tagen nicht mehr aktiv auf <a href="%{organization_url}"> %{organization_name} </a>.
+          body_2: Daher wurde dein Nutzerkonto gelöscht.
+          greetings: Beste Grüsse,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hallo
+          subject: Dein Nutzerkonto wurde gelöscht
+        warning_inactive:
+          body_1: Du warst seit %{days} Tagen nicht mehr aktiv auf %{organization_name}.
+          body_2: <a href="%{organization_url}">Wenn du dich in den nächsten %{remaining_days} Tagen nicht anmeldest </a>, wird dein Nutzerkonto gelöscht.
+          greetings: Beste Grüsse,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hallo
+          subject: Dein Nutzerkonto ist inaktiv
     components:
       meetings:
         settings:
@@ -293,6 +321,8 @@ de:
         settings:
           global:
             total_budget: Gesamtbudget CHF
+      cleaner:
+        name: Datenbereinigung
       comment:
         report:
           action: Meldung absenden
@@ -915,6 +945,7 @@ de:
             created_at: Erstellt am
             smtp_settings: SMTP Einstellungen
             omniauth_settings: Omniauth Einstellungen
+            tenant_type: Spezial-Features
       organizations:
         advanced_settings:
           show: Fortgeschrittene Einstellungen einblenden
@@ -933,6 +964,8 @@ de:
             client_id: Client ID
             client_secret: Client secret
             redirect_url: Redirect URL (z.B. https://my.decidim.domain/users/auth/oidc/callback)
+        tenant_type:
+          none: Keine
         update:
           error: Beim Bearbeiten dieser Organisation ist ein Fehler aufgetreten.
           success: Die Organisation wurde erfolgreich gespeichert.

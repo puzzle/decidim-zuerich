@@ -17,6 +17,8 @@ module DecidimZuerich
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
+    config.autoloader = :zeitwerk
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
@@ -36,13 +38,6 @@ module DecidimZuerich
     # Use a real queuing backend for Active Job (and separate queues per environment)
     config.active_job.queue_adapter     = :delayed_job
     config.active_job.queue_name_prefix = "decidim_zuerich_#{Rails.env}"
-
-    config.to_prepare do
-      overrides = Rails.root.glob('lib/overrides/**/*_override.rb')
-      overrides.each do |override|
-        require_dependency override
-      end
-    end
 
     Raven.configure do |config|
       config.dsn = ENV['SENTRY_DSN']

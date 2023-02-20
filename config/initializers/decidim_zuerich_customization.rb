@@ -1,30 +1,53 @@
-Decidim::ApplicationMailer.prepend DecidimZuerich::ApplicationMailer
-Decidim::Assemblies::AssembliesHelper.prepend DecidimZuerich::Assemblies::AssembliesHelper
-Decidim::Assemblies::AssemblyMCell.prepend DecidimZuerich::Assemblies::AssemblyMCell
-Decidim::Comments::CommentVotedEvent.include DecidimZuerich::Comments::CommentVotedEvent
-Decidim::Debates::CreateDebateEvent.include DecidimZuerich::Debates::CreateDebateEvent
-Decidim::DiffCell.include DecidimZuerich::DiffCell
-Decidim::Forms::AnswerQuestionnaire.prepend DecidimZuerich::Forms::AnswerQuestionnaire
-Decidim::Meetings::MeetingMCell.prepend DecidimZuerich::Meetings::MeetingMCell
-Decidim::Meetings::MeetingPresenter.prepend DecidimZuerich::Meetings::MeetingPresenter
-Decidim::OrganizationLogoUploader.prepend DecidimZuerich::OrganizationLogoUploader
-Decidim::ParticipatoryProcesses::Permissions.prepend DecidimZuerich::ParticipatoryProcesses::Permissions
-Decidim::Proposals::DiffRenderer.prepend DecidimZuerich::Proposals::DiffRenderer
-Decidim::Proposals::MapHelper.prepend DecidimZuerich::Proposals::MapHelper
-Decidim::ParticipatoryProcesses::ProcessFiltersCell.prepend DecidimZuerich::ParticipatoryProcesses::ProcessFiltersCell
-Decidim::ResourceLocatorPresenter.prepend DecidimZuerich::ResourceLocatorPresenter
-Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper.prepend DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper
+# frozen_string_literal: true
 
-module Decidim
-  module Map
-    module Provider
-      module DynamicMap
-        autoload :Swisstopo, 'decidim/map/provider/dynamic_map/swisstopo'
-        autoload :GisZh, 'decidim/map/provider/dynamic_map/gis_zh'
-      end
-    end
+require_relative '../../lib/customization_output'
+
+includes = [
+  [Decidim::Comments::CommentVotedEvent, DecidimZuerich::Comments::CommentVotedEvent],
+  [Decidim::Debates::CreateDebateEvent,  DecidimZuerich::Debates::CreateDebateEvent],
+  [Decidim::DiffCell,                    DecidimZuerich::DiffCell]
+].each { |base, addition| base.include addition }
+
+prepends = [
+  [Decidim::ApplicationMailer,                                  DecidimZuerich::ApplicationMailer],
+  [Decidim::Assemblies::AssembliesHelper,                       DecidimZuerich::Assemblies::AssembliesHelper],
+  [Decidim::Assemblies::AssemblyMCell,                          DecidimZuerich::Assemblies::AssemblyMCell],
+  [Decidim::Forms::AnswerQuestionnaire,                         DecidimZuerich::Forms::AnswerQuestionnaire],
+  [Decidim::Meetings::MeetingMCell,                             DecidimZuerich::Meetings::MeetingMCell],
+  [Decidim::Meetings::MeetingPresenter,                         DecidimZuerich::Meetings::MeetingPresenter],
+  [Decidim::OrganizationLogoUploader,                           DecidimZuerich::OrganizationLogoUploader],
+  [Decidim::ParticipatoryProcesses::Permissions,                DecidimZuerich::ParticipatoryProcesses::Permissions],
+  [Decidim::Proposals::DiffRenderer,                            DecidimZuerich::Proposals::DiffRenderer],
+  [Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
+  [Decidim::ParticipatoryProcesses::ProcessFiltersCell,         DecidimZuerich::ParticipatoryProcesses::ProcessFiltersCell],
+  [Decidim::ResourceLocatorPresenter,                           DecidimZuerich::ResourceLocatorPresenter],
+  [Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper, DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper]
+].each { |base, addition| base.prepend addition }
+
+override_path = Pathname.new('lib/overrides')
+Rails.autoloaders.main.ignore(override_path)
+
+overrides = override_path.glob('**/*_override.rb')
+Rails.application.config.after_initialize do
+  overrides.each do |override|
+    require_dependency override.expand_path.to_s
   end
 end
+
+CustomizationOutput.puts_and_log(includes: includes, prepends: prepends, overrides: overrides)
+
+# v Specially handled things (here be dragons) v
+
+# Add the Devise custom scope to the Decidim config
+# Find all instances with: <% scope = Decidim.config.devise_custom_scope.(@organization) %>
+Decidim.config[:devise_custom_scope] = lambda { |org, base = nil|
+  base ||= %i[decidim_zuerich devise]
+
+  org_scope = (org.tenant_type || 'other').to_sym
+
+  # Ensure that the current tenant is using custom translations for the devise mails
+  base + [org_scope] if I18n.t(org_scope, scope: base, default: nil)
+}
 
 # Setup a controller hook to setup the sms gateway before the
 # request is processed. This is done through a notification to
@@ -37,18 +60,15 @@ end
 # Override default for surveys
 Decidim.find_component_manifest(:surveys).settings(:global).attributes[:clean_after_publish].default = false
 
-# Add the Devise custom scope to the Decidim config
-# Find all instances with: <% scope = Decidim.config.devise_custom_scope.(@organization) %>
-Decidim.config[:devise_custom_scope] = lambda { |org, base = nil|
-  base ||= %i[decidim_zuerich devise]
 
-  org_scope =
-    case org.id
-    when 1 then :mitwirken
-    when 2 then :meinquartier
-    else :other
+module Decidim
+  module Map
+    module Provider
+      module DynamicMap
+        autoload :Swisstopo, 'decidim/map/provider/dynamic_map/swisstopo'
+        autoload :GisZh, 'decidim/map/provider/dynamic_map/gis_zh'
+      end
     end
+  end
+end
 
-  # Ensure that the current tenant is using custom translations for the devise mails
-  base + [org_scope] if I18n.t(org_scope, scope: base, default: nil)
-}
