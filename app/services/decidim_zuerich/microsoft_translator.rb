@@ -14,7 +14,7 @@ class DecidimZuerich::MicrosoftTranslator
   def translate
     translated_text = request_translation
 
-    MachineTranslationSaveJob.perform_later(
+    Decidim::MachineTranslationSaveJob.perform_later(
       resource,
       field_name,
       target_locale,
