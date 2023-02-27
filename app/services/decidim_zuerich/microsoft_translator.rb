@@ -27,7 +27,7 @@ class DecidimZuerich::MicrosoftTranslator
   def request_translation
     endpoint = Rails.application.secrets.translator[:endpoint_url]
     secret_key = Rails.application.secrets.translator[:secret_key]
-    path = '/translate?api-version=3.0'
+    path = '/translator/text/v3.0/translate?api-version=3.0'
     params = "&from=#{source_locale}&to=#{target_locale}"
     uri = URI(endpoint + path + params)
     content = [{ text: text }].to_json
@@ -45,6 +45,6 @@ class DecidimZuerich::MicrosoftTranslator
 
     result = response.body.force_encoding("utf-8")
     json = JSON.parse(result)
-    json.dig(0, :translations, 0, :text)
+    json.dig(0, 'translations', 0, 'text')
   end
 end
