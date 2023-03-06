@@ -12,6 +12,7 @@ prepends = [
   [Decidim::ApplicationMailer,                                  DecidimZuerich::ApplicationMailer],
   [Decidim::Assemblies::AssembliesHelper,                       DecidimZuerich::Assemblies::AssembliesHelper],
   [Decidim::Assemblies::AssemblyMCell,                          DecidimZuerich::Assemblies::AssemblyMCell],
+  [Decidim::TranslationBarCell,                                 DecidimZuerich::TranslationBarCell],
   [Decidim::Forms::AnswerQuestionnaire,                         DecidimZuerich::Forms::AnswerQuestionnaire],
   [Decidim::Meetings::MeetingMCell,                             DecidimZuerich::Meetings::MeetingMCell],
   [Decidim::Meetings::MeetingPresenter,                         DecidimZuerich::Meetings::MeetingPresenter],
