@@ -25,7 +25,7 @@ jobs:
         run: |
           cdxgen -o ./sbom-ruby.xml -t ruby .
 
-      - name: 'Push merged SBOM to dependency track'
+      - name: 'Push SBOM to dependency track'
         env:
           PROJECT_NAME: decidim-zuerich
         run: |
