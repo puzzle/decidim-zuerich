@@ -43,7 +43,7 @@ CustomizationOutput.puts_and_log(includes: includes, prepends: prepends, overrid
 Decidim.config[:devise_custom_scope] = lambda { |org, base = nil|
   base ||= %i[decidim_zuerich devise]
 
-  org_scope = (org.tenant_type || 'other').to_sym
+  org_scope = (org.tenant_type.presence || 'other').to_sym
 
   # Ensure that the current tenant is using custom translations for the devise mails
   base + [org_scope] if I18n.t(org_scope, scope: base, default: nil)
