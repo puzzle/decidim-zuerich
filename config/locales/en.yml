@@ -202,6 +202,14 @@ en:
     devise:
       # mitwirken: null
       # meinquartier: null
+    verifications:
+      sms:
+        aspsms_gateway:
+          sms_text: '%{code} is your access code for %{organization}'
+          sms_originator_max_11_alphabetic_characters: DECIDIM
+    translator:
+      notice: '- automatically translated'
+    reply_to: mitwirken-kontakt@zuerich.ch
   hello: "Hello world"
   layouts:
     decidim:
@@ -210,10 +218,3 @@ en:
         link_label: here
         ok: I agree
   total_budget: Total budget CHF
-  decidim_zuerich:
-    verifications:
-      sms:
-        aspsms_gateway:
-          sms_text: '%{code} is your access code for %{organization}'
-          sms_originator_max_11_alphabetic_characters: DECIDIM
-    reply_to: mitwirken-kontakt@zuerich.ch

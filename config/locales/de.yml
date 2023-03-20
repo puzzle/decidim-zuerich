@@ -1114,6 +1114,24 @@ de:
               instruction: "Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:"
               message: "Ihr Konto wurde aufgrund einer übermässigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt."
       # meinquartier: null
+    maps:
+      gis_zh:
+        basiskarte_schraeg: Stadt Zürich Basiskarte
+        orthofoto: Stadt Zürich Luftbild
+    surveys:
+      survey_answered_mailer:
+        answered:
+          answered_survey: 'Jemand hat an der Umfrage "%{survey_name}" teilgenommen.'
+          subject: 'Neue Antwort auf Umfrage "%{survey_name}"'
+          view: 'Zur Umfrage'
+    verifications:
+      sms:
+        aspsms_gateway:
+          sms_text: '%{code} ist dein Zugangscode auf %{organization}'
+          sms_originator_max_11_alphabetic_characters: DECIDIM
+    translator:
+      notice: '- automatisch übersetzt'
+    reply_to: mitwirken-kontakt@zuerich.ch
   errors:
     messages:
       too_many_marks: enthält zu viele aufeinanderfolgende Satzzeichen (z.B. "!" und "?")
@@ -1178,20 +1196,3 @@ de:
       minimum:
         one: mindestens %{count} Buchstabe
         other: mindestens %{count} Buchstaben
-  decidim_zuerich:
-    maps:
-      gis_zh:
-        basiskarte_schraeg: Stadt Zürich Basiskarte
-        orthofoto: Stadt Zürich Luftbild
-    surveys:
-      survey_answered_mailer:
-        answered:
-          answered_survey: 'Jemand hat an der Umfrage "%{survey_name}" teilgenommen.'
-          subject: 'Neue Antwort auf Umfrage "%{survey_name}"'
-          view: 'Zur Umfrage'
-    verifications:
-      sms:
-        aspsms_gateway:
-          sms_text: '%{code} ist dein Zugangscode auf %{organization}'
-          sms_originator_max_11_alphabetic_characters: DECIDIM
-    reply_to: mitwirken-kontakt@zuerich.ch
