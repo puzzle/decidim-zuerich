@@ -12,7 +12,7 @@ class DecidimZuerich::MicrosoftTranslator
   end
 
   def translate
-    translated_text = add_notice(request_translation)
+    translated_text = add_notice(request_translation, target_locale)
 
     Decidim::MachineTranslationSaveJob.perform_later(
       resource,
@@ -24,8 +24,11 @@ class DecidimZuerich::MicrosoftTranslator
 
   private
 
-  def add_notice(text)
-    [text.strip, I18n.t('decidim_zuerich.translator.notice')].join(' ').strip
+  def add_notice(text, locale)
+    [
+      text.strip,
+      I18n.t('decidim_zuerich.translator.notice', locale: locale.to_sym)
+    ].join(' ').strip
   end
 
   def request_translation
