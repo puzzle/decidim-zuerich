@@ -67,10 +67,21 @@ module Decidim
       end
 
       def activities
-        @activities ||= HomeActivitySearch.new(
-          organization: current_organization,
-          resource_type: "Decidim::Blogs::Post"
-        ).results.limit(activities_to_show * 6)
+        # @activities ||= HomeActivitySearch.new(
+        #   organization: current_organization,
+        #   resource_type: "Decidim::Blogs::Post"
+        # ).results.limit(activities_to_show * 6)
+
+        # HACK: Searchlight is no longer bundled with Decidim
+        # Best effort reimplementation
+
+        @activities ||=
+          Decidim::ActionLog
+          .where(visibility: %w(public-only all))
+          .where(organization: current_organization)
+          .where(resource_type: "Decidim::Blogs::Post")
+          .where(action: "create")
+          .order(created_at: :desc)
       end
 
       def activities_to_show
