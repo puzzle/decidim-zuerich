@@ -72,6 +72,5 @@ Rails.application.configure do
       affiliate_id: ENV['ASPSMS_AFFILIATE_ID']
   }
 
-  config.hosts << /meinquartier\.local/
-  config.hosts << /mitwirken\.local/
+  config.hosts << /.*\.local/
 end
