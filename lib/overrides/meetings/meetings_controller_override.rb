@@ -2,6 +2,6 @@
 
 Decidim::Meetings::MeetingsController.class_eval do
   def meetings
-    @meetings ||= paginate(search.results.order(:start_time))
+    @meetings ||= paginate(search.result.order(:start_time))
   end
 end
