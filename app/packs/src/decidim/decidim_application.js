@@ -61,7 +61,7 @@ window.addEventListener("load", (event) => {
  * Redirect to external participatory processes
  */
 window.addEventListener("load", (event) => {
-  const announcement = document.querySelector('.process-header + .wrapper .callout.announcement');
+  const announcement = document.querySelector('.process-header ~ .wrapper .callout.cell-announcement');
   if (announcement == null) return;
 
   // Convention: Only redirect if the announcement text starts and ends with three dashes.
