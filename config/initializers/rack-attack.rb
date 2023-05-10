@@ -1,6 +1,8 @@
 require 'rack/attack'
 require 'ipaddr'
 
+Rack::Attack.enabled = ENV.fetch('ENABLE_RACK_ATTACK', Rails.env.production?.to_s).in?(%w[true 1])
+
 ActiveSupport::Notifications.subscribe(/rack_attack/) do |name, start, finish, request_id, payload|
   # request object available in payload[:request]
   request = payload[:request]
