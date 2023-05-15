@@ -8,8 +8,8 @@
 
 // Maybe not needed if all are replacing existing files
 // @import 'app/packs/stylesheets/application.css';
-@import 'app/packs/stylesheets/decidim.scss';
-@import 'app/packs/stylesheets/email.scss';
+@import '../decidim.scss';
+@import '../email.scss';
 
 // MODIFICATIONS FOR DECIDIM ZUERICH
 

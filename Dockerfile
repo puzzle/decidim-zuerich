@@ -2,7 +2,7 @@
 #                            Build Stage                         #
 ##################################################################
 
-FROM ruby:2.7 AS build
+FROM ruby:3.0.2 AS build
 
 ARG BUILD_PACKAGES="git libicu-dev libpq-dev"
 ARG BUILD_SCRIPT="npm install -g npm && \
@@ -72,7 +72,7 @@ RUN rm -rf vendor/cache/ .git
 ##################################################################
 
 # This image will be replaced by Openshift
-FROM ruby:2.7-slim AS app
+FROM ruby:3.0.2-slim AS app
 
 # Set runtime shell
 SHELL ["/bin/bash", "-c"]
