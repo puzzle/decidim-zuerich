@@ -40,7 +40,7 @@ services:
     volumes:
       - pg-data:/var/lib/postgresql/data
       #- ./.docker/00-prepare-for-prod-dump.sql:/docker-entrypoint-initdb.d/00-prepare-for-prod-dump.sql
-      - ./.docker/database-init.sql:/docker-entrypoint-initdb.d/database-init.sql
+      #- ./.docker/database-init.sql:/docker-entrypoint-initdb.d/database-init.sql
   cache:
     image: memcached:1.5-alpine
     command: [ memcached, -l, '0.0.0.0', -p, '11211' ]
