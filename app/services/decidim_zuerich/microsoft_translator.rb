@@ -12,24 +12,15 @@ class DecidimZuerich::MicrosoftTranslator
   end
 
   def translate
-    translated_text = add_notice(request_translation, target_locale)
-
     Decidim::MachineTranslationSaveJob.perform_later(
       resource,
       field_name,
       target_locale,
-      translated_text
+      request_translation
     )
   end
 
   private
-
-  def add_notice(text, locale)
-    [
-      text.strip,
-      I18n.t('decidim_zuerich.translator.notice', locale: locale.to_sym)
-    ].join(' ').strip
-  end
 
   def request_translation
     endpoint = Rails.application.secrets.translator[:endpoint_url]

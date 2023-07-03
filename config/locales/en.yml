@@ -207,8 +207,6 @@ en:
         aspsms_gateway:
           sms_text: '%{code} is your access code for %{organization}'
           sms_originator_max_11_alphabetic_characters: DECIDIM
-    translator:
-      notice: '- automatically translated'
     reply_to: mitwirken-kontakt@zuerich.ch
   hello: "Hello world"
   layouts:
