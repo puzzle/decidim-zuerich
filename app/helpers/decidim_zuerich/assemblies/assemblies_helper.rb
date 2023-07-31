@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Override last checked at: 31.07.2023
 module DecidimZuerich
   module Assemblies
     module AssembliesHelper

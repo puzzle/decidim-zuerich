@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Override last checked at: 31.07.2023
+# TODO: @cbeltrame, check for 0.27.4 upgrade
+
 module DecidimZuerich
   module Meetings
     # Modifications to make the /meetings list more compact
@@ -8,14 +11,6 @@ module DecidimZuerich
 
       def has_authors?
         false
-      end
-
-      def has_image?
-        true
-      end
-
-      def date
-        render
       end
 
       def title

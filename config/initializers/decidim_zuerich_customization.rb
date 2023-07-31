@@ -22,7 +22,9 @@ prepends = [
   [Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
   [Decidim::ParticipatoryProcesses::ProcessFiltersCell,         DecidimZuerich::ParticipatoryProcesses::ProcessFiltersCell],
   [Decidim::ResourceLocatorPresenter,                           DecidimZuerich::ResourceLocatorPresenter],
-  [Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper, DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper]
+  [Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper, DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper],
+  [Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
+  [Decidim::System::UpdateOrganization,                         DecidimZuerich::System::UpdateOrganization]
 ].each { |base, addition| base.prepend addition }
 
 override_path = Pathname.new('lib/overrides')

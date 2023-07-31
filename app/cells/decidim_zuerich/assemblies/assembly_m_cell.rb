@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
+# Override last checked at: 31.07.2023
+# TODO: @cbeltrame, check for 0.27.4 upgrade
+
 module DecidimZuerich
   module Assemblies
     # Modifications to make the /assemblies list more compact
     module AssemblyMCell
       include ApplicationHelper
-
-      def has_image?
-        true
-      end
 
       def followers_count
         if model.respond_to?(:followers_count)
