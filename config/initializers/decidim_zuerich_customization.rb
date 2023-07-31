@@ -4,7 +4,6 @@ require_relative '../../lib/customization_output'
 require_relative '../../lib/decidim_zuerich/form_builder'
 
 includes = [
-  [Decidim::Comments::CommentVotedEvent, DecidimZuerich::Comments::CommentVotedEvent],
   [Decidim::Debates::CreateDebateEvent,  DecidimZuerich::Debates::CreateDebateEvent],
   [Decidim::DiffCell,                    DecidimZuerich::DiffCell],
   [Decidim::FormBuilder,                 DecidimZuerich::FormBuilder]
