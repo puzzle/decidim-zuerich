@@ -389,6 +389,8 @@ GEM
       icalendar (~> 2.5)
     decidim-pages (0.27.3)
       decidim-core (= 0.27.3)
+    decidim-participatory_documents (0.2.0)
+      decidim-core (>= 0.27.0, < 0.28)
     decidim-participatory_processes (0.27.3)
       decidim-core (= 0.27.3)
     decidim-proposals (0.27.3)
@@ -975,6 +977,7 @@ DEPENDENCIES
   decidim-conferences (= 0.27.3)
   decidim-decidim_awesome!
   decidim-dev (= 0.27.3)
+  decidim-participatory_documents
   decidim-proposals (= 0.27.3)
   decidim-question_captcha!
   decidim-templates (= 0.27.3)
@@ -1001,4 +1004,4 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
-   2.4.10
+   2.4.18
