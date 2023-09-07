@@ -4,10 +4,15 @@
 
 FROM ruby:3.0.2 AS build
 
-ARG BUILD_PACKAGES="git libicu-dev libpq-dev"
-ARG BUILD_SCRIPT="npm install -g npm && \
-    npm install -g yarn && \
-    yarn set version 1.22.10"
+ARG BUILD_PACKAGES="git libicu-dev libpq-dev ca-certificates curl gnupg"
+ARG BUILD_SCRIPT="set -uex \
+ && mkdir -p /etc/apt/keyrings \
+ && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
+ && echo \"deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main\" > /etc/apt/sources.list.d/nodesource.list \
+ && apt-get update \
+ && apt-get install nodejs -y \
+ && npm install -g yarn \
+ && yarn set version 1.22.10"
 ARG BUNDLE_WITHOUT="development:metrics:test"
 ARG BUNDLER_VERSION="2.3.22"
 ARG POST_BUILD_SCRIPT="bundle exec rails assets:precompile"
@@ -29,8 +34,7 @@ RUN apt-get update \
 # Installs nodejs as a dependency
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
  && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg && apt-key add /root/yarn-pubkey.gpg \
- && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
- && apt-get update \
+ && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \ && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
     nodejs \
  && apt-get clean \
