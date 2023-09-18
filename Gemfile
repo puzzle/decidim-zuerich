@@ -2,11 +2,11 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.27.3'
+DECIDIM_VERSION = '0.27.4'
 
 ruby RUBY_VERSION
 
-gem 'execjs' #, '= 2.7.0'
+gem 'execjs' # , '= 2.7.0'
 
 gem 'decidim', DECIDIM_VERSION
 gem 'decidim-proposals', DECIDIM_VERSION
@@ -25,7 +25,7 @@ gem 'decidim-term_customizer', github: 'mainio/decidim-module-term_customizer', 
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
-gem 'acts_as_textcaptcha', '~> 4.5.1'
+gem 'acts_as_textcaptcha'      # , '~> 4.5.1'
 gem 'aws-sdk-s3'
 gem 'bootsnap'
 gem 'dalli'
