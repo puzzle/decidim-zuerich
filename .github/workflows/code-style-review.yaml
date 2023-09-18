@@ -1,3 +1,4 @@
+---
 name: 'Code Style Review'
 
 on:
@@ -14,7 +15,7 @@ jobs:
 
     steps:
     - name: 'Checkout'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: 'Set up Ruby'
       uses: ruby/setup-ruby@v1 # Uses .ruby-version || .tool-versions by default
@@ -55,3 +56,4 @@ jobs:
         -reporter=github-pr-review \
         -level=error \
         -diff="git diff $DIFF_BRANCH"
+  ...
