@@ -4,7 +4,6 @@ require_relative '../../lib/customization_output'
 require_relative '../../lib/decidim_zuerich/form_builder'
 
 includes = [
-  [Decidim::Comments::CommentVotedEvent, DecidimZuerich::Comments::CommentVotedEvent],
   [Decidim::Debates::CreateDebateEvent,  DecidimZuerich::Debates::CreateDebateEvent],
   [Decidim::DiffCell,                    DecidimZuerich::DiffCell],
   [Decidim::FormBuilder,                 DecidimZuerich::FormBuilder]
@@ -23,7 +22,9 @@ prepends = [
   [Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
   [Decidim::ParticipatoryProcesses::ProcessFiltersCell,         DecidimZuerich::ParticipatoryProcesses::ProcessFiltersCell],
   [Decidim::ResourceLocatorPresenter,                           DecidimZuerich::ResourceLocatorPresenter],
-  [Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper, DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper]
+  [Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper, DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper],
+  [Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
+  [Decidim::System::UpdateOrganization,                         DecidimZuerich::System::UpdateOrganization]
 ].each { |base, addition| base.prepend addition }
 
 override_path = Pathname.new('lib/overrides')

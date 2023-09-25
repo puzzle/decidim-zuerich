@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: 'Set up Ruby'
         uses: ruby/setup-ruby@v1
@@ -45,7 +45,7 @@ jobs:
         run: |
           sudo apt-get install libpq-dev
       - name: Cache gems
-        uses: actions/cache@preview
+        uses: actions/cache@v3
         with:
           path: vendor/bundle
           key: ruby-${{ matrix.ruby }}-gem-${{ hashFiles('**/Gemfile.lock') }}
@@ -63,3 +63,4 @@ jobs:
           bundle exec rails db:create
           bundle exec rails db:migrate
           bundle exec rails test
+  ...

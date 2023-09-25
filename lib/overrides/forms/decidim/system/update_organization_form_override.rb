@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
+# Override last checked at: 31.07.2023
 Decidim::System::UpdateOrganizationForm.class_eval do
   attribute :tenant_type, String
 end
-
-Decidim::System::RegisterOrganization.prepend DecidimZuerich::System::RegisterOrganization
-Decidim::System::UpdateOrganization.prepend DecidimZuerich::System::UpdateOrganization

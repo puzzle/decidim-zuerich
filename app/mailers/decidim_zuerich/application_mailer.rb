@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Override last checked at: 31.07.2023
 module DecidimZuerich
   # Main application mailer configuration. Inherit from this to create new
   # mailers.

@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+# Override last checked at: 31.07.2023
 Decidim::Devise::OmniauthRegistrationsController.class_eval do
-
   private
+
   def user_params_from_oauth_hash
     return nil if oauth_data.empty?
 

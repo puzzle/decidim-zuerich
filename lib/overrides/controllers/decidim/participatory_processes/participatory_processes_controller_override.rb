@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Override last checked at: 31.07.2023
 Decidim::ParticipatoryProcesses::ParticipatoryProcessesController.class_eval do
   helper_method :participatory_process_groups,
                 :filtered_processes,
@@ -17,7 +18,6 @@ Decidim::ParticipatoryProcesses::ParticipatoryProcessesController.class_eval do
     Decidim::ContentBlock
       .published
       .for_scope(:participatory_process_group_homepage, organization: current_organization)
-      .where(scoped_resource_id: process_group.id)
-      .exists?
+      .exists?(scoped_resource_id: process_group.id)
   end
 end

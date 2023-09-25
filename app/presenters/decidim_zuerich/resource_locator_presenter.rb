@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+# Override last checked at: 31.07.2023
+# TODO: @tburkhalter Test this
+
 module DecidimZuerich
   # A presenter to get the url or path from a resource.
   # resource - a record or array of nested records.

@@ -2,7 +2,7 @@
 #                            Build Stage                         #
 ##################################################################
 
-FROM ruby:3.0.2 AS build
+FROM ruby:3.0.6 AS build
 
 ARG BUILD_PACKAGES="git libicu-dev libpq-dev ca-certificates curl gnupg"
 ARG BUILD_SCRIPT="set -uex \
@@ -12,9 +12,9 @@ ARG BUILD_SCRIPT="set -uex \
  && apt-get update \
  && apt-get install nodejs -y \
  && npm install -g yarn \
- && yarn set version 1.22.10"
+ && yarn set version 1.22.19"
 ARG BUNDLE_WITHOUT="development:metrics:test"
-ARG BUNDLER_VERSION="2.3.22"
+ARG BUNDLER_VERSION="2.4.18"
 ARG POST_BUILD_SCRIPT="bundle exec rails assets:precompile"
 ARG SKIP_MEMCACHE_CHECK="true"
 ARG RAILS_ENV="production"
@@ -76,7 +76,7 @@ RUN rm -rf vendor/cache/ .git
 ##################################################################
 
 # This image will be replaced by Openshift
-FROM ruby:3.0.2-slim AS app
+FROM ruby:3.0.6-slim AS app
 
 # Set runtime shell
 SHELL ["/bin/bash", "-c"]

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Override last checked at: 31.07.2023
 module DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper
   def step_dates(participatory_process_step)
     dates = [participatory_process_step.start_date, participatory_process_step.end_date].compact
