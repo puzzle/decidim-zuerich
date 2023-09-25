@@ -2,7 +2,7 @@ import 'leaflet'
 import 'leaflet-tilelayer-swiss'
 import 'leaflet-svgicon'
 import 'leaflet.markercluster'
-import '../../src/map.js' // must import this file in order to run any maps at all
+import 'src/decidim/map.js'
 import 'src/decidim/map.js'
 import MapMarkersController from 'src/decidim/map/controller/markers.js'
 import DragMarkersController from 'src/decidim/map/controller/drag_marker.js'
