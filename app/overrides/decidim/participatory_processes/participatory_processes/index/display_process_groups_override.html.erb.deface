@@ -1,24 +1,7 @@
-<%# Overridden view from decidim, for displaying process groups specially, issue #246 %>
-<% add_decidim_meta_tags(title: t("participatory_processes.index.title", scope: "decidim")) %>
-
-<%
-edit_link(
-  decidim_admin_participatory_processes.participatory_processes_path,
-  :read,
-  :process_list
-)
-%>
-
-<%= participatory_space_wrapper do %>
-  <% if promoted_collection.any? %>
-    <section id="highlighted-processes" class="row section">
-      <h1 class="section-heading"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h1>
-      <% promoted_collection.each do |promoted_item| %>
-        <%= render_highlighted_partial_for promoted_item %>
-      <% end %>
-    </section>
-  <% end %>
-
+<!-- replace "#processes-grid"
+     original '5a3fe3b15410bed17da324a66bfaf71d4d0ca7f3'
+-->
+  <%# Overridden view from decidim, for displaying process groups specially, issue #246 %>
   <div class="processes-grid-order-by">
     <%= render partial: "order_by_processes" %>
   </div>
@@ -51,6 +34,3 @@ edit_link(
       <%= render(collection) %>
     </div>
   </section>
-<% end %>
-
-<%= javascript_pack_tag "decidim_participatory_processes" %>
