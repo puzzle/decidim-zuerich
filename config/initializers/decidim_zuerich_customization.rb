@@ -27,13 +27,13 @@ prepends = [
   [Decidim::System::UpdateOrganization,                         DecidimZuerich::System::UpdateOrganization]
 ].each { |base, addition| base.prepend addition }
 
-override_path = Pathname.new('lib/overrides')
+override_path = Pathname.new('app/overrides')
 Rails.autoloaders.main.ignore(override_path)
 
 overrides = override_path.glob('**/*_override.rb')
 Rails.application.config.after_initialize do
   overrides.each do |override|
-    require_dependency override.expand_path.to_s
+    load override.expand_path.to_s
   end
 end
 
@@ -56,8 +56,8 @@ Decidim.config[:devise_custom_scope] = lambda { |org, base = nil|
 # request is processed. This is done through a notification to
 # get access to the `current_*` environment variables within
 # Decidim. Taken and adapted from the term_customizer module.
-ActiveSupport::Notifications.subscribe "start_processing.action_controller" do |_name, _started, _finished, _unique_id, data|
-  DecidimZuerich::Verifications::Sms::AspsmsGateway.organization = data[:headers].env["decidim.current_organization"]
+ActiveSupport::Notifications.subscribe 'start_processing.action_controller' do |_name, _started, _finished, _unique_id, data|
+  DecidimZuerich::Verifications::Sms::AspsmsGateway.organization = data[:headers].env['decidim.current_organization']
 end
 
 # Override default for surveys
