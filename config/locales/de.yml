@@ -1077,6 +1077,10 @@ de:
         didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungsmail erhalten?
         didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
   decidim_zuerich:
+    participatory_processes:
+      participatory_process_helper:
+        step_dates:
+          no_dates: 'Kein Datum angegeben'
     devise:
       mitwirken:
         devise:
