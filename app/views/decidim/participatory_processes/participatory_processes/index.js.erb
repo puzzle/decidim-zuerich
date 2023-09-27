@@ -1,0 +1,10 @@
+var $order_by_filters = $('#processes-grid-order-by');
+var $process_groups = $('#process-groups');
+var $grid = $('#processes-grid');
+var $loading = $grid.find('.loading');
+
+$order_by_filters.html('<%= j(render(partial: "decidim/participatory_processes/participatory_processes/order_by_processes", locals: { include_filter: true })).strip.html_safe %>');
+$process_groups.html('<%= j(render(partial: "decidim/participatory_processes/participatory_processes/process_groups")) %>')
+$grid.find('.card-grid').html('<%= j(render(collection)).strip.html_safe %>');
+$order_by_filters.foundation();
+$loading.hide();
