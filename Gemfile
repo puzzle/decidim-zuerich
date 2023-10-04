@@ -21,8 +21,8 @@ gem 'decidim-cleaner', github: 'puzzle/decidim-module-cleaner', branch: 'release
 gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome'
 gem 'decidim-participatory_documents'
 gem 'decidim-question_captcha', github: 'OpenSourcePolitics/decidim-module-question_captcha', branch: 'release/0.27-stable'
+gem 'decidim-survey_multiple_answers', '~> 0.26.1'
 gem 'decidim-term_customizer', github: 'mainio/decidim-module-term_customizer', branch: 'master'
-gem 'decidim-survey_multiple_answers', github: 'alecslupu-pfa/decidim-module-survey_multiple_answers', branch: 'fix/multiple-answers'
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
@@ -31,7 +31,7 @@ gem 'aws-sdk-s3'
 gem 'bootsnap'
 gem 'dalli'
 gem 'delayed_job_active_record'
-gem 'faker' #, '~> 1.9'
+gem 'faker'                    # , '~> 1.9'
 gem 'lograge'
 gem 'omniauth_openid_connect'
 gem 'prometheus_exporter'

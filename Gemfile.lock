@@ -9,17 +9,6 @@ GIT
       deface (~> 1.6)
 
 GIT
-  remote: https://github.com/alecslupu-pfa/decidim-module-survey_multiple_answers.git
-  revision: 700e8a4c2deb9d716d0944d2776406477ac9b13f
-  branch: fix/multiple-answers
-  specs:
-    decidim-survey_multiple_answers (0.0.1)
-      decidim-admin (>= 0.26.0, < 0.28.0)
-      decidim-core (>= 0.26.0, < 0.28.0)
-      decidim-forms (>= 0.26.0, < 0.28.0)
-      decidim-surveys (>= 0.26.0, < 0.28.0)
-
-GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
   revision: 05ab8848b0aad43edba8af35e3e081ac577c02e2
   specs:
@@ -415,6 +404,11 @@ GEM
       decidim-comments (= 0.27.4)
       decidim-core (= 0.27.4)
       decidim-proposals (= 0.27.4)
+    decidim-survey_multiple_answers (0.26.1)
+      decidim-admin (>= 0.26.0, < 0.28.0)
+      decidim-core (>= 0.26.0, < 0.28.0)
+      decidim-forms (>= 0.26.0, < 0.28.0)
+      decidim-surveys (>= 0.26.0, < 0.28.0)
     decidim-surveys (0.27.4)
       decidim-core (= 0.27.4)
       decidim-forms (= 0.27.4)
@@ -999,7 +993,7 @@ DEPENDENCIES
   decidim-participatory_documents
   decidim-proposals (= 0.27.4)
   decidim-question_captcha!
-  decidim-survey_multiple_answers!
+  decidim-survey_multiple_answers (~> 0.26.1)
   decidim-templates (= 0.27.4)
   decidim-term_customizer!
   delayed_cron_job
