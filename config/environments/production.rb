@@ -75,11 +75,11 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
-  end
+  # if ENV["RAILS_LOG_TO_STDOUT"].present?
+  #   logger           = ActiveSupport::Logger.new(STDOUT)
+  #   logger.formatter = config.log_formatter
+  #   config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  # end
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
@@ -119,6 +119,7 @@ Rails.application.configure do
 
   # Use log rage
   config.lograge.enabled = true
+  config.lograge.logger = ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new($stdout))
   config.lograge.ignore_actions = ['StatusController#health', 'StatusController#readiness']
   config.lograge.custom_payload do |controller|
     {
