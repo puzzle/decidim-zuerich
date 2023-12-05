@@ -21,7 +21,7 @@ gem 'decidim-cleaner', github: 'puzzle/decidim-module-cleaner', branch: 'release
 gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome'
 gem 'decidim-participatory_documents'
 gem 'decidim-question_captcha', github: 'OpenSourcePolitics/decidim-module-question_captcha', branch: 'release/0.27-stable'
-gem 'decidim-survey_multiple_answers', '~> 0.26.1'
+gem 'decidim-survey_multiple_answers', '~> 0.26.2'
 gem 'decidim-term_customizer', github: 'mainio/decidim-module-term_customizer', branch: 'master'
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'

@@ -404,7 +404,7 @@ GEM
       decidim-comments (= 0.27.4)
       decidim-core (= 0.27.4)
       decidim-proposals (= 0.27.4)
-    decidim-survey_multiple_answers (0.26.1)
+    decidim-survey_multiple_answers (0.26.2)
       decidim-admin (>= 0.26.0, < 0.28.0)
       decidim-core (>= 0.26.0, < 0.28.0)
       decidim-forms (>= 0.26.0, < 0.28.0)
@@ -993,7 +993,7 @@ DEPENDENCIES
   decidim-participatory_documents
   decidim-proposals (= 0.27.4)
   decidim-question_captcha!
-  decidim-survey_multiple_answers (~> 0.26.1)
+  decidim-survey_multiple_answers (~> 0.26.2)
   decidim-templates (= 0.27.4)
   decidim-term_customizer!
   delayed_cron_job
