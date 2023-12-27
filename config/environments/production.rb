@@ -118,7 +118,8 @@ Rails.application.configure do
   }
 
   # Use log rage
-  config.lograge.enabled = true
+  enabled = ENV.fetch('RAILS_LOGRAGE_ENABLED', 'true')
+  config.lograge.enabled = ActiveModel::Type::Boolean.new.cast(enabled)
   config.lograge.logger = ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new($stdout))
   config.lograge.ignore_actions = ['StatusController#health', 'StatusController#readiness']
   config.lograge.custom_payload do |controller|
