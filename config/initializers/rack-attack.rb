@@ -18,30 +18,43 @@ ActiveSupport::Notifications.subscribe(/rack_attack/) do |name, start, finish, r
   Rails.logger.warn "RACK ATTACK #{name} - #{request.ip} - #{request.url}"
 end
 
-ActiveSupport::Notifications.subscribe('rack.attack') do |_name, _start, _finish, _request_id, req|
-  req = req[:request]
-  # msg = [req.env['rack.attack.match_type'], req.ip, req.request_method, req.fullpath, ('"' + req.user_agent.to_s + '"')].join(' ')
-  hash = {
-    match_type: req.env['rack.attack.match_type'],
-    request: {
-      request_method: req.request_method,
-      ip: req.ip,
-      remote_ip: req.remote_ip,
-      url: req.url,
-      fullpath: req.fullpath,
-      user_agent: ('"' + req.user_agent.to_s + '"'),
-      headers: req.headers.env.reject { |key| key.to_s.include?('.') },
-      params: req[:params].to_enum.to_h
-    }
-  }
+# Used for rack-attack throttling debugging
+# # rubocop:disable Metrics/BlockLength
+# ActiveSupport::Notifications.subscribe('rack.attack') do |_name, _start, _finish, _request_id, req|
+#   req = req[:request]
+#   # msg = [req.env['rack.attack.match_type'], req.ip, req.request_method, req.fullpath, ('"' + req.user_agent.to_s + '"')].join(' ')
 
-  msg = Hash[*hash.sort.flatten].to_json
+#   request_headers =
+#     req
+#     .headers
+#     .env
+#     .except(*%w[warden HTTP_COOKIE]
+#     .reject { |key| key.to_s.include?('.') }
 
-  logger = Logger.new('log/rack-attack.log')
+#   request_params = req.params.to_enum.to_h
 
-  if %i[throttle blocklist].include?(req.env['rack.attack.match_type'])
-    logger.error(msg)
-  else
-    logger.info(msg)
-  end
-end
+#   hash = {
+#     match_type: req.env['rack.attack.match_type'],
+#     request: {
+#       request_method: request.method,
+#       ip: request.ip,
+#       remote_ip: request.remote_ip,
+#       url: request.url,
+#       fullpath: request.fullpath,
+#       user_agent: request.user_agent.to_s,
+#       headers: request_headers,
+#       params: request_params
+#     }
+#   }
+
+#   msg = Hash[*hash.sort.flatten].to_json
+
+#   logger = Logger.new('log/rack-attack.log')
+
+#   if %i[throttle blocklist].include?(req.env['rack.attack.match_type'])
+#     logger.error(msg)
+#   else
+#     logger.info(msg)
+#   end
+#   # rubocop:enable Metrics/BlockLength
+# end
