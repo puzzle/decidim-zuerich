@@ -2,6 +2,9 @@
 
 require_relative '../../lib/customization_output'
 require_relative '../../lib/decidim_zuerich/form_builder'
+require_relative '../../lib/puzzle_rails_pry_prompt'
+
+PuzzleRailsPryPrompt.set_prompt
 
 includes = [
   [Decidim::Debates::CreateDebateEvent,  DecidimZuerich::Debates::CreateDebateEvent],
