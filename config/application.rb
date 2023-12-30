@@ -8,6 +8,8 @@ require "action_cable/engine"
 # require "action_mailbox/engine"
 # require "action_text/engine"
 
+require 'rack/attack'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -38,6 +40,8 @@ module DecidimZuerich
     # Use a real queuing backend for Active Job (and separate queues per environment)
     config.active_job.queue_adapter     = :delayed_job
     config.active_job.queue_name_prefix = "decidim_zuerich_#{Rails.env}"
+
+    config.middleware.use Rack::Attack
 
     Raven.configure do |config|
       config.dsn = ENV['SENTRY_DSN']

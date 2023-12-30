@@ -1,7 +1,9 @@
 require 'rack/attack'
 require 'ipaddr'
 
-Rack::Attack.enabled = ENV.fetch('ENABLE_RACK_ATTACK', Rails.env.production?.to_s).in?(%w[true 1])
+# Rack::Attack.enabled = ENV.fetch('ENABLE_RACK_ATTACK', Rails.env.production?.to_s).in?(%w[true 1])
+Rack::Attack.enabled = true
+
 
 safelist_ips = ENV.fetch('RACK_ATTACK_SAFELIST_IPS', '').split(',').map(&:strip)
 
@@ -12,10 +14,17 @@ safelist_ips.each do |ip_or_subnet|
   Rack::Attack.safelist_ip(ip_or_subnet)
 end
 
+Rack::Attack.blocklist('secure admin logins') do |req|
+  Rack::Attack::Allow2Ban.filter(req.ip, maxretry: 5, findtime: 10.minutes, bantime: 1.hour) do
+    req.post? && req.path.include?('system')
+  end
+end
+
 ActiveSupport::Notifications.subscribe(/rack_attack/) do |name, start, finish, request_id, payload|
   # request object available in payload[:request]
   request = payload[:request]
-  Rails.logger.warn "RACK ATTACK #{name} - #{request.ip} - #{request.url}"
+  # require 'pry'; binding.pry
+  Rails.logger.warn "RACK ATTACK MATCH: #{name}: #{request.env['rack.attack.matched']} | ip: #{request.ip} | url: #{request.url}"
 end
 
 # Used for rack-attack throttling debugging
