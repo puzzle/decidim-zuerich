@@ -1,10 +1,17 @@
 class ApplicationController < ActionController::Base
   before_action :set_sentry_context
+  before_action :set_cache_headers
 
   # Used for request debugging
   # around_action :global_request_logging
 
   private
+
+  def set_cache_headers
+    response.headers["Cache-Control"] = "no-cache, no-store"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Mon, 01 Jan 1990 00:00:00 GMT"
+  end
 
   # Used for request debugging
   # def global_request_logging
