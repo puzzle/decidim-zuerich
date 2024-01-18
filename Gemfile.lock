@@ -47,10 +47,10 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-participatory-documents.git
-  revision: 175394f77c13fbefaa3bbbd75e530186944b2500
-  branch: main
+  revision: 76957bf7bbceb3235eb912b64361ed4a4e521f8a
+  tag: 0.2.2
   specs:
-    decidim-participatory_documents (0.2.1)
+    decidim-participatory_documents (0.2.2)
       decidim-core (>= 0.27.0, < 0.28)
 
 GIT
