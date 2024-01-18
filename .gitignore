@@ -51,6 +51,10 @@ public/uploads
 # Ignore local environment variables file
 /.env.local
 
+# Ignore editor specific files
+*.code-workspace
+.vscode/
+
 /public/packs
 /public/packs-test
 /node_modules
