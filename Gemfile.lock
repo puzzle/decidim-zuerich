@@ -20,7 +20,7 @@ GIT
 GIT
   remote: https://github.com/mainio/decidim-module-antivirus.git
   revision: ef2f3cab2b3938fb530f4569886913a9ab8f51e4
-  branch: realease/0.27-stable
+  branch: release/0.27-stable
   specs:
     decidim-antivirus (0.27.0)
       decidim-core (~> 0.27.0)
