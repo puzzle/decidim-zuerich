@@ -46,6 +46,21 @@ GIT
       openid_connect (~> 1.2)
 
 GIT
+  remote: https://github.com/octree-gva/decidim-module-geo.git
+  revision: 24fd33476e727d5401bc725fc69be1a4dff1561a
+  branch: main
+  specs:
+    decidim-geo (0.26.3)
+      activerecord-postgis-adapter (>= 6.0)
+      decidim-admin (>= 0.26)
+      decidim-core (>= 0.26)
+      deface (>= 1.8.1)
+      ffi-geos (~> 2.4)
+      rgeo (>= 3.0)
+      rgeo-geojson (>= 1.0)
+      rgeo-shapefile (>= 1.0)
+
+GIT
   remote: https://github.com/openpoke/decidim-module-participatory-documents.git
   revision: 76957bf7bbceb3235eb912b64361ed4a4e521f8a
   tag: 0.2.2
@@ -122,6 +137,9 @@ GEM
     activerecord (6.1.7.6)
       activemodel (= 6.1.7.6)
       activesupport (= 6.1.7.6)
+    activerecord-postgis-adapter (7.1.1)
+      activerecord (~> 6.1)
+      rgeo-activerecord (~> 7.0.0)
     activestorage (6.1.7.6)
       actionpack (= 6.1.7.6)
       activejob (= 6.1.7.6)
@@ -247,6 +265,7 @@ GEM
     crass (1.0.6)
     css_parser (1.16.0)
       addressable
+    csv (3.2.8)
     dalli (3.2.5)
     date (3.3.4)
     date_validator (0.12.0)
@@ -255,6 +274,8 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
+    dbf (4.3.2)
+      csv
     debug_inspector (1.1.0)
     decidim (0.27.5)
       decidim-accountability (= 0.27.5)
@@ -504,6 +525,8 @@ GEM
     faraday-net_http (3.1.0)
       net-http
     ffi (1.16.3)
+    ffi-geos (2.4.0)
+      ffi (>= 1.0.0)
     file_validators (3.0.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -808,6 +831,15 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
+    rgeo (3.0.1)
+    rgeo-activerecord (7.0.1)
+      activerecord (>= 5.0)
+      rgeo (>= 1.0.0)
+    rgeo-geojson (2.1.1)
+      rgeo (>= 1.0.0)
+    rgeo-shapefile (3.1.0)
+      dbf (~> 4.0)
+      rgeo (>= 1.0)
     rouge (4.1.3)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
@@ -1001,6 +1033,7 @@ DEPENDENCIES
   decidim-conferences (= 0.27.5)
   decidim-decidim_awesome!
   decidim-dev (= 0.27.5)
+  decidim-geo!
   decidim-participatory_documents!
   decidim-proposals (= 0.27.5)
   decidim-question_captcha!
@@ -1029,4 +1062,4 @@ RUBY VERSION
    ruby 3.0.6p216
 
 BUNDLED WITH
-   2.5.5
+   2.5.6

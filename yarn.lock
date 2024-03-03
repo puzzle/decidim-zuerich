@@ -2354,10 +2354,10 @@ codemirror-spell-checker@^1.1.2:
   dependencies:
     typo-js "*"
 
-codemirror@^5.33.0, codemirror@^5.65.2, codemirror@^5.65.3:
-  version "5.65.14"
-  resolved "https://registry.npmjs.org/codemirror/-/codemirror-5.65.14.tgz"
-  integrity sha512-VSNugIBDGt0OU9gDjeVr6fNkoFQznrWEUdAApMlXQNbfE8gGO19776D6MwSqF/V/w/sDwonsQ0z7KmmI9guScg==
+codemirror@^5.33.0, codemirror@^5.65.16, codemirror@^5.65.3:
+  version "5.65.16"
+  resolved "https://registry.npmjs.org/codemirror/-/codemirror-5.65.16.tgz"
+  integrity sha512-br21LjYmSlVL0vFCPWPfhzUCT34FM/pAdK7rRIZwa0rrtrIdotvP4Oh4GUHsu2E3IrQMCfRkL/fN3ytMNxVQvg==
 
 color-convert@^1.9.0:
   version "1.9.3"
@@ -3417,10 +3417,10 @@ form-storage@^1.3.5:
     query-string "^5.0.1"
     query-string-es5 "^6.1.4"
 
-formBuilder@^3.8.3:
-  version "3.8.3"
-  resolved "https://registry.npmjs.org/formBuilder/-/formBuilder-3.8.3.tgz"
-  integrity sha512-9Mxc/6LyWedsiEuktkxwPP+EEGkFP5xo2jTUnN37onmHgw3iX4nohc2AxaFODVVDDNAgX0X0bdHEhU7jIGogvg==
+formBuilder@^3.19.4:
+  version "3.19.4"
+  resolved "https://registry.npmjs.org/formBuilder/-/formBuilder-3.19.4.tgz"
+  integrity sha512-pPRzBMGsvQONHI25W7C95YGLsVOOFKsxcPZagF4PULh7i5GzMuy+lbVLIiDwEmbJsQBLwv25wj2R7Wu/dC+N9Q==
   dependencies:
     jquery ">=3.4.1"
     jquery-ui-sortable "*"
@@ -3726,10 +3726,10 @@ hasown@^2.0.0:
   dependencies:
     function-bind "^1.1.2"
 
-highlight.js@^11.5.0:
-  version "11.8.0"
-  resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-11.8.0.tgz"
-  integrity sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==
+highlight.js@^11.9.0:
+  version "11.9.0"
+  resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-11.9.0.tgz"
+  integrity sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==
 
 hoist-non-react-statics@^3.3.2:
   version "3.3.2"
@@ -4169,7 +4169,7 @@ jquery-ui-sortable@*:
   resolved "https://registry.npmjs.org/jquery-ui-sortable/-/jquery-ui-sortable-1.0.0.tgz"
   integrity sha512-7xAUWoEJ/jHoj48ei8CCUtiad2uM3ie3IR2b3KB0Mpmb54IbBxzVb5vtrj0zqtd0GNQDImx+BPZml9QmK2EL3w==
 
-jquery-ui@1.13.2:
+jquery-ui@^1.13.2:
   version "1.13.2"
   resolved "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.13.2.tgz"
   integrity sha512-wBZPnqWs5GaYJmo1Jj0k/mrSkzdQzKDwhXNtHKcBdAcKVxMM3KNYFq+iJ2i1rwiG53Z8M4mTn3Qxrm17uH1D4Q==
@@ -4283,7 +4283,7 @@ jsonpointer@^5.0.0:
   resolved "https://registry.npmjs.org/jsonpointer/-/jsonpointer-5.0.1.tgz"
   integrity sha512-p/nXbhSEcu3pZRdkW1OfJhpsVtW1gd4Wa1fnQc9YLiTfAjn0312eMKimbdIQzuZl9aa9xUGaRlP9T/CJE/ditQ==
 
-jsrender@^1.0.11:
+jsrender@^1.0.13:
   version "1.0.13"
   resolved "https://registry.npmjs.org/jsrender/-/jsrender-1.0.13.tgz"
   integrity sha512-WAHG4EBPygNZqv8b3oFDprM5Zi+v2TG5/GLk5f0TYIej+xJiGoQNRvGSbhdh25vggWJP3YfzTpAqVSNDaXwY5Q==
@@ -4523,10 +4523,10 @@ marked@^0.5.1:
   resolved "https://registry.npmjs.org/marked/-/marked-0.5.2.tgz"
   integrity sha512-fdZvBa7/vSQIZCi4uuwo2N3q+7jJURpMVCcbaX0S1Mg65WZ5ilXvC67MviJAsdjqqgD+CEq4RKo5AYGgINkVAA==
 
-marked@^4.0.10:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/marked/-/marked-4.3.0.tgz"
-  integrity sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==
+marked@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.npmjs.org/marked/-/marked-5.1.2.tgz"
+  integrity sha512-ahRPGXJpjMjwSOlBoTMZAK7ATXkli5qCPxZ21TG44rx1KEo44bii4ekgTDQPNRQ4Kh7JMb9Ub1PVk1NxRSsorg==
 
 mathml-tag-names@^2.1.3:
   version "2.1.3"
