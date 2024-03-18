@@ -61,5 +61,7 @@ group :production do
   gem 'bleib'
 end
 
+gem 'rectify', '~> 0.13.0'
+
 # Needs to be loaded after all other delayed_job gems
 gem 'delayed_cron_job'
