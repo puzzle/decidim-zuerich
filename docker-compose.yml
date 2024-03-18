@@ -30,7 +30,7 @@ services:
     tty: true
     stdin_open: true
   pg:
-    image: postgis/postgis:14-3.4-alpine
+    image: postgis/postgis:14-3.3-alpine
     environment:
       - POSTGRES_USER=decidim_zuerich
       - POSTGRES_PASSWORD=dN5GH8y3lX

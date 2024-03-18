@@ -8,6 +8,12 @@ default: &default
   username: <%= ENV.fetch('RAILS_DB_USERNAME') { 'decidim_zuerich' } %>
   password: <%= ENV.fetch('RAILS_DB_PASSWORD') { 'dN5GH8y3lX' } %>
 
+  schema_search_path: <%= ENV.fetch('RAILS_DB_SCHEMA_SEARCH_PATH') { 'public' } %>
+  postgis_extension:  <%= ENV.fetch('RAILS_DB_POSTGIS_EXTENSION') { 'postgis' } %>
+  postgis_schema: <%= ENV.fetch('RAILS_DB_POSTGIS_SCHEMA') { 'public' } %>
+  su_username: <%= ENV.fetch('RAILS_DB_SU_USERNAME') { 'postgres' } %>
+  su_password: <%= ENV.fetch('RAILS_DB_SU_PASSWORD') { 'postgres' } %>
+
 development:
   <<: *default
   database: <%= ENV.fetch('RAILS_DB_NAME', 'decidim_zuerich_development') %>
