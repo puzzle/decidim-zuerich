@@ -3,37 +3,37 @@ Decidim::QuestionCaptcha.configure do |config|
     de: [
       {
         'question' => 'Nenne eine Farbe des Zürcher Wappens.',
-        'answers' => 'weiss,Weiss,WEISS,weiß,Weiß,blau,Blau,BLAU'
+        'answers' => 'weiss,weiß,blau'
       },
       {
         'question' => 'Nenne eine Farbe, die auf dem Schweizer Wappen vorkommt.',
-        'answers' => 'weiss,Weiss,WEISS,weiß,Weiß,rot,Rot,ROT'
+        'answers' => 'weiss,weiß,rot'
       },
       {
         'question' => 'Nenne die kleinste der folgenden Zahlen: 3 / 5 / 9.',
-        'answers' => '3,drei,Drei,DREI'
+        'answers' => '3,drei'
       },
       {
         'question' => 'Was ergibt 2 plus 3?',
-        'answers' => '5,fünf,FÜNF,fuenf,FUENF,funf,FUNF'
+        'answers' => '5,fünf,fuenf,funf'
       }
     ],
     en: [
       {
         'question' => 'Name a color on Zürich\'s flag',
-        'answers' => 'white,White,WHITE,blue,Blue,BLUE'
+        'answers' => 'white,blue'
       },
       {
         'question' => 'Name one color of the Swiss flag.',
-        'answers' => 'white,White,WHITE,red,Red,RED'
+        'answers' => 'white,red'
       },
        {
         'question' => 'Name the smallest of the following numbers: 3 / 5 / 9.',
-        'answers' => '3,three,Three,THREE'
+        'answers' => '3,three'
       },
        {
         'question' => 'What is 2 plus 3?',
-        'answers' => '5,five,Five,FIVE'
+        'answers' => '5,five'
       }      
     ]
   }
