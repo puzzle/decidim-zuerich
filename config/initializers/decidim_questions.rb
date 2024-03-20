@@ -2,15 +2,15 @@ Decidim::QuestionCaptcha.configure do |config|
   config.questions = {
     de: [
       {
-        'question' => 'Nenne eine Farbe des Zürcher Wappens.',
+        'question' => 'Nennen Sie eine Farbe des Zürcher Wappens.',
         'answers' => 'weiss,weiß,blau'
       },
       {
-        'question' => 'Nenne eine Farbe, die auf dem Schweizer Wappen vorkommt.',
+        'question' => 'Nennen Sie eine Farbe, die auf dem Schweizer Wappen vorkommt.',
         'answers' => 'weiss,weiß,rot'
       },
       {
-        'question' => 'Nenne die kleinste der folgenden Zahlen: 3 / 5 / 9.',
+        'question' => 'Nennen Sie die kleinste der folgenden Zahlen: 3 / 5 / 9.',
         'answers' => '3,drei'
       },
       {
