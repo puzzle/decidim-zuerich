@@ -13,7 +13,19 @@ Decidim.configure do |config|
   config.available_locales = %i[en de fr it]
 
   config.maps = {
+      provider: :osm,
+      api_key: false, #Rails.application.secrets.maps[:api_key],
       dynamic: {
+          tile_layer: {
+            url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
+            api_key: true,
+            foo: "bar=baz",
+            attribution: %(
+              <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
+            ).strip
+            # Translatable attribution:
+            # attribution: -> { I18n.t("tile_layer_attribution") }
+          },
           provider: :gis_zh,
           # provider: :swisstopo,
           default_center: {
@@ -37,8 +49,10 @@ Decidim.configure do |config|
               },
           }
       },
-      static: false,
+      static: { url: "https://staticmap.example.org/" },
       geocoding: {
+          host: "nominatim.example.org",
+          use_https: true,
           provider: :osm,
           timeout: 5,
           units: :km,

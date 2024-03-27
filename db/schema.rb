@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_02_224501) do
+ActiveRecord::Schema.define(version: 2024_03_27_215408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -806,6 +807,48 @@ ActiveRecord::Schema.define(version: 2024_02_02_224501) do
     t.index ["user_id"], name: "index_decidim_gamification_badge_scores_on_user_id"
   end
 
+  create_table "decidim_geo_configs", force: :cascade do |t|
+    t.float "longitude"
+    t.float "latitude"
+    t.integer "zoom"
+    t.string "tile"
+    t.boolean "only_processes", default: false, null: false
+    t.boolean "only_assemblies", default: false, null: false
+  end
+
+  create_table "decidim_geo_shapefile_datas", force: :cascade do |t|
+    t.bigint "decidim_geo_shapefiles_id"
+    t.jsonb "data"
+    t.geometry "geom", limit: {:srid=>0, :type=>"multi_polygon"}
+    t.bigint "decidim_scopes_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_geo_shapefiles_id"], name: "index_decidim_geo_shapefile_datas_on_decidim_geo_shapefiles_id"
+    t.index ["decidim_scopes_id"], name: "index_decidim_geo_shapefile_datas_on_decidim_scopes_id"
+  end
+
+  create_table "decidim_geo_shapefiles", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "description"
+    t.bigint "decidim_scope_types_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "decidim_organization_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_geo_shapefiles_on_decidim_organization_id"
+    t.index ["decidim_scope_types_id"], name: "index_decidim_geo_shapefiles_on_decidim_scope_types_id"
+  end
+
+  create_table "decidim_geo_space_locations", force: :cascade do |t|
+    t.bigint "decidim_geo_space_id"
+    t.string "decidim_geo_space_type"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_geo_space_type", "decidim_geo_space_id"], name: "decidim_geo_space_poly_idx", unique: true
+  end
+
   create_table "decidim_hashtags", force: :cascade do |t|
     t.bigint "decidim_organization_id"
     t.string "name"
@@ -1380,10 +1423,6 @@ ActiveRecord::Schema.define(version: 2024_02_02_224501) do
     t.boolean "show_metrics", default: true
     t.integer "weight", default: 1, null: false
     t.integer "follows_count", default: 0, null: false
-    t.string "address"
-    t.float "latitude"
-    t.float "longitude"
-    t.boolean "display_linked_assemblies", default: false
     t.bigint "decidim_participatory_process_type_id"
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
@@ -1608,7 +1647,6 @@ ActiveRecord::Schema.define(version: 2024_02_02_224501) do
     t.integer "parent_id"
     t.string "code", null: false
     t.integer "part_of", default: [], null: false, array: true
-    t.jsonb "geojson"
     t.index ["decidim_organization_id", "code"], name: "index_decidim_scopes_on_decidim_organization_id_and_code", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_scopes_on_decidim_organization_id"
     t.index ["parent_id"], name: "index_decidim_scopes_on_parent_id"
@@ -2034,6 +2072,10 @@ ActiveRecord::Schema.define(version: 2024_02_02_224501) do
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
+  add_foreign_key "decidim_geo_shapefile_datas", "decidim_geo_shapefiles", column: "decidim_geo_shapefiles_id"
+  add_foreign_key "decidim_geo_shapefile_datas", "decidim_scopes", column: "decidim_scopes_id"
+  add_foreign_key "decidim_geo_shapefiles", "decidim_organizations"
+  add_foreign_key "decidim_geo_shapefiles", "decidim_scope_types", column: "decidim_scope_types_id"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_navigation_maps_blueprint_areas", "decidim_navigation_maps_blueprints"
   add_foreign_key "decidim_navigation_maps_blueprints", "decidim_content_blocks"

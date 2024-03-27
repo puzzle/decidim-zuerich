@@ -20,7 +20,7 @@ jobs:
 
     services:
       postgres:
-        image: 'postgres:11.6-alpine'
+        image: 'postgis/postgis:14-3.3-alpine'
         env:
           POSTGRES_PASSWORD: 'postgres'
         ports: ['5432:5432']
