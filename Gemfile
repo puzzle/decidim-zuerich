@@ -15,7 +15,7 @@ gem 'decidim-proposals', DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
 gem 'decidim-templates', DECIDIM_VERSION
 
-gem 'decidim-geo', github: 'octree-gva/decidim-module-geo', branch: "main"
+gem 'decidim-decidim_geo', github: 'octree-gva/decidim-module-geo', tag: "v0.2.1"
 gem 'decidim-anonymous_proposals', github: 'puzzle/decidim-module-anonymous_proposals', branch: 'release/0.27-stable'
 gem 'decidim-antivirus', github: 'mainio/decidim-module-antivirus', branch: 'release/0.27-stable'
 gem 'decidim-cleaner', github: 'puzzle/decidim-module-cleaner', branch: 'release/0.27-stable'

@@ -47,13 +47,13 @@ GIT
 
 GIT
   remote: https://github.com/octree-gva/decidim-module-geo.git
-  revision: 24fd33476e727d5401bc725fc69be1a4dff1561a
-  branch: main
+  revision: c1636ba0ed742db8253dc456a93f22584af50d2b
+  tag: v0.2.1
   specs:
-    decidim-geo (0.26.3)
+    decidim-decidim_geo (0.2.1)
       activerecord-postgis-adapter (>= 6.0)
-      decidim-admin (>= 0.26)
-      decidim-core (>= 0.26)
+      decidim-admin (>= 0.26, < 0.28)
+      decidim-core (>= 0.26, < 0.28)
       deface (>= 1.8.1)
       ffi-geos (~> 2.4)
       rgeo (>= 3.0)
@@ -265,7 +265,7 @@ GEM
     crass (1.0.6)
     css_parser (1.16.0)
       addressable
-    csv (3.2.8)
+    csv (3.3.0)
     dalli (3.2.5)
     date (3.3.4)
     date_validator (0.12.0)
@@ -1040,8 +1040,8 @@ DEPENDENCIES
   decidim-cleaner!
   decidim-conferences (= 0.27.5)
   decidim-decidim_awesome!
+  decidim-decidim_geo!
   decidim-dev (= 0.27.5)
-  decidim-geo!
   decidim-participatory_documents!
   decidim-proposals (= 0.27.5)
   decidim-question_captcha!
