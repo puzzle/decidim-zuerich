@@ -4,7 +4,6 @@ require 'ipaddr'
 # Rack::Attack.enabled = ENV.fetch('ENABLE_RACK_ATTACK', Rails.env.production?.to_s).in?(%w[true 1])
 Rack::Attack.enabled = true
 
-
 safelist_ips = ENV.fetch('RACK_ATTACK_SAFELIST_IPS', '').split(',').map(&:strip)
 
 safelist_ips.each do |ip_or_subnet|
@@ -14,7 +13,7 @@ safelist_ips.each do |ip_or_subnet|
   Rack::Attack.safelist_ip(ip_or_subnet)
 end
 
-Rack::Attack.throttle('requests by ip', limit: 5, period: 2, &:ip)
+Rack::Attack.throttle('requests by ip', limit: 100, period: 10, &:ip)
 
 Rack::Attack.blocklist('secure admin logins') do |req|
   Rack::Attack::Allow2Ban.filter(req.ip, maxretry: 5, findtime: 10.minutes, bantime: 1.hour) do
