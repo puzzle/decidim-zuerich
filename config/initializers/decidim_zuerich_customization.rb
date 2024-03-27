@@ -23,7 +23,6 @@ prepends = [
   [Decidim::ParticipatoryProcesses::Permissions,                DecidimZuerich::ParticipatoryProcesses::Permissions],
   [Decidim::Proposals::DiffRenderer,                            DecidimZuerich::Proposals::DiffRenderer],
   [Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
-  [Decidim::ParticipatoryProcesses::ProcessFiltersCell,         DecidimZuerich::ParticipatoryProcesses::ProcessFiltersCell],
   [Decidim::ResourceLocatorPresenter,                           DecidimZuerich::ResourceLocatorPresenter],
   [Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper, DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper],
   [Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
