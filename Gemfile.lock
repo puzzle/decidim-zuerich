@@ -1061,6 +1061,7 @@ DEPENDENCIES
   pry-rails
   puma
   rectify (~> 0.13.0)
+  rubocop
   sentry-raven
   spring
   spring-watcher-listen
