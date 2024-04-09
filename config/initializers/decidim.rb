@@ -2,7 +2,7 @@
 
 # Inform Decidim about the assets folder
 if Decidim.respond_to?(:register_assets_path)
-  Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
+  Decidim.register_assets_path File.expand_path('app/packs', Rails.application.root)
 end
 
 Decidim.configure do |config|
@@ -13,64 +13,30 @@ Decidim.configure do |config|
   config.available_locales = %i[en de fr it]
 
   config.maps = {
-      provider: :osm,
-      api_key: false, #Rails.application.secrets.maps[:api_key],
-      dynamic: {
-          tile_layer: {
-            url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
-            api_key: true,
-            foo: "bar=baz",
-            attribution: %(
-              <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
-            ).strip
-            # Translatable attribution:
-            # attribution: -> { I18n.t("tile_layer_attribution") }
-          },
-          provider: :gis_zh,
-          # provider: :swisstopo,
-          default_center: {
-              lat: 47.378,
-              lng: 8.550
-          },
-          map_limits: {
-              lat_min: 47.312,
-              lat_max: 47.442,
-              lng_min: 8.43,
-              lng_max: 8.64
-          },
-          layers: {
-              '0': {
-                  name: ->(*_args) { I18n.t('decidim_zuerich.maps.gis_zh.orthofoto') },
-                  url: 'https://www.ogc.stadt-zuerich.ch/mapproxy/wmts/1.0.0/basiskarte_zuerich_orthofoto/default/ktzh/{z}/{y}/{x}.png'
-              },
-              '1': {
-                  name: ->(*_args) { I18n.t('decidim_zuerich.maps.gis_zh.basiskarte_schraeg') },
-                  url: 'https://www.ogc.stadt-zuerich.ch/mapproxy/wmts/1.0.0/basiskarte_zuerich_gebaeudeschraegansicht/default/ktzh/{z}/{y}/{x}.png'
-              },
-          }
-      },
-      static: { url: "https://staticmap.example.org/" },
-      geocoding: {
-          host: "nominatim.example.org",
-          use_https: true,
-          provider: :osm,
-          timeout: 5,
-          units: :km,
-      },
-      autocomplete: {
-          provider: :osm,
-          url: "https://photon.komoot.io/api?lat=47.378&lon=8.540&bbox=8.43,47.312,8.64,47.442",
-          address_format: [
-              "name",
-              ["street", "housenumber"],
-              ["postcode", "city"],
-          ]
+    provider: :osm,
+    api_key: false #Rails.application.secrets.maps[:api_key],
+    dynamic: {
+      tile_layer: {
+        url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+        api_key: false,
+        attribution: %(
+          <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
+        ).strip
+        # Translatable attribution:
+        # attribution: -> { I18n.t("tile_layer_attribution") }
       }
+    },
+    # static: { url: "https://staticmap.example.org/" }, # optional
+    geocoding: { host: "http://nominatim.openstreetmap.org/", use_https: true },
+    autocomplete: {
+      # url: "https://photon.komoot.io/api/"
+      url: 'https://photon.komoot.io/api?lat=47.378&lon=8.540&bbox=8.43,47.312,8.64,47.442',
+    }
   }
 
   # Geocoder configuration
   config.geocoder = {
-    static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview",
+    static_map_url: 'https://image.maps.cit.api.here.com/mia/1.6/mapview'
   }
 
   # Custom resource reference generator method
@@ -80,7 +46,7 @@ Decidim.configure do |config|
   # end
 
   # Currency unit
-  config.currency_unit = "CHF"
+  config.currency_unit = 'CHF'
 
   # Disable the default redirect to https, since we use nginx for ssl termination
   # config.force_ssl = false
@@ -124,7 +90,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.sms_gateway_service = "DecidimZuerich::Verifications::Sms::AspsmsGateway"
+  config.sms_gateway_service = 'DecidimZuerich::Verifications::Sms::AspsmsGateway'
 
   # Timestamp service configuration
   #
@@ -188,7 +154,7 @@ Decidim.configure do |config|
   #
   # Enable machine translations
   config.enable_machine_translations = true
-  config.machine_translation_service = "DecidimZuerich::MicrosoftTranslator"
+  config.machine_translation_service = 'DecidimZuerich::MicrosoftTranslator'
   config.machine_translation_delay = 0.seconds
 
   config.after_initialize do
