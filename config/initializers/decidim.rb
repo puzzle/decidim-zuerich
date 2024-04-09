@@ -14,10 +14,10 @@ Decidim.configure do |config|
 
   config.maps = {
     provider: :osm,
-    api_key: false #Rails.application.secrets.maps[:api_key],
+    api_key: false, # Rails.application.secrets.maps[:api_key],
     dynamic: {
       tile_layer: {
-        url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+        url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
         api_key: false,
         attribution: %(
           <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
@@ -27,10 +27,10 @@ Decidim.configure do |config|
       }
     },
     # static: { url: "https://staticmap.example.org/" }, # optional
-    geocoding: { host: "http://nominatim.openstreetmap.org/", use_https: true },
+    geocoding: { host: 'http://nominatim.openstreetmap.org/', use_https: true },
     autocomplete: {
       # url: "https://photon.komoot.io/api/"
-      url: 'https://photon.komoot.io/api?lat=47.378&lon=8.540&bbox=8.43,47.312,8.64,47.442',
+      url: 'https://photon.komoot.io/api?lat=47.378&lon=8.540&bbox=8.43,47.312,8.64,47.442'
     }
   }
 
