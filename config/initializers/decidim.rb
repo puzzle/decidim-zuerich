@@ -29,8 +29,7 @@ Decidim.configure do |config| # rubocop:disable Metric/BlockLength
     # static: { url: "https://staticmap.example.org/" }, # optional
     geocoding: { host: 'nominatim.openstreetmap.org', use_https: true },
     autocomplete: {
-      url: 'https://photon.komoot.io/api/'
-      # url: 'https://photon.komoot.io/api?lat=47.378&lon=8.540&bbox=8.43,47.312,8.64,47.442'
+      url: 'https://photon.komoot.io/api?lat=47.378&lon=8.540&bbox=8.43,47.312,8.64,47.442'
     }
   }
 
