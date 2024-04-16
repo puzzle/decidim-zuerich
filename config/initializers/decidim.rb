@@ -5,7 +5,7 @@ if Decidim.respond_to?(:register_assets_path)
   Decidim.register_assets_path File.expand_path('app/packs', Rails.application.root)
 end
 
-Decidim.configure do |config|
+Decidim.configure do |config| # rubocop:disable Metric/BlockLength
   config.application_name = 'DecidimZuerich'
 
   # Change these lines to set your preferred locales
@@ -27,7 +27,7 @@ Decidim.configure do |config|
       }
     },
     # static: { url: "https://staticmap.example.org/" }, # optional
-    geocoding: { host: 'http://nominatim.openstreetmap.org/', use_https: true },
+    geocoding: { host: 'nominatim.openstreetmap.org', use_https: true },
     autocomplete: {
       url: 'https://photon.komoot.io/api/'
       # url: 'https://photon.komoot.io/api?lat=47.378&lon=8.540&bbox=8.43,47.312,8.64,47.442'
