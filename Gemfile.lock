@@ -61,6 +61,17 @@ GIT
       rgeo-shapefile (>= 1.0)
 
 GIT
+  remote: https://github.com/openpoke/decidim-module-anonymous_codes.git
+  revision: 1b7f6d8d73a3cb72d915445e006c8e2a88c692cb
+  specs:
+    decidim-anonymous_codes (1.0)
+      decidim-admin (>= 0.27.0, < 0.28)
+      decidim-core (>= 0.27.0, < 0.28)
+      decidim-forms (>= 0.27.0, < 0.28)
+      decidim-surveys (>= 0.27.0, < 0.28)
+      deface (>= 1.9.0)
+
+GIT
   remote: https://github.com/openpoke/decidim-module-participatory-documents.git
   revision: 76957bf7bbceb3235eb912b64361ed4a4e521f8a
   tag: 0.2.2
@@ -1035,6 +1046,7 @@ DEPENDENCIES
   byebug
   dalli
   decidim (= 0.27.5)
+  decidim-anonymous_codes!
   decidim-anonymous_proposals!
   decidim-antivirus!
   decidim-cleaner!

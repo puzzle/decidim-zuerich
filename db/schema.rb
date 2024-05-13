@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_27_215408) do
+ActiveRecord::Schema.define(version: 2024_05_13_084816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -134,6 +134,41 @@ ActiveRecord::Schema.define(version: 2024_03_27_215408) do
     t.index ["decidim_user_id", "decidim_amendable_id", "decidim_amendable_type"], name: "index_on_amender_and_amendable"
     t.index ["decidim_user_id"], name: "index_decidim_amendments_on_decidim_user_id"
     t.index ["state"], name: "index_decidim_amendments_on_state"
+  end
+
+  create_table "decidim_anonymous_codes_groups", force: :cascade do |t|
+    t.jsonb "title"
+    t.datetime "expires_at"
+    t.boolean "active", default: true, null: false
+    t.integer "max_reuses", default: 1, null: false
+    t.integer "tokens_count", default: 0, null: false
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.bigint "decidim_organization_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_organization_id"], name: "decidim_anonymous_codes_groups_on_organization"
+    t.index ["resource_type", "resource_id"], name: "decidim_anonymous_codes_groups_on_resource"
+  end
+
+  create_table "decidim_anonymous_codes_token_resources", force: :cascade do |t|
+    t.bigint "token_id", null: false
+    t.string "resource_type", null: false
+    t.bigint "resource_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resource_type", "resource_id"], name: "decidim_anonymous_codes_token_resources_on_resource"
+    t.index ["token_id"], name: "decidim_anonymous_codes_token_resources_on_token"
+  end
+
+  create_table "decidim_anonymous_codes_tokens", force: :cascade do |t|
+    t.string "token", null: false
+    t.integer "usage_count", default: 0, null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "decidim_anonymous_codes_tokens_on_group"
+    t.index ["token", "group_id"], name: "index_anonymous_codes_token_group_uniqueness", unique: true
   end
 
   create_table "decidim_area_types", force: :cascade do |t|
@@ -2055,6 +2090,7 @@ ActiveRecord::Schema.define(version: 2024_03_27_215408) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "decidim_anonymous_codes_groups", "decidim_organizations"
   add_foreign_key "decidim_area_types", "decidim_organizations"
   add_foreign_key "decidim_areas", "decidim_area_types", column: "area_type_id"
   add_foreign_key "decidim_areas", "decidim_organizations"
