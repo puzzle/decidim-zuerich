@@ -10,16 +10,17 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: 05ab8848b0aad43edba8af35e3e081ac577c02e2
+  revision: 161e41933910cd7e14b60e3acb2f704305863d30
   specs:
-    decidim-decidim_awesome (0.9.3)
+    decidim-decidim_awesome (0.10.2)
       decidim-admin (>= 0.26.0, < 0.28)
       decidim-core (>= 0.26.0, < 0.28)
+      deface (>= 1.5)
       sassc (~> 2.3)
 
 GIT
   remote: https://github.com/mainio/decidim-module-antivirus.git
-  revision: ef2f3cab2b3938fb530f4569886913a9ab8f51e4
+  revision: 221f9a6375195ff15902ffe9262da8276aa5033b
   branch: release/0.27-stable
   specs:
     decidim-antivirus (0.27.0)
@@ -30,7 +31,7 @@ GIT
 GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
   revision: abbf0c69e1bcaafebc5aa4f8da22fdb64ce62149
-  branch: master
+  branch: release/0.27-stable
   specs:
     decidim-term_customizer (0.27.0)
       decidim-admin (~> 0.27.0)
@@ -171,22 +172,22 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     aes_key_wrap (1.1.0)
     ast (2.4.2)
-    attr_required (1.0.1)
-    aws-eventstream (1.2.0)
-    aws-partitions (1.824.0)
-    aws-sdk-core (3.181.1)
-      aws-eventstream (~> 1, >= 1.0.2)
+    attr_required (1.0.2)
+    aws-eventstream (1.3.0)
+    aws-partitions (1.927.0)
+    aws-sdk-core (3.195.0)
+      aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.651.0)
-      aws-sigv4 (~> 1.5)
+      aws-sigv4 (~> 1.8)
       jmespath (~> 1, >= 1.6.1)
-    aws-sdk-kms (1.71.0)
-      aws-sdk-core (~> 3, >= 3.177.0)
+    aws-sdk-kms (1.80.0)
+      aws-sdk-core (~> 3, >= 3.193.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.134.0)
-      aws-sdk-core (~> 3, >= 3.181.0)
+    aws-sdk-s3 (1.149.1)
+      aws-sdk-core (~> 3, >= 3.194.0)
       aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.6)
-    aws-sigv4 (1.6.0)
+      aws-sigv4 (~> 1.8)
+    aws-sigv4 (1.8.0)
       aws-eventstream (~> 1, >= 1.0.2)
     axe-core-api (4.9.0)
       dumb_delegator
@@ -215,12 +216,12 @@ GEM
       parser (>= 2.4)
       smart_properties
     bigdecimal (3.1.8)
-    bindata (2.4.15)
+    bindata (2.5.0)
     bindex (0.8.1)
-    binding_of_caller (1.0.0)
-      debug_inspector (>= 0.0.1)
+    binding_of_caller (1.0.1)
+      debug_inspector (>= 1.2.0)
     bleib (0.0.13)
-    bootsnap (1.16.0)
+    bootsnap (1.18.3)
       msgpack (~> 1.2)
     browser (2.7.1)
     builder (3.2.4)
@@ -257,7 +258,7 @@ GEM
     chef-utils (18.4.12)
       concurrent-ruby
     childprocess (4.1.0)
-    clamby (1.6.10)
+    clamby (1.6.11)
     coderay (1.1.3)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -277,7 +278,7 @@ GEM
     css_parser (1.17.1)
       addressable
     csv (3.3.0)
-    dalli (3.2.5)
+    dalli (3.2.8)
     date (3.3.4)
     date_validator (0.12.0)
       activemodel (>= 3)
@@ -287,7 +288,7 @@ GEM
       rspec (~> 3.0)
     dbf (4.3.2)
       csv
-    debug_inspector (1.1.0)
+    debug_inspector (1.2.0)
     decidim (0.27.6)
       decidim-accountability (= 0.27.6)
       decidim-admin (= 0.27.6)
@@ -476,7 +477,7 @@ GEM
       fugit (>= 1.5)
     delayed_job (4.1.11)
       activesupport (>= 3.0, < 8.0)
-    delayed_job_active_record (4.1.7)
+    delayed_job_active_record (4.1.8)
       activerecord (>= 3.0, < 8.0)
       delayed_job (>= 3.0, < 5)
     descendants_tracker (0.0.4)
@@ -515,7 +516,7 @@ GEM
       temple
     erubi (1.12.0)
     escape_utils (1.3.0)
-    et-orbi (1.2.7)
+    et-orbi (1.2.11)
       tzinfo
     excon (0.110.0)
     execjs (2.9.1)
@@ -526,7 +527,7 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faker (3.2.1)
+    faker (3.3.1)
       i18n (>= 1.8.11, < 2)
     faraday (2.9.0)
       faraday-net_http (>= 2.0, < 3.2)
@@ -553,8 +554,8 @@ GEM
       activemodel (>= 4.1, < 7.1)
       activesupport (>= 4.1, < 7.1)
       railties (>= 4.1, < 7.1)
-    fugit (1.8.1)
-      et-orbi (~> 1, >= 1.2.7)
+    fugit (1.11.0)
+      et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
     gemoji (3.0.1)
     geocoder (1.8.3)
@@ -604,9 +605,10 @@ GEM
       rails (>= 3.2.0)
     jmespath (1.6.2)
     json (2.7.2)
-    json-jwt (1.16.3)
+    json-jwt (1.16.6)
       activesupport (>= 4.2)
       aes_key_wrap
+      base64
       bindata
       faraday (~> 2.0)
       faraday-follow_redirects
@@ -628,10 +630,10 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
-    listen (3.8.0)
+    listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    lograge (0.13.0)
+    lograge (0.14.0)
       actionpack (>= 4)
       activesupport (>= 4)
       railties (>= 4)
@@ -737,7 +739,7 @@ GEM
     parallel (1.24.0)
     parallel_tests (3.13.0)
       parallel
-    parser (3.3.0.5)
+    parser (3.3.1.0)
       ast (~> 2.4.1)
       racc
     pg (1.1.4)
@@ -753,7 +755,7 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
-    prometheus_exporter (2.0.8)
+    prometheus_exporter (2.1.0)
       webrick
     pry (0.14.2)
       coderay (~> 1.1)
@@ -764,7 +766,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (5.0.5)
-    puma (5.6.7)
+    puma (5.6.8)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.7.3)
@@ -842,7 +844,7 @@ GEM
       wisper (>= 1.6.1)
     redcarpet (3.6.0)
     redis (4.8.1)
-    regexp_parser (2.9.0)
+    regexp_parser (2.9.1)
     request_store (1.5.1)
       rack (>= 1.4)
     responders (3.1.1)
@@ -858,7 +860,7 @@ GEM
     rgeo-shapefile (3.1.0)
       dbf (~> 4.0)
       rgeo (>= 1.0)
-    rouge (4.1.3)
+    rouge (4.2.1)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -899,8 +901,8 @@ GEM
       rubocop-ast (>= 1.17.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.30.0)
-      parser (>= 3.2.1.0)
+    rubocop-ast (1.31.3)
+      parser (>= 3.3.1.0)
     rubocop-rails (2.15.2)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -944,7 +946,7 @@ GEM
       version_gem (~> 1.1, >= 1.1.1)
     social-share-button (1.2.4)
       coffee-rails
-    spring (4.1.1)
+    spring (4.2.1)
     spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
       spring (>= 4)

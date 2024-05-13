@@ -25,7 +25,9 @@ gem 'decidim-decidim_geo', github: 'octree-gva/decidim-module-geo', tag: "v0.2.1
 gem 'decidim-participatory_documents', github: 'openpoke/decidim-module-participatory-documents', tag: '0.2.2'
 gem 'decidim-question_captcha', github: 'OpenSourcePolitics/decidim-module-question_captcha', branch: 'release/0.27-stable'
 gem 'decidim-survey_multiple_answers', '~> 0.26.2'
-gem 'decidim-term_customizer', github: 'mainio/decidim-module-term_customizer', branch: 'master'
+
+# Had to be set to 0.27-stable because the master reference doesn't exist anymore and the main branch now requires ruby =< 3.1 
+gem 'decidim-term_customizer', github: 'mainio/decidim-module-term_customizer', branch: 'release/0.27-stable'
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
