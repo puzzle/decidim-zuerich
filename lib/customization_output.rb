@@ -13,7 +13,7 @@ class CustomizationOutput
   end
 
   def puts_and_log
-    return if ENV['CUSTOMIZATION_OUTPUT']
+    return unless ActiveRecord::Type::Boolean.new.cast(ENV['CUSTOMIZATION_OUTPUT'])
 
     puts to_s # rubocop:disable Rails/Output
     Rails.logger.info to_s
