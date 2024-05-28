@@ -14,6 +14,7 @@
 <h3>
 <a id="using-the-graphql-api" class="anchor" href="#using-the-graphql-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using the GraphQL APi</h3>
 <p>The GraphQL format is a JSON formatted text that is specified in a query. Response is a JSON object as well. For details about specification check the official <a href="https://graphql.org/learn/">GraphQL site</a>.</p>
+<p>Exercise caution when utilizing the output of this API, as it may include HTML that has not been escaped. Take particular care in handling this data, specially if you intend to render it on a webpage.</p>
 <p>For instance, you can check the version of a Decidim installation by using <code>curl</code> in the terminal:</p>
 <pre><code>curl -sSH "Content-Type: application/json" \
 -d '{"query": "{ decidim { version } }"}' \
@@ -746,6 +747,62 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/geoconfig/" class="sidebar-link">
+          GeoConfig
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/geocoordinates/" class="sidebar-link">
+          GeoCoordinates
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/geodatasource/" class="sidebar-link">
+          GeoDatasource
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/geodatasourceconnection/" class="sidebar-link">
+          GeoDatasourceConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/geodatasourceedge/" class="sidebar-link">
+          GeoDatasourceEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/geoscopeapi/" class="sidebar-link">
+          GeoScopeApi
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/geoshapedata/" class="sidebar-link">
+          GeoShapedata
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/geoshapefile/" class="sidebar-link">
+          GeoShapefile
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/hashtagtype/" class="sidebar-link">
           HashtagType
         </a>
@@ -1362,6 +1419,13 @@ If no language is specified, the configured as default in the organization will 
       
       
       <li>
+        <a href="/api/docs/input_object/assemblyfilter/" class="sidebar-link">
+          AssemblyFilter
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/input_object/categoryfilter/" class="sidebar-link">
           CategoryFilter
         </a>
@@ -1378,6 +1442,20 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/input_object/componentsort/" class="sidebar-link">
           ComponentSort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/geodatasourcefilter/" class="sidebar-link">
+          GeoDatasourceFilter
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/geoencodedfilter/" class="sidebar-link">
+          GeoencodedFilter
         </a>
       </li>
       
@@ -1411,6 +1489,13 @@ If no language is specified, the configured as default in the organization will 
       
       
       <li>
+        <a href="/api/docs/input_object/processfilter/" class="sidebar-link">
+          ProcessFilter
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/input_object/proposalfilter/" class="sidebar-link">
           ProposalFilter
         </a>
@@ -1420,6 +1505,27 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/input_object/proposalsort/" class="sidebar-link">
           ProposalSort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/resourcetypefilter/" class="sidebar-link">
+          ResourceTypeFilter
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/scopefilter/" class="sidebar-link">
+          ScopeFilter
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/timefilter/" class="sidebar-link">
+          TimeFilter
         </a>
       </li>
       
@@ -1476,6 +1582,13 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/scalar/id/" class="sidebar-link">
           ID
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/iso8601datetime/" class="sidebar-link">
+          ISO8601DateTime
         </a>
       </li>
       
