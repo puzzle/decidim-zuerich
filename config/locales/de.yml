@@ -29,213 +29,81 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
----
 de:
-  activerecord:
-    devise:
-      omniauth_registrations:
-        new:
-          nickname_help: Geben Sie hier ein Kürzel ein. Es darf keine Abstände, Umlaute oder Sonderzeichen enthalten. Andere Nutzende können Sie mit @Kürzel in Beiträgen verlinken.
-          password_help: Das Passwort muss mindestens %{minimun_characters} Zeichen lang sein. Es darf nicht zu gewöhnlich sein (z. B. 123456) und darf weder Ihr Kürzel noch Ihre E-Mail-Adresse enthalten.
-          username_help: Was Sie in diesem Feld eingeben, wird bei Ihren Beiträgen (Vorschläge / Kommentare etc.) angezeigt. Sie können hier Ihren Namen oder ein Pseudonym setzen.
-      registrations:
-        new:
-          already_have_an_account?: Sie haben bereits ein Konto?
-          captcha_instructions: Bitte beantworte die folgende Frage, um zu beweisen dass du ein Mensch bist.
-          captcha_legend: Sicherheitsfrage
-          newsletter: Ich möchte gelegentlich per Newsletter über Neuigkeiten informiert werden.
-          newsletter_title: Newsletter abonnieren
-          nickname_help: Geben Sie hier ein Kürzel ein. Es darf keine Abstände, Umlaute oder Sonderzeichen enthalten. Andere Nutzende können Sie mit @Kürzel in Beiträgen verlinken.
-          password_help: Das Passwort muss mindestens %{minimun_characters} Zeichen lang sein. Es darf nicht zu gewöhnlich sein (z. B. 123456) und darf weder Ihr Kürzel noch Ihre E-Mail-Adresse enthalten.
-          subtitle: Registrieren Sie sich, um mitzuwirken.
-          textcaptcha_answer: Antwort
-          tos_agreement: Ich stimme den %{link} zu.
-          username_help: Was Sie in diesem Feld eingeben, wird bei Ihren Beiträgen (Vorschläge / Kommentare etc.) angezeigt. Sie können hier Ihren Namen oder ein Pseudonym setzen.
-      sessions:
-        already_signed_out: Sie wurden bereits abgemeldet
-        signed_out: Sie haben sich abgemeldet
-      shared:
-        newsletter_modal:
-          buttons:
-            check: Newsletter abonnieren
-            unckeck: Newsletter nicht abonnieren
-          notice: |-
-            <p>Guten Tag! Sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
-            Für uns ist es sehr wichtig, dass wir Sie gelegentlich kontaktieren können, um Ihnen Neuigkeiten auf der Plattform mitteilen zu können. Sie können Ihre Präferenzen jederzeit in den <a href="/notifications_settings">Benachrichtungseinstellungen</a> anpassen.</p>
+  activemodel:
+    attributes:
+      organization:
+        delete_admin_logs: Löschen von Admin-Protokollen zulassen
+        delete_admin_logs_after: Admin-Protokolle löschen nach (Tage, standardmässig 365)
+        delete_inactive_users: Inaktive Teilnehmende löschen
+        delete_inactive_users_after: Inaktive Teilnehmende löschen nach (Tage, standardmässig 390)
+        delete_inactive_users_email_after: E-Mail zur bevorstehenden Konto-Löschung versenden nach Inaktivität von (Tagen, standardmässig 365)
     errors:
       internal_server_error:
         try_later: Bitte versuchen Sie es später nochmal.
       not_found:
         content_doesnt_exist: Diese Seite wurde leider nicht gefunden. Wir bitten um Verständnis.
         title: Ups!
-    events:
-      amendments:
-        amendment_created:
-          affected_user:
-            notification_title: Für den %{amendable_type} «<a href="%{amendable_path}">%{amendable_title}</a>» wurde eine Änderung vorgeschlagen.
-          follower:
-            notification_title: Für den %{amendable_type} «<a href="%{amendable_path}">%{amendable_title}</a>» wurde eine Änderung vorgeschlagen.
-      comments:
-        comment_by_followed_user:
-          email_subject: '%{author_name} hat den Vorschlag «%{resource_title}» kommentiert.'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den Vorschlag «<a href="%{resource_path}">%{resource_title}</a>» kommentiert.
-        comment_created:
-          email_subject: '%{author_name} hat den Vorschlag «%{resource_title}» kommentiert.'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den Vorschlag «<a href="%{resource_path}">%{resource_title}</a>» kommentiert.
-      components:
-        component_published:
-          email_intro: 'Die Komponente «%{resource_title}» wurde für «%{participatory_space_title}» aktiviert:'
-          notification_title: Die Komponente «%{resource_title}» wurde für «<a href="%{resource_path}">%{participatory_space_title}</a>» aktiviert
-      groups:
-        join_request_created:
-          email_intro: Es gibt eine neue Beitrittsanfrage für die Gruppe «%{user_group_name}». Jetzt auf der <a href="%{resource_url}">Gruppenseite</a> bestätigen.
-          email_subject: Es gibt eine neue Beitrittsanfrage für die Gruppe «%{user_group_name}»!
-          notification_title: Es gibt eine neue Beitrittsanfrage für die Gruppe «%{user_group_name}». Jetzt auf der <a href="%{resource_path}">Gruppenseite</a> bestätigen.
-      meetings:
-        meeting_closed:
-          affected_user:
-            notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde abgeschlossen.
-          follower:
-            notification_title: Die Veranstaltung <a href="%{resource_path}">%{resource_title}</a> wurde abgeschlossen.
-        meeting_registrations_over_percentage:
-          email_intro: Die verfügbaren Plätze an der Veranstaltung «%{resource_title}» sind zu %{percentage}% belegt.
-          email_subject: Die verfügbaren Plätze an der Veranstaltung «%{resource_title}» sind zu %{percentage}% belegt.
-        meeting_updated:
-          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie der Veranstaltung «%{resource_title}» folgen. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigten Link.
-        registrations_enabled:
-          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie der Veranstaltung «%{resource_title}» folgen. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigten Link.
-        upcoming_meeting:
-          email_intro: Die Veranstaltung «%{resource_title}» beginnt in weniger als 48 Stunden.
-          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie der Veranstaltung «%{resource_title}» folgen. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
-          email_subject: Die Veranstaltung "%{resource_title}" beginnt in weniger als 48 Stunden.
-      participatory_process:
-        step_activated:
-          notification_title: Der Schritt «%{resource_title}» wurde für den Mitwirkungsprozess «<a href="%{resource_path}">%{participatory_space_title}</a>» aktiviert.
-      proposals:
-        collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} wurde zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> akzeptiert.'
-          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">%{resource_title}</a> berechtigt sind. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
-          email_subject: '%{requester_name} bei %{resource_title} akzeptiert'
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>zum Beitragen*r</strong> beim gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>akzeptiert</strong>.
-        collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} wurde zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> abgelehnt.'
-          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">%{resource_title}</a> berechtigt sind.
-          email_subject: '%{requester_name} bei %{resource_title} abgelehnt'
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>zum Beitragen</strong> bei <a href="%{resource_path}">«%{resource_title}»</a> <strong>abgelehnt</strong>.
-        collaborative_draft_access_requested:
-          email_intro: '%{requester_name} hat um Zugriff für Ihren gemeinsamen Entwurf angefragt. Sie können den Antrag auf der Entwurfsseite <a href="%{resource_path}">«%{resource_title}»</a> <strong>annehmen oder ablehnen</strong>.'
-          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">«%{resource_title}»</a> berechtigt sind. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
-          email_subject: '%{requester_name} möchte bei %{resource_title} mitwirken'
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> hat beantragt, beim gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitzuwirken. Bitte <strong>akzeptieren</strong> Sie den Antrag oder <strong>lehnen ihn ab</strong>.
-        collaborative_draft_access_requester_accepted:
-          email_intro: Sie wurden zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> hinzugefügt.
-          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie angefordert haben, beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> mitzuwirken. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
-          email_subject: Anfrage zum Beitragen bei «%{resource_title}» angenommen
-          notification_title: Sie wurden zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> akzeptiert.
-        collaborative_draft_access_requester_rejected:
-          email_intro: Sie wurden zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> abgelehnt.
-          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie angefordert hatten, beim gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}»</a> mitzuwirken. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
-          email_subject: Anfrage zum Beitragen bei «%{resource_title}» abgelehnt
-          notification_title: Sie wurden zum Beitragen beim gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> <strong>abgelehnt</strong>.
-        collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den gemeinsamen Entwurf <a href="%{resource_path}">«%{resource_title}»</a> zurückgezogen.
-          email_outro: Sie haben diese automatische Benachrichtigung erhalten, weil Sie zum Bearbeiten von <a href="%{resource_path}">%{resource_title}</a> berechtigt sind. Bitte antworten Sie nicht per Mail, sondern direkt über die Plattform mit dem angezeigtem Link.
-          email_subject: Gemeinsamer Entwurf %{resource_title} von %{author_name} %{author_nickname} zurückgezogen.
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den gemeinsamen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>zurückgezogen</strong>.
-        proposal_accepted:
-          affected_user:
-            email_intro: 'Ihr Vorschlag «%{resource_title}» wurde angenommen. Sie finden weitere Informationen hier:'
-            notification_title: Ihr Vorschlag <a href="%{resource_path}">«%{resource_title}»</a> wurde angenommen.
-        proposal_evaluating:
-          follower:
-            notification_title: Der Vorschlag «<a href="%{resource_path}">«%{resource_title}»</a>» wird überprüft.
-        proposal_published_for_space:
-          notification_title: Der Vorschlag «<a href="%{resource_path}">«%{resource_title}»</a>» wurde zur Seite «%{participatory_space_title}» hinzugefügt.
-        proposal_rejected:
-          follower:
-            notification_title: Der Vorschlag <a href="%{resource_path}">«%{resource_title}»</a> wurde abgelehnt.
-    system:
-      actions:
-        confirm_destroy: Möchten Sie das wirklich löschen?
-      admins:
-        create:
-          error: Beim Erteilen der Admin-Rechte ist ein Fehler aufgetreten.
-        edit:
-          update: Bearbeiten
+   decidim:
+    admin:
       menu:
-        dashboard: Dashboard
+        clean: Datenbereinigung
+    cleaner:
+      admin:
+        organization_cleaner:
+          edit:
+            update: Aktualisieren
+          form:
+            admin_log_cleaner_title: Admin-Log
+            inactive_users_cleaner_title: Inaktive Teilnehmende
+      inactive_users_mailer:
+        warning_deletion:
+          body_1: Sie sind seit %{Tagen} Tagen bei <a href="%{Organisation_url}"> %{Organisation_name} </a> inaktiv.
+          body_2: Infolgedessen wurde Ihr Konto gelöscht.
+          greetings: Freundliche Grüsse,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Guten Tag
+          subject: Ihr Konto wurde gelöscht.
+        warning_inactive:
+          body_1: Sie sind seit %{Tagen} Tagen bei %{Organisation_name} inaktiv.
+          body_2: <a href="%{organization_url}">Wenn Sie sich nicht innerhalb %{remaining_days} Tagen anmelden </a>, wird ihr Konto gelöscht.
+          greetings: Freundliche Grüsse,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Guten Tag
+          subject: Ihr Konto ist inaktiv
+    components:
+      cleaner:
+        name: Bereinigung
+    content_blocks:
+      last_blog_posts:
+        name: Aktuellste Blog-Einträge
+        title: Aktuellste Blog-Einträge
+        view_all: Alle anzeigen
+      html2:
+        name: HTML-Block 2
+      html3:
+        name: HTML-Block 3
+      html4:
+        name: HTML-Block 4
+    participatory_processes:
+      index:
+        participatory_process_group:
+          more_info: Mehr anzeigen
+    system:
       models:
-        admin:
-          fields:
-            created_at: Erstellt am
-            email: E-Mail
         organization:
-          actions:
-            save_and_invite: Organisation erstellen & AdministratorIn einladen
           fields:
-            created_at: Erstellt am
-            omniauth_settings: Omniauth Einstellungen
-            smtp_settings: SMTP Einstellungen
-            tenant_type: Spezial-Features
+            tenant_type: special features
       organizations:
-        advanced_settings:
-          hide: Fortgeschrittene Einstellungen ausblenden
-          show: Fortgeschrittene Einstellungen einblenden
-        create:
-          error: Beim Erstellen der neuen Organisation ist ein Fehler aufgetreten.
-        edit:
-          secondary_hosts_hint: Geben Sie jeden Host auf einer separaten Zeile an
-        new:
-          reference_prefix_hint: Das Referenzpräfix wird zur eindeutigen Identifizierung von Ressourcen in allen Organisationen verwendet
-          secondary_hosts_hint: Geben Sie jeden Host auf einer separaten Zeile an
+        tenant_type:
+          none: None
         omniauth_settings:
-          enabled: Aktiviert
           oidc:
+            issuer: Issuer URL (e.g. https://login.integ.stadt-zuerich.ch:443/login/op)
             client_id: Client ID
             client_secret: Client secret
-            issuer: Issuer URL (z.B. https://login.integ.stadt-zuerich.ch:443/login/op)
-            redirect_url: Redirect URL (z.B. https://my.decidim.domain/users/auth/oidc/callback)
-        tenant_type:
-          none: Keine
+            redirect_url: Redirect URL (e.g. https://my.decidim.domain/users/auth/oidc/callback)
   decidim_zuerich:
     devise:
-      mitwirken:
-        devise:
-          mailer:
-            confirmation_instructions:
-              action: Bestätigen Sie Ihr Konto
-              greeting: Willkommen %{recipient}!
-              instruction: 'Bitte bestätigen sie Ihre E-Mail-Adresse über den folgenden Link:'
-            email_changed:
-              greeting: Hallo %{recipient}!
-              message: Ihre E-Mail-Adresse wurde zu %{email} geändert.
-              message_unconfirmed: Ihre E-Mail-Adresse wurde erfolgreich zu %{email} geändert.
-            invitation_instructions:
-              accept: Einladung annehmen
-              accept_until: Diese Einladung ist bis %{due_date} gültig.
-              decline: Einladung ablehnen
-              hello: Hallo %{email},
-              ignore: Wenn Sie die Einladung nicht annehmen möchten, ignorieren diese E-Mail.<br /> Ihr Konto wird erst erstellt, Wenn Sie den angegebenen Link zugreifen und Ihren Namen und Ihr Passwort festlegst.
-              invited_you_as_admin: '%{invited_by} hat Sie als Adminstrator*in von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren:'
-              invited_you_as_private_user: '%{invited_by} hat Sie als private*r Benutzer*in von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren:'
-              someone_invited_you: 'Jemand hat Sie zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren:'
-              someone_invited_you_as_admin: 'Jemand hat Sie als Adminstrator*in von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren:'
-              someone_invited_you_as_private_user: Jemand hat Sie als private*r Benutzer*in von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
-            password_change:
-              greeting: Hallo %{recipient}!
-              message: Ihr Passwort wurde erfolgreich geändert.
-              subject: Passwort geändert
-            reset_password_instructions:
-              action: Mein Passwort ändern
-              greeting: Hallo %{recipient}!
-              instruction: 'Jemand hat einen Link angefordert, um Ihr Passwort zu ändern. Falls Sie das selbst waren, dann folgen Sie diesem Link:'
-              instruction_2: Falls Sie das nicht selbst waren, können Sie diese E-Mail ignorieren.
-              instruction_3: Ihr Passwort ändert sich erst, wenn Sie auf den angegebenen Link zugreifen und ein neues Passwort erstellen.
-            unlock_instructions:
-              action: Entsperre mein Konto
-              greeting: Hallo %{recipient}!
-              instruction: 'Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:'
-              message: Ihr Konto wurde aufgrund einer übermässigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
+      # mitwirken: null
       # meinquartier: null
     maps:
       gis_zh:
@@ -245,44 +113,20 @@ de:
       participatory_process_helper:
         step_dates:
           no_dates: Kein Datum angegeben
-    reply_to: mitwirken-kontakt@zuerich.ch
     surveys:
       survey_answered_mailer:
         answered:
           answered_survey: Jemand hat an der Umfrage "%{survey_name}" teilgenommen.
-          subject: Neue Antwort auf Umfrage "%{survey_name}"
+          subject: Neue Antwort zur Umfrage "%{survey_name}"
           view: Zur Umfrage
     verifications:
       sms:
         aspsms_gateway:
+          sms_text: '%{code} ist Ihr Zugangscode auf %{organization}'
           sms_originator_max_11_alphabetic_characters: DECIDIM
-          sms_text: '%{code} ist dein Zugangscode auf %{organization}'
+    reply_to: mitwirken-kontakt@zuerich.ch
   devise:
-    confirmations:
-      confirmed: Ihre E-Mail-Adresse wurde erfolgreich bestätigt.
-    failure:
-      already_authenticated: Sie sind bereits angemeldet.
-    mailer:
-      confirmation_instructions:
-        subject: E-Mail bestätigen
-      reset_password_instructions:
-        action: Mein Passwort ändern
-        greeting: Hallo %{recipient}!
-        instruction: 'Jemand hat einen Link angefordert, um Ihr Passwort zu ändern. Falls Sie das selbst waren, folgen Sie diesem Link:'
-        instruction_2: Falls Sie das nicht selbst waren, können Sie diese E-Mail ignorieren.
-        instruction_3: Ihr Passwort ändert sich erst, wenn Sie auf den obigen Link zugreifen und ein neues Passwort erstellen.
-        subject: Passwort zurücksetzen
-    passwords:
-      new:
-        forgot_your_password: Haben Sie Ihr Passwort vergessen?
-        send_me_reset_password_instructions: Mein Passwort zurücksetzen
-      send_instructions: Wir stellen Ihnen innert wenigen Minuten einen Link zum Zurücksetzen Ihres Passworts zu.
-      updated: Ihr Passwort wurde erfolgreich geändert. Sie sind jetzt angemeldet.
-      updated_not_active: Ihr Passwort wurde erfolgreich geändert.
     shared:
       links:
-        didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungsmail erhalten?
-        didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
-        forgot_your_password: Haben Sie Ihr Passwort vergessen?
-        sign_in_with_provider: Mit "Mein Konto" anmelden#
-...
+        sign_in_with_provider: Mit "Mein Konto" anmelden
+  hello: "Hello world"
