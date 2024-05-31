@@ -109,6 +109,11 @@ de:
       gis_zh:
         basiskarte_schraeg: Stadt Zürich Basiskarte
         orthofoto: Stadt Zürich Luftbild
+    newsletter_templates:
+      test:
+        introduction_preview: Einführung der Test Mail
+        cta_text_preview: Google
+        body_preview: Inhalt der Test Mail
     participatory_processes:
       participatory_process_helper:
         step_dates:

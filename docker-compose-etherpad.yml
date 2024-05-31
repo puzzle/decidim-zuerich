@@ -1,5 +1,4 @@
 # Please replace all the values that start with CHANGE_ME.
-version: '3'
 services:
   app:
     environment:

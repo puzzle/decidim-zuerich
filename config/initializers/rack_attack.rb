@@ -24,7 +24,6 @@ end
 ActiveSupport::Notifications.subscribe(/rack_attack/) do |name, _start, _finish, _request_id, payload|
   # request object available in payload[:request]
   request = payload[:request]
-  # require 'pry'; binding.pry
   Rails.logger.warn "RACK ATTACK MATCH: #{name}: #{request.env['rack.attack.matched']} | ip: #{request.ip} | url: #{request.url}"
 end
 
