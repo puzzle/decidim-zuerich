@@ -1,0 +1,23 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.translated :editor, :introduction, label: t(".introduction") %>
+
+  <%= settings_fields.translated :text_field, :cta_text, label: t(".cta_text") %>
+
+  <%= settings_fields.text_field :cta_url, label: t(".cta_url") %>
+
+  <%= settings_fields.translated :editor, :body, label: t(".body") %>
+
+  <%= settings_fields.check_box :field_boolean, label: "Boolean" %>
+  <%= settings_fields.number_field :field_integer, label: "Integer" %>
+  <%= settings_fields.translated :text_field, :field_string, label: "String" %>
+  <%= settings_fields.translated :editor, :field_text, label: "Text" %>
+<% end %>
+
+<% form.fields_for :images, form.object.images do |images_fields| %>
+  <%= images_fields.upload :main_image, label: t(".main_image") %>
+<% end %>
+
+<div class="row column">
+  <%= t(".interpolations_hint") %>
+</div>
+
