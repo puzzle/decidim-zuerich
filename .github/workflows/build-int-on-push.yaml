@@ -1,0 +1,16 @@
+name: 'Build INT on push to master'
+
+on:
+  push:
+    branches:
+      - 'master'
+    paths-ignore:
+      - 'doc/**'
+      - '**.md'
+jobs:
+  build_image:
+    uses: ./.github/actions/lint_test_build_update.yaml
+    with:
+      image_repo: "harbor.puzzle.ch/decidim/stzh/int/rails"
+      configmanagement: "gitlab.puzzle.ch/pitc_ruby/decidim-configmanagement"
+      kustomization_path: "./deployments/pitc-stzh-decidim-int/kustomization.yaml"

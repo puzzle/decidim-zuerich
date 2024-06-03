@@ -1,0 +1,56 @@
+name: 'Reusable: Send SBOM to a dependency tracker'
+
+# This is a reusable build step, that is supposed to handle the generic task of
+# sending a SBOM somewhere.
+# This action should be as generic as possible. Maybe extract it to a repo
+#
+# TODO: Could be made more customizable with: `jq`, `fromJSON`, `toJSON` and `join`
+
+on:
+  workflow_call:
+    inputs:
+      dependency_tracker_url:
+        description: 'Url to send SBOM to'
+        type: string
+        required: true
+      project:
+        description: 'Project name'
+        type: string
+        required: false
+      project_version:
+        description: 'Project version'
+        type: string
+        required: false
+
+    secrets:
+      DEPENDENCY_TRACKER_TOKEN:
+        description: 'Token for the dependency tracker'
+        required: true
+
+jobs:
+  sbom:
+    environment: deploy
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: anchore/sbom-action@0
+        format: cyclonedx
+        output-file: sbom.xml
+      - name: 'Push SBOM to dependency tracker'
+        env:
+          URL: ${{ inputs.dependency_tracker_url }}
+          PROJECT: ${{ inputs.project }}
+          VERSION: ${{ inputs.project_version }}
+          TOKEN: ${{ secrets.DEPENDENCY_TRACKER_TOKEN }}
+        run: |
+          curl \
+            --silent \
+            --verbose \
+            --location \
+            --request POST \
+            --header "X-Api-Key: ${TOKEN}" \
+            --header "Content-Type: multipart/form-data" \
+            --form "autoCreate=true" \
+            --form "projectName=${PROJECT:-$GITHUB_REPOSITORY}" \
+            --form "projectVersion=${VERSION:-latest}" \
+            --form "bom=@sbom.xml" \
+            "${URL}"

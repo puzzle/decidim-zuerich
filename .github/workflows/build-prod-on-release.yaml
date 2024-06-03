@@ -1,0 +1,18 @@
+name: 'Build prod on release'
+
+# TODO: In the future, copy from INT kustomization the newTag, push the image to prod and retag PROD kustomization
+
+on:
+  release:
+    types:
+      - released
+    branches: 
+      - master
+jobs:
+  build_image:
+    uses: ./.github/actions/lint_test_build_update.yaml
+    secrets: inherit
+    with:
+      image_repo: "harbor.puzzle.ch/decidim/stzh/prod/rails"
+      configmanagement: "gitlab.puzzle.ch/pitc_ruby/decidim-configmanagement"
+      kustomization_path: "./deployments/pitc-stzh-decidim-prod/kustomization.yaml"
