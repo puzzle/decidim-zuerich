@@ -1,0 +1,16 @@
+name: 'Manual build without tests'
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_repo:
+        description: "Image repo to push image to"
+        type: string
+        required: true
+
+jobs:
+  build:
+    uses: ./.github/actions/build.yaml
+    secrets: inherit
+    with:
+      repository_url: ${{ inputs.image_repo }}

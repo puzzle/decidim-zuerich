@@ -1,26 +1,20 @@
-name: 'Rails Unit Tests'
+---
+name: 'Reusable: Rails Unit Tests'
 
-"on":
-  push:
-    branches:
-      - 'master'
-    paths-ignore:
-      - 'doc/**'
-      - '**.md'
-  pull_request:
-    branches:
-      - 'master'
-    paths-ignore:
-      - 'doc/**'
-      - '**.md'
+on:
+  workflow_call:
 
 jobs:
-  build:
+  test:
     runs-on: 'ubuntu-latest'
+
+    strategy:
+      matrix:
+        ruby: ['2.7']  # TODO: Reenable 3.0 when it's compatible
 
     services:
       postgres:
-        image: 'postgis/postgis:14-3.3-alpine'
+        image: 'postgres:11'
         env:
           POSTGRES_PASSWORD: 'postgres'
         ports: ['5432:5432']
@@ -35,23 +29,28 @@ jobs:
 
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
-      - name: 'Set up Ruby'
-        uses: ruby/setup-ruby@v1
+      - name: 'Set up Ruby ${{ matrix.ruby }}'
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
 
       - name: Install required package
         run: |
           sudo apt-get install libpq-dev
       - name: Cache gems
-        uses: actions/cache@v3
+        id: cache
+        uses: actions/cache@v2
         with:
           path: vendor/bundle
           key: ruby-${{ matrix.ruby }}-gem-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ruby-${{ matrix.ruby }}-gem-
-      - name: 'Build and test with Rake'
+
+      - name: 'Build and run tests'
         env:
+          RAILS_TEST_DB_NAME: 'postgres'
           RAILS_TEST_DB_USERNAME: 'postgres'
           RAILS_TEST_DB_PASSWORD: 'postgres'
           RAILS_ENV: 'test'
