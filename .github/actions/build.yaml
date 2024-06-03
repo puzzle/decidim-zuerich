@@ -1,0 +1,75 @@
+name: 'Reusable: Build and push image'
+
+# This is a reusable build step, that is supposed to handle the generic task of building a docker
+# image and pushing it to a repo.
+# This action should be as generic as possible. Maybe extract it to a repo
+#
+# TODO: Could be made more customizable with: `jq`, `fromJSON`, `toJSON` and `join`
+
+on:
+  workflow_call:
+    inputs:
+      repository_url:
+        description: 'Url to push build image to'
+        type: string
+        required: true
+      images:
+        description: 'Images arguments for docker/metadata-action'
+        type: string
+        required: false
+      flavor:
+        description: 'Flavor argument for docker/metadata-action'
+        type: string
+        required: false
+      tags:
+        description: 'Tags argument for docker/metadata-action'
+        type: string
+        required: false
+        default: |
+          type=semver,pattern={{version}},priority=1000
+          type=schedule,priority=900
+          type=sha,format=long,priority=800
+    secrets:
+      REGISTRY_USERNAME:
+        description: 'Username for registry login'
+        required: true
+      REGISTRY_TOKEN:
+        description: 'Password for registry login'
+        required: true
+    outputs:
+      tags:
+        description: List of set tags
+        value: ${{ jobs.build.outputs.tags }}
+      labels:
+        description: 
+        value: ${{ jobs.build.outputs.labels }}
+      json: ${{ jobs.build.outputs.json }}
+
+jobs:
+  build:
+    environment: deploy
+    runs-on: 'ubuntu-latest'
+    outputs:
+      tags: ${{ steps.meta.outputs.tags }}
+      labels: ${{ steps.meta.outputs.labels }}
+      json: ${{ steps.meta.outputs.json }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/metadata-action@v5
+        id: meta
+        with:
+          images: ${{ inputs.images }}
+          tags: ${{ inputs.tags }}
+          flavor: ${{ inputs.flavor }}
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ inputs.repository_url }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_TOKEN }}
+      - uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
