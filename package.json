@@ -36,9 +36,9 @@
     "extends @decidim/browserslist-config"
   ],
   "devDependencies": {
-    "@decidim/dev": "^0.27.6",
-    "@decidim/eslint-config": "^0.27.6",
-    "@decidim/stylelint-config": "^0.27.6",
+    "@decidim/dev": "^0.27.5",
+    "@decidim/eslint-config": "^0.27.5",
+    "@decidim/stylelint-config": "^0.27.5",
     "codemirror": "^5.65.16",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
