@@ -22,6 +22,7 @@ RUN apt-get update -qq \
        imagemagick \
        libicu-dev \
        libpq-dev \
+       libgeos-dev \
        ca-certificates \
        curl \
        gnupg \
