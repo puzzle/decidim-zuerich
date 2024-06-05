@@ -15,6 +15,13 @@ else
   echo "Skipping database initialization because already done on $(cat /db-init/done)"
 fi
 
+# Run deface compilation.
+if [ "$RAILS_ENV" = "production" ] && [ ! -d "app/compiled_views" ]; then
+  SKIP_MEMCACHE_CHECK=1 DEFACE_ENABLED=1 bundle exec rails deface:precompile
+else
+  echo "Skipping deface compilation because it is already done or not needed."
+fi
+
 # Fix bundler / rubygems / rails bug that causes puma to fail
 # https://github.com/rubygems/rubygems/issues/3279
 bundle binstubs bundler --force

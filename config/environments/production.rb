@@ -5,6 +5,10 @@ Rails.application.configure do
   config.cache_classes = true
 
   config.force_ssl = true
+  # Disable Deface dynamic overrides, and use precompiled files. 
+  # to compile: `SKIP_MEMCACHE_CHECK=1 DEFACE_ENABLED=1 bundle exec rails deface:precompile`
+  # to check compiled views: `./app/compiled_views`
+  config.deface.enabled = ENV.fetch("DEFACE_ENABLED", "0") == '1'
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
