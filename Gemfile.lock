@@ -47,10 +47,10 @@ GIT
 
 GIT
   remote: https://github.com/octree-gva/decidim-module-geo.git
-  revision: c1636ba0ed742db8253dc456a93f22584af50d2b
-  tag: v0.2.1
+  revision: f9356fb026aa78244b024676a2f05a6932b27f3c
+  tag: v0.2.3
   specs:
-    decidim-decidim_geo (0.2.1)
+    decidim-decidim_geo (0.2.3)
       activerecord-postgis-adapter (>= 6.0)
       decidim-admin (>= 0.26, < 0.28)
       decidim-core (>= 0.26, < 0.28)
@@ -1069,7 +1069,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.0.6p216
+   ruby 3.0.7p220
 
 BUNDLED WITH
-   2.5.6
+   2.3.20
