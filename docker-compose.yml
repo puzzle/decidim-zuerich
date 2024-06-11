@@ -3,7 +3,7 @@ services:
   app: &app
     build:
       context: .
-      dockerfile: ./.docker/Dockerfile
+      dockerfile: ./.docker/development/Dockerfile
       target: dev
     volumes:
       - .:/usr/src/app
@@ -26,7 +26,7 @@ services:
     ports:
       - 3000:3000
     command: bundle exec puma
-    entrypoint: ./.docker/entrypoint.sh
+    entrypoint: ./.docker/development/entrypoint.sh
     tty: true
     stdin_open: true
   pg:
@@ -49,7 +49,7 @@ services:
     depends_on: []
     ports:
       - 3035:3035
-    entrypoint: ./.docker/webpack-entrypoint.sh
+    entrypoint: ./.docker/development/webpack-entrypoint.sh
     command: [ 'bin/webpack-dev-server' ]
 
   mail:
