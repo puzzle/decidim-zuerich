@@ -35,14 +35,15 @@ services:
       - POSTGRES_USER=decidim_zuerich
       - POSTGRES_PASSWORD=dN5GH8y3lX
       - POSTGRES_DB=decidim_zuerich_development
+      - POSTGRES_HOST_AUTH_MEMTHOD=trust
     ports:
-      - 5432:5432
+      - '127.0.0.1:5432:5432'
     volumes:
       - pg-data:/var/lib/postgresql/data
       #- ./.docker/00-prepare-for-prod-dump.sql:/docker-entrypoint-initdb.d/00-prepare-for-prod-dump.sql
       #- ./.docker/database-init.sql:/docker-entrypoint-initdb.d/database-init.sql
   cache:
-    image: memcached:1.5-alpine
+    image: memcached:alpine
     command: [ memcached, -l, '0.0.0.0', -p, '11211' ]
   webpack:
     <<: *app
