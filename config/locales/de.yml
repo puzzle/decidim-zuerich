@@ -44,7 +44,7 @@ de:
       not_found:
         content_doesnt_exist: Diese Seite wurde leider nicht gefunden. Wir bitten um Verständnis.
         title: Ups!
-   decidim:
+  decidim:
     admin:
       menu:
         clean: Datenbereinigung
