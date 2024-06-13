@@ -1,17 +1,14 @@
-<% if organization_primary_color %>
 <style>
-table.button table td {
-  background: <%= organization_primary_color %> !important
-}
+  .decidim-bar {
+    background_color: <%= color %>
+  }
 </style>
-<% end %>
-
 <table class="main container">
   <tr>
-    <td class="decidim-bar">
+    <td class="decidim-bar" style="background-color: <%= color %>;">
       <table class="row collapse">
         <tr>
-          <th class="small-3 large-3 first columns decidim-bar">
+          <th class="small-3 large-3 first columns decidim-bar" style="background-color: <%= color %>;">
             <table>
               <tr>
                 <th>
@@ -19,7 +16,7 @@ table.button table td {
               </tr>
             </table>
           </th>
-          <th class="small-6 large-6 columns decidim-bar">
+          <th class="small-6 large-6 columns decidim-bar" style="background-color: <%= color %>;">
             <table>
               <tr>
                 <th>
@@ -30,7 +27,7 @@ table.button table td {
               </tr>
             </table>
           </th>
-          <th class="small-3 large-3 last columns decidim-bar">
+          <th class="small-3 large-3 last columns decidim-bar" style="background-color: <%= color %>;">
             <table>
               <tr>
                 <th>
@@ -94,11 +91,7 @@ table.button table td {
 
             <%= body %>
 
-            <br />
-            <% fields.each do |field| %>
-              <%= field %>
-              <br />
-            <% end %>
+            <%= color %>
 
           </th>
           <th class="expander"></th>

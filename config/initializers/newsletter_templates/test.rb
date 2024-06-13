@@ -5,6 +5,11 @@ Decidim.content_blocks.register(:newsletter_template, :test) do |content_block|
 
   content_block.images = [
     {
+      name: :custom_logo,
+      uploader: "Decidim::NewsletterTemplateImageUploader",
+      preview: -> { organization.logo }
+    },
+    {
       name: :main_image,
       uploader: "Decidim::NewsletterTemplateImageUploader",
       preview: -> { ActionController::Base.helpers.asset_pack_path("media/images/placeholder.jpg") }
@@ -15,18 +20,10 @@ Decidim.content_blocks.register(:newsletter_template, :test) do |content_block|
   opts = -> (map) { {type: :text, translated: true, preview: "-"}.merge(map) }
 
   content_block.settings do |settings|
-    settings.attribute(:introduction, opts.(preview: -> { t.("introduction_preview") }))
-    settings.attribute(:body,         opts.(preview: -> { t.("body_preview") }        ))
-    settings.attribute(:cta_text,     opts.(preview: -> { t.("cta_text_preview") }    ))
-    settings.attribute(:cta_url,      opts.(preview: "http://google.com"              ))
-    settings.attribute(:field_boolean, opts.(type: :boolean, preview: "Wahrheit"       ))
-    settings.attribute(:field_integer, opts.(type: :integer, preview: "Zahl"           ))
-    settings.attribute(:field_string,  opts.(type: :string,  preview: "String"         ))
-    settings.attribute(:field_text,    opts.(type: :text,    preview: "Text"           ))
-    settings.attribute(:field_array,   opts.(type: :array,   preview: "Array"          ))
-    settings.attribute(:field_enum,    opts.(type: :enum,    preview: "Enum"           ))
-    settings.attribute(:field_select,  opts.(type: :select,  preview: "Select"         ))
-    settings.attribute(:field_scope,   opts.(type: :scope,   preview: "Scope"          ))
-    settings.attribute(:field_time,    opts.(type: :time,    preview: "Zeit"           ))
+    settings.attribute(:introduction,  opts.(preview: -> { t.("introduction_preview") }))
+    settings.attribute(:body,          opts.(preview: -> { t.("body_preview") }        ))
+    settings.attribute(:cta_text,      opts.(preview: -> { t.("cta_text_preview") }    ))
+    settings.attribute(:cta_url,       opts.(preview: "http://google.com", translated: false ))
+    settings.attribute(:color,         opts.(preview: "Farbe", translated: false             ))
   end
 end

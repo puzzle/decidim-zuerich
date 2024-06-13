@@ -19,14 +19,6 @@ module DecidimZuerich
         parse_interpolations(uninterpolated_body, recipient_user, newsletter.id)
       end
 
-      def fields
-        %i[boolean integer string text].map do |type|
-          field = model.settings.send("field_#{type}")
-          translated = translated_attribute(field)
-          parse_interpolations(translated, recipient_user, newsletter.id)
-        end
-      end
-
       def uninterpolated_body
         translated_attribute(model.settings.body)
       end
@@ -41,6 +33,10 @@ module DecidimZuerich
           recipient_user,
           newsletter.id
         )
+      end
+
+      def color
+        model.settings.color
       end
 
       def cta_url
@@ -59,8 +55,12 @@ module DecidimZuerich
         newsletter.template.images_container.attached_uploader(:main_image).url(host: organization.host)
       end
 
-      def organization_primary_color
-        organization.colors["primary"]
+      def custom_logo
+        image_tag custom_logo_url
+      end
+
+      def custom_logo_url
+        newsletter.template.images_container.attached_uploader(:custom_logo).url(host: organization.host)
       end
     end
   end
