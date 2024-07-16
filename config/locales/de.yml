@@ -130,4 +130,11 @@ de:
       links:
         sign_in_with_provider: Mit "Mein Konto" anmelden
   hello: "Hello world"
+activerecord:
+  devise:
+     registrations:
+       new:
+         captcha_legend: Sicherheitsfrage
+         captcha_instructions: Bitte beantworten Sie die folgende Sicherheitsfrage (Spamschutz).
+         textcaptcha_answer: Antwort
 ...
