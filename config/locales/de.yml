@@ -44,6 +44,12 @@ de:
       not_found:
         content_doesnt_exist: Diese Seite wurde leider nicht gefunden. Wir bitten um Verständnis.
         title: Ups!
+      models:
+        user:
+          attributes:
+            textcaptcha_answer:
+              expired: Sie haben zu lange gebraucht, um die Frage zu beantworten. Bitte versuchen Sie es erneut.
+              incorrect: Die Antwort ist leider nicht korrekt, bitte versuchen Sie es erneut.
   decidim:
     admin:
       menu:
@@ -83,6 +89,12 @@ de:
         name: HTML-Block 3
       html4:
         name: HTML-Block 4
+    devise:
+     registrations:
+       new:
+         captcha_legend: Sicherheitsfrage
+         captcha_instructions: Bitte beantworten Sie die folgende Sicherheitsfrage (Spamschutz).
+         textcaptcha_answer: Antwort
     participatory_processes:
       index:
         participatory_process_group:
@@ -130,11 +142,4 @@ de:
       links:
         sign_in_with_provider: Mit "Mein Konto" anmelden
   hello: "Hello world"
-activerecord:
-  devise:
-     registrations:
-       new:
-         captcha_legend: Sicherheitsfrage
-         captcha_instructions: Bitte beantworten Sie die folgende Sicherheitsfrage (Spamschutz).
-         textcaptcha_answer: Antwort
 ...
