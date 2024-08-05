@@ -13,8 +13,6 @@ Rails.application.config.session_store(
   same_site: :lax
 )
 
-Decidim.config.expire_session_after = 4.hours
-
 def cache_reachable?
   Rails.cache.stats.values.any?
 end
