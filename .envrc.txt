@@ -1,0 +1,5 @@
+# vim: et:ts=2:sw=2:tw=0:wm=0:fdm=marker:ft=bash
+
+export RAILS_ALLOWED_HOSTS="test.dialogluzern.local,dialogluzern.local,test.deinklima.local,deinklima.local,test.impulskoeniz.local,impulskoeniz.local"
+export CUSTOMIZATION_OUTPUT=false
+export RAILS_ENV=development

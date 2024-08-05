@@ -48,11 +48,13 @@ public/uploads
 # Ignore local gems
 /vendor/bundle/
 
-# Ignore .envrc
-.envrc
+# Ignore .envrc.local
+.envrc.local
 
 # Ignore local environment variables file
 /.env.local
+/*.env
+!/dev.env
 
 # Ignore editor specific files
 *.code-workspace
