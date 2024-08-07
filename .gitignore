@@ -54,7 +54,7 @@ public/uploads
 # Ignore local environment variables file
 /.env.local
 /*.env
-!/dev.env
+!/.dev.env
 
 # Ignore editor specific files
 *.code-workspace
