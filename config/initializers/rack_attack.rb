@@ -13,6 +13,15 @@ safelist_ips.each do |ip_or_subnet|
   Rack::Attack.safelist_ip(ip_or_subnet)
 end
 
+Rack::Attack.safelist "allow S3 redirects" do |request|
+  regexes = [
+    %r~\Ahttps://[^/]+?/rails/active_storage/blobs/redirect/[A-Za-z0-9=]+--[A-Za-z0-9=]+/~,
+    %r~\Ahttps://[^/]+?/rails/active_storage/representations/redirect/[A-Za-z0-9=]+--[A-Za-z0-9=]+/[A-Za-z0-9=]+--[A-Za-z0-9=]+/~
+  ]
+
+  regexes.any? { _1.match? request.url }
+end
+
 Rack::Attack.throttle('requests by ip', limit: 100, period: 10, &:ip)
 
 Rack::Attack.blocklist('secure admin logins') do |req|
