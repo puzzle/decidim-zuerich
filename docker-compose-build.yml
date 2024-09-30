@@ -26,6 +26,11 @@ services:
       - RAILS_SERVE_STATIC_FILES=yes
       - SECRET_KEY_BASE=TEST
       - SENTRY_CURRENT_ENV=production
+    depends_on:
+      - pg
+      - cache
+      - mail
+      - worker
   pg:
     image: postgres
     environment:

@@ -21,6 +21,7 @@ services:
       - RAILS_DB_HOST=pg
       - RAILS_ENV=development
       - RAILS_MEMCACHED_HOST=cache
+      - SKIP_MEMCACHE_CHECK=true
       - RAILS_MAIL_DELIVERY_CONFIG=address:mail,port:1025
       #- RAILS_DB_NAME=decidim_zuerich_production
     ports:
