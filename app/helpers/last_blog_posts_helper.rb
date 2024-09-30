@@ -7,11 +7,11 @@ module LastBlogPostsHelper
 
   def blog_image_src(post)
     image_from_text =
-        Nokogiri::HTML
-            .parse(translated_attribute(post.body))
-            .css('img')
-            .first
-            &.attr('src')
+      Nokogiri::HTML
+      .parse(translated_attribute(post.body))
+      .css('img')
+      .first
+      &.attr('src')
 
     return image_from_text if image_from_text.present?
     return post.photos.min_by(&:weight).url if post.photos.count.positive?
