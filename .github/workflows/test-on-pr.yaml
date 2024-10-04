@@ -2,6 +2,7 @@ name: 'Lint and test on pull request'
 
 on:
   pull_request:
+    types: [opened, edited, reopened, synchronize]
     branches:
       - 'master'
     paths-ignore:
@@ -12,4 +13,4 @@ jobs:
   lint:
     uses: ./.github/workflows/reusable-lint.yaml
   test:
-    uses: ./.github/workflows/reusable-tests.yaml
+    uses: ./.github/workflows/reusable-test.yaml

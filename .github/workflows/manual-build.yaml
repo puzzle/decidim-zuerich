@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    uses: ./.github/actions/build.yaml
+    uses: ./.github/workflows/reusable_build.yaml
     secrets: inherit
     with:
       repository_url: ${{ inputs.image_repo }}
