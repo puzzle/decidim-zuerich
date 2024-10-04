@@ -16,6 +16,7 @@
     "leaflet": "^1.9.2",
     "leaflet-svgicon": "^0.0.2",
     "leaflet-tilelayer-swiss": "^2.2.1",
+    "leaflet.fullscreen": "^3.0.2",
     "leaflet.markercluster": "^1.5.3",
     "moment": "^2.29.4",
     "nth-check": "^2.0.1",
@@ -24,7 +25,7 @@
     "proj4leaflet": "^1.0.2",
     "shpjs": "^4.0.4",
     "yargs-parser": "^5.0.1",
-    "zustand": "^4.5.4"
+    "zustand": "^4.5.5"
   },
   "version": "0.1.0",
   "babel": {
