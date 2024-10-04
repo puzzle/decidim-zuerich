@@ -4,13 +4,18 @@ on:
   push:
     branches:
       - 'master'
+      - 'feature/cloudscale'
     paths-ignore:
       - 'doc/**'
       - '**.md'
+
 jobs:
-  build_image:
-    uses: ./.github/actions/lint_test_build_update.yaml
+  build-image:
+    uses: ./.github/workflows/reusable_lint_test_build_update.yaml
     with:
-      image_repo: "harbor.puzzle.ch/decidim/stzh/int/rails"
-      configmanagement: "gitlab.puzzle.ch/pitc_ruby/decidim-configmanagement"
+      image_repo: "https://harbor.puzzle.ch"
+      image_url: "harbor.puzzle.ch/decidim/stzh-int-rails"
+      configmanagement: "gitlab.puzzle.ch/pitc_ruby/decidim-configmanagement/"
+      configmanagement_branch: "feature/cloudscale"
       kustomization_path: "./deployments/pitc-stzh-decidim-int/kustomization.yaml"
+    secrets: inherit

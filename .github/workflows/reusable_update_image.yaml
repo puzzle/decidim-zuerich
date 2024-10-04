@@ -15,8 +15,14 @@ on:
         required: true
       repository_username:
         description: 'Username for repository login'
+        type: string
         required: false
         default: 'git'
+      repository_branch:
+        description: "The branch that should be edited"
+        type: string
+        required: false
+        default: main
       file:
         description: 'File in the repo to update'
         type: string
@@ -46,9 +52,11 @@ jobs:
           REPO_URL: ${{ inputs.repository }}
           REPO_USER: ${{ inputs.repository_username }}
           REPO_TOKEN: ${{ secrets.REPOSITORY_TOKEN }}
+          REPO_BRANCH: ${{ inputs.repository_branch }}
         run: |
           git clone https://${REPO_USER}:${REPO_TOKEN}@${REPO_URL} ./management_repo
           cd ./management_repo
+          git switch ${REPO_BRANCH}
           git config user.name "Decidim Github Action Image updater"
           git config user.email "robot@puzzle.ch"
           git remote set-url origin "https://${REPO_USER}:${REPO_TOKEN}@${REPO_URL}"
@@ -60,9 +68,10 @@ jobs:
           JSON: ${{ inputs.json }}
         with:
           cmd: |
-            TAG=$(echo "${JSON}" | yq -r '.tags[] | select(. | test("sha-"))')
-            echo $TAG
-            yq -i '.images.[] | select(.name == env(IMAGE_REF)) += {"newTag": env(TAG)}' "${FILE}"
+            ls -lha
+          # TAG=$(echo "${JSON}" | yq -r '.tags[] | select(. | test("sha-"))')
+          # echo $TAG
+          # yq -i '.images.[] | select(.name == env(IMAGE_REF)) += {"newTag": env(TAG)}' "${FILE}"
       - name: Commit & push back to repository
         env:
           IMAGE_REF: ${{ inputs.image_ref }}

@@ -16,7 +16,7 @@ on:
       images:
         description: 'Images arguments for docker/metadata-action'
         type: string
-        required: false
+        required: true
       flavor:
         description: 'Flavor argument for docker/metadata-action'
         type: string
@@ -41,9 +41,11 @@ on:
         description: List of set tags
         value: ${{ jobs.build.outputs.tags }}
       labels:
-        description: 
+        description: Label output
         value: ${{ jobs.build.outputs.labels }}
-      json: ${{ jobs.build.outputs.json }}
+      json:
+        description: JSON output
+        value: ${{ jobs.build.outputs.json }}
 
 jobs:
   build:
