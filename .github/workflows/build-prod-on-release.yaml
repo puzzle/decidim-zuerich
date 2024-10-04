@@ -6,11 +6,11 @@ on:
   release:
     types:
       - released
-    branches: 
+    branches:
       - master
 jobs:
   build_image:
-    uses: ./.github/actions/lint_test_build_update.yaml
+    uses: ./.github/workflows/lint_test_build_update.yaml
     secrets: inherit
     with:
       image_repo: "harbor.puzzle.ch/decidim/stzh/prod/rails"
