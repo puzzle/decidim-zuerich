@@ -19,16 +19,16 @@ on:
         required: false
         default: 'git'
       repository_branch:
-        description: "The branch that should be edited"
+        description: 'Branch on the repository to edit'
         type: string
         required: false
-        default: main
+        default: 'main'
       file:
         description: 'File in the repo to update'
         type: string
         required: true
-      json:
-        description: 'Image tag to update the image to'
+      image_tag:
+        description: 'Tag to be set'
         type: string
         required: true
       image_ref:
@@ -36,48 +36,67 @@ on:
         type: string
         required: false
         default: rails
+      identifier:
+        description: 'Identifier for commit-message, could be a namespace or project-name'
+        type: string
+        required: false
+        default: 'deployment'
 
     secrets:
       REPOSITORY_TOKEN:
-        description: 'Token for repository login'
+        description: 'Token for repository login, e.g. gitlab-token as Dev with R/W rights on content'
         required: true
 
 jobs:
   write_tag:
-    environment: deploy
     runs-on: 'ubuntu-latest'
     steps:
       - name: Pull from repository
         env:
           REPO_URL: ${{ inputs.repository }}
           REPO_USER: ${{ inputs.repository_username }}
-          REPO_TOKEN: ${{ secrets.REPOSITORY_TOKEN }}
           REPO_BRANCH: ${{ inputs.repository_branch }}
+          REPO_TOKEN: ${{ secrets.REPOSITORY_TOKEN }}
         run: |
           git clone https://${REPO_USER}:${REPO_TOKEN}@${REPO_URL} ./management_repo
           cd ./management_repo
-          git switch ${REPO_BRANCH}
-          git config user.name "Decidim Github Action Image updater"
+          git config user.name "Github Action Image updater"
           git config user.email "robot@puzzle.ch"
           git remote set-url origin "https://${REPO_USER}:${REPO_TOKEN}@${REPO_URL}"
-      - name: Update image tag
+          git switch ${REPO_BRANCH}
+          cd ../
+      - name: Read old tag
+        id: get_old_image_tag
         uses: mikefarah/yq@master
         env:
-          FILE: ${{ inputs.file }}
+          FILE: ./management_repo/${{ inputs.file }}
           IMAGE_REF: ${{ inputs.image_ref }}
-          JSON: ${{ inputs.json }}
         with:
           cmd: |
-            ls -lha
-          # TAG=$(echo "${JSON}" | yq -r '.tags[] | select(. | test("sha-"))')
-          # echo $TAG
-          # yq -i '.images.[] | select(.name == env(IMAGE_REF)) += {"newTag": env(TAG)}' "${FILE}"
-      - name: Commit & push back to repository
+            yq '.images.[] | select(.name == env(IMAGE_REF)).newTag' "${FILE}"
+      - name: Update image tag if it is newer
+        if: inputs.image_tag != steps.get_old_image_tag.outputs.result
+        id: set_image_tag
+        uses: mikefarah/yq@master
         env:
           IMAGE_REF: ${{ inputs.image_ref }}
-          TAG: ${{ inputs.tag }}
+          NEW_TAG: ${{ inputs.image_tag }}
+          OLD_TAG: ${{ steps.get_old_image_tag.outputs.result }}
+          FILE: ./management_repo/${{ inputs.file }}
+        with:
+          cmd: |
+            yq -i '(.images.[] | select(.name == env(IMAGE_REF)).newTag) |= env(NEW_TAG)' "${FILE}"
+      - name: Commit & push back to repository
+        if: inputs.image_tag != steps.get_old_image_tag.outputs.result
+        env:
+          REPO_BRANCH: ${{ inputs.repository_branch }}
+          IMAGE_REF: ${{ inputs.image_ref }}
+          OLD_TAG: ${{ steps.get_old_image_tag.outputs.result }}
+          NEW_TAG: ${{ inputs.image_tag }}
+          PARENT: ${{ inputs.identifier }}
         run: |
+          cd ./management_repo
+          echo git diff
           git add .
-          git commit -m "Setting image reference of '${IMAGE_REF} to '${TAG}'"
-          git push origin master
-
+          git commit -m "Update ${PARENT}/${IMAGE_REF} from '${OLD_TAG}' to '${NEW_TAG}'"
+          git push origin "${REPO_BRANCH}"
