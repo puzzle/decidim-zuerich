@@ -15,7 +15,7 @@ jobs:
     with:
       image_repo: "https://harbor.puzzle.ch"
       image_url: "harbor.puzzle.ch/decidim/stzh-int-rails"
-      configmanagement: "gitlab.puzzle.ch/pitc_ruby/decidim-configmanagement/"
-      configmanagement_branch: "feature/cloudscale"
+      configmanagement: "gitlab.puzzle.ch/pitc_ruby/deployments/decidim/"
+      configmanagement_branch: "main"
       kustomization_path: "./deployments/pitc-stzh-decidim-int/kustomization.yaml"
     secrets: inherit

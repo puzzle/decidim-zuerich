@@ -14,5 +14,5 @@ jobs:
     secrets: inherit
     with:
       image_repo: "harbor.puzzle.ch/decidim/stzh/prod/rails"
-      configmanagement: "gitlab.puzzle.ch/pitc_ruby/decidim-configmanagement"
+      configmanagement: "gitlab.puzzle.ch/pitc_ruby/deployments/decidim/"
       kustomization_path: "./deployments/pitc-stzh-decidim-prod/kustomization.yaml"
