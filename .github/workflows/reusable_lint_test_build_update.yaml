@@ -39,12 +39,30 @@ jobs:
       repository_url: ${{ inputs.image_repo }}
       images: ${{ inputs.image_url }}
       flavor: latest=true
-  update_tag:
+
+  extract_info:
     needs: [build]
+    runs-on: 'ubuntu-latest'
+    outputs:
+      version: ${{ steps.extracted.outputs.version }}
+    steps:
+      - name: Save JSON
+        run: echo '${{ needs.build.outputs.json }}' > build_info.json
+      - name: Extract version
+        id: get_version
+        uses: mikefarah/yq@master
+        with:
+          cmd: yq -r '(.tags[] | select(. | test("sha-"))) | sub(".*(sha-.*)","${1}")' build_info.json
+      - name: Prepare outputs
+        id: extracted
+        run: echo 'version=${{ steps.get_version.outputs.result }}' >> "$GITHUB_OUTPUT"
+
+  update_tag:
+    needs: [build, extract_info]
     uses: ./.github/workflows/reusable_update_image.yaml
     secrets: inherit
     with:
       repository: ${{ inputs.configmanagement }}
       repository_branch: ${{ inputs.configmanagement_branch }}
       file: ${{ inputs.kustomization_path }}
-      json: ${{ needs.build.outputs.json }}
+      image_tag: ${{ needs.extract_info.outputs.version }}
