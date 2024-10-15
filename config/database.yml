@@ -26,5 +26,5 @@ test:
 
 production:
   <<: *default
-  database: decidim_zuerich_production
+  database: <%= ENV.fetch('RAILS_DB_NAME', 'decidim_zuerich_production') %>
   url: <%= ENV['DATABASE_URL'] %>
