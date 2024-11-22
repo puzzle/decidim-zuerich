@@ -21,13 +21,13 @@ ARG BUILD_SCRIPT="set -uex \
     && yarn set version 1.22.19"
 ARG BUNDLE_WITHOUT="development:metrics:test"
 ARG BUNDLER_VERSION="2.5.6"
-ARG POST_BUILD_SCRIPT="bundle exec rails assets:precompile"
+ARG POST_BUILD_SCRIPT="DEFACE_ENABLED=1 bundle exec rails deface:precompile && bundle exec rails assets:precompile"
 ARG RAILS_DB_ADAPTER="nulldb"
 ARG SKIP_MEMCACHE_CHECK="true"
 ARG RAILS_ENV="production"
 ARG SECRET_KEY_BASE="thisneedstobeset"
 ARG CUSTOMIZATION_OUTPUT="false"
-ARG DISABLE_DEFACE="true"
+ARG DEFACE_ENABLED="0"
 
 # Install packages needed at buildtime
 RUN    apt-get update \
