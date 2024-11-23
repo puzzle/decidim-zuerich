@@ -1,6 +1,34 @@
 name: 'Build INT on push to master'
 
 on:
+  workflow_dispatch:
+    inputs:
+      image_repo:
+        description: "Image repo"
+        type: string
+        required: true
+      image_url:
+        description: "URL to push image to"
+        type: string
+        required: true
+      configmanagement:
+        description: "Configmanagement to write image tag to"
+        type: string
+        required: true
+      configmanagement_branch:
+        description: "Configmanagement branch to put the image tag into"
+        type: string
+        required: false
+      kustomization_path:
+        description: "Path to kustomization file"
+        type: string
+        required: true
+      identifier:
+        description: 'Identifier for commit-message, could be a namespace or project-name'
+        type: string
+        required: false
+        default: 'deployment'
+      
   push:
     branches:
       - 'master'
@@ -24,4 +52,5 @@ jobs:
       configmanagement: "gitlab.puzzle.ch/pitc_ruby/deployments/decidim/"
       configmanagement_branch: "main"
       kustomization_path: "./deployments/pitc-decidim-stzh-int/kustomization.yaml"
+      identifier: "stzh-int"
     secrets: inherit

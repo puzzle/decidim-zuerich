@@ -23,6 +23,11 @@ on:
         description: "Path to kustomization file"
         type: string
         required: true
+      identifier:
+        description: 'Identifier for commit-message, could be a namespace or project-name'
+        type: string
+        required: false
+        default: 'deployment'
 
 jobs: 
   lint:
@@ -66,3 +71,4 @@ jobs:
       repository_branch: ${{ inputs.configmanagement_branch }}
       file: ${{ inputs.kustomization_path }}
       image_tag: ${{ needs.extract_info.outputs.version }}
+      identifier: ${{ inputs.identifier }}
