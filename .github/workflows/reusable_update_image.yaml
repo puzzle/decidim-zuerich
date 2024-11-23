@@ -98,5 +98,5 @@ jobs:
           cd ./management_repo
           echo git diff
           git add .
-          git commit -m "Update ${PARENT}/${IMAGE_REF} from '${OLD_TAG}' to '${NEW_TAG}'"
+          git commit -m "[CI] Update ${PARENT}/${IMAGE_REF} from '${OLD_TAG}' to '${NEW_TAG}'"
           git push origin "${REPO_BRANCH}"
