@@ -54,7 +54,7 @@
     "jquery-ui": "^1.13.3",
     "jsrender": "^1.0.14",
     "leaflet.featuregroup.subgroup": "^1.0.2",
-    "marked": "^5.1.2",
+    "marked": "^6.0.0",
     "prettier": "^3.3.3",
     "select2": "^4.1.0-rc.0",
     "stylelint": "^13.11.0",
