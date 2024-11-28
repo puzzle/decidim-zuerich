@@ -95,6 +95,13 @@ de:
          captcha_legend: Sicherheitsfrage
          captcha_instructions: Bitte beantworten Sie die folgende Sicherheitsfrage (Spamschutz).
          textcaptcha_answer: Antwort
+    newsletter_templates:
+      test:
+        name: Spielplatz
+        introduction_preview: Einführung der Test Mail
+        cta_text_preview: Google
+        body_preview: Inhalt der Test Mail
+
     participatory_processes:
       index:
         participatory_process_group:
