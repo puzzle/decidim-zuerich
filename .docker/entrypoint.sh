@@ -2,6 +2,7 @@
 
 set -e
 
+gem install bundler
 bundle install
 
 bin/rails db:migrate RAILS_ENV=development
