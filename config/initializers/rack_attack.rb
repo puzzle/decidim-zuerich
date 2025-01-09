@@ -1,8 +1,8 @@
 require 'rack/attack'
 require 'ipaddr'
 
-# Rack::Attack.enabled = ENV.fetch('ENABLE_RACK_ATTACK', Rails.env.production?.to_s).in?(%w[true 1])
-Rack::Attack.enabled = true
+Rack::Attack.enabled = ENV.fetch('ENABLE_RACK_ATTACK', Rails.env.production?.to_s).in?(%w[true 1])
+# Rack::Attack.enabled = true
 
 safelist_ips = ENV.fetch('RACK_ATTACK_SAFELIST_IPS', '').split(',').map(&:strip)
 
@@ -13,10 +13,10 @@ safelist_ips.each do |ip_or_subnet|
   Rack::Attack.safelist_ip(ip_or_subnet)
 end
 
-Rack::Attack.safelist "allow S3 redirects" do |request|
+Rack::Attack.safelist 'allow S3 redirects' do |request|
   regexes = [
-    %r~\Ahttps://[^/]+?/rails/active_storage/blobs/redirect/[A-Za-z0-9=]+--[A-Za-z0-9=]+/~,
-    %r~\Ahttps://[^/]+?/rails/active_storage/representations/redirect/[A-Za-z0-9=]+--[A-Za-z0-9=]+/[A-Za-z0-9=]+--[A-Za-z0-9=]+/~
+    %r{\Ahttps://[^/]+?/rails/active_storage/blobs/redirect/[A-Za-z0-9=]+--[A-Za-z0-9=]+/},
+    %r{\Ahttps://[^/]+?/rails/active_storage/representations/redirect/[A-Za-z0-9=]+--[A-Za-z0-9=]+/[A-Za-z0-9=]+--[A-Za-z0-9=]+/}
   ]
 
   regexes.any? { _1.match? request.url }
@@ -38,7 +38,7 @@ ActiveSupport::Notifications.subscribe(/rack_attack/) do |name, _start, _finish,
 end
 
 # Used for rack-attack throttling debugging
-# # rubocop:disable Metrics/BlockLength
+#
 # ActiveSupport::Notifications.subscribe('rack.attack') do |_name, _start, _finish, _request_id, req|
 #   req = req[:request]
 #   # msg = [
@@ -81,5 +81,4 @@ end
 #   else
 #     logger.info(msg)
 #   end
-#   # rubocop:enable Metrics/BlockLength
-# end
+#   # end
