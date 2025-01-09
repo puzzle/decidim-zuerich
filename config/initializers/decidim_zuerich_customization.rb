@@ -65,7 +65,6 @@ end
 # Override default for surveys
 Decidim.find_component_manifest(:surveys).settings(:global).attributes[:clean_after_publish].default = false
 
-
 module Decidim
   module Map
     module Provider
@@ -77,3 +76,15 @@ module Decidim
   end
 end
 
+class Object
+  def current_assembly
+    @current_assembly ||= begin
+      model = organization_assemblies if defined?(organization_assemblies)
+      model ||= Decidim::Assembly
+
+      model.find_by!(
+        slug: params[:assembly_slug] || params[:slug]
+      )
+    end
+  end
+end
