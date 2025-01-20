@@ -23,34 +23,35 @@ gem 'decidim-cleaner', github: 'puzzle/decidim-module-cleaner', branch: 'release
 gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome', tag: 'v0.10.2'
 gem 'decidim-decidim_geo', github: 'octree-gva/decidim-module-geo', tag: 'v0.2.5'
 gem 'decidim-participatory_documents', github: 'openpoke/decidim-module-participatory-documents', tag: '0.2.2'
-gem 'decidim-question_captcha', github: 'OpenSourcePolitics/decidim-module-question_captcha', branch: 'release/0.27-stable'
+gem 'decidim-question_captcha', github: 'OpenSourcePolitics/decidim-module-question_captcha',
+                                branch: 'release/0.27-stable'
 gem 'decidim-survey_multiple_answers', '~> 0.26.2'
 
-gem 'decidim-guest_meeting_registration', github: 'alecslupu-pfa/guest-meeting-registration', branch: 'release/0.27-stable'
+gem 'decidim-guest_meeting_registration', github: 'alecslupu-pfa/guest-meeting-registration',
+                                          branch: 'release/0.27-stable'
 
-# Had to be set to 0.27-stable because the master reference doesn't exist anymore and the main branch now requires ruby =< 3.1 
+# Had to be set to 0.27-stable because the master reference doesn't exist anymore and the main branch now requires ruby =< 3.1
 gem 'decidim-term_customizer', github: 'mainio/decidim-module-term_customizer', branch: 'release/0.27-stable'
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
-gem 'acts_as_textcaptcha'      # , '~> 4.5.1'
+gem 'acts_as_textcaptcha' # , '~> 4.5.1'
 gem 'aws-sdk-s3'
 gem 'bootsnap'
+gem 'byebug', platform: :mri # , '~> 11.0'
 gem 'dalli'
 gem 'delayed_job_active_record'
 gem 'faker'                    # , '~> 1.9'
 gem 'lograge'
 gem 'omniauth_openid_connect'
 gem 'prometheus_exporter'
+gem 'pry-byebug'
 gem 'pry-rails'
 gem 'puma'
 gem 'sentry-raven'
 gem 'uglifier'                 # , '~> 4.1'
 
 group :development, :test do
-  gem 'byebug', platform: :mri # , '~> 11.0'
-  gem 'pry-byebug'
-
   gem 'decidim-dev', DECIDIM_VERSION
 end
 
