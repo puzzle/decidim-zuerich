@@ -136,7 +136,10 @@ de:
         aspsms_gateway:
           sms_text: '%{code} ist Ihr Zugangscode auf %{organization}'
           sms_originator_max_11_alphabetic_characters: DECIDIM
-    reply_to: mitwirken-kontakt@zuerich.ch
+    reply_to:
+      default:
+      mitwirken: mitwirken-kontakt@zuerich.ch
+      meinquartier: kontakt@meinquartier.zuerich
   devise:
     shared:
       links:
