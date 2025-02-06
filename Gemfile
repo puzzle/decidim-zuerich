@@ -22,6 +22,7 @@ gem 'decidim-antivirus', github: 'mainio/decidim-module-antivirus', branch: 'rel
 gem 'decidim-cleaner', github: 'puzzle/decidim-module-cleaner', branch: 'release/0.27-stable'
 gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome', tag: 'v0.10.2'
 gem 'decidim-decidim_geo', github: 'octree-gva/decidim-module-geo', tag: 'v0.2.5'
+gem 'decidim-gallery'
 gem 'decidim-participatory_documents', github: 'openpoke/decidim-module-participatory-documents', tag: '0.2.2'
 gem 'decidim-question_captcha', github: 'OpenSourcePolitics/decidim-module-question_captcha',
                                 branch: 'release/0.27-stable'
