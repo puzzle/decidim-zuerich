@@ -1,0 +1,46 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%=
+    settings_fields.color_field(
+      :banner_color_top,
+      label: t(".banner_color_top"),
+      value: current_organization.colors["primary"]
+    )
+  %>
+<% end %>
+
+<% form.fields_for :images, form.object.images do |images_fields| %>
+  <%= images_fields.upload :logo, label: t(".logo") %>
+<% end %>
+
+
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.translated :editor, :introduction, label: t(".introduction") %>
+
+  <%= settings_fields.translated :editor, :body, label: t(".body") %>
+<% end %>
+
+<% form.fields_for :images, form.object.images do |images_fields| %>
+  <%= images_fields.upload :main_image, label: t(".main_image") %>
+<% end %>
+
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+
+  <%= settings_fields.translated :text_field, :cta_text, label: t(".cta_text") %>
+  <%= settings_fields.text_field :cta_url, label: t(".cta_url") %>
+
+  <%= settings_fields.translated :editor, :conclusion, label: t(".conclusion") %>
+
+  <%=
+    settings_fields.color_field(
+      :banner_color_bottom,
+      label: t(".banner_color_bottom"),
+      value: current_organization.colors["primary"]
+    )
+  %>
+
+<% end %>
+
+<div class="row column">
+  <%= t("decidim.newsletter_templates.basic_only_text_settings_form.interpolations_hint") %>
+</div>
+
