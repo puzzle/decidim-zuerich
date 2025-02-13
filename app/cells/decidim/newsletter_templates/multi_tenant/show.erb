@@ -1,0 +1,104 @@
+<table class="main container">
+  <tr>
+    <td class="decidim-bar" style="background-color: <%= banner_color_top %>;">
+      <table>
+        <tr class="row collapse">
+          <th class="small-6 columns decidim-bar" style="background-color: <%= banner_color_top %>;">
+            <center>
+              <% if has_logo? %>
+                <%= logo %>
+              <% end %>
+            </center>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table class="spacer">
+        <tbody>
+          <tr>
+            <td height="40px" style="font-size:40px;line-height:40px;"> </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="row content">
+        <tr>
+          <th class="small-12 first columns">
+            <!-- Introduction -->
+            <%= introduction %>
+            <!-- /Introduction -->
+
+            <br><br>
+
+            <!-- Main Image -->
+            <% if has_main_image? %>
+              <table class="row content image">
+                <tr>
+                  <th class="small-12 first columns">
+                    <center>
+                      <div style='width: 200px; height: 200px;'>
+                        <%= main_image %>
+                      </div>
+                    </center>
+                  </th>
+                  <th class="expander"></th>
+                </tr>
+              </table>
+            <% end %>
+            <!-- /Main Image -->
+
+            <!-- Body -->
+            <%= body %>
+            <!-- /Body -->
+
+            <!-- CTA -->
+            <% if has_cta? %>
+              <p>&nbsp;</p>
+              <table class="button expanded radius">
+                <tr>
+                  <td>
+                    <table>
+                      <tr>
+                        <td>
+                          <%#= link_to cta_text, cta_url, target: :blank %>
+                          <%= link_to cta_text, cta_url, target: :blank %>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <p>&nbsp;</p>
+            <% end %>
+            <!-- /CTA -->
+
+            <!-- Conclusion -->
+            <%= conclusion %>
+            <!-- /Conclusion -->
+          </th>
+          <th class="expander"></th>
+        </tr>
+      </table>
+
+      <table class="row">
+        <tr>
+          <th class="small-12 first columns">
+          </th>
+          <th class="expander"></th>
+        </tr>
+      </table>
+
+      <table class="row">
+        <tr>
+          <th class="expander"></th>
+          <th class="small-12 first columns cityhall-bar" style="height: 46px; background-color: <%= banner_color_bottom %>">
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

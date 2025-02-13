@@ -102,6 +102,25 @@ de:
         cta_text_preview: Google
         body_preview: Inhalt der Test Mail
 
+      multi_tenant:
+        name: MultiTenant
+        introduction_preview: Hallo %{name}
+        body_preview: |-
+          Jeden Tag setzen wir uns dafür ein, dich pünktlich und sicher an dein Ziel zu bringen. Aber nicht immer wissen wir genau, was deine Wünsche an unser Angebot und unsere Dienstleistungen sind. Um diese besser kennenzulernen, haben wir die VBZ-Fahrgaststimme ins Leben gerufen. Dazu möchten wir jährlich in vier bis sechs Umfragen deine Meinung zu verschiedenen Themen einholen.
+          <br><br>
+          Die aktuelle Umfrage befasst sich mit dem Thema <b>«Anschlüsse und Pünktlichkeit»</b>.
+
+        cta_text_preview: Google
+        conclusion_preview: |-
+          Die Umfrage ist bis zum %{date} geöffnet. Nimm teil, in dem du auf den obenstehenden Link drückst.
+          <br><br>
+          Wir veröffentlichen anschliessend alle Auswertungen <a href="%{result_link}">%{result_text}</a>
+
+
+      multi_tenant_settings_form:
+        cta_text: Link Text
+        cta_url: Link URL
+
     participatory_processes:
       index:
         participatory_process_group:
