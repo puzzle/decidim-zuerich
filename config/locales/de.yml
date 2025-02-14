@@ -116,7 +116,6 @@ de:
           <br><br>
           Wir veröffentlichen anschliessend alle Auswertungen <a href="%{result_link}">%{result_text}</a>
 
-
       multi_tenant_settings_form:
         cta_text: Link Text
         cta_url: Link URL

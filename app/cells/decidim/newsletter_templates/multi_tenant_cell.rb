@@ -16,7 +16,7 @@ module Decidim
       end
 
       def has_logo?
-        preview? || newsletter.template.images_container.logo.attached?
+        newsletter.template.images_container.logo.attached?
       end
 
       def logo
@@ -24,8 +24,6 @@ module Decidim
       end
 
       def logo_url
-        return 'https://placehold.co/300x100' if preview?
-
         newsletter.template.images_container.attached_uploader(:logo).url(host: organization.host)
       end
 
@@ -38,7 +36,7 @@ module Decidim
       end
 
       def has_main_image?
-        preview? || newsletter.template.images_container.main_image.attached?
+        newsletter.template.images_container.main_image.attached?
       end
 
       def main_image
@@ -46,8 +44,6 @@ module Decidim
       end
 
       def main_image_url
-        return 'https://placehold.co/200x200' if preview?
-
         newsletter.template.images_container.attached_uploader(:main_image).url(host: organization.host)
       end
 
@@ -81,10 +77,6 @@ module Decidim
 
       def uninterpolated_conclusion
         translated_attribute(model.settings.conclusion)
-      end
-
-      def preview?
-        controller.instance_variable_get("@preview")
       end
     end
   end

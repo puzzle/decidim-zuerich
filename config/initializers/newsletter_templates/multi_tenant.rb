@@ -7,8 +7,8 @@ Decidim.content_blocks.register(:newsletter_template, :multi_tenant) do |content
   uploader = "Decidim::NewsletterTemplateImageUploader"
 
   content_block.images = [
-    { name: :logo, uploader: uploader },
-    { name: :main_image, uploader: uploader }
+    { name: :logo, uploader: uploader, preview: -> { "https://placehold.co/300x100" } },
+    { name: :main_image, uploader: uploader, preview: -> { "https://placehold.co/200x200" } }
   ]
 
   content_block.settings do |settings|
