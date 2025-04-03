@@ -1166,11 +1166,15 @@
   resolved "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.2.0.tgz"
   integrity sha512-+OJ9konv95ClSTOJCmMZqpd5+YGsB2S+x6w3E1oaM8UuR5j8nTNHYSz8c9BEPGDOCMQYIEEGlVPj/VY64iTbGw==
 
-"@decidim/browserslist-config@file:packages/browserslist-config":
-  version "0.27.9"
+"@decidim/browserslist-config@^0.27.7":
+  version "0.27.10"
+  resolved "https://registry.yarnpkg.com/@decidim/browserslist-config/-/browserslist-config-0.27.10.tgz#00ea4d3d0c352d0bdcba2a0b49534d776b00d254"
+  integrity sha512-5564tfCY2G1VHW9cRYWYflGi5R1daTCapmPHLBXP6PyTobPZu2R2aWe9utyY14egngK7o/koUw1YQqVeRpgy0A==
 
-"@decidim/core@file:packages/core":
-  version "0.27.9"
+"@decidim/core@^0.27.7":
+  version "0.27.10"
+  resolved "https://registry.yarnpkg.com/@decidim/core/-/core-0.27.10.tgz#7f70a80f66ce9ae39e456a11e31fbc7c78f3f9e6"
+  integrity sha512-J0yHYYevrED1AZnNHkEtYk2hfprbMtipUt6dVQuhdhmYuMRh/aSPSpsmDqCp4OPt71VPLO4zPJRDP7w2A3pbow==
   dependencies:
     "@joeattardi/emoji-button" "^4.6.2"
     "@rails/activestorage" "^6.0.4"
@@ -1220,23 +1224,31 @@
     webpack "^5.11.0"
     webpack-cli "^4.2.0"
 
-"@decidim/dev@file:packages/dev":
-  version "0.27.9"
+"@decidim/dev@^0.27.7":
+  version "0.27.10"
+  resolved "https://registry.yarnpkg.com/@decidim/dev/-/dev-0.27.10.tgz#1656b3a265be25549041473e5fe2ceb6ebe1966c"
+  integrity sha512-ONgsofTYe/fB8jsCJjHtaM5aSiuOs0iTfUyibia1STRCT5htmkub3/mCCI3Os/A28gMeaMxMK9HV6v9kwdMbpg==
   dependencies:
     axe-core "^4.1.4"
 
-"@decidim/elections@file:packages/elections":
-  version "0.27.9"
+"@decidim/elections@^0.27.7":
+  version "0.27.10"
+  resolved "https://registry.yarnpkg.com/@decidim/elections/-/elections-0.27.10.tgz#ff6356d1e3bf46d610b7d3b67d753a2182f73aca"
+  integrity sha512-UbPkgYV+0VeeXQPW0cubaEU2E/EjU0RbXsspQOper2eDRpKZTOhW9QCXs6/R4zLWq4lsepbDMpWTMrZ9nnSr6Q==
   dependencies:
     "@decidim/decidim-bulletin_board" "0.23.0"
     "@decidim/voting_schemes-dummy" "0.23.0"
     "@decidim/voting_schemes-electionguard" "0.23.0"
 
-"@decidim/eslint-config@file:packages/eslint-config":
-  version "0.27.9"
+"@decidim/eslint-config@^0.27.7":
+  version "0.27.10"
+  resolved "https://registry.yarnpkg.com/@decidim/eslint-config/-/eslint-config-0.27.10.tgz#23b447e76fefdd45eb47ca08b7311b900cfffee2"
+  integrity sha512-CVih4xzsN6iLGmdoAxBfrRZ/dlq+xDOJOUsp5ZGrL4V3x0YkK1TzJksooGtOEt64HOsuEV/HQ5AeeMP41LJbCQ==
 
-"@decidim/stylelint-config@file:packages/stylelint-config":
-  version "0.27.9"
+"@decidim/stylelint-config@^0.27.7":
+  version "0.27.10"
+  resolved "https://registry.yarnpkg.com/@decidim/stylelint-config/-/stylelint-config-0.27.10.tgz#ea34b870043b08942ba9ab3ac727f3dfa0dbbdfc"
+  integrity sha512-wgQCDZ2BvMoL4tR9cqQkn1ONGuhX1cl2ZeF0JQoVfE39tdtE8q+KVI7kncDr91hV/AZ0s81+sV27qvosVppayA==
 
 "@decidim/voting_schemes-dummy@0.23.0":
   version "0.23.0"
@@ -1248,8 +1260,10 @@
   resolved "https://registry.npmjs.org/@decidim/voting_schemes-electionguard/-/voting_schemes-electionguard-0.23.0.tgz"
   integrity sha512-o5/UXRc6v0Cp2BG/MtNpVAEtyNO3VdfFjJSX75E5W7G2yIu7na+D1HZyHyqIk1rgHPqdJmdg0DT7JI16fDcbXQ==
 
-"@decidim/webpacker@file:packages/webpacker":
-  version "0.27.9"
+"@decidim/webpacker@^0.27.7":
+  version "0.27.10"
+  resolved "https://registry.yarnpkg.com/@decidim/webpacker/-/webpacker-0.27.10.tgz#ddee96f0d672e800f5a5d6c277ba18bab96b053c"
+  integrity sha512-mp/iWl3tvxxBv60+RPhajmdrUqfWXytHr7JIAxFg+V1EpnBfQeql8GhjMyzrWARNe4Kc5kxYkjBfmy640X0PAA==
   dependencies:
     "@babel/core" "^7.15.5"
     "@babel/eslint-parser" "^7.16.5"
