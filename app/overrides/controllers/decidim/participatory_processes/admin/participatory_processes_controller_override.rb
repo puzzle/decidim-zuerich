@@ -9,6 +9,8 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_e
 
     @form[:description_de] = reset_url_target(@form[:description_de])
     @form[:description_en] = reset_url_target(@form[:description_en])
+    @form[:announcement_de] = reset_url_target(@form[:announcement_de])
+    @form[:announcement_en] = reset_url_target(@form[:announcement_en])
 
     render layout: "decidim/admin/participatory_process"
   end
@@ -20,6 +22,8 @@ Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessesController.class_e
 
     ppp['description_de'] = apply_url_target(ppp['description_de'])
     ppp['description_en'] = apply_url_target(ppp['description_en'])
+    ppp['announcement_de'] = apply_url_target(ppp['announcement_de'])
+    ppp['announcement_en'] = apply_url_target(ppp['announcement_en'])
 
     ppp
   end
