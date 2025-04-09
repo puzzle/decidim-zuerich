@@ -22,7 +22,7 @@ on:
         description: 'Configmanagement branch to put the image tag into'
         type: string
         required: false
-        default: 'main'
+        default: 'master'
       kustomization_path:
         description: 'Path to kustomization file'
         type: string
@@ -46,10 +46,10 @@ jobs:
   build-image:
     uses: ./.github/workflows/reusable_lint_test_build_update.yaml
     with:
-      image_repo: ${{ inputs.image_repo }}
-      image_url: ${{ inputs.image_url }}
-      configmanagement: ${{ inputs.configmanagement }}
-      configmanagement_branch: ${{ inputs.configmanagement_branch }}
-      kustomization_path: ${{ inputs.kustomization_path }}
-      identifier: ${{ inputs.identifier }}
+      image_repo: ${{ inputs.image_repo || 'https://harbor.puzzle.ch' }}
+      image_url: ${{ inputs.image_url || 'harbor.puzzle.ch/decidim/stzh-int-rails' }}
+      configmanagement: ${{ inputs.configmanagement || 'gitlab.puzzle.ch/pitc_ruby/deployments/decidim/' }}
+      configmanagement_branch: ${{ inputs.configmanagement_branch || 'master' }}
+      kustomization_path: ${{ inputs.kustomization_path || './deployments/pitc-decidim-stzh-int/kustomization.yaml' }}
+      identifier: ${{ inputs.identifier || 'stzh-int' }}
     secrets: inherit
