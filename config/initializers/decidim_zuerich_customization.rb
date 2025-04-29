@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/customization_output'
+require_relative '../../lib/decidim_zuerich/decidim_customization'
 require_relative '../../lib/decidim_zuerich/form_builder'
 require_relative '../../lib/puzzle_rails_pry_prompt'
 
 PuzzleRailsPryPrompt.set_prompt
 
-includes = [
+INCLUDES = [
   [Decidim::Debates::CreateDebateEvent,  DecidimZuerich::Debates::CreateDebateEvent],
   [Decidim::DiffCell,                    DecidimZuerich::DiffCell],
   [Decidim::FormBuilder,                 DecidimZuerich::FormBuilder]
-].each { |base, addition| base.include addition }
+].freeze
 
-prepends = [
+PREPENDS = [
   [Decidim::ApplicationMailer,                                  DecidimZuerich::ApplicationMailer],
   [Decidim::Assemblies::AssembliesHelper,                       DecidimZuerich::Assemblies::AssembliesHelper],
   [Decidim::Assemblies::AssemblyMCell,                          DecidimZuerich::Assemblies::AssemblyMCell],
@@ -27,19 +27,11 @@ prepends = [
   [Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper, DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper],
   [Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
   [Decidim::System::UpdateOrganization,                         DecidimZuerich::System::UpdateOrganization]
-].each { |base, addition| base.prepend addition }
+].freeze
 
-override_path = Pathname.new('app/overrides')
-Rails.autoloaders.main.ignore(override_path)
+OVERRIDES = ['app/overrides'].freeze
 
-overrides = override_path.glob('**/*_override.rb')
-Rails.application.config.after_initialize do
-  overrides.each do |override|
-    load override.expand_path.to_s
-  end
-end
-
-CustomizationOutput.puts_and_log(includes: includes, prepends: prepends, overrides: overrides)
+DecidimZuerich::DecidimCustomization.log_and_load(includes: INCLUDES, prepends: PREPENDS, overrides: OVERRIDES)
 
 # v Specially handled things (here be dragons) v
 

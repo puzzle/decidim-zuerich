@@ -2,7 +2,7 @@
 
 module DecidimZuerich
   # Simplifies common Rack::Attack rules
-  class RackAttackHelper # rubocop:disable Metrics/ClassLength
+  class RackAttack # rubocop:disable Metrics/ClassLength
     class << self
       def enabled?
         ENV.fetch('ENABLE_RACK_ATTACK', Rails.env.production?.to_s)
@@ -21,7 +21,7 @@ module DecidimZuerich
            .map { validate_ip(_1) }
            .compact_blank
            .each do |ip_or_subnet|
-             Rack::Attack.safelist_ip(ip_or_subnet)
+             Rack::Attack.safelist_ip(ip_or_subnet.to_s)
            end
       end
 
