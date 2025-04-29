@@ -2,9 +2,9 @@
 
 require 'rack/attack'
 require 'ipaddr'
-require_relative '../../lib/rack_attack_helper'
+require_relative '../../lib/decidim_zuerich/rack_attack'
 
-rack = DecidimZuerich::RackAttackHelper
+rack = DecidimZuerich::RackAttack
 
 Rack::Attack.enabled = rack.enabled?
 rack.safelist_ips_from_env
