@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative '../../lib/decidim_zuerich/editor_link_target_helper'
 require_relative '../../lib/decidim_zuerich/decidim_customization'
 require_relative '../../lib/decidim_zuerich/form_builder'
 require_relative '../../lib/puzzle_rails_pry_prompt'
