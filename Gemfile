@@ -9,7 +9,7 @@ ruby RUBY_VERSION
 gem 'execjs' # , '= 2.7.0'
 
 # gem 'decidim', DECIDIM_VERSION
-gem 'decidim', github: 'openpoke/decidim', branch: 'backport/0.27/feature/share_unpublish_components_with_tokens'
+gem "decidim", github: "openpoke/decidim", branch: "backport-maps"
 gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-consultations', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
