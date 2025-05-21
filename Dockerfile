@@ -64,6 +64,7 @@ RUN bundle config set --local deployment 'true' \
     && bundle clean
 
 COPY ./package.json ./yarn.lock /app-src/
+COPY ./packages /app-src/packages
 RUN yarn
 
 # set up app-src directory
