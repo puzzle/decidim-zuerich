@@ -3,9 +3,9 @@
 #################################
 
 # Versioning
-ARG RUBY_VERSION="3.1.1"
+ARG RUBY_VERSION="3.2.6"
 ARG BUNDLER_VERSION="2.5.23"
-ARG NODEJS_VERSION="16"
+ARG NODEJS_VERSION="18"
 ARG YARN_VERSION="1.22.22"
 
 # Packages

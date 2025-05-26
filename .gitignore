@@ -63,6 +63,8 @@ public/uploads
 tailwind.config.js
 /public/packs
 /public/packs-test
+/public/sw.js
+/public/sw.js.map
 /node_modules
 /yarn-error.log
 yarn-debug.log*

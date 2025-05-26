@@ -64,7 +64,6 @@ RUN bundle config set --local deployment 'true' \
     && bundle clean
 
 COPY ./package.json ./yarn.lock /app-src/
-COPY ./packages /app-src/packages
 RUN yarn
 
 # set up app-src directory
@@ -82,7 +81,7 @@ RUN rm -rf vendor/cache/ .git
 ##################################################################
 
 # This image will be replaced by Openshift
-FROM ruby:3.0.6-slim AS app
+FROM ruby:3.2.6-slim AS app
 
 # Set runtime shell
 SHELL ["/bin/bash", "-c"]

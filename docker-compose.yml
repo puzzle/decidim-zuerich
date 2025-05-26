@@ -50,7 +50,7 @@ services:
     ports:
       - 3035:3035
     entrypoint: ./.docker/development/shakapacker-entrypoint.sh
-    command: [ 'bin/shakapacker-dev-server' ]
+    command: [ 'bin/shakapacker', '--watch' ]
 
   mail:
     image: schickling/mailcatcher:latest

@@ -8,26 +8,26 @@ require_relative '../../lib/puzzle_rails_pry_prompt'
 PuzzleRailsPryPrompt.set_prompt
 
 INCLUDES = [
-  [Decidim::Debates::CreateDebateEvent,  DecidimZuerich::Debates::CreateDebateEvent],
-  [Decidim::DiffCell,                    DecidimZuerich::DiffCell],
+  #[Decidim::Debates::CreateDebateEvent,  DecidimZuerich::Debates::CreateDebateEvent],
+  #[Decidim::DiffCell,                    DecidimZuerich::DiffCell],
   [Decidim::FormBuilder,                 DecidimZuerich::FormBuilder]
 ].freeze
 
 PREPENDS = [
-  [Decidim::ApplicationMailer,                                  DecidimZuerich::ApplicationMailer],
-  [Decidim::Assemblies::AssembliesHelper,                       DecidimZuerich::Assemblies::AssembliesHelper],
+  #[Decidim::ApplicationMailer,                                  DecidimZuerich::ApplicationMailer],
+  #[Decidim::Assemblies::AssembliesHelper,                       DecidimZuerich::Assemblies::AssembliesHelper],
   #[Decidim::Assemblies::AssemblyMCell,                          DecidimZuerich::Assemblies::AssemblyMCell],
-  [Decidim::Forms::AnswerQuestionnaire,                         DecidimZuerich::Forms::AnswerQuestionnaire],
+  #[Decidim::Forms::AnswerQuestionnaire,                         DecidimZuerich::Forms::AnswerQuestionnaire],
   #[Decidim::Meetings::MeetingMCell,                             DecidimZuerich::Meetings::MeetingMCell],
-  [Decidim::Meetings::MeetingPresenter,                         DecidimZuerich::Meetings::MeetingPresenter],
-  [Decidim::OrganizationLogoUploader,                           DecidimZuerich::OrganizationLogoUploader],
-  [Decidim::ParticipatoryProcesses::Permissions,                DecidimZuerich::ParticipatoryProcesses::Permissions],
-  [Decidim::Proposals::DiffRenderer,                            DecidimZuerich::Proposals::DiffRenderer],
-  [Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
-  [Decidim::ResourceLocatorPresenter,                           DecidimZuerich::ResourceLocatorPresenter],
-  [Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper, DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper],
-  [Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
-  [Decidim::System::UpdateOrganization,                         DecidimZuerich::System::UpdateOrganization]
+  #[Decidim::Meetings::MeetingPresenter,                         DecidimZuerich::Meetings::MeetingPresenter],
+  #[Decidim::OrganizationLogoUploader,                           DecidimZuerich::OrganizationLogoUploader],
+  #[Decidim::ParticipatoryProcesses::Permissions,                DecidimZuerich::ParticipatoryProcesses::Permissions],
+  #[Decidim::Proposals::DiffRenderer,                            DecidimZuerich::Proposals::DiffRenderer],
+  #[Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
+  #[Decidim::ResourceLocatorPresenter,                           DecidimZuerich::ResourceLocatorPresenter],
+  #[Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper, DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper],
+  #[Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
+  #[Decidim::System::UpdateOrganization,                         DecidimZuerich::System::UpdateOrganization]
 ].freeze
 
 OVERRIDES = ['app/overrides'].freeze

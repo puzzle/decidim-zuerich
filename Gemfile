@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.28.5'
+DECIDIM_VERSION = '0.29.2'
 
 ruby RUBY_VERSION
 
@@ -17,18 +17,18 @@ gem 'decidim-templates', DECIDIM_VERSION
 
 #gem 'decidim-anonymous_codes', github: 'openpoke/decidim-module-anonymous_codes' # deactivated because no compatible version for decidim 0.28 exists
 gem 'decidim-anonymous_proposals', github: 'PopulateTools/decidim-module-anonymous_proposals', tag: 'v0.28.0'
-gem 'decidim-antivirus', github: 'mainio/decidim-module-antivirus', branch: 'main'
+gem 'decidim-antivirus', github: 'puzzle/decidim-module-antivirus', branch: 'master'
 gem 'decidim-cleaner', github: 'puzzle/decidim-module-cleaner', branch: 'release/0.27-stable'
-gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome', branch: 'release/0.28-stable'
+gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome', branch: 'main'
 #gem 'decidim-decidim_geo', git: 'https://git.octree.ch/decidim/decidim-module-geo.git' # deactivated because no compatible version for decidim 0.28 exists
-gem 'decidim-participatory_documents', github: 'openpoke/decidim-module-participatory-documents', branch: 'upgrade-0.28'
+gem 'decidim-participatory_documents', github: 'openpoke/decidim-module-participatory-documents', branch: 'upgrade-0.29'
 #gem 'decidim-question_captcha', github: 'OpenSourcePolitics/decidim-module-question_captcha', branch: 'release/0.27-stable' # deactivated because no compatible version for decidim 0.28 exists
 #gem 'decidim-survey_multiple_answers', '~> 0.26.2' # deactivated because no compatible version for decidim 0.28 exists
 
 #gem 'decidim-guest_meeting_registration', github: 'alecslupu-pfa/guest-meeting-registration', branch: 'release/0.27-stable' # deactivated because no compatible version for decidim 0.28 exists
 
 # Had to be set to 0.27-stable because the master reference doesn't exist anymore and the main branch now requires ruby =< 3.1
-#gem 'decidim-term_customizer', github: 'mainio/decidim-module-term_customizer', branch: 'release/0.27-stable' # deactivated because no compatible version for decidim 0.28 exists
+gem 'decidim-term_customizer', github: 'OpenSourcePolitics/decidim-module-term_customizer', branch: 'master'
 
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
