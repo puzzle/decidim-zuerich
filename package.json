@@ -36,6 +36,8 @@
     "picmo": "^5.8.0",
     "proj4": "^2.8.0",
     "proj4leaflet": "^1.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "select2": "^4.1.0-rc.0",
     "shakapacker": "7.1.0",
     "terser-webpack-plugin": "5",
