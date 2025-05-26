@@ -54,14 +54,6 @@ de:
     admin:
       menu:
         clean: Datenbereinigung
-    cleaner:
-      admin:
-        organization_cleaner:
-          edit:
-            update: Aktualisieren
-          form:
-            admin_log_cleaner_title: Admin-Log
-            inactive_users_cleaner_title: Inaktive Teilnehmende
       inactive_users_mailer:
         warning_deletion:
           body_1: Sie sind seit %{Tagen} Tagen bei <a href="%{Organisation_url}"> %{Organisation_name} </a> inaktiv.
@@ -76,8 +68,6 @@ de:
           hello: Guten Tag
           subject: Ihr Konto ist inaktiv
     components:
-      cleaner:
-        name: Bereinigung
     content_blocks:
       last_blog_posts:
         name: Aktuellste Blog-Einträge

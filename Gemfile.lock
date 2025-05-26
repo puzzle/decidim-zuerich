@@ -82,14 +82,6 @@ GIT
       ratonvirus (~> 0.4.3)
       ratonvirus-clamby (~> 0.4.0)
 
-GIT
-  remote: https://github.com/puzzle/decidim-module-cleaner.git
-  revision: 32212c1e80ba1badd5534ca0cd60ec51b85d4446
-  branch: release/0.27-stable
-  specs:
-    decidim-cleaner (1.0.1)
-      decidim-core (~> 0.27)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -1077,7 +1069,6 @@ DEPENDENCIES
   decidim (= 0.29.3)
   decidim-anonymous_proposals!
   decidim-antivirus!
-  decidim-cleaner!
   decidim-conferences (= 0.29.3)
   decidim-decidim_awesome!
   decidim-decidim_geo!

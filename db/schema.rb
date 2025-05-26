@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_05_26_093132) do
+ActiveRecord::Schema[7.0].define(version: 2025_05_26_150000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "fuzzystrmatch"
   enable_extension "ltree"
@@ -1403,11 +1403,6 @@ ActiveRecord::Schema[7.0].define(version: 2025_05_26_093132) do
     t.string "machine_translation_display_priority", default: "original", null: false
     t.string "external_domain_allowlist", default: [], array: true
     t.boolean "enable_participatory_space_filters", default: true
-    t.boolean "delete_admin_logs", default: false, null: false
-    t.integer "delete_admin_logs_after"
-    t.boolean "delete_inactive_users", default: false, null: false
-    t.integer "delete_inactive_users_email_after"
-    t.integer "delete_inactive_users_after"
     t.string "tenant_type"
     t.jsonb "content_security_policy", default: {}
     t.jsonb "name", default: {}, null: false
