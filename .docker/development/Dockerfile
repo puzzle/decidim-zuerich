@@ -65,7 +65,7 @@ RUN mkdir /db-init && chown 1000 /db-init
 USER decidim
 
 # Update system gems
-RUN gem update --system
+#RUN gem update --system
 
 # Copy Gemfile and install bundle dependencies
 COPY --chown=decidim:decidim Gemfile Gemfile.lock ${APP_HOME}
@@ -73,6 +73,6 @@ ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=20 \
   BUNDLE_RETRY=5 \
   PATH=${APP_HOME}/bin:${PATH}
-RUN gem install bundler:2.5.6
+RUN gem install bundler:2.5.23
 RUN bundle update --bundler
 RUN bundle install

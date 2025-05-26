@@ -20,7 +20,7 @@ ARG BUILD_SCRIPT="set -uex \
     && npm install -g yarn \
     && yarn set version 1.22.19"
 ARG BUNDLE_WITHOUT="development:metrics:test"
-ARG BUNDLER_VERSION="2.5.6"
+ARG BUNDLER_VERSION="2.5.23"
 ARG POST_BUILD_SCRIPT="DEFACE_ENABLED=1 bundle exec rails deface:precompile && bundle exec rails assets:precompile"
 ARG RAILS_DB_ADAPTER="nulldb"
 ARG SKIP_MEMCACHE_CHECK="true"
