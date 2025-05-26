@@ -9,7 +9,6 @@ PuzzleRailsPryPrompt.set_prompt
 
 INCLUDES = [
   #[Decidim::Debates::CreateDebateEvent,  DecidimZuerich::Debates::CreateDebateEvent],
-  #[Decidim::DiffCell,                    DecidimZuerich::DiffCell],
   [Decidim::FormBuilder,                 DecidimZuerich::FormBuilder]
 ].freeze
 
