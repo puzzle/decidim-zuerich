@@ -92,7 +92,7 @@ RUN adduser --disabled-password --uid 1001 --gid 0 --gecos "" --shell /bin/bash 
 
 ARG BUNDLE_WITHOUT="development:metrics:test"
 ARG BUNDLER_VERSION="2.5.6"
-ARG RUN_PACKAGES="clamav clamav-daemon git graphicsmagick libicu-dev libpq5 nodejs poppler-utils p7zip"
+ARG RUN_PACKAGES="clamav clamav-daemon git graphicsmagick libicu-dev libpq5 nodejs poppler-utils p7zip wkhtmltopdf"
 ARG CUSTOMIZATION_OUTPUT="false"
 ENV TZ="Europe/Zurich"
 

@@ -10,7 +10,7 @@ ARG YARN_VERSION="1.22.22"
 
 # Packages
 ARG BUILD_PACKAGES="git libicu-dev libpq-dev ca-certificates curl gnupg"
-ARG RUN_PACKAGES="git graphicsmagick libicu-dev libpq5 poppler-utils libgeos-dev libpaper1 p7zip"
+ARG RUN_PACKAGES="git graphicsmagick libicu-dev libpq5 poppler-utils libgeos-dev libpaper1 p7zip wkhtmltopdf"
 
 # Scripts
 ARG PRE_INSTALL_SCRIPT="curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x -o /tmp/nodesource_setup.sh && bash /tmp/nodesource_setup.sh"
