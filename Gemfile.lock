@@ -1,4 +1,15 @@
 GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-survey_multiple_answers.git
+  revision: 971ad38a2955b5f495b7f2ed719589cd329cf269
+  branch: bump/0.29
+  specs:
+    decidim-survey_multiple_answers (0.29.2)
+      decidim-admin (>= 0.26.0, < 0.30.0)
+      decidim-core (>= 0.26.0, < 0.30.0)
+      decidim-forms (>= 0.26.0, < 0.30.0)
+      decidim-surveys (>= 0.26.0, < 0.30.0)
+
+GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-term_customizer.git
   revision: 3da4973f52649534fa9cc2acaaa4d89176a19351
   branch: master
@@ -1048,6 +1059,7 @@ DEPENDENCIES
   decidim-dev (= 0.29.3)
   decidim-participatory_documents!
   decidim-proposals (= 0.29.3)
+  decidim-survey_multiple_answers!
   decidim-templates (= 0.29.3)
   decidim-term_customizer!
   delayed_cron_job
