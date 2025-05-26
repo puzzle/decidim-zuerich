@@ -22,7 +22,6 @@ PREPENDS = [
   #[Decidim::Proposals::DiffRenderer,                            DecidimZuerich::Proposals::DiffRenderer],
   #[Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
   #[Decidim::ResourceLocatorPresenter,                           DecidimZuerich::ResourceLocatorPresenter],
-  #[Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper, DecidimZuerich::ParticipatoryProcesses::ParticipatoryProcessHelper],
   #[Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
   #[Decidim::System::UpdateOrganization,                         DecidimZuerich::System::UpdateOrganization]
 ].freeze
