@@ -3,14 +3,14 @@
 #################################
 
 # Versioning
-ARG RUBY_VERSION="3.0.6"
+ARG RUBY_VERSION="3.1.1"
 ARG BUNDLER_VERSION="2.5.23"
 ARG NODEJS_VERSION="16"
 ARG YARN_VERSION="1.22.22"
 
 # Packages
 ARG BUILD_PACKAGES="git libicu-dev libpq-dev ca-certificates curl gnupg"
-ARG RUN_PACKAGES="git graphicsmagick libicu-dev libpq5 poppler-utils libgeos-dev libpaper1"
+ARG RUN_PACKAGES="git graphicsmagick libicu-dev libpq5 poppler-utils libgeos-dev libpaper1 p7zip"
 
 # Scripts
 ARG PRE_INSTALL_SCRIPT="curl -sL https://deb.nodesource.com/setup_${NODEJS_VERSION}.x -o /tmp/nodesource_setup.sh && bash /tmp/nodesource_setup.sh"

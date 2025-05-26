@@ -2,7 +2,7 @@
 #                            Build Stage                         #
 ##################################################################
 
-FROM ruby:3.0.6 AS build
+FROM ruby:3.1.1 AS build
 
 # Set build shell
 SHELL ["/bin/bash", "-c"]
@@ -92,7 +92,7 @@ RUN adduser --disabled-password --uid 1001 --gid 0 --gecos "" --shell /bin/bash 
 
 ARG BUNDLE_WITHOUT="development:metrics:test"
 ARG BUNDLER_VERSION="2.5.6"
-ARG RUN_PACKAGES="clamav clamav-daemon git graphicsmagick libicu-dev libpq5 nodejs poppler-utils"
+ARG RUN_PACKAGES="clamav clamav-daemon git graphicsmagick libicu-dev libpq5 nodejs poppler-utils p7zip"
 ARG CUSTOMIZATION_OUTPUT="false"
 ENV TZ="Europe/Zurich"
 

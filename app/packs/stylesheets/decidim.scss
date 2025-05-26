@@ -46,6 +46,8 @@
 //   --google: #{$google};
 // }
 
+$black: #000000;
+
 // MODIFICATIONS FOR DECIDIM ZUERICH
 
 /**
@@ -503,7 +505,7 @@ h5,
 .navbar,
 .off-canvas {
   background-color: initial;
-  color: $black !important;
+  color: black !important;
 
   a {
     color: #646464 !important;
@@ -514,21 +516,21 @@ h5,
   }
 
   .close-button {
-    color: $black !important;
+    color: black !important;
   }
 
   .topbar__dropmenu.language-choose {
     left: 0;
     right: 0;
     padding-left: 0.5rem;
-    background: $light-gray;
+    background: #aaa;
   }
 }
 .logo-wrapper span {
   color: inherit !important;
 }
 .off-canvas {
-  background-color: $light-gray;
+  background-color: #aaa;
 }
 
 .card__link,
@@ -896,7 +898,7 @@ form[action^="/search"] .input-group {
     }
   }
   .icon {
-    color: $black !important;
+    color: black !important;
   }
 
   .button-wrapper,

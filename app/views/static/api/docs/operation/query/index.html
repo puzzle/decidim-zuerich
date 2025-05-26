@@ -2,130 +2,7 @@
 <a id="query" class="anchor" href="#query" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Query</h1>
 <p>Every GraphQL schema has a root type for both queries and mutations. The <a href="https://facebook.github.io/graphql/#sec-Type-System">query type</a> defines GraphQL operations that retrieve data from the server.</p>
 <h2>
-<a id="connections" class="anchor" href="#connections" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Connections</h2>
-<div class="field-entry ">
-  <span id="geodatasource" class="field-name connection-name anchored">geoDatasource (<code><a href="/api/docs/object/geodatasourceconnection">GeoDatasourceConnection</a></code>)</span>
-  <div class="description-wrapper">
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">after</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>Returns the elements in the list that come after the specified cursor.</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">before</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-    <p>Returns the elements in the list that come before the specified cursor.</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">first</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/int">Int</a></code>
-  </td>
-  <td>
-    <p>Returns the first <em>n</em> elements from the list.</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">last</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/int">Int</a></code>
-  </td>
-  <td>
-    <p>Returns the last <em>n</em> elements from the list.</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">filters</code></td>
-  <td>
-    <code><a href="/api/docs/input_object/geodatasourcefilter">[GeoDatasourceFilter!]</a></code>
-  </td>
-  <td>
-    <p>This argument let's you filter the results</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">locale</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String</a></code>
-  </td>
-  <td>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<h2>
 <a id="fields" class="anchor" href="#fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fields</h2>
-<div class="field-entry ">
-  <span id="commentable" class="field-name anchored">commentable (<code><a href="/api/docs/object/commentable">Commentable!</a></code>)</span>
-  <div class="description-wrapper">
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String!</a></code>
-  </td>
-  <td>
-    <p>The commentable's ID</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">type</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String!</a></code>
-  </td>
-  <td>
-    <p>The commentable's class name. i.e. <code>Decidim::ParticipatoryProcess</code></p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">locale</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">String!</a></code>
-  </td>
-  <td>
-    <p>The locale for which to get the comments text</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">toggleTranslations</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/boolean">Boolean!</a></code>
-  </td>
-  <td>
-    <p>Whether the user asked to toggle the machine translations or not.</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
 <div class="field-entry ">
   <span id="participatoryprocesses" class="field-name anchored">participatoryProcesses (<code><a href="/api/docs/object/participatoryprocess">[ParticipatoryProcess!]</a></code>)</span>
   <div class="description-wrapper">
@@ -145,7 +22,7 @@
     <code><a href="/api/docs/input_object/participatoryprocessfilter">ParticipatoryProcessFilter</a></code>
   </td>
   <td>
-    <p>This argument let's you filter the results</p>
+    <p>This argument lets you filter the results</p>
    </td>
   </tr>
   <tr>
@@ -154,7 +31,7 @@
     <code><a href="/api/docs/input_object/participatoryprocesssort">ParticipatoryProcessSort</a></code>
   </td>
   <td>
-    <p>This argument let's you order the results</p>
+    <p>This argument lets you order the results</p>
    </td>
   </tr>
   </tbody>
@@ -494,7 +371,7 @@
     <code><a href="/api/docs/input_object/participatoryprocessfilter">ParticipatoryProcessFilter</a></code>
   </td>
   <td>
-    <p>This argument let's you filter the results</p>
+    <p>This argument lets you filter the results</p>
    </td>
   </tr>
   <tr>
@@ -503,7 +380,7 @@
     <code><a href="/api/docs/input_object/participatoryprocesssort">ParticipatoryProcessSort</a></code>
   </td>
   <td>
-    <p>This argument let's you order the results</p>
+    <p>This argument lets you order the results</p>
    </td>
   </tr>
   </tbody>
@@ -513,7 +390,7 @@
 <div class="field-entry ">
   <span id="assembly" class="field-name anchored">assembly (<code><a href="/api/docs/object/assembly">Assembly</a></code>)</span>
   <div class="description-wrapper">
-   <p>Finds a assembly</p>
+   <p>Finds an assembly</p>
      <table class="arguments">
   <thead>
   <tr>
@@ -530,6 +407,58 @@
   </td>
   <td>
     <p>The ID of the participatory space</p>
+   </td>
+  </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="commentable" class="field-name anchored">commentable (<code><a href="/api/docs/object/commentable">Commentable!</a></code>)</span>
+  <div class="description-wrapper">
+     <table class="arguments">
+  <thead>
+  <tr>
+    <th>Argument</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><code class="anchored">id</code></td>
+  <td>
+    <code><a href="/api/docs/scalar/string">String!</a></code>
+  </td>
+  <td>
+    <p>The commentable's ID</p>
+   </td>
+  </tr>
+  <tr>
+  <td><code class="anchored">type</code></td>
+  <td>
+    <code><a href="/api/docs/scalar/string">String!</a></code>
+  </td>
+  <td>
+    <p>The commentable's class name. i.e. <code>Decidim::ParticipatoryProcess</code></p>
+   </td>
+  </tr>
+  <tr>
+  <td><code class="anchored">locale</code></td>
+  <td>
+    <code><a href="/api/docs/scalar/string">String!</a></code>
+  </td>
+  <td>
+    <p>The locale for which to get the comments text</p>
+   </td>
+  </tr>
+  <tr>
+  <td><code class="anchored">toggleTranslations</code></td>
+  <td>
+    <code><a href="/api/docs/scalar/boolean">Boolean!</a></code>
+  </td>
+  <td>
+    <p>Whether the user asked to toggle the machine translations or not.</p>
    </td>
   </tr>
   </tbody>
@@ -591,87 +520,6 @@
   </td>
   <td>
     <p>The ID of the participatory space</p>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="geoshapefiles" class="field-name anchored">geoShapefiles (<code><a href="/api/docs/object/geoshapefile">[GeoShapefile!]</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Return's information about the shapefiles</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">title</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">[String!]</a></code>
-  </td>
-  <td>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="geoshapedata" class="field-name anchored">geoShapedata (<code><a href="/api/docs/object/geoshapedata">[GeoShapedata!]</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Return's datas from shapefile</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">name</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/string">[String!]</a></code>
-  </td>
-  <td>
-   </td>
-  </tr>
-  </tbody>
-</table>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="geoconfig" class="field-name anchored">geoConfig (<code><a href="/api/docs/object/geoconfig">GeoConfig</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Return's information about the geo config</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="geoscope" class="field-name anchored">geoScope (<code><a href="/api/docs/object/geoscopeapi">[GeoScopeApi!]</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Return's scopes with shapedatas</p>
-     <table class="arguments">
-  <thead>
-  <tr>
-    <th>Argument</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td><code class="anchored">id</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/int">[Int!]</a></code>
-  </td>
-  <td>
    </td>
   </tr>
   </tbody>
@@ -925,64 +773,15 @@
       
         
       <li>
-        <a href="/api/docs/object/geoconfig/" class="sidebar-link">
-          GeoConfig
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/geocoordinates/" class="sidebar-link">
-          GeoCoordinates
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/geodatasource/" class="sidebar-link">
-          GeoDatasource
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/geodatasourceconnection/" class="sidebar-link">
-          GeoDatasourceConnection
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/geodatasourceedge/" class="sidebar-link">
-          GeoDatasourceEdge
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/geoscopeapi/" class="sidebar-link">
-          GeoScopeApi
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/geoshapedata/" class="sidebar-link">
-          GeoShapedata
-        </a>
-      </li>
-      
-        
-      <li>
-        <a href="/api/docs/object/geoshapefile/" class="sidebar-link">
-          GeoShapefile
-        </a>
-      </li>
-      
-        
-      <li>
         <a href="/api/docs/object/hashtagtype/" class="sidebar-link">
           HashtagType
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/localizedcustomfields/" class="sidebar-link">
+          LocalizedCustomFields
         </a>
       </li>
       
@@ -1142,6 +941,13 @@
       
         
       <li>
+        <a href="/api/docs/object/participatoryspacemanifest/" class="sidebar-link">
+          ParticipatorySpaceManifest
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/post/" class="sidebar-link">
           Post
         </a>
@@ -1193,6 +999,13 @@
       <li>
         <a href="/api/docs/object/proposals/" class="sidebar-link">
           Proposals
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/quantifiabletranslatedfield/" class="sidebar-link">
+          QuantifiableTranslatedField
         </a>
       </li>
       
@@ -1326,6 +1139,13 @@
       <li>
         <a href="/api/docs/object/traceversion/" class="sidebar-link">
           TraceVersion
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/translatedcustomfields/" class="sidebar-link">
+          TranslatedCustomFields
         </a>
       </li>
       
@@ -1597,13 +1417,6 @@
       
       
       <li>
-        <a href="/api/docs/input_object/assemblyfilter/" class="sidebar-link">
-          AssemblyFilter
-        </a>
-      </li>
-      
-      
-      <li>
         <a href="/api/docs/input_object/categoryfilter/" class="sidebar-link">
           CategoryFilter
         </a>
@@ -1620,20 +1433,6 @@
       <li>
         <a href="/api/docs/input_object/componentsort/" class="sidebar-link">
           ComponentSort
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/input_object/geodatasourcefilter/" class="sidebar-link">
-          GeoDatasourceFilter
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/input_object/geoencodedfilter/" class="sidebar-link">
-          GeoencodedFilter
         </a>
       </li>
       
@@ -1667,13 +1466,6 @@
       
       
       <li>
-        <a href="/api/docs/input_object/processfilter/" class="sidebar-link">
-          ProcessFilter
-        </a>
-      </li>
-      
-      
-      <li>
         <a href="/api/docs/input_object/proposalfilter/" class="sidebar-link">
           ProposalFilter
         </a>
@@ -1683,27 +1475,6 @@
       <li>
         <a href="/api/docs/input_object/proposalsort/" class="sidebar-link">
           ProposalSort
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/input_object/resourcetypefilter/" class="sidebar-link">
-          ResourceTypeFilter
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/input_object/scopefilter/" class="sidebar-link">
-          ScopeFilter
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="/api/docs/input_object/timefilter/" class="sidebar-link">
-          TimeFilter
         </a>
       </li>
       
@@ -1765,13 +1536,6 @@
       
       
       <li>
-        <a href="/api/docs/scalar/iso8601datetime/" class="sidebar-link">
-          ISO8601DateTime
-        </a>
-      </li>
-      
-      
-      <li>
         <a href="/api/docs/scalar/int/" class="sidebar-link">
           Int
         </a>
@@ -1809,6 +1573,13 @@
       <li>
         <a href="/api/docs/directive/include/" class="sidebar-link">
           include
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/directive/oneof/" class="sidebar-link">
+          oneOf
         </a>
       </li>
       

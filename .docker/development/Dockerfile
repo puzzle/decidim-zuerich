@@ -9,7 +9,7 @@
 #
 # Also we don't use -onbuild as they're deprecated
 # https://github.com/docker-library/official-images/issues/2076
-FROM ruby:3.0.6 as dev
+FROM ruby:3.1.1 AS dev
 LABEL maintainer="beltrame@puzzle.ch"
 
 # Installs system dependencies
@@ -26,6 +26,7 @@ RUN apt-get update -qq \
        ca-certificates \
        curl \
        gnupg \
+       p7zip \
     && apt-get clean \
     && rm -rf /var/cache/apt/archives/* \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
