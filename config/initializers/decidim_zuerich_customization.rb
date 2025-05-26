@@ -17,7 +17,6 @@ PREPENDS = [
   #[Decidim::Assemblies::AssembliesHelper,                       DecidimZuerich::Assemblies::AssembliesHelper],
   #[Decidim::Forms::AnswerQuestionnaire,                         DecidimZuerich::Forms::AnswerQuestionnaire],
   #[Decidim::ParticipatoryProcesses::Permissions,                DecidimZuerich::ParticipatoryProcesses::Permissions],
-  #[Decidim::Proposals::DiffRenderer,                            DecidimZuerich::Proposals::DiffRenderer],
   #[Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
   #[Decidim::ResourceLocatorPresenter,                           DecidimZuerich::ResourceLocatorPresenter],
   #[Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
