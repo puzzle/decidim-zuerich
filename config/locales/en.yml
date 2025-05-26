@@ -73,12 +73,6 @@ en:
         name: Latest blog posts
         title: Latest blog posts
         view_all: View all
-      html2:
-        name: HTML block 2
-      html3:
-        name: HTML block 3
-      html4:
-        name: HTML block 4
     devise:
       omniauth_registrations:
         new:

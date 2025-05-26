@@ -83,12 +83,6 @@ de:
         name: Aktuellste Blog-Einträge
         title: Aktuellste Blog-Einträge
         view_all: Alle anzeigen
-      html2:
-        name: HTML-Block 2
-      html3:
-        name: HTML-Block 3
-      html4:
-        name: HTML-Block 4
     devise:
      registrations:
        new:
