@@ -18,7 +18,6 @@ PREPENDS = [
   #[Decidim::Forms::AnswerQuestionnaire,                         DecidimZuerich::Forms::AnswerQuestionnaire],
   #[Decidim::ParticipatoryProcesses::Permissions,                DecidimZuerich::ParticipatoryProcesses::Permissions],
   #[Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
-  #[Decidim::ResourceLocatorPresenter,                           DecidimZuerich::ResourceLocatorPresenter],
   #[Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
   #[Decidim::System::UpdateOrganization,                         DecidimZuerich::System::UpdateOrganization]
 ].freeze
