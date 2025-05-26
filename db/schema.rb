@@ -916,6 +916,45 @@ ActiveRecord::Schema[7.0].define(version: 2025_05_26_093132) do
     t.string "tile"
     t.boolean "only_processes", default: false, null: false
     t.boolean "only_assemblies", default: false, null: false
+    t.integer "default_geoencoded_filter", default: 0
+    t.integer "focus_zoom_level", default: 21
+    t.string "maptiler_api_key", default: ""
+    t.string "maptiler_style_id", default: ""
+  end
+
+  create_table "decidim_geo_indexes", force: :cascade do |t|
+    t.jsonb "title", null: false
+    t.jsonb "short_description"
+    t.jsonb "description_html"
+    t.string "image_url"
+    t.boolean "avoid_index", default: false, null: false
+    t.jsonb "extended_data"
+    t.integer "component_id"
+    t.string "participatory_space_type", null: false
+    t.integer "participatory_space_id", null: false
+    t.integer "resource_id", null: false
+    t.string "resource_type", null: false
+    t.string "resource_url", null: false
+    t.string "resource_status"
+    t.geography "lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.bigint "geo_scope_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["end_date"], name: "index_decidim_geo_indexes_on_end_date"
+    t.index ["geo_scope_id"], name: "index_decidim_geo_indexes_on_geo_scope_id"
+    t.index ["resource_type", "resource_id"], name: "decidim_geo_indx_resource", unique: true
+    t.index ["start_date"], name: "index_decidim_geo_indexes_on_start_date"
+  end
+
+  create_table "decidim_geo_no_indexes", force: :cascade do |t|
+    t.boolean "no_index", default: false, null: false
+    t.integer "decidim_component_id"
+    t.string "decidim_component_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_component_id"], name: "decidim_geo_uniq_no_index", unique: true
   end
 
   create_table "decidim_geo_shapefile_datas", force: :cascade do |t|
@@ -2221,6 +2260,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_05_26_093132) do
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
+  add_foreign_key "decidim_geo_indexes", "decidim_scopes", column: "geo_scope_id"
   add_foreign_key "decidim_geo_shapefile_datas", "decidim_geo_shapefiles", column: "decidim_geo_shapefiles_id"
   add_foreign_key "decidim_geo_shapefile_datas", "decidim_scopes", column: "decidim_scopes_id"
   add_foreign_key "decidim_geo_shapefiles", "decidim_organizations"

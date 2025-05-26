@@ -20,7 +20,7 @@ gem 'decidim-anonymous_proposals', github: 'PopulateTools/decidim-module-anonymo
 gem 'decidim-antivirus', github: 'puzzle/decidim-module-antivirus', branch: 'master'
 gem 'decidim-cleaner', github: 'puzzle/decidim-module-cleaner', branch: 'release/0.27-stable'
 gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome', branch: 'main'
-#gem 'decidim-decidim_geo', git: 'https://git.octree.ch/decidim/decidim-module-geo.git' # deactivated because no compatible version for decidim 0.28 exists
+gem 'decidim-decidim_geo', git: 'https://git.octree.ch/decidim/decidim-module-geo.git'
 gem 'decidim-participatory_documents', github: 'openpoke/decidim-module-participatory-documents', branch: 'upgrade-0.29'
 #gem 'decidim-question_captcha', github: 'OpenSourcePolitics/decidim-module-question_captcha', branch: 'release/0.27-stable' # deactivated because no compatible version for decidim 0.28 exists
 gem 'decidim-survey_multiple_answers', github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers', branch: 'bump/0.29'
