@@ -38,7 +38,6 @@ Hier sammeln wir alle Fixes zusammen mit den Gründen warum wir sie brauchen und
 | [layouts/mailer.html.erb](app/views/layouts/mailer.html.erb)                                                          | ?                     | ?                                                              | ?                                                                                                     | -                  |
 | [decidim_zuerich_customization.rb](config/initializers/decidim_zuerich_customization.rb)                              | ?                     | ?                                                              | ?                                                                                                     | -                  |
 | [resource_locator_presenter.rb](app/presenters/decidim_zuerich/resource_locator_presenter.rb)                         | Fix für Notifications | ?                                                              | ?                                                                                                     | -                  |
-| [participatory_processes_controller.rb](app/overrides/controllers/decidim/participatory_processes/admin/participatory_processes_controller_override.rb) | Custom link target handling  | ?                                                              | ?                                                                                                     | -                  |
 # Archivierte Fixes
 | Grund | Commit | Anmerkungen |
 | ----- | ------ | ----------- |
