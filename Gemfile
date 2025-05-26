@@ -22,7 +22,6 @@ gem 'decidim-cleaner', github: 'puzzle/decidim-module-cleaner', branch: 'release
 gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome', branch: 'main'
 gem 'decidim-decidim_geo', git: 'https://git.octree.ch/decidim/decidim-module-geo.git'
 gem 'decidim-participatory_documents', github: 'openpoke/decidim-module-participatory-documents', branch: 'upgrade-0.29'
-#gem 'decidim-question_captcha', github: 'OpenSourcePolitics/decidim-module-question_captcha', branch: 'release/0.27-stable' # deactivated because no compatible version for decidim 0.28 exists
 gem 'decidim-survey_multiple_answers', github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers', branch: 'bump/0.29'
 
 #gem 'decidim-guest_meeting_registration', github: 'alecslupu-pfa/guest-meeting-registration', branch: 'release/0.27-stable' # deactivated because no compatible version for decidim 0.28 exists
@@ -33,7 +32,6 @@ gem 'decidim-term_customizer', github: 'OpenSourcePolitics/decidim-module-term_c
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
 gem 'activerecord-postgis-adapter'
-gem 'acts_as_textcaptcha' # , '~> 4.5.1'
 gem 'aws-sdk-s3'
 gem 'bootsnap'
 gem 'byebug', platform: :mri # , '~> 11.0'
