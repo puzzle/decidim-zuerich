@@ -139,6 +139,10 @@ Decidim.configure do |config|
     static_map_url: 'https://image.maps.cit.api.here.com/mia/1.6/mapview'
   }
 
+  config.content_security_policies_extra = {
+    "connect-src" => "photon.komoot.io"
+  }
+
   if Rails.application.secrets.maps.present? && Rails.application.secrets.maps[:static_provider].present?
     static_provider = Rails.application.secrets.maps[:static_provider]
     dynamic_provider = Rails.application.secrets.maps[:dynamic_provider]
