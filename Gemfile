@@ -23,7 +23,7 @@ gem 'decidim-decidim_geo', git: 'https://git.octree.ch/decidim/decidim-module-ge
 gem 'decidim-participatory_documents', github: 'openpoke/decidim-module-participatory-documents', branch: 'upgrade-0.29'
 gem 'decidim-survey_multiple_answers', github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers', branch: 'bump/0.29'
 
-#gem 'decidim-guest_meeting_registration', github: 'alecslupu-pfa/guest-meeting-registration', branch: 'release/0.27-stable' # deactivated because no compatible version for decidim 0.28 exists
+gem 'decidim-guest_meeting_registration', github: 'OpenSourcePolitics/guest-meeting-registration', branch: 'bump/module_to_0.29'
 
 # Had to be set to 0.27-stable because the master reference doesn't exist anymore and the main branch now requires ruby =< 3.1
 gem 'decidim-term_customizer', github: 'OpenSourcePolitics/decidim-module-term_customizer', branch: 'master'
