@@ -68,6 +68,10 @@ de:
           hello: Guten Tag
           subject: Ihr Konto ist inaktiv
     components:
+      surveys:
+        settings:
+          global:
+            notified_email: Benachrichtigungs-Mails senden an
     content_blocks:
       last_blog_posts:
         name: Aktuellste Blog-Einträge

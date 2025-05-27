@@ -14,7 +14,6 @@ INCLUDES = [
 
 PREPENDS = [
   #[Decidim::ApplicationMailer,                                  DecidimZuerich::ApplicationMailer],
-  #[Decidim::Forms::AnswerQuestionnaire,                         DecidimZuerich::Forms::AnswerQuestionnaire],
   #[Decidim::ParticipatoryProcesses::Permissions,                DecidimZuerich::ParticipatoryProcesses::Permissions],
   #[Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
   #[Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
@@ -70,5 +69,22 @@ class Object
         slug: params[:assembly_slug] || params[:slug]
       )
     end
+  end
+end
+
+ActiveSupport::Notifications.subscribe "answer_questionnaire.after" do |event|
+  Rails.logger.info "#{event} Received!"
+  questionnaire = event.resource
+  has_component = questionnaire.questionnaire_for.respond_to? :component
+  return unless has_component
+
+  component = questionnaire.questionnaire_for.component
+  return unless component.manifest_name == 'surveys'
+
+  email = component.try(:settings).try(:notified_email)
+  id = form.context.session_token
+
+  if email.present?
+    DecidimZuerich::Surveys::SurveyAnsweredMailer.answered(email, component, id).deliver_now
   end
 end
