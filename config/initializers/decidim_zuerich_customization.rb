@@ -14,7 +14,6 @@ INCLUDES = [
 
 PREPENDS = [
   #[Decidim::ApplicationMailer,                                  DecidimZuerich::ApplicationMailer],
-  #[Decidim::Assemblies::AssembliesHelper,                       DecidimZuerich::Assemblies::AssembliesHelper],
   #[Decidim::Forms::AnswerQuestionnaire,                         DecidimZuerich::Forms::AnswerQuestionnaire],
   #[Decidim::ParticipatoryProcesses::Permissions,                DecidimZuerich::ParticipatoryProcesses::Permissions],
   #[Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
