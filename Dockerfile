@@ -17,10 +17,15 @@ ARG BUILD_SCRIPT="set -uex \
     && echo \"deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main\" > /etc/apt/sources.list.d/nodesource.list \
     && apt-get update \
     && apt-get install nodejs -y \
+    && npm install -g yarn \
+    && yarn set version 1.22.19 \
 "
 ARG BUNDLE_WITHOUT="development:metrics:test"
 ARG BUNDLER_VERSION="2.5.23"
-ARG POST_BUILD_SCRIPT="DEFACE_ENABLED=1 bundle exec rails deface:precompile && bundle exec rails assets:precompile"
+ARG POST_BUILD_SCRIPT=" \
+    DEFACE_ENABLED=1 bundle exec rails deface:precompile \
+ && bundle exec rails assets:precompile \
+"
 ARG RAILS_DB_ADAPTER="nulldb"
 ARG SKIP_MEMCACHE_CHECK="true"
 ARG RAILS_ENV="production"
