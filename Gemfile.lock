@@ -74,6 +74,17 @@ GIT
       openid_connect (~> 1.2)
 
 GIT
+  remote: https://github.com/openpoke/decidim-module-anonymous_codes.git
+  revision: 8323978480579ac290a52cdb2de10a6a27f6fa70
+  specs:
+    decidim-anonymous_codes (1.1)
+      decidim-admin (>= 0.29.0, < 0.30)
+      decidim-core (>= 0.29.0, < 0.30)
+      decidim-forms (>= 0.29.0, < 0.30)
+      decidim-surveys (>= 0.29.0, < 0.30)
+      deface (>= 1.9.0)
+
+GIT
   remote: https://github.com/openpoke/decidim-module-participatory-documents.git
   revision: fef67cf0b3d85d50061d25855e38cfbfbfd377d1
   branch: upgrade-0.29
@@ -1077,6 +1088,7 @@ DEPENDENCIES
   byebug
   dalli
   decidim (= 0.29.3)
+  decidim-anonymous_codes!
   decidim-anonymous_proposals!
   decidim-antivirus!
   decidim-conferences (= 0.29.3)

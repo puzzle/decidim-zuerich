@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_05_26_150000) do
+ActiveRecord::Schema[7.0].define(version: 2025_06_03_095222) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "fuzzystrmatch"
   enable_extension "ltree"
@@ -1165,6 +1165,10 @@ ActiveRecord::Schema[7.0].define(version: 2025_05_26_150000) do
     t.integer "type_of_meeting", default: 0, null: false
     t.integer "registration_type", default: 0, null: false
     t.datetime "withdrawn_at", precision: nil
+    t.boolean "enable_guest_registration", default: false
+    t.boolean "enable_registration_confirmation", default: false
+    t.boolean "enable_cancellation", default: false
+    t.boolean "disable_account_confirmation", default: false
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"

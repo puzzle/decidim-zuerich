@@ -15,7 +15,7 @@ gem 'decidim-proposals', DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
 gem 'decidim-templates', DECIDIM_VERSION
 
-#gem 'decidim-anonymous_codes', github: 'openpoke/decidim-module-anonymous_codes' # deactivated because no compatible version for decidim 0.28 exists
+gem 'decidim-anonymous_codes', github: 'openpoke/decidim-module-anonymous_codes'
 gem 'decidim-anonymous_proposals', github: 'PopulateTools/decidim-module-anonymous_proposals', tag: 'v0.28.0'
 gem 'decidim-antivirus', github: 'puzzle/decidim-module-antivirus', branch: 'master'
 gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome', branch: 'main'
