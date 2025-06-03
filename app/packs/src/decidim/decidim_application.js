@@ -48,17 +48,18 @@ window.addEventListener('scroll', () => {
  * Redirect to external participatory processes
  */
 window.addEventListener("load", (event) => {
-  const announcement = document.querySelector('.process-header ~ .wrapper .callout.cell-announcement');
-  if (announcement == null) return;
+  const announcements = document.querySelectorAll('.participatory-space__container section.content-block .flash .flash__message');
 
-  // Convention: Only redirect if the announcement text starts and ends with three dashes.
-  const text = announcement.textContent.trim();
-  if (text.match(/^---.*---$/) === null) return;
+  for (const announcement of announcements) {
+    // Convention: Only redirect if the announcement text starts and ends with three dashes.
+    const text = announcement.textContent.trim();
+    if (text.match(/^---.*---$/) === null) continue;
 
-  const redirectLink = announcement.querySelector('a');
-  if (redirectLink == null || !redirectLink.getAttribute('href')) return;
+    const redirectLink = announcement.querySelector('a');
+    if (redirectLink == null || !redirectLink.getAttribute('href')) continue;
 
-  window.location.replace(redirectLink.getAttribute('href'));
+    window.location.replace(redirectLink.getAttribute('href'));
+  }
 });
 
 /**
