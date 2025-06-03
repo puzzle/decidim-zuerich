@@ -16,7 +16,9 @@ gem 'decidim-conferences', DECIDIM_VERSION
 gem 'decidim-templates', DECIDIM_VERSION
 
 gem 'decidim-anonymous_codes', github: 'openpoke/decidim-module-anonymous_codes'
-gem 'decidim-anonymous_proposals', github: 'PopulateTools/decidim-module-anonymous_proposals', tag: 'v0.28.0'
+
+# anonymous_proposals tries to deface overwrite a view that no longer exists, this kills the docker build
+# gem 'decidim-anonymous_proposals', github: 'PopulateTools/decidim-module-anonymous_proposals', tag: 'v0.28.0'
 gem 'decidim-antivirus', github: 'puzzle/decidim-module-antivirus', branch: 'master'
 gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome', branch: 'main'
 gem 'decidim-decidim_geo', git: 'https://git.octree.ch/decidim/decidim-module-geo.git'

@@ -44,15 +44,6 @@ GIT
       deface (>= 1.9)
 
 GIT
-  remote: https://github.com/PopulateTools/decidim-module-anonymous_proposals.git
-  revision: 0205245da35cfa815a65224689cd30a8184721fe
-  tag: v0.28.0
-  specs:
-    decidim-anonymous_proposals (0.27.0)
-      decidim-core (>= 0.27.0)
-      deface (~> 1.5)
-
-GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
   revision: 41fdbcae3811f5fe33b00a1cacb92dd607febaa8
   branch: main
@@ -1089,7 +1080,6 @@ DEPENDENCIES
   dalli
   decidim (= 0.29.3)
   decidim-anonymous_codes!
-  decidim-anonymous_proposals!
   decidim-antivirus!
   decidim-conferences (= 0.29.3)
   decidim-decidim_awesome!
