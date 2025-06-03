@@ -34,7 +34,7 @@ RUN    apt-get update \
     && apt-get install -y ${BUILD_PACKAGES}
 
 # Installs nodejs as a dependency
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
     && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg && apt-key add /root/yarn-pubkey.gpg \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \ && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
