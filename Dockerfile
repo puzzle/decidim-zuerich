@@ -57,7 +57,8 @@ COPY ./Gemfile ./Gemfile.lock /app-src/
 WORKDIR /app-src
 
 # Run deployment
-RUN bundle config set --local deployment 'true' \
+RUN    gem update --system \
+    && bundle config set --local deployment 'true' \
     && bundle config set --local without ${BUNDLE_WITHOUT} \
     && bundle package \
     && bundle install \
@@ -140,14 +141,15 @@ RUN    mkdir /var/run/clamav \
     /opt/bin/start_clamd \
     && freshclam
 
-
 ENV HOME=/app-src
 
 # Install specific versions of dependencies
 RUN gem install bundler:${BUNDLER_VERSION} --no-document
 
 # Use cached gems
-RUN    bundle config set --local deployment 'true' \
+
+RUN    gem update --system \
+    && bundle config set --local deployment 'true' \
     && bundle config set --local without ${BUNDLE_WITHOUT} \
     && bundle
 
