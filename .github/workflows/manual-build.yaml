@@ -7,6 +7,25 @@ on:
         description: "Image repo to push image to"
         type: string
         required: true
+        default: "https://harbor.puzzle.ch"
+      images:
+        description: 'Images arguments for docker/metadata-action'
+        type: string
+        required: true
+        default: "harbor.puzzle.ch/decidim/stlu-dev-rails"
+      flavor:
+        description: 'Flavor argument for docker/metadata-action'
+        type: string
+        required: false
+        default: "latest=true"
+      tags:
+        description: 'Tags argument for docker/metadata-action'
+        type: string
+        required: false
+        default: |
+          type=semver,pattern={{version}},priority=1000
+          type=schedule,priority=900
+          type=sha,format=long,priority=800
 
 jobs:
   build:
@@ -14,3 +33,6 @@ jobs:
     secrets: inherit
     with:
       repository_url: ${{ inputs.image_repo }}
+      images: ${{ inputs.images }}
+      flavor: ${{ inputs.flavor }}
+      tags: ${{ inputs.tags }}

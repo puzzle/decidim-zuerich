@@ -1,4 +1,4 @@
-name: 'Build INT on push to master'
+name: 'Build Upgrade on push to upgrade branch'
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
         description: 'URL to push image to'
         type: string
         required: false
-        default: 'harbor.puzzle.ch/decidim/stzh-int-rails'
+        default: 'harbor.puzzle.ch/decidim/stzh-dev-rails'
       configmanagement:
         description: 'Configmanagement to write image tag to'
         type: string
@@ -27,17 +27,16 @@ on:
         description: 'Path to kustomization file'
         type: string
         required: true
-        default: './deployments/pitc-decidim-stzh-int/kustomization.yaml'
+        default: './deployments/pitc-decidim-stzh-dev/kustomization.yaml'
       identifier:
         description: 'Identifier for commit-message, could be a namespace or project-name'
         type: string
         required: false
-        default: 'stzh-int'
+        default: 'stzh-dev'
       
   push:
     branches:
-      - 'master'
-      - 'feature/cloudscale'
+      - 'upgrade'
     paths-ignore:
       - 'doc/**'
       - '**.md'
@@ -47,9 +46,9 @@ jobs:
     uses: ./.github/workflows/reusable_lint_test_build_update.yaml
     with:
       image_repo: ${{ inputs.image_repo || 'https://harbor.puzzle.ch' }}
-      image_url: ${{ inputs.image_url || 'harbor.puzzle.ch/decidim/stzh-int-rails' }}
+      image_url: ${{ inputs.image_url || 'harbor.puzzle.ch/decidim/stzh-dev-rails' }}
       configmanagement: ${{ inputs.configmanagement || 'gitlab.puzzle.ch/pitc_ruby/deployments/decidim/' }}
       configmanagement_branch: ${{ inputs.configmanagement_branch || 'main' }}
-      kustomization_path: ${{ inputs.kustomization_path || './deployments/pitc-decidim-stzh-int/kustomization.yaml' }}
-      identifier: ${{ inputs.identifier || 'stzh-int' }}
+      kustomization_path: ${{ inputs.kustomization_path || './deployments/pitc-decidim-stzh-dev/kustomization.yaml' }}
+      identifier: ${{ inputs.identifier || 'stzh-dev' }}
     secrets: inherit

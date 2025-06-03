@@ -47,6 +47,40 @@ on:
         description: 'Token for repository login, e.g. gitlab-token as Dev with R/W rights on content'
         required: true
 
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: 'Git repository to update'
+        type: string
+        required: true
+      repository_username:
+        description: 'Username for repository login'
+        type: string
+        required: false
+        default: 'git'
+      repository_branch:
+        description: 'Branch on the repository to edit'
+        type: string
+        required: false
+        default: 'main'
+      file:
+        description: 'File in the repo to update'
+        type: string
+        required: true
+      image_tag:
+        description: 'Tag to be set'
+        type: string
+        required: true
+      image_ref:
+        description: 'Name of the image to update'
+        type: string
+        required: false
+        default: rails
+      identifier:
+        description: 'Identifier for commit-message, could be a namespace or project-name'
+        type: string
+        required: false
+        default: 'deployment'
 jobs:
   write_tag:
     runs-on: 'ubuntu-latest'
@@ -60,7 +94,7 @@ jobs:
         run: |
           git clone https://${REPO_USER}:${REPO_TOKEN}@${REPO_URL} ./management_repo
           cd ./management_repo
-          git config user.name "Github Action Image updater"
+          git config user.name "Decidim Github Action Image updater"
           git config user.email "robot@puzzle.ch"
           git remote set-url origin "https://${REPO_USER}:${REPO_TOKEN}@${REPO_URL}"
           git switch ${REPO_BRANCH}
