@@ -64,7 +64,7 @@ RUN    gem update --system \
     && bundle clean
 
 COPY ./package.json /app-src/
-RUN npm
+RUN npm install
 
 # set up app-src directory
 COPY . /app-src
