@@ -2,7 +2,7 @@
 #                            Build Stage                         #
 ##################################################################
 
-FROM ruby:3.1.1 AS build
+FROM ruby:3.2.6 AS build
 
 # Set build shell
 SHELL ["/bin/bash", "-c"]
@@ -17,8 +17,7 @@ ARG BUILD_SCRIPT="set -uex \
     && echo \"deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main\" > /etc/apt/sources.list.d/nodesource.list \
     && apt-get update \
     && apt-get install nodejs -y \
-    && npm install -g yarn \
-    && yarn set version 1.22.19"
+"
 ARG BUNDLE_WITHOUT="development:metrics:test"
 ARG BUNDLER_VERSION="2.5.23"
 ARG POST_BUILD_SCRIPT="DEFACE_ENABLED=1 bundle exec rails deface:precompile && bundle exec rails assets:precompile"
@@ -64,8 +63,8 @@ RUN    gem update --system \
     && bundle install \
     && bundle clean
 
-COPY ./package.json ./yarn.lock /app-src/
-RUN yarn
+COPY ./package.json /app-src/
+RUN npm
 
 # set up app-src directory
 COPY . /app-src
