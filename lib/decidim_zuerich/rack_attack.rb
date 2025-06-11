@@ -135,7 +135,7 @@ module DecidimZuerich
 
         return default if env.blank?
 
-        env.fetch(env_name, nil)
+        ENV.fetch(env_name, nil)
            .split(',')
            .map { _1.split(':').map(&:strip) }
            .to_h
