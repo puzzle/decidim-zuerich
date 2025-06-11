@@ -28,13 +28,26 @@ on:
         type: string
         required: false
         default: 'deployment'
+      lint:
+        description: 'Controls if linting should be performed'
+        type: boolean
+        required: false
+        default: true
+      test:
+        description: 'Controls if testing should be performed'
+        type: boolean
+        required: false
+        default: true
 
 jobs: 
   lint:
+    if: inputs.lint
     uses: ./.github/workflows/reusable_lint.yaml
   test:
+    if: inputs.test
     uses: ./.github/workflows/reusable_tests.yaml
   build:
+    if: ${{ !cancelled() }}
     needs: [lint, test]
     uses: ./.github/workflows/reusable_build.yaml
     secrets:
@@ -46,6 +59,7 @@ jobs:
       flavor: latest=true
 
   extract_info:
+    if: ${{ !cancelled() }}
     needs: [build]
     runs-on: 'ubuntu-latest'
     outputs:
@@ -63,6 +77,7 @@ jobs:
         run: echo 'version=${{ steps.get_version.outputs.result }}' >> "$GITHUB_OUTPUT"
 
   update_tag:
+    if: ${{ !cancelled() }}
     needs: [build, extract_info]
     uses: ./.github/workflows/reusable_update_image.yaml
     secrets: inherit

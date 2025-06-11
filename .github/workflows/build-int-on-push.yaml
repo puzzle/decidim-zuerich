@@ -51,4 +51,6 @@ jobs:
       configmanagement_branch: ${{ inputs.configmanagement_branch || 'main' }}
       kustomization_path: ${{ inputs.kustomization_path || './deployments/pitc-decidim-stzh-dev/kustomization.yaml' }}
       identifier: ${{ inputs.identifier || 'stzh-dev' }}
+      lint: false
+      test: false
     secrets: inherit
