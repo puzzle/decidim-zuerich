@@ -33,7 +33,14 @@ gem 'decidim-term_customizer', github: 'OpenSourcePolitics/decidim-module-term_c
 gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect.git'
 
 gem 'activerecord-postgis-adapter'
-gem 'aws-sdk-s3'
+
+gem 'aws-eventstream', '= 1.3.0'
+gem 'aws-partitions', '= 1.927.0'
+gem 'aws-sdk-core', '= 3.195.0'
+gem 'aws-sdk-kms', '= 1.80.0'
+gem 'aws-sdk-s3', '= 1.149.1'
+gem 'aws-sigv4', '= 1.8.0'
+
 gem 'bootsnap'
 gem 'byebug', platform: :mri # , '~> 11.0'
 gem 'dalli'

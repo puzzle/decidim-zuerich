@@ -178,23 +178,21 @@ GEM
     aes_key_wrap (1.1.0)
     ast (2.4.3)
     attr_required (1.0.2)
-    aws-eventstream (1.3.2)
-    aws-partitions (1.1107.0)
-    aws-sdk-core (3.224.0)
+    aws-eventstream (1.3.0)
+    aws-partitions (1.927.0)
+    aws-sdk-core (3.195.0)
       aws-eventstream (~> 1, >= 1.3.0)
-      aws-partitions (~> 1, >= 1.992.0)
-      aws-sigv4 (~> 1.9)
-      base64
+      aws-partitions (~> 1, >= 1.651.0)
+      aws-sigv4 (~> 1.8)
       jmespath (~> 1, >= 1.6.1)
-      logger
-    aws-sdk-kms (1.101.0)
-      aws-sdk-core (~> 3, >= 3.216.0)
-      aws-sigv4 (~> 1.5)
-    aws-sdk-s3 (1.186.1)
-      aws-sdk-core (~> 3, >= 3.216.0)
+    aws-sdk-kms (1.80.0)
+      aws-sdk-core (~> 3, >= 3.193.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.149.1)
+      aws-sdk-core (~> 3, >= 3.194.0)
       aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.5)
-    aws-sigv4 (1.11.0)
+      aws-sigv4 (~> 1.8)
+    aws-sigv4 (1.8.0)
       aws-eventstream (~> 1, >= 1.0.2)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
@@ -1071,7 +1069,12 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-postgis-adapter
-  aws-sdk-s3
+  aws-eventstream (= 1.3.0)
+  aws-partitions (= 1.927.0)
+  aws-sdk-core (= 3.195.0)
+  aws-sdk-kms (= 1.80.0)
+  aws-sdk-s3 (= 1.149.1)
+  aws-sigv4 (= 1.8.0)
   better_errors
   binding_of_caller
   bleib
