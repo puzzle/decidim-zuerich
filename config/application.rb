@@ -19,6 +19,12 @@ module DecidimZuerich
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # Rails used SHA1 to encrypt attributes before, now it uses SHA256
+    # TODO: Reencrypt the secrets
+    # HACK: For now we set the old SHA1 algorithm
+    config.active_support.hash_digest_class = OpenSSL::Digest::SHA1
+    config.active_support.key_generator_hash_digest_class = OpenSSL::Digest::SHA1
+
     config.autoloader = :zeitwerk
 
     # Settings in config/environments/* take precedence over those specified here.
