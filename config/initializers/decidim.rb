@@ -140,7 +140,8 @@ Decidim.configure do |config|
   }
 
   config.content_security_policies_extra = {
-    "connect-src" => "photon.komoot.io"
+    "connect-src" => "photon.komoot.io",
+    "worker-src" => %w('self')
   }
 
   if Rails.application.secrets.maps.present? && Rails.application.secrets.maps[:static_provider].present?
