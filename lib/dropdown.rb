@@ -92,7 +92,7 @@ class CustomSingleOptionSurvey
   end
 
   def radio_button_class
-    return 'hide' if dropdown?
+    return 'hidden' if dropdown?
 
     ''
   end
