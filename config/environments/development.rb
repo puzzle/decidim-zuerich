@@ -76,4 +76,16 @@ Rails.application.configure do
   }
 
   config.hosts << /.*\.local/
+  config.hosts << /localhost/
+
+  config.content_security_policies_extra = {
+    "default-src" => %w('self' 'unsafe-inline' https://* http://*),
+    "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval' https://* http://*),
+    "style-src" => %w('self' 'unsafe-inline' https://* http://*),
+    "img-src" => %w('self' https://* http://*),
+    "font-src" => %w('self' https://* http://*),
+    "connect-src" => %w('self' https://* http://*),
+    "frame-src" => %w('self' https://* http://*),
+    "media-src" => %w('self' https://* http://*)
+  }
 end
