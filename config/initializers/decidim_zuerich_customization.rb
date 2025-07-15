@@ -10,8 +10,7 @@ PuzzleRailsPryPrompt.set_prompt
 
 INCLUDES = [
   #[Decidim::Debates::CreateDebateEvent,  DecidimZuerich::Debates::CreateDebateEvent],
-  [Decidim::FormBuilder,                 DecidimZuerich::FormBuilder],
-  [Decidim::Upgrade::WysiwygMigrator,    DecidimZuerich::Upgrade::WysiwygMigrator]
+  [Decidim::FormBuilder,                 DecidimZuerich::FormBuilder]
 ].freeze
 
 PREPENDS = [
@@ -19,7 +18,8 @@ PREPENDS = [
   #[Decidim::ParticipatoryProcesses::Permissions,                DecidimZuerich::ParticipatoryProcesses::Permissions],
   #[Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
   #[Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
-  #[Decidim::System::UpdateOrganization,                         DecidimZuerich::System::UpdateOrganization]
+  #[Decidim::System::UpdateOrganization,                         DecidimZuerich::System::UpdateOrganization],
+  [Decidim::Upgrade::WysiwygMigrator,    DecidimZuerich::Upgrade::WysiwygMigrator]
 ].freeze
 
 OVERRIDES = ['app/overrides'].freeze
