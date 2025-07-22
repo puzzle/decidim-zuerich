@@ -22,7 +22,7 @@ gem 'decidim-anonymous_codes', github: 'openpoke/decidim-module-anonymous_codes'
 gem 'decidim-antivirus', github: 'puzzle/decidim-module-antivirus', branch: 'master'
 gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome', branch: 'main'
 gem 'decidim-decidim_geo', git: 'https://git.octree.ch/decidim/decidim-module-geo.git'
-gem 'decidim-participatory_documents', github: 'openpoke/decidim-module-participatory-documents', branch: 'upgrade-0.29'
+gem 'decidim-participatory_documents', github: 'openpoke/decidim-module-participatory-documents'
 gem 'decidim-survey_multiple_answers', github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers', branch: 'bump/0.29'
 
 gem 'decidim-guest_meeting_registration', github: 'OpenSourcePolitics/guest-meeting-registration', branch: 'bump/module_to_0.29'
