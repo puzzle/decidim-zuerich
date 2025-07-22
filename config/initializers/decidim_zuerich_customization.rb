@@ -6,87 +6,95 @@ require_relative '../../lib/decidim_zuerich/form_builder'
 require_relative '../../lib/decidim_zuerich/upgrade/wysiwyg_migrator'
 require_relative '../../lib/puzzle_rails_pry_prompt'
 
-PuzzleRailsPryPrompt.set_prompt
+Rails.application.config.to_prepare do
+  PuzzleRailsPryPrompt.set_prompt
 
-INCLUDES = [
-  #[Decidim::Debates::CreateDebateEvent,  DecidimZuerich::Debates::CreateDebateEvent],
-  [Decidim::FormBuilder,                 DecidimZuerich::FormBuilder]
-].freeze
+  INCLUDES = [
+    #[Decidim::Debates::CreateDebateEvent, DecidimZuerich::Debates::CreateDebateEvent],
+    [Decidim::FormBuilder,                 DecidimZuerich::FormBuilder]
+  ].freeze
 
-PREPENDS = [
-  #[Decidim::ApplicationMailer,                                  DecidimZuerich::ApplicationMailer],
-  #[Decidim::ParticipatoryProcesses::Permissions,                DecidimZuerich::ParticipatoryProcesses::Permissions],
-  #[Decidim::Proposals::MapHelper,                               DecidimZuerich::Proposals::MapHelper],
-  #[Decidim::System::RegisterOrganization,                       DecidimZuerich::System::RegisterOrganization],
-  #[Decidim::System::UpdateOrganization,                         DecidimZuerich::System::UpdateOrganization],
-  [Decidim::Upgrade::WysiwygMigrator,    DecidimZuerich::Upgrade::WysiwygMigrator]
-].freeze
 
-OVERRIDES = ['app/overrides'].freeze
+  PREPENDS = [
+    #[Decidim::ApplicationMailer,                   DecidimZuerich::ApplicationMailer],
+    #[Decidim::ParticipatoryProcesses::Permissions, DecidimZuerich::ParticipatoryProcesses::Permissions],
+    #[Decidim::Proposals::MapHelper,                DecidimZuerich::Proposals::MapHelper],
+    #[Decidim::System::RegisterOrganization,        DecidimZuerich::System::RegisterOrganization],
+    #[Decidim::System::UpdateOrganization,          DecidimZuerich::System::UpdateOrganization],
+    [Decidim::Upgrade::WysiwygMigrator,             DecidimZuerich::Upgrade::WysiwygMigrator],
+    [Decidim::PushNotificationMessage,              DecidimZuerich::PushNotificationMessage],
+    [Decidim::PushNotificationPresenter,            DecidimZuerich::PushNotificationPresenter],
+    [Decidim::LayoutHelper,                         DecidimZuerich::LayoutHelper]
+  ].freeze
 
-DecidimZuerich::DecidimCustomization.log_and_load(includes: INCLUDES, prepends: PREPENDS, overrides: OVERRIDES)
+  OVERRIDES = [
+    'app/overrides'
+  ].freeze
 
-# v Specially handled things (here be dragons) v
+  DecidimZuerich::DecidimCustomization.log_and_load(includes: INCLUDES, prepends: PREPENDS, overrides: OVERRIDES)
 
-# Add the Devise custom scope to the Decidim config
-# Find all instances with: <% scope = Decidim.config.devise_custom_scope.(@organization) %>
-Decidim.config[:devise_custom_scope] = lambda { |org, base = nil|
-  base ||= %i[decidim_zuerich devise]
+  # v Specially handled things (here be dragons) v
 
-  org_scope = (org.tenant_type.presence || 'other').to_sym
+  # Add the Devise custom scope to the Decidim config
+  # Find all instances with: <% scope = Decidim.config.devise_custom_scope.(@organization) %>
+  Decidim.config[:devise_custom_scope] = lambda { |org, base = nil|
+    base ||= %i[decidim_zuerich devise]
 
-  # Ensure that the current tenant is using custom translations for the devise mails
-  base + [org_scope] if I18n.t(org_scope, scope: base, default: nil)
-}
+    org_scope = (org.tenant_type.presence || 'other').to_sym
 
-# Setup a controller hook to setup the sms gateway before the
-# request is processed. This is done through a notification to
-# get access to the `current_*` environment variables within
-# Decidim. Taken and adapted from the term_customizer module.
-ActiveSupport::Notifications.subscribe 'start_processing.action_controller' do |_name, _started, _finished, _unique_id, data|
-  DecidimZuerich::Verifications::Sms::AspsmsGateway.organization = data[:headers].env['decidim.current_organization']
-end
+    # Ensure that the current tenant is using custom translations for the devise mails
+    base + [org_scope] if I18n.t(org_scope, scope: base, default: nil)
+  }
 
-# Override default for surveys
-Decidim.find_component_manifest(:surveys).settings(:global).attributes[:clean_after_publish].default = false
+  # Setup a controller hook to setup the sms gateway before the
+  # request is processed. This is done through a notification to
+  # get access to the `current_*` environment variables within
+  # Decidim. Taken and adapted from the term_customizer module.
+  ActiveSupport::Notifications.subscribe 'start_processing.action_controller' do |_name, _started, _finished, _unique_id, data|
+    DecidimZuerich::Verifications::Sms::AspsmsGateway.organization = data[:headers].env['decidim.current_organization']
+  end
 
-module Decidim
-  module Map
-    module Provider
-      module DynamicMap
-        autoload :Swisstopo, 'decidim/map/provider/dynamic_map/swisstopo'
-        autoload :GisZh, 'decidim/map/provider/dynamic_map/gis_zh'
+  # Override default for surveys
+  Decidim.find_component_manifest(:surveys).settings(:global).attributes[:clean_after_publish].default = false
+
+  module Decidim
+    module Map
+      module Provider
+        module DynamicMap
+          autoload :Swisstopo, 'decidim/map/provider/dynamic_map/swisstopo'
+          autoload :GisZh, 'decidim/map/provider/dynamic_map/gis_zh'
+        end
       end
     end
   end
-end
 
-class Object
-  def current_assembly
-    @current_assembly ||= begin
-      model = organization_assemblies if defined?(organization_assemblies)
-      model ||= Decidim::Assembly
+  class Object
+    def current_assembly
+      @current_assembly ||= begin
+        model = organization_assemblies if defined?(organization_assemblies)
+        model ||= Decidim::Assembly
 
-      model.find_by!(
-        slug: params[:assembly_slug] || params[:slug]
-      )
+        model.find_by!(
+          slug: params[:assembly_slug] || params[:slug]
+        )
+      end
     end
   end
-end
 
-ActiveSupport::Notifications.subscribe "answer_questionnaire.after" do |event|
-  Rails.logger.info "#{event} Received!"
-  questionnaire = event.resource
-  has_component = questionnaire.questionnaire_for.respond_to? :component
-  return unless has_component
+  ActiveSupport::Notifications.subscribe "answer_questionnaire.after" do |event|
+    Rails.logger.info "#{event} Received!"
+    questionnaire = event.resource
+    has_component = questionnaire.questionnaire_for.respond_to? :component
+    return unless has_component
 
-  component = questionnaire.questionnaire_for.component
-  return unless component.manifest_name == 'surveys'
+    component = questionnaire.questionnaire_for.component
+    return unless component.manifest_name == 'surveys'
 
-  email = component.try(:settings).try(:notified_email)
-  id = form.context.session_token
+    email = component.try(:settings).try(:notified_email)
+    id = form.context.session_token
 
-  if email.present?
-    DecidimZuerich::Surveys::SurveyAnsweredMailer.answered(email, component, id).deliver_now
+    if email.present?
+      DecidimZuerich::Surveys::SurveyAnsweredMailer.answered(email, component, id).deliver_now
+    end
   end
 end

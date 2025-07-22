@@ -1,0 +1,41 @@
+<%#
+  Created at: 2025-07-22
+  Author: Thomas Burkhalter
+
+  What?:
+    This is a view override for _mailer_logo.html.erb
+
+  Why?:
+    variant_url(:x, host: organization.host) tries to access the logo
+    from the storage at organization.host, but since we're using a different
+    domain for our S3 hosting, this fails.
+
+    We only use our code if the original code fails.
+%>
+
+<% if organization %>
+  <% if defined?(custom_url_for_mail_root) && custom_url_for_mail_root.present? %>
+    <% url = custom_url_for_mail_root %>
+  <% else %>
+    <% url = decidim.root_url(host: organization.host) %>
+  <% end %>
+  <%= link_to url do %>
+    <% if organization.logo.attached? %>
+      <%=
+        variant =
+          begin
+            organization.attached_uploader(:logo).variant_url(:medium, host: organization.host)
+          rescue ArgumentError
+            organization.attached_uploader(:logo).variant_url(:medium)
+          end
+
+        image_tag(variant, style: "max-height: 50px", alt: organization_name(organization))
+      %>
+  <% else %>
+    <span><%= organization_name(organization) %></span>
+  <% end %>
+<% end %>
+<% else %>
+  <%= Decidim.application_name %>
+<% end %>
+
