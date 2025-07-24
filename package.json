@@ -23,7 +23,7 @@
     "formBuilder": "^3.19.15",
     "graphiql": "1.5.0",
     "graphql": "^15.0.0",
-    "graphql-ws": "^6.0.5",
+    "graphql-ws": "<6.0.0",
     "highlight.js": "^11.11.1",
     "inline-attacher": "^0.0.7",
     "inline-attachment": "^2.0.3",
