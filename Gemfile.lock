@@ -84,6 +84,32 @@ GIT
       decidim-core (>= 0.29, < 0.30)
 
 GIT
+  remote: https://github.com/openpoke/decidim.git
+  revision: a298e9b07ac6480b29b99a72f4deaf2b71ab106f
+  branch: 0.29-backports
+  specs:
+    decidim (0.29.4)
+      decidim-accountability (= 0.29.4)
+      decidim-admin (= 0.29.4)
+      decidim-api (= 0.29.4)
+      decidim-assemblies (= 0.29.4)
+      decidim-blogs (= 0.29.4)
+      decidim-budgets (= 0.29.4)
+      decidim-comments (= 0.29.4)
+      decidim-core (= 0.29.4)
+      decidim-debates (= 0.29.4)
+      decidim-forms (= 0.29.4)
+      decidim-generators (= 0.29.4)
+      decidim-meetings (= 0.29.4)
+      decidim-pages (= 0.29.4)
+      decidim-participatory_processes (= 0.29.4)
+      decidim-proposals (= 0.29.4)
+      decidim-sortitions (= 0.29.4)
+      decidim-surveys (= 0.29.4)
+      decidim-system (= 0.29.4)
+      decidim-verifications (= 0.29.4)
+
+GIT
   remote: https://github.com/puzzle/decidim-module-antivirus.git
   revision: bc3cb4d217d71e47921285535624936f5587cbff
   branch: master
@@ -268,26 +294,6 @@ GEM
     dbf (4.3.2)
       csv
     debug_inspector (1.2.0)
-    decidim (0.29.4)
-      decidim-accountability (= 0.29.4)
-      decidim-admin (= 0.29.4)
-      decidim-api (= 0.29.4)
-      decidim-assemblies (= 0.29.4)
-      decidim-blogs (= 0.29.4)
-      decidim-budgets (= 0.29.4)
-      decidim-comments (= 0.29.4)
-      decidim-core (= 0.29.4)
-      decidim-debates (= 0.29.4)
-      decidim-forms (= 0.29.4)
-      decidim-generators (= 0.29.4)
-      decidim-meetings (= 0.29.4)
-      decidim-pages (= 0.29.4)
-      decidim-participatory_processes (= 0.29.4)
-      decidim-proposals (= 0.29.4)
-      decidim-sortitions (= 0.29.4)
-      decidim-surveys (= 0.29.4)
-      decidim-system (= 0.29.4)
-      decidim-verifications (= 0.29.4)
     decidim-accountability (0.29.4)
       decidim-comments (= 0.29.4)
       decidim-core (= 0.29.4)
@@ -1080,7 +1086,7 @@ DEPENDENCIES
   bootsnap
   byebug
   dalli
-  decidim (= 0.29.4)
+  decidim!
   decidim-anonymous_codes!
   decidim-antivirus!
   decidim-conferences (= 0.29.4)
