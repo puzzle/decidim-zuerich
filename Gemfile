@@ -8,7 +8,7 @@ ruby RUBY_VERSION
 
 gem 'execjs' # , '= 2.7.0'
 
-gem "decidim", github: "openpoke/decidim", branch: "0.29-backports"
+gem 'decidim', github: 'openpoke/decidim', branch: '0.29-backports'
 gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-consultations', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
@@ -18,7 +18,7 @@ gem 'decidim-templates', DECIDIM_VERSION
 gem 'decidim-anonymous_codes', github: 'openpoke/decidim-module-anonymous_codes'
 
 # anonymous_proposals tries to deface overwrite a view that no longer exists, this kills the docker build
-# gem 'decidim-anonymous_proposals', github: 'PopulateTools/decidim-module-anonymous_proposals', tag: 'v0.28.0'
+gem 'decidim-anonymous_proposals', github: 'openpoke/decidim-module-anonymous_proposals', branch: 'main'
 gem 'decidim-antivirus', github: 'puzzle/decidim-module-antivirus', branch: 'master'
 gem 'decidim-decidim_awesome', github: 'decidim-ice/decidim-module-decidim_awesome', branch: 'main'
 gem 'decidim-decidim_geo', git: 'https://git.octree.ch/decidim/decidim-module-geo.git'

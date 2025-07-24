@@ -76,6 +76,15 @@ GIT
       deface (>= 1.9.0)
 
 GIT
+  remote: https://github.com/openpoke/decidim-module-anonymous_proposals.git
+  revision: 54aa291751760345a382bd455530393bca4964ce
+  branch: main
+  specs:
+    decidim-anonymous_proposals (0.29)
+      decidim-core (>= 0.29)
+      deface (~> 1.9)
+
+GIT
   remote: https://github.com/openpoke/decidim-module-participatory-documents.git
   revision: 9c632e086d0e0328ad28f3fb1370bc239439be66
   specs:
@@ -1088,6 +1097,7 @@ DEPENDENCIES
   dalli
   decidim!
   decidim-anonymous_codes!
+  decidim-anonymous_proposals!
   decidim-antivirus!
   decidim-conferences (= 0.29.4)
   decidim-decidim_awesome!
