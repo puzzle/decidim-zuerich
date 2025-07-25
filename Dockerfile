@@ -79,7 +79,7 @@ RUN gem update --system \
 
 COPY ./package.json ./yarn.lock /app-src/
 COPY ./packages /app-src/packages
-RUN yarn
+RUN yarn install --frozen-lockfile --ignore-engines
 
 # set up app-src directory
 COPY . /app-src
