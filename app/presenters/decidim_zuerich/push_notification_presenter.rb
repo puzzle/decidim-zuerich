@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
-###
+### Decidim Zuerich Override
 #
 # Created at: 2025-07-22
 # Author: Thomas Burkhalter
 #
-# What?:
-#   This is a prepend for Decidim::PushNotificationPresenter that overrides #icon
+# Original:
+#   Module: decidim-core
+#   Class: app/presenters/decidim/push_notification_presenter.rb
+#   Method: #icon
 #
 # Why?:
 #   variant_url(:x, host: organization.host) tries to access the logo

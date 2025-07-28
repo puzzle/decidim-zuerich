@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
-###
+### Decidim Zuerich Override
 #
 # Created at: 2025-07-22
 # Author: Thomas Burkhalter
 #
-# What?:
-#   This is a prepend for Decidim::LayoutHelper that overrides #favicon/#apple_favicon/#legacy_favicon
+# Original:
+#   Module: decidim-core
+#   Class: app/helpers/decidim/layout_helper.rb
+#   Methods: #favicon, #apple_favicon, #legacy_favicon
 #
 # Why?:
 #   variant_url(:x, host: organization.host) tries to access the logo

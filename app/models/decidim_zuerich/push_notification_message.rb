@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
-###
+### Decidim Zuerich Override
 #
 # Created at: 2025-07-22
 # Author: Thomas Burkhalter
+#
+# Original:
+#   Module: decidim-core
+#   Class: app/presenters/decidim/push_notification_message.rb
+#   Method: #icon
 #
 # What?:
 #   This is a prepend for Decidim::PushNotificationMessage that overrides #icon
