@@ -6,7 +6,13 @@
           <%= icon icon_name, width: 40, height: 70 %>
         </div>
         <div class="address__details">
-          <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: geolocalizable } %>
+          <% if geolocalizable.respond_to? :location %>
+            <strong><%= decidim_sanitize(translated_attribute(geolocalizable.location)) %></strong><br>
+          <% end %>
+          <span><%= geolocalizable.address %></span><br>
+          <% if geolocalizable.respond_to? :location_hints %>
+            <span><%= decidim_sanitize(translated_attribute(geolocalizable.location_hints)) %></span>
+          <% end %>
         </div>
       </div>
       <% if Decidim::Map.available?(:geocoding) %>
