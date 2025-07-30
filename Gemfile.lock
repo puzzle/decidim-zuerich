@@ -1,6 +1,6 @@
 GIT
   remote: https://git.octree.ch/decidim/decidim-module-geo.git
-  revision: 3fa80a2a7c80ec8348c13096cdcac5f6ce48c71f
+  revision: 7a5aaf45fd78c3aef6f80b281ab2aa4ee3a29622
   specs:
     decidim-decidim_geo (0.3.0)
       activerecord-postgis-adapter
@@ -660,7 +660,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0722)
+    mime-types-data (3.2025.0729)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.5)
