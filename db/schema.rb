@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_06_03_095222) do
+ActiveRecord::Schema[7.0].define(version: 2025_07_31_152943) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -1166,6 +1166,9 @@ ActiveRecord::Schema[7.0].define(version: 2025_06_03_095222) do
     t.boolean "enable_registration_confirmation", default: false
     t.boolean "enable_cancellation", default: false
     t.boolean "disable_account_confirmation", default: false
+    t.boolean "reminder_enabled", default: true, null: false
+    t.integer "send_reminders_before_hours"
+    t.jsonb "reminder_message_custom_content", default: {}, null: false
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
@@ -1209,10 +1212,12 @@ ActiveRecord::Schema[7.0].define(version: 2025_06_03_095222) do
     t.datetime "validated_at", precision: nil
     t.bigint "decidim_user_group_id"
     t.boolean "public_participation", default: false
+    t.string "status", default: "registered"
     t.index ["decidim_meeting_id"], name: "index_decidim_meetings_registrations_on_decidim_meeting_id"
     t.index ["decidim_user_group_id"], name: "index_decidim_meetings_registrations_on_decidim_user_group_id"
     t.index ["decidim_user_id", "decidim_meeting_id"], name: "decidim_meetings_registrations_user_meeting_unique", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_meetings_registrations_on_decidim_user_id"
+    t.index ["status"], name: "index_decidim_meetings_registrations_on_status"
   end
 
   create_table "decidim_meetings_services", force: :cascade do |t|
