@@ -33,8 +33,9 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: anchore/sbom-action@0
-        format: cyclonedx
-        output-file: sbom.xml
+        with:
+          format: cyclonedx
+          output-file: sbom.xml
       - name: 'Push SBOM to dependency tracker'
         env:
           URL: ${{ inputs.dependency_tracker_url }}

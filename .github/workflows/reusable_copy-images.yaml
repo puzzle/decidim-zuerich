@@ -14,9 +14,11 @@ on:
     inputs:
       sourceURI:
         description: 'Source image and tag. Example: "https://quay.io/repository/puzzle/centos-apache-modsecurity?tab=tags&tag=crs-v3.3.2-waf2"'
+        type: string
         required: true
       targetImage:
         description: 'Target image and tag. Example: "stbi-waf:crs-v3.3.2-waf2'
+        type: string
         required: true
 
 jobs:
