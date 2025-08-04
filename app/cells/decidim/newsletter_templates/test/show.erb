@@ -24,7 +24,10 @@ table.button table td {
               <tr>
                 <th>
                   <center>
-                    <%= render partial: "layouts/decidim/mailer_logo.html", locals: { organization: organization } %>
+                    <%=
+                      self.class.view_paths = [Rails.root.join('app/views'), *self.class.view_paths]
+                      render partial: "layouts/decidim/mailer_logo.html", locals: { organization: organization }
+                    %>
                   </center>
                 </th>
               </tr>
@@ -34,9 +37,10 @@ table.button table td {
             <table>
               <tr>
                 <th>
-                  <% if organization.official_img_header.attached? %>
+                  <%# if organization.official_img_header.attached? %>
+                  <% if organization.highlighted_content_banner_image.attached? %>
                     <%= link_to organization.official_url do %>
-                      <%= image_tag organization.attached_uploader(:official_img_header).url(host: organization.host), alt: "", style: "max-height: 50px", class: "float-right" %>
+                      <%= image_tag organization.attached_uploader(:highlighted_content_banner_image).url, alt: "", style: "max-height: 50px", class: "float-right" %>
                     <% end %>
                   <% end %>
                 </th>
@@ -119,9 +123,9 @@ table.button table td {
           <th class="small-12 first columns cityhall-bar">
             <div class="decidim-logo" style="float: right; text-align: right; padding-right: 16px">
               <% if @custom_url_for_mail_root.present? %>
-                <%= link_to organization.name.html_safe, @custom_url_for_mail_root %>
+                <%= link_to translated_attribute(organization.name).html_safe, @custom_url_for_mail_root %>
               <% else %>
-                <%= link_to organization.name.html_safe, decidim.root_url(host: organization.host) %>
+                <%= link_to translated_attribute(organization.name).html_safe, decidim.root_url(host: organization.host) %>
               <% end %>
             </div>
           </th>
