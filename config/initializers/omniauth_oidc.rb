@@ -18,4 +18,6 @@ if Rails.application.secrets.dig(:omniauth, :oidc).present?
         scope: [:openid, :stzh_profile_basic],
     )
   end
+
+  Decidim.icons.register(name: 'oidc-fill', icon: 'oidc', category: 'system', description: '', engine: :core)
 end
