@@ -16,8 +16,9 @@
   <% custom.radio_button_options.each do |answer_option, idx| %>
     <% choice_id = "#{field_id}_choices_#{idx}" %>
 
-    <div class="collection-input">
+    <div class="js-collection-input">
       <%= label_tag "#{choice_id}_body" do %>
+
         <%= radio_button_tag "questionnaire[responses][#{answer_idx}][choices][][body]",
                              translated_attribute(answer_option.body),
                              answer_option.id == custom.selected_option,
@@ -29,14 +30,14 @@
         <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][][answer_option_id]",
                              answer_option.id,
                              id: "#{choice_id}_answer_option",
-                             disabled: %>
+                             disabled: true %>
       <% end %>
 
       <% if answer_option.free_text %>
         <%= text_field_tag "questionnaire[responses][#{answer_idx}][choices][][custom_body]",
                            choice.try(:custom_body),
                            id: "#{choice_id}_custom_body",
-                           disabled:,
+                           disabled: true,
                            maxlength:,
                            class: "w-full" %>
       <% end %>
