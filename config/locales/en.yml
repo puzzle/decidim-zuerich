@@ -181,7 +181,8 @@ en:
   devise:
     shared:
       links:
-        sign_in_with_provider: Log in via "Mein Konto"
+        log_in_with_provider: Log in via "Mein Konto"
+        log_in_with_provider_button: Mein Konto
     mailer:
       confirmation_instructions:
         subject: "Confirm E-Mail"
