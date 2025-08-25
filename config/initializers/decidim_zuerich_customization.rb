@@ -12,20 +12,21 @@ Rails.application.config.to_prepare do
   INCLUDES = [
     #[Decidim::Debates::CreateDebateEvent,       DecidimZuerich::Debates::CreateDebateEvent],
     [Decidim::FormBuilder,                       DecidimZuerich::FormBuilder],
-    [Decidim::Forms::Admin::UpdateQuestionnaire, DecidimZuerich::Forms::Admin::UpdateQuestionnaire]
+    [Decidim::Forms::Admin::UpdateQuestionnaire, DecidimZuerich::Forms::Admin::UpdateQuestionnaire],
+    [Decidim::Admin::AttachmentForm,             DecidimZuerich::Admin::AttachmentForm]
   ].freeze
 
 
   PREPENDS = [
-    #[Decidim::ApplicationMailer,                   DecidimZuerich::ApplicationMailer],
-    #[Decidim::ParticipatoryProcesses::Permissions, DecidimZuerich::ParticipatoryProcesses::Permissions],
-    #[Decidim::Proposals::MapHelper,                DecidimZuerich::Proposals::MapHelper],
-    #[Decidim::System::RegisterOrganization,        DecidimZuerich::System::RegisterOrganization],
-    #[Decidim::System::UpdateOrganization,          DecidimZuerich::System::UpdateOrganization],
-    [Decidim::Upgrade::WysiwygMigrator,             DecidimZuerich::Upgrade::WysiwygMigrator],
-    [Decidim::PushNotificationMessage,              DecidimZuerich::PushNotificationMessage],
-    [Decidim::PushNotificationPresenter,            DecidimZuerich::PushNotificationPresenter],
-    [Decidim::LayoutHelper,                         DecidimZuerich::LayoutHelper]
+    #[Decidim::ApplicationMailer,                           DecidimZuerich::ApplicationMailer],
+    #[Decidim::ParticipatoryProcesses::Permissions,         DecidimZuerich::ParticipatoryProcesses::Permissions],
+    #[Decidim::Proposals::MapHelper,                        DecidimZuerich::Proposals::MapHelper],
+    #[Decidim::System::RegisterOrganization,                DecidimZuerich::System::RegisterOrganization],
+    #[Decidim::System::UpdateOrganization,                  DecidimZuerich::System::UpdateOrganization],
+    [Decidim::Upgrade::WysiwygMigrator,                     DecidimZuerich::Upgrade::WysiwygMigrator],
+    [Decidim::PushNotificationMessage,                      DecidimZuerich::PushNotificationMessage],
+    [Decidim::PushNotificationPresenter,                    DecidimZuerich::PushNotificationPresenter],
+    [Decidim::LayoutHelper,                                 DecidimZuerich::LayoutHelper]
   ].freeze
 
   OVERRIDES = [
