@@ -24,7 +24,7 @@ module Decidim
       end
 
       def logo_url
-        newsletter.template.images_container.attached_uploader(:logo).url(host: organization.host)
+        newsletter.template.images_container.attached_uploader(:logo).url
       end
 
       def introduction
@@ -44,7 +44,7 @@ module Decidim
       end
 
       def main_image_url
-        newsletter.template.images_container.attached_uploader(:main_image).url(host: organization.host)
+        newsletter.template.images_container.attached_uploader(:main_image).url
       end
 
       def body
