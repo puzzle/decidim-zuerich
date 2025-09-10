@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_07_31_152943) do
+ActiveRecord::Schema[7.0].define(version: 2025_09_10_162910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
   enable_extension "pg_trgm"
@@ -917,6 +917,16 @@ ActiveRecord::Schema[7.0].define(version: 2025_07_31_152943) do
     t.integer "focus_zoom_level", default: 21
     t.string "maptiler_api_key", default: ""
     t.string "maptiler_style_id", default: ""
+    t.bigint "decidim_organization_id", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_geo_configs_on_organization_id"
+  end
+
+  create_table "decidim_geo_geo_settings", force: :cascade do |t|
+    t.boolean "geo_enabled", default: true, null: false
+    t.bigint "decidim_organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_geo_geo_settings_on_decidim_organization_id"
   end
 
   create_table "decidim_geo_indexes", force: :cascade do |t|
@@ -939,6 +949,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_07_31_152943) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "decidim_organization_id", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_geo_indexes_on_organization_id"
     t.index ["end_date"], name: "index_decidim_geo_indexes_on_end_date"
     t.index ["geo_scope_id"], name: "index_decidim_geo_indexes_on_geo_scope_id"
     t.index ["resource_type", "resource_id"], name: "decidim_geo_indx_resource", unique: true
@@ -951,7 +963,9 @@ ActiveRecord::Schema[7.0].define(version: 2025_07_31_152943) do
     t.string "decidim_component_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "decidim_organization_id", null: false
     t.index ["decidim_component_id"], name: "decidim_geo_uniq_no_index", unique: true
+    t.index ["decidim_organization_id"], name: "index_decidim_geo_no_indexes_on_organization_id"
   end
 
   create_table "decidim_geo_shapefile_datas", force: :cascade do |t|
@@ -2261,6 +2275,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_07_31_152943) do
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
+  add_foreign_key "decidim_geo_geo_settings", "decidim_organizations"
   add_foreign_key "decidim_geo_indexes", "decidim_scopes", column: "geo_scope_id"
   add_foreign_key "decidim_geo_shapefile_datas", "decidim_geo_shapefiles", column: "decidim_geo_shapefiles_id"
   add_foreign_key "decidim_geo_shapefile_datas", "decidim_scopes", column: "decidim_scopes_id"
