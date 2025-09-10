@@ -1,8 +1,10 @@
 GIT
-  remote: https://git.octree.ch/decidim/decidim-module-geo.git
-  revision: 7a5aaf45fd78c3aef6f80b281ab2aa4ee3a29622
+  remote: https://git.octree.ch/decidim/decidim-module-geo
+  revision: 3bc7e260bef729172975412b9ff648215f0e3713
+  ref: 3bc7e260
+  branch: main
   specs:
-    decidim-decidim_geo (0.3.0)
+    decidim-decidim_geo (0.3.3)
       activerecord-postgis-adapter
       decidim-admin (>= 0.29)
       decidim-api (>= 0.29)
@@ -16,6 +18,7 @@ GIT
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-survey_multiple_answers.git
   revision: 971ad38a2955b5f495b7f2ed719589cd329cf269
+  ref: 971ad38
   branch: bump/0.29
   specs:
     decidim-survey_multiple_answers (0.29.2)
@@ -27,6 +30,7 @@ GIT
 GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-term_customizer.git
   revision: 3da4973f52649534fa9cc2acaaa4d89176a19351
+  ref: 3da4973
   branch: master
   specs:
     decidim-term_customizer (0.29.0)
@@ -35,7 +39,8 @@ GIT
 
 GIT
   remote: https://github.com/OpenSourcePolitics/guest-meeting-registration.git
-  revision: a0ad48b581e1b1576d38e00f168ef8885a7d8133
+  revision: 19e3998acafa5af237dc04fb7b605de20c0dd18d
+  ref: 19e3998
   branch: bump/module_to_0.29
   specs:
     decidim-guest_meeting_registration (0.29.2)
@@ -45,10 +50,11 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: 72989770a81d5c1f03ddbe6f9d459a6bfdd6b922
-  branch: main
+  revision: afd2111fec6db1039a5145eaeef270c6686b6d14
+  ref: afd2111
+  branch: release/0.29-stable
   specs:
-    decidim-decidim_awesome (0.12.3)
+    decidim-decidim_awesome (0.12.4)
       active_hashcash (~> 0.4.0)
       decidim-admin (>= 0.29.1, < 0.30)
       decidim-core (>= 0.29.1, < 0.30)
@@ -56,7 +62,7 @@ GIT
       sassc (~> 2.3)
 
 GIT
-  remote: https://github.com/netsphere-labs/omniauth-openid-connect.git
+  remote: https://github.com/netsphere-labs/omniauth-openid-connect
   revision: b13c5ba73999566ce61bdd1c6c41d335f23fe863
   specs:
     omniauth-openid-connect (0.9.2)
@@ -67,6 +73,8 @@ GIT
 GIT
   remote: https://github.com/openpoke/decidim-module-anonymous_codes.git
   revision: 8323978480579ac290a52cdb2de10a6a27f6fa70
+  ref: 8323978
+  branch: main
   specs:
     decidim-anonymous_codes (1.1)
       decidim-admin (>= 0.29.0, < 0.30)
@@ -78,6 +86,7 @@ GIT
 GIT
   remote: https://github.com/openpoke/decidim-module-anonymous_proposals.git
   revision: 54aa291751760345a382bd455530393bca4964ce
+  ref: 54aa291
   branch: main
   specs:
     decidim-anonymous_proposals (0.29)
@@ -87,6 +96,8 @@ GIT
 GIT
   remote: https://github.com/openpoke/decidim-module-participatory-documents.git
   revision: 9c632e086d0e0328ad28f3fb1370bc239439be66
+  ref: 9c632e0
+  branch: main
   specs:
     decidim-participatory_documents (0.4.0)
       decidim-admin (>= 0.29, < 0.30)
@@ -231,6 +242,7 @@ GIT
 GIT
   remote: https://github.com/puzzle/decidim-module-antivirus.git
   revision: bc3cb4d217d71e47921285535624936f5587cbff
+  ref: bc3cb4d
   branch: master
   specs:
     decidim-antivirus (0.29.0)
@@ -338,10 +350,6 @@ GEM
       aws-sigv4 (~> 1.8)
     aws-sigv4 (1.8.0)
       aws-eventstream (~> 1, >= 1.0.2)
-    axiom-types (0.1.1)
-      descendants_tracker (~> 0.0.4)
-      ice_nine (~> 0.11.0)
-      thread_safe (~> 0.3, >= 0.3.1)
     base64 (0.3.0)
     batch-loader (1.5.0)
     bcrypt (3.1.20)
@@ -393,8 +401,6 @@ GEM
     charlock_holmes (0.7.9)
     clamby (1.6.11)
     coderay (1.1.3)
-    coercible (1.0.0)
-      descendants_tracker (~> 0.0.1)
     commonmarker (0.23.11)
     concurrent-ruby (1.3.4)
     crack (1.0.0)
@@ -477,8 +483,6 @@ GEM
     delayed_job_active_record (4.1.11)
       activerecord (>= 3.0, < 9.0)
       delayed_job (>= 3.0, < 5)
-    descendants_tracker (0.0.4)
-      thread_safe (~> 0.3, >= 0.3.1)
     devise (4.9.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -499,7 +503,7 @@ GEM
     doorkeeper (5.8.2)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
-    equalizer (0.0.11)
+    dotenv (3.1.8)
     erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
@@ -607,7 +611,6 @@ GEM
       logger
       ostruct
     ice_cube (0.17.0)
-    ice_nine (0.11.2)
     image_processing (1.14.0)
       mini_magick (>= 4.9.5, < 6)
       ruby-vips (>= 2.0.17, < 3)
@@ -860,12 +863,6 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rectify (0.13.0)
-      activemodel (>= 4.1.0)
-      activerecord (>= 4.1.0)
-      activesupport (>= 4.1.0)
-      virtus (~> 1.0.5)
-      wisper (>= 1.6.1)
     redcarpet (3.6.1)
     redis (4.8.1)
     regexp_parser (2.10.0)
@@ -1005,7 +1002,6 @@ GEM
     terminal-table (4.0.0)
       unicode-display_width (>= 1.1.1, < 4)
     thor (1.4.0)
-    thread_safe (0.3.6)
     tilt (2.6.1)
     timeout (0.4.3)
     trailblazer-option (0.1.2)
@@ -1027,11 +1023,6 @@ GEM
       activemodel (>= 3.0.0)
       public_suffix
     version_gem (1.1.8)
-    virtus (1.0.5)
-      axiom-types (~> 0.1)
-      coercible (~> 1.0)
-      descendants_tracker (~> 0.0, >= 0.0.3)
-      equalizer (~> 0.0, >= 0.0.9)
     w3c_rspec_validators (0.3.0)
       rails
       rspec
@@ -1112,6 +1103,7 @@ DEPENDENCIES
   decidim-term_customizer!
   delayed_cron_job
   delayed_job_active_record
+  dotenv
   execjs
   faker
   listen
@@ -1122,7 +1114,6 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
-  rectify (~> 0.13.0)
   rubocop
   sentry-raven
   uglifier
