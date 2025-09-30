@@ -29,8 +29,8 @@ class PuzzleRailsPryPrompt
   def self.description = 'This improves the Pry prompt for Puzzle Rails environments\n[1] [project_env] pry(main)'
   def description = self.class.description
 
-
   def self.set_prompt(...) = new(...).set_prompt
+
   def set_prompt
     add_prompt unless prompt_exists?
     Pry.config.prompt = Pry::Prompt[:puzzle_rails]
@@ -59,7 +59,7 @@ class PuzzleRailsPryPrompt
           draw_prompt.call(target_self, nest_level, pry, '*')
         end
       ]
-      Pry::Prompt::MAP['puzzle_rails'] = { value: prompts, description: description }
+      Pry::Prompt::MAP['puzzle_rails'] = { value: prompts, description: }
     end
   end
 
@@ -83,7 +83,7 @@ class PuzzleRailsPryPrompt
   private
 
   def prompt_exists?
-    Pry::Prompt.all.include?(:puzzle_rails)
+    Pry::Prompt.all.include?('puzzle_rails')
   end
 
   def apply_helpers(obj, actions)

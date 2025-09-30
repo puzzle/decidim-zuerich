@@ -13,10 +13,13 @@ module DecidimZuerich
         # need to set the organization for asset resolution to work
         @organization = component.organization
 
-        subject = I18n.t("answered.subject", survey_name: @survey_name, scope: "decidim_zuerich.surveys.survey_answered_mailer")
-        mail(to: email, subject: subject)
+        subject = I18n.t(
+          'answered.subject',
+          survey_name: @survey_name,
+          scope: 'decidim_zuerich.surveys.survey_answered_mailer'
+        )
+        mail(to: email, subject:)
       end
-
     end
   end
 end

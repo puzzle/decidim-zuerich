@@ -6,27 +6,29 @@ require_relative '../../lib/decidim_zuerich/form_builder'
 require_relative '../../lib/decidim_zuerich/upgrade/wysiwyg_migrator'
 require_relative '../../lib/puzzle_rails_pry_prompt'
 
+# rubocop:disable Metrics/BlockLength, Lint/ConstantDefinitionInBlock
+
 Rails.application.config.to_prepare do
   PuzzleRailsPryPrompt.set_prompt
 
   INCLUDES = [
-    #[Decidim::Debates::CreateDebateEvent,       DecidimZuerich::Debates::CreateDebateEvent],
+    # [Decidim::Debates::CreateDebateEvent,       DecidimZuerich::Debates::CreateDebateEvent],
     [Decidim::FormBuilder,                       DecidimZuerich::FormBuilder],
     [Decidim::Forms::Admin::UpdateQuestionnaire, DecidimZuerich::Forms::Admin::UpdateQuestionnaire],
     [Decidim::Admin::AttachmentForm,             DecidimZuerich::Admin::AttachmentForm]
   ].freeze
 
-
   PREPENDS = [
-    #[Decidim::ApplicationMailer,                           DecidimZuerich::ApplicationMailer],
-    #[Decidim::ParticipatoryProcesses::Permissions,         DecidimZuerich::ParticipatoryProcesses::Permissions],
-    #[Decidim::Proposals::MapHelper,                        DecidimZuerich::Proposals::MapHelper],
-    #[Decidim::System::RegisterOrganization,                DecidimZuerich::System::RegisterOrganization],
-    #[Decidim::System::UpdateOrganization,                  DecidimZuerich::System::UpdateOrganization],
-    [Decidim::Upgrade::WysiwygMigrator,                     DecidimZuerich::Upgrade::WysiwygMigrator],
-    [Decidim::PushNotificationMessage,                      DecidimZuerich::PushNotificationMessage],
-    [Decidim::PushNotificationPresenter,                    DecidimZuerich::PushNotificationPresenter],
-    [Decidim::LayoutHelper,                                 DecidimZuerich::LayoutHelper]
+    # [Decidim::ApplicationMailer,                   DecidimZuerich::ApplicationMailer],
+    # [Decidim::ParticipatoryProcesses::Permissions, DecidimZuerich::ParticipatoryProcesses::Permissions],
+    # [Decidim::Proposals::MapHelper,                DecidimZuerich::Proposals::MapHelper],
+    # [Decidim::System::RegisterOrganization,        DecidimZuerich::System::RegisterOrganization],
+    # [Decidim::System::UpdateOrganization,          DecidimZuerich::System::UpdateOrganization],
+    [Decidim::Upgrade::WysiwygMigrator,              DecidimZuerich::Upgrade::WysiwygMigrator],
+    [Decidim::PushNotificationMessage,               DecidimZuerich::PushNotificationMessage],
+    [Decidim::PushNotificationPresenter,             DecidimZuerich::PushNotificationPresenter],
+    [Decidim::LayoutHelper,                          DecidimZuerich::LayoutHelper],
+    [Decidim::Surveys::SurveyConfirmationMailer,     DecidimZuerich::Surveys::SurveyConfirmationMailer]
   ].freeze
 
   OVERRIDES = [
@@ -83,7 +85,7 @@ Rails.application.config.to_prepare do
     end
   end
 
-  ActiveSupport::Notifications.subscribe "answer_questionnaire.after" do |event|
+  ActiveSupport::Notifications.subscribe 'answer_questionnaire.after' do |event|
     Rails.logger.info "#{event} Received!"
     questionnaire = event.resource
     has_component = questionnaire.questionnaire_for.respond_to? :component
@@ -95,8 +97,8 @@ Rails.application.config.to_prepare do
     email = component.try(:settings).try(:notified_email)
     id = form.context.session_token
 
-    if email.present?
-      DecidimZuerich::Surveys::SurveyAnsweredMailer.answered(email, component, id).deliver_now
-    end
+    DecidimZuerich::Surveys::SurveyAnsweredMailer.answered(email, component, id).deliver_now if email.present?
   end
 end
+
+# rubocop:enable Metrics/BlockLength, Lint/ConstantDefinitionInBlock
