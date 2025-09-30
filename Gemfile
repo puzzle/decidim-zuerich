@@ -32,7 +32,7 @@ gem 'decidim-antivirus',
 gem 'decidim-decidim_awesome',
     github: 'decidim-ice/decidim-module-decidim_awesome',
     branch: 'release/0.29-stable',
-    ref: 'afd2111'
+    ref: 'f2c7152'
 gem 'decidim-decidim_geo',
     git: 'https://git.octree.ch/decidim/decidim-module-geo',
     branch: 'main',
