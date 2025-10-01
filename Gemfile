@@ -76,6 +76,7 @@ gem 'pry-byebug'
 gem 'pry-rails'
 gem 'puma'
 gem 'sentry-raven'
+gem 'sprockets-rails'
 gem 'uglifier'
 
 group :development, :test do
