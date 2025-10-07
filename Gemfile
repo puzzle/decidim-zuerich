@@ -44,7 +44,7 @@ gem 'decidim-guest_meeting_registration',
 gem 'decidim-participatory_documents',
     github: 'openpoke/decidim-module-participatory-documents',
     branch: 'main',
-    ref: '9c632e0'
+    ref: 'cd69101'
 gem 'decidim-survey_multiple_answers',
     github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
     branch: 'bump/0.29',

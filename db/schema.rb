@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema[7.0].define(version: 2025_09_10_162910) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "fuzzystrmatch"
   enable_extension "ltree"
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
   enable_extension "postgis"
+  enable_extension "postgis_tiger_geocoder"
+  enable_extension "postgis_topology"
 
   create_table "active_hashcash_stamps", force: :cascade do |t|
     t.string "version", null: false
