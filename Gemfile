@@ -2,12 +2,15 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.29.4'
+DECIDIM_VERSION = '0.29.5'
 
 ruby RUBY_VERSION
 
 # Decidim
-gem 'decidim', github: 'openpoke/decidim', branch: '0.29-backports', ref: '126c51b'
+gem 'decidim',
+    github: 'openpoke/decidim',
+    branch: '0.29-backports',
+    ref: 'e83cefb'
 
 # Internal Modules
 gem 'decidim-proposals', DECIDIM_VERSION
