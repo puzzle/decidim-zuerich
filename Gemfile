@@ -10,7 +10,7 @@ ruby RUBY_VERSION
 gem 'decidim',
     github: 'openpoke/decidim',
     branch: '0.29-backports',
-    ref: 'e83cefb'
+    ref: '7928d98'
 
 # Internal Modules
 gem 'decidim-proposals', DECIDIM_VERSION

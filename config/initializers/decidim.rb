@@ -136,7 +136,8 @@ Decidim.configure do |config|
   }
 
   config.geocoder = {
-    static_map_url: 'https://image.maps.cit.api.here.com/mia/1.6/mapview'
+    # static_map_url: 'https://image.maps.cit.api.here.com/mia/1.6/mapview'
+    static_map_url: 'https://image.maps.hereapi.com/mia/v3/base/mc/overlay'
   }
 
   config.content_security_policies_extra = {
