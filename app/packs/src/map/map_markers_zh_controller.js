@@ -34,6 +34,23 @@ export default function(baseClass) {
       this.setViewport()
     }
 
+    addMarkers(markersData) {
+      super.addMarkers((markersData || []).map(marker => {
+        // Decidim sometimes confuses latitude and longitude. Make sure they are the right way round.
+        // In Switzerland, latitude is always bigger (around 45) than longitude (around 8).
+        return {
+          ...marker,
+          latitude: Math.max(marker.latitude, marker.longitude),
+          longitude: Math.min(marker.latitude, marker.longitude),
+        }
+      }).filter(marker => {
+        return marker.latitude > parseFloat(this.config.mapLimits.latMin) &&
+          marker.latitude < parseFloat(this.config.mapLimits.latMax) &&
+          marker.longitude > parseFloat(this.config.mapLimits.lngMin) &&
+          marker.longitude < parseFloat(this.config.mapLimits.lngMax)
+      }));
+    }
+
     setViewport() {
       if (this.config.markers.length === 1) {
         const bounds = new L.LatLngBounds(this.config.markers.map((markerData) => [markerData.latitude, markerData.longitude]));
