@@ -25,6 +25,8 @@ require.context("../../images", true);
  * - When the user scrolls back up, we restore the positioning from before.
  *
  */
+/*
+// Disabled during the upgrade to decidim 0.29 with the redesign, because these bars don't exist anymore
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset
 
@@ -43,6 +45,7 @@ window.addEventListener('scroll', () => {
     header.style.paddingTop = '3.75rem'
   }
 })
+*/
 
 /**
  * Redirect to external participatory processes
