@@ -15,7 +15,7 @@ export default function(baseClass) {
         this.map.fitBounds(bounds, {padding: [100, 100], maxZoom: this.getNoMarkerMaxZoom()});
       } else {
         const bounds = new L.LatLngBounds([[latitude, longitude]]);
-        this.map.fitBounds(bounds, {padding: [10, 10], maxZoom: this.getSingleMarkerMaxZoom()});
+        this.map.fitBounds(bounds, {padding: [10, 10], maxZoom: this.getSingleMarkerMaxZoom() || this.getMarkerMaxZoom()});
       }
     }
 
