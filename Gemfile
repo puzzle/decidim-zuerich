@@ -12,6 +12,11 @@ gem 'decidim',
     branch: '0.29-backports',
     ref: '7928d98'
 
+# HACK: Using patched version of deface, to fix decidim-geo JS Errors
+gem 'deface',
+    git: 'https://github.com/froger/deface',
+    branch: 'fix/js-overrides'
+
 # Internal Modules
 gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-consultations', DECIDIM_VERSION
@@ -38,8 +43,7 @@ gem 'decidim-decidim_awesome',
     ref: 'f2c7152'
 gem 'decidim-decidim_geo',
     git: 'https://git.octree.ch/decidim/decidim-module-geo',
-    branch: 'main',
-    ref: '3bc7e260'
+    tag: 'v0.3.4'
 gem 'decidim-guest_meeting_registration',
     github: 'OpenSourcePolitics/guest-meeting-registration',
     branch: 'bump/module_to_0.29',

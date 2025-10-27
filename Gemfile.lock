@@ -1,10 +1,9 @@
 GIT
   remote: https://git.octree.ch/decidim/decidim-module-geo
-  revision: 3bc7e260bef729172975412b9ff648215f0e3713
-  ref: 3bc7e260
-  branch: main
+  revision: 1185dc1b672441f3a6421a7e64ee68deab3a92bf
+  tag: v0.3.4
   specs:
-    decidim-decidim_geo (0.3.3)
+    decidim-decidim_geo (0.3.4)
       activerecord-postgis-adapter
       decidim-admin (>= 0.29)
       decidim-api (>= 0.29)
@@ -60,6 +59,22 @@ GIT
       decidim-core (>= 0.29.1, < 0.30)
       deface (>= 1.5)
       sassc (~> 2.3)
+
+GIT
+  remote: https://github.com/froger/deface
+  revision: fe80c6bc7166d3adb5e99a5ab46a81138f52840a
+  branch: fix/js-overrides
+  specs:
+    deface (1.9.0)
+      actionview (>= 7.0)
+      base64
+      bigdecimal
+      drb
+      mutex_m
+      nokogiri (>= 1.6)
+      polyglot
+      railties (>= 7.0)
+      rainbow (>= 2.1.0)
 
 GIT
   remote: https://github.com/netsphere-labs/omniauth-openid-connect
@@ -470,12 +485,6 @@ GEM
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
-    deface (1.9.0)
-      actionview (>= 5.2)
-      nokogiri (>= 1.6)
-      polyglot
-      railties (>= 5.2)
-      rainbow (>= 2.1.0)
     delayed_cron_job (0.9.0)
       fugit (>= 1.5)
     delayed_job (4.1.13)
@@ -504,6 +513,7 @@ GEM
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     dotenv (3.1.8)
+    drb (2.2.3)
     erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
@@ -1111,6 +1121,7 @@ DEPENDENCIES
   decidim-survey_multiple_answers!
   decidim-templates (= 0.29.5)
   decidim-term_customizer!
+  deface!
   delayed_cron_job
   delayed_job_active_record
   dotenv
