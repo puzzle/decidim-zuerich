@@ -2,15 +2,17 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.29.5'
+# DECIDIM_VERSION = '0.29.6'
+DECIDIM_VERSION = {
+  github: 'openpoke/decidim',
+  branch: '0.29-backports',
+  ref: '181cfc4'
+}
 
 ruby RUBY_VERSION
 
 # Decidim
-gem 'decidim',
-    github: 'openpoke/decidim',
-    branch: '0.29-backports',
-    ref: '7928d98'
+gem 'decidim', DECIDIM_VERSION
 
 # HACK: Using patched version of deface, to fix decidim-geo JS Errors
 gem 'deface',
@@ -18,7 +20,6 @@ gem 'deface',
     branch: 'fix/js-overrides'
 
 # Internal Modules
-gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-consultations', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
@@ -31,7 +32,7 @@ gem 'decidim-anonymous_codes',
     ref: '8323978'
 gem 'decidim-anonymous_proposals',
     github: 'openpoke/decidim-module-anonymous_proposals',
-    branch: 'main',
+    branch: 'release/0.29-stable',
     ref: '54aa291'
 gem 'decidim-antivirus',
     github: 'puzzle/decidim-module-antivirus',
@@ -40,7 +41,7 @@ gem 'decidim-antivirus',
 gem 'decidim-decidim_awesome',
     github: 'decidim-ice/decidim-module-decidim_awesome',
     branch: 'release/0.29-stable',
-    ref: 'f2c7152'
+    ref: 'b6b98f1'
 gem 'decidim-decidim_geo',
     git: 'https://git.octree.ch/decidim/decidim-module-geo',
     branch: 'main',
@@ -52,7 +53,7 @@ gem 'decidim-guest_meeting_registration',
 gem 'decidim-participatory_documents',
     github: 'openpoke/decidim-module-participatory-documents',
     branch: 'main',
-    ref: 'cd69101'
+    ref: '21501f8'
 gem 'decidim-survey_multiple_answers',
     github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
     branch: 'bump/0.29',
@@ -74,18 +75,15 @@ gem 'bootsnap'
 gem 'byebug', platform: :mri
 gem 'dalli'
 gem 'delayed_job_active_record'
-gem 'execjs'
 gem 'faker'
 gem 'lograge'
-gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect'
+# gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect'
 gem 'omniauth_openid_connect'
 gem 'prometheus_exporter'
 gem 'pry-byebug'
 gem 'pry-rails'
 gem 'puma'
 gem 'sentry-raven'
-gem 'sprockets-rails'
-gem 'uglifier'
 
 group :development, :test do
   gem 'decidim-dev', DECIDIM_VERSION
