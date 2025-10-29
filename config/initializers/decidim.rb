@@ -151,7 +151,7 @@ Decidim.configure do |config|
     dynamic_provider = Rails.application.secrets.maps[:dynamic_provider]
     dynamic_url = Rails.application.secrets.maps[:dynamic_url]
     static_url = Rails.application.secrets.maps[:static_url]
-    static_url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && static_url.blank?
+    static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here" && static_url.blank?
     config.maps = {
       provider: static_provider,
       api_key: Rails.application.secrets.maps[:static_api_key],
@@ -476,12 +476,6 @@ if Decidim.module_installed? :accountability
     unless Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking) == "auto"
       config.enable_proposal_linking = Rails.application.secrets.dig(:decidim, :accountability, :enable_proposal_linking).present?
     end
-  end
-end
-
-if Decidim.module_installed? :consultations
-  Decidim::Consultations.configure do |config|
-    config.stats_cache_expiration_time = Rails.application.secrets.dig(:decidim, :consultations, :stats_cache_expiration_time).to_i.minutes
   end
 end
 
