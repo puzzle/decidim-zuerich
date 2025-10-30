@@ -71,7 +71,7 @@
     "@babel/preset-react": "^7.27.1",
     "@decidim/dev": "file:packages/dev",
     "@decidim/eslint-config": "file:packages/eslint-config",
-    "@decidim/prettier-config": "^0.29.4",
+    "@decidim/prettier-config": "file:packages/prettier-config",
     "@decidim/stylelint-config": "file:packages/stylelint-config",
     "@tarekraafat/autocomplete.js": "^10.2.7",
     "eslint": "^8.7.0",

@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.29.5'
+DECIDIM_VERSION = '0.29.6'
 
 ruby RUBY_VERSION
 
@@ -10,12 +10,7 @@ ruby RUBY_VERSION
 gem 'decidim',
     github: 'openpoke/decidim',
     branch: '0.29-backports',
-    ref: '7928d98'
-
-# HACK: Using patched version of deface, to fix decidim-geo JS Errors
-gem 'deface',
-    git: 'https://github.com/froger/deface',
-    branch: 'fix/js-overrides'
+    ref: '181cfc4'
 
 # Internal Modules
 gem 'decidim-proposals', DECIDIM_VERSION
@@ -23,6 +18,11 @@ gem 'decidim-proposals', DECIDIM_VERSION
 # gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-conferences', DECIDIM_VERSION
 gem 'decidim-templates', DECIDIM_VERSION
+
+# HACK: Using patched version of deface, to fix decidim-geo JS Errors
+gem 'deface',
+    github: 'froger/deface',
+    branch: 'fix/js-overrides'
 
 # External Modules
 gem 'decidim-anonymous_codes',
@@ -52,7 +52,7 @@ gem 'decidim-guest_meeting_registration',
 gem 'decidim-participatory_documents',
     github: 'openpoke/decidim-module-participatory-documents',
     branch: 'main',
-    ref: 'cd69101'
+    ref: '21501f8'
 gem 'decidim-survey_multiple_answers',
     github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
     branch: 'bump/0.29',
