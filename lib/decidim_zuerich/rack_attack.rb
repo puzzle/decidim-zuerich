@@ -25,14 +25,14 @@ module DecidimZuerich
            end
       end
 
-      def register_throttle_filter_from_env(name, env, **default, &block)
+      def register_throttle_filter_from_env(name, env, **default, &)
         options =
           { limit: 100, period: 10 }
           .merge(default)
           .merge(env_to_h(env))
 
         if block_given?
-          Rack::Attack.throttle(name, options, &block)
+          Rack::Attack.throttle(name, options, &)
         else
           Rack::Attack.throttle(name, options, &:ip)
         end
@@ -135,11 +135,18 @@ module DecidimZuerich
 
         return default if env.blank?
 
-        ENV.fetch(env_name, nil)
-           .split(',')
-           .map { _1.split(':').map(&:strip) }
-           .to_h
-           .symbolize_keys
+        hash =
+          env
+          .split(',')
+          .to_h { _1.split(':').map(&:strip) }
+          .symbolize_keys
+
+        %i[limit period max_retry findtime bantime].each do |key|
+          value = hash[key]
+          hash[key] = value.to_i if value =~ /^\d+$/
+        end
+
+        hash
       end
     end
   end
