@@ -19,3 +19,10 @@
   <script src="<%=source%>" async></script>
   <!-- End Adobe Analytics Source -->
 <% end %>
+
+<script type="text/javascript">
+  let html = document.getElementsByTagName('html')[0]
+  html.dataset.railsControllerName = '<%= controller_name %>'
+  html.dataset.railsControllerPath = '<%= controller_path %>'
+  html.dataset.railsActionName = '<%= action_name %>'
+</script>
