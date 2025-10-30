@@ -256,6 +256,42 @@ GIT
       decidim-core (= 0.29.6)
 
 GIT
+  remote: https://github.com/openpoke/decidim.git
+  revision: 181cfc4c82d241aa916f9797a65ebb79b2e9f915
+  ref: 181cfc4
+  branch: 0.29-backports
+  glob: decidim-conferences/*.gemspec
+  specs:
+    decidim-conferences (0.29.6)
+      decidim-core (= 0.29.6)
+      decidim-meetings (= 0.29.6)
+      wicked_pdf (~> 2.7)
+
+GIT
+  remote: https://github.com/openpoke/decidim.git
+  revision: 181cfc4c82d241aa916f9797a65ebb79b2e9f915
+  ref: 181cfc4
+  branch: 0.29-backports
+  glob: decidim-proposals/*.gemspec
+  specs:
+    decidim-proposals (0.29.6)
+      decidim-comments (= 0.29.6)
+      decidim-core (= 0.29.6)
+      doc2text (~> 0.4.7)
+      redcarpet (~> 3.5, >= 3.5.1)
+
+GIT
+  remote: https://github.com/openpoke/decidim.git
+  revision: 181cfc4c82d241aa916f9797a65ebb79b2e9f915
+  ref: 181cfc4
+  branch: 0.29-backports
+  glob: decidim-templates/*.gemspec
+  specs:
+    decidim-templates (0.29.6)
+      decidim-core (= 0.29.6)
+      decidim-forms (= 0.29.6)
+
+GIT
   remote: https://github.com/puzzle/decidim-module-antivirus.git
   revision: bc3cb4d217d71e47921285535624936f5587cbff
   ref: bc3cb4d
@@ -382,9 +418,9 @@ GEM
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
       rouge (>= 1.0.0)
-    better_html (2.1.1)
-      actionview (>= 6.0)
-      activesupport (>= 6.0)
+    better_html (2.2.0)
+      actionview (>= 7.0)
+      activesupport (>= 7.0)
       ast (~> 2.0)
       erubi (~> 1.4)
       parser (>= 2.4)
@@ -394,7 +430,7 @@ GEM
     bindex (0.8.1)
     binding_of_caller (1.0.1)
       debug_inspector (>= 1.2.0)
-    bleib (0.0.15)
+    bleib (0.0.16)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
     browser (2.7.1)
@@ -428,7 +464,7 @@ GEM
     coderay (1.1.3)
     commonmarker (0.23.12)
     concurrent-ruby (1.3.4)
-    crack (1.0.0)
+    crack (1.0.1)
       bigdecimal
       rexml
     crass (1.0.6)
@@ -444,10 +480,6 @@ GEM
     dbf (4.3.2)
       csv
     debug_inspector (1.2.0)
-    decidim-conferences (0.29.6)
-      decidim-core (= 0.29.6)
-      decidim-meetings (= 0.29.6)
-      wicked_pdf (~> 2.7)
     decidim-dev (0.29.6)
       bullet (~> 7.1.6)
       byebug (~> 11.0)
@@ -484,14 +516,6 @@ GEM
       w3c_rspec_validators (~> 0.3.0)
       webmock (~> 3.18)
       wisper-rspec (~> 1.0)
-    decidim-proposals (0.29.6)
-      decidim-comments (= 0.29.6)
-      decidim-core (= 0.29.6)
-      doc2text (~> 0.4.7)
-      redcarpet (~> 3.5, >= 3.5.1)
-    decidim-templates (0.29.6)
-      decidim-core (= 0.29.6)
-      decidim-forms (= 0.29.6)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
@@ -535,16 +559,16 @@ GEM
       temple
     erubi (1.13.1)
     escape_utils (1.3.0)
-    et-orbi (1.2.11)
+    et-orbi (1.4.0)
       tzinfo
     excon (1.3.0)
       logger
     execjs (2.10.0)
     extended-markdown-filter (0.7.0)
       html-pipeline (~> 2.9)
-    factory_bot (6.5.4)
+    factory_bot (6.5.6)
       activesupport (>= 6.1.0)
-    factory_bot_rails (6.5.0)
+    factory_bot_rails (6.5.1)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
     faker (3.5.2)
@@ -553,7 +577,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
-    faraday-follow_redirects (0.3.0)
+    faraday-follow_redirects (0.4.0)
       faraday (>= 1, < 3)
     faraday-net_http (3.4.1)
       net-http (>= 0.5.0)
@@ -584,8 +608,8 @@ GEM
       activemodel (>= 4.1, < 7.1)
       activesupport (>= 4.1, < 7.1)
       railties (>= 4.1, < 7.1)
-    fugit (1.11.1)
-      et-orbi (~> 1, >= 1.2.11)
+    fugit (1.12.1)
+      et-orbi (~> 1.4)
       raabro (~> 1.4)
     gemoji (3.0.1)
     geocoder (1.8.6)
@@ -640,7 +664,7 @@ GEM
     io-console (0.8.1)
     jmespath (1.6.2)
     json (2.15.2)
-    json-jwt (1.16.7)
+    json-jwt (1.17.0)
       activesupport (>= 4.2)
       aes_key_wrap
       base64
@@ -785,7 +809,7 @@ GEM
     parallel (1.27.0)
     parallel_tests (4.10.1)
       parallel
-    parser (3.3.9.0)
+    parser (3.3.10.0)
       ast (~> 2.4.1)
       racc
     pg (1.4.6)
@@ -801,8 +825,8 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
-    prism (1.4.0)
-    prometheus_exporter (2.2.0)
+    prism (1.6.0)
+    prometheus_exporter (2.3.0)
       webrick
     pry (0.15.2)
       coderay (~> 1.1)
@@ -815,7 +839,7 @@ GEM
     psych (4.0.6)
       stringio
     public_suffix (6.0.2)
-    puma (6.6.0)
+    puma (6.6.1)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
@@ -888,7 +912,7 @@ GEM
       ffi (~> 1.0)
     redcarpet (3.6.1)
     redis (4.8.1)
-    regexp_parser (2.10.0)
+    regexp_parser (2.11.3)
     reline (0.6.2)
       io-console (~> 0.5)
     request_store (1.5.1)
@@ -896,7 +920,7 @@ GEM
     responders (3.2.0)
       actionpack (>= 7.0)
       railties (>= 7.0)
-    rexml (3.4.1)
+    rexml (3.4.4)
     rgeo (3.0.1)
     rgeo-activerecord (7.0.1)
       activerecord (>= 5.0)
@@ -907,15 +931,15 @@ GEM
     rgeo-shapefile (3.1.0)
       dbf (~> 4.0)
       rgeo (>= 1.0)
-    rouge (4.6.0)
-    rspec (3.13.1)
+    rouge (4.6.1)
+    rspec (3.13.2)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
       rspec-mocks (~> 3.13.0)
     rspec-cells (0.3.10)
       cells (>= 4.0.0, < 6.0.0)
       rspec-rails (>= 3.0.0)
-    rspec-core (3.13.5)
+    rspec-core (3.13.6)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -923,7 +947,7 @@ GEM
     rspec-html-matchers (0.10.0)
       nokogiri (~> 1)
       rspec (>= 3.0.0.a)
-    rspec-mocks (3.13.5)
+    rspec-mocks (3.13.6)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-rails (6.1.5)
@@ -936,7 +960,7 @@ GEM
       rspec-support (~> 3.13)
     rspec-retry (0.6.2)
       rspec-core (> 3.3)
-    rspec-support (3.13.4)
+    rspec-support (3.13.6)
     rspec_junit_formatter (0.6.0)
       rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (1.65.1)
@@ -950,7 +974,7 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.46.0)
+    rubocop-ast (1.47.1)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
     rubocop-capybara (2.21.0)
@@ -986,11 +1010,11 @@ GEM
     sassc (2.4.0)
       ffi (~> 1.9)
     securerandom (0.4.1)
-    selenium-webdriver (4.34.0)
+    selenium-webdriver (4.38.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2, < 3.0)
+      rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     semantic_range (3.1.0)
     sentry-raven (3.1.2)
@@ -1013,7 +1037,7 @@ GEM
     snaky_hash (2.0.3)
       hashie (>= 0.1.0, < 6)
       version_gem (>= 1.1.8, < 3)
-    spring (4.3.0)
+    spring (4.4.0)
     spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
       spring (>= 4)
@@ -1043,7 +1067,7 @@ GEM
     uglifier (4.2.1)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (2.6.0)
-    uniform_notifier (1.17.0)
+    uniform_notifier (1.18.0)
     uri (1.0.4)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
@@ -1076,7 +1100,7 @@ GEM
     webfinger (1.2.0)
       activesupport
       httpclient (>= 2.4)
-    webmock (3.25.1)
+    webmock (3.26.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -1123,15 +1147,15 @@ DEPENDENCIES
   decidim-anonymous_codes!
   decidim-anonymous_proposals!
   decidim-antivirus!
-  decidim-conferences (= 0.29.6)
+  decidim-conferences!
   decidim-decidim_awesome!
   decidim-decidim_geo!
   decidim-dev (= 0.29.6)
   decidim-guest_meeting_registration!
   decidim-participatory_documents!
-  decidim-proposals (= 0.29.6)
+  decidim-proposals!
   decidim-survey_multiple_answers!
-  decidim-templates (= 0.29.6)
+  decidim-templates!
   decidim-term_customizer!
   deface!
   delayed_cron_job

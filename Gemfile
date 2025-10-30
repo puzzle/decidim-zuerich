@@ -13,11 +13,29 @@ gem 'decidim',
     ref: '181cfc4'
 
 # Internal Modules
-gem 'decidim-proposals', DECIDIM_VERSION
-# gem 'decidim-consultations', DECIDIM_VERSION
-# gem 'decidim-initiatives', DECIDIM_VERSION
-gem 'decidim-conferences', DECIDIM_VERSION
-gem 'decidim-templates', DECIDIM_VERSION
+## gem 'decidim-consultations', DECIDIM_VERSION
+## gem 'decidim-initiatives', DECIDIM_VERSION
+# gem 'decidim-proposals', DECIDIM_VERSION
+# gem 'decidim-conferences', DECIDIM_VERSION
+# gem 'decidim-templates', DECIDIM_VERSION
+
+gem 'decidim-proposals',
+    github: 'openpoke/decidim',
+    branch: '0.29-backports',
+    ref: '181cfc4',
+    glob: 'decidim-proposals/*.gemspec'
+
+gem 'decidim-conferences',
+    github: 'openpoke/decidim',
+    branch: '0.29-backports',
+    ref: '181cfc4',
+    glob: 'decidim-conferences/*.gemspec'
+
+gem 'decidim-templates',
+    github: 'openpoke/decidim',
+    branch: '0.29-backports',
+    ref: '181cfc4',
+    glob: 'decidim-templates/*.gemspec'
 
 # HACK: Using patched version of deface, to fix decidim-geo JS Errors
 gem 'deface',
