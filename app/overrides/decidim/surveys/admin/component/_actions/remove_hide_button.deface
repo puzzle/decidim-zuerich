@@ -1,0 +1,22 @@
+#  Decidim Zuerich Override
+#
+#  Created at: 2025-08-05
+#  Updated at: 2025-11-11
+#  Author: Thomas Burkhalter
+#
+#  Original:
+#    Module: decidim-surveys
+#    Template: app/views/decidim/surveys/admin/component/_actions.html.erb
+#
+#  Why?:
+#    The version currently in the openpoke/backfix, seems to be an old version.
+#    This is the up-to-date file from the decidim repo.
+#
+#    == Update 2025-11-11 ==
+#    Since this file is overridden again with deface,
+#    I switched this to a deface override itself. It's also more robust,
+#    since it doesn't override once the correct Template is used.
+
+replace "erb[silent]:contains('if component.visible?')"
+closing_selector "erb[silent]:contains('end')"
+copy "erb[loud]:contains('action: :unpublish')"
