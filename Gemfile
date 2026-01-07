@@ -61,8 +61,7 @@ gem 'decidim-decidim_awesome',
     ref: 'f2c7152'
 gem 'decidim-decidim_geo',
     git: 'https://git.octree.ch/decidim/decidim-module-geo',
-    branch: 'main',
-    ref: 'df43d9e'
+    tag: 'v0.3.6'
 gem 'decidim-guest_meeting_registration',
     github: 'OpenSourcePolitics/guest-meeting-registration',
     branch: 'bump/module_to_0.29',
