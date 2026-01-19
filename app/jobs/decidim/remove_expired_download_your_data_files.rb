@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-# This job runs all Decidim metrics updates at midnight
+# Remove expired download your data files
 class MetricsJob < CronJob
   self.cron_expression = '0 0 * * *'
 
   def perform
     Rails.application.load_tasks
-    Rake::Task['decidim:metrics:all'].execute
+    Rake::Task['decidim:delete_download_your_data_files'].invoke
 
     true
   end
