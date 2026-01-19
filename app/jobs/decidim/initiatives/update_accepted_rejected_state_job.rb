@@ -2,7 +2,7 @@
 
 # Checks published initiatives and moves to accepted/rejected state depending on the votes collected when the signing period has finished
 
-class MetricsJob < CronJob
+class UpdateAcceptedRejectedStateJob < CronJob
   self.cron_expression = '30 7 * * *'
 
   def perform

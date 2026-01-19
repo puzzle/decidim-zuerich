@@ -2,7 +2,7 @@
 
 # Generate reminders
  
-class MetricsJob < CronJob
+class GenerateRemindersJob < CronJob
   self.cron_expression = '4 0 * * *'
 
   def perform

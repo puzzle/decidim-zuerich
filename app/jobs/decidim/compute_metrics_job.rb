@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Compute metrics
-class MetricsJob < CronJob
+class ComputeMetricsJob < CronJob
   self.cron_expression = '1 0 * * *'
 
   def perform

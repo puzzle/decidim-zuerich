@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Change active step in participatory processes
-class MetricsJob < CronJob
+class ChangeActiveStepInParticipatoryProcessesJob < CronJob
   self.cron_expression = '*/15 * * * *'
 
 

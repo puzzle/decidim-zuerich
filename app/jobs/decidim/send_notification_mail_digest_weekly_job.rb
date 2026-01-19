@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Send notification mail digest weekly on saturdays
-class MetricsJob < CronJob
+class SendNotificationMailDigestWeeklyJob < CronJob
   self.cron_expression = '5 0 * * 6'
 
   def perform

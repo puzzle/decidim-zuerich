@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Delete old registrations forms
-class MetricsJob < CronJob
+class DeleteOldRegistrationFormsJob < CronJob
   self.cron_expression = '3 0 * * *'
 
   def perform

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Remove expired download your data files
-class MetricsJob < CronJob
+class RemoveExpiredDownloadYourDataFilesJob < CronJob
   self.cron_expression = '0 0 * * *'
 
   def perform

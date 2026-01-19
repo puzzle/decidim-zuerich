@@ -3,7 +3,7 @@
 # Compute open data
  
 
-class MetricsJob < CronJob
+class ComputeOpenDataJob < CronJob
   self.cron_expression = '2 0 * * *'
 
   def perform

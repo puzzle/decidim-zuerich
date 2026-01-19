@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Send notification mail digest daily
-class MetricsJob < CronJob
+class SendNotificationMailDigestDailyJob < CronJob
   self.cron_expression = '5 0 * * *'
 
   def perform

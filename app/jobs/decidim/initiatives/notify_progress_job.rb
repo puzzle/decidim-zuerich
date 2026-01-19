@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Notifies progress on published initiatives
-class MetricsJob < CronJob
+class NotifyProgressJob < CronJob
   self.cron_expression = '0 8 * * *'
 
   def perform
