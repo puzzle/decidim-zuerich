@@ -12,7 +12,7 @@ on:
         description: 'Images arguments for docker/metadata-action'
         type: string
         required: true
-        default: "harbor.puzzle.ch/decidim/stlu-dev-rails"
+        default: "harbor.puzzle.ch/decidim/stzh-dev-rails"
       flavor:
         description: 'Flavor argument for docker/metadata-action'
         type: string
@@ -25,7 +25,7 @@ on:
         default: |
           type=semver,pattern={{version}},priority=1000
           type=schedule,priority=900
-          type=sha,format=long,priority=800
+          type=sha,format=long,prefix=git-,priority=800
 
 jobs:
   build:

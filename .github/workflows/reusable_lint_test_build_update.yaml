@@ -71,7 +71,7 @@ jobs:
         id: get_version
         uses: mikefarah/yq@master
         with:
-          cmd: yq -r '(.tags[] | select(. | test("sha-"))) | sub(".*(sha-.*)","${1}")' build_info.json
+          cmd: yq -r '(.tags[] | select(. | test("git-"))) | sub(".*(git-.*)","${1}")' build_info.json
       - name: Prepare outputs
         id: extracted
         run: echo 'version=${{ steps.get_version.outputs.result }}' >> "$GITHUB_OUTPUT"

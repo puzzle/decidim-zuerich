@@ -28,7 +28,7 @@ on:
         default: |
           type=semver,pattern={{version}},priority=1000
           type=schedule,priority=900
-          type=sha,format=long,priority=800
+          type=sha,format=long,prefix=git-,priority=800
     secrets:
       REGISTRY_USERNAME:
         description: 'Username for registry login'
