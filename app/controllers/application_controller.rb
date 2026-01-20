@@ -26,13 +26,10 @@ class ApplicationController < ActionController::Base
     Sentry.set_tags(project: project) if project
     Sentry.set_tags(customer: customer) if customer
 
-    key = session['warden.user.user.key'].presence
-    user = Decidim::User.serialize_from_session(*key)
-
     Sentry.set_user(
-      id: user.try(:id),
-      username: user.try(:name),
-      email: user.try(:email)
+      id: current_user.try(:id),
+      username: current_user.try(:name),
+      email: current_user.try(:email)
     )
 
     # Capture users locale
