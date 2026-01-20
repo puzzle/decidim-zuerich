@@ -2,7 +2,7 @@
 #                            Build Stage                         #
 ##################################################################
 
-FROM ruby:3.2.10 AS build
+FROM ruby:3.2.10-bookworm AS build
 
 # Set build shell
 SHELL ["/bin/bash", "-c"]
@@ -96,13 +96,10 @@ RUN rm -rf vendor/cache/ .git
 ##################################################################
 
 # This image will be replaced by Openshift
-FROM ruby:3.2.10-slim AS app
+FROM ruby:3.2.10-slim-bookworm AS app
 
 # Set runtime shell
 SHELL ["/bin/bash", "-c"]
-
-# Add user
-RUN adduser --disabled-password --uid 1001 --gid 0 --gecos "" --shell /bin/bash app
 
 ARG BUNDLE_WITHOUT="development:metrics:test"
 ARG BUNDLER_VERSION="2.5.6"
@@ -124,9 +121,12 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && rm libpaper1*.deb \
  # Install the Packages we need at runtime
  && apt-get -y install ${RUN_PACKAGES} \
-            neovim curl \
+            adduser neovim curl \
  # Clean up after ourselves
  && unset DEBIAN_FRONTEND
+
+# Add user
+RUN adduser --disabled-password --uid 1001 --gid 0 --gecos "" --shell /bin/bash app
 
 # Copy deployment ready source code from build
 COPY --from=build /app-src /app-src
