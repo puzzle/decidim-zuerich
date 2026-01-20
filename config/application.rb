@@ -48,10 +48,5 @@ module DecidimZuerich
     config.active_job.queue_name_prefix = "decidim_zuerich_#{Rails.env}"
 
     config.middleware.use Rack::Attack
-
-    Raven.configure do |config|
-      config.dsn = ENV['SENTRY_DSN']
-      config.current_environment = ENV['SENTRY_CURRENT_ENV']
-    end
   end
 end
