@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# This migration comes from decidim_geo (originally 20251107143529)
-class ReplaceGeoEnableWithGeoMode < ActiveRecord::Migration[7.0]
+# This migration came from decidim_geo but was reverted later
+class ReplaceGeoEnableWithGeoModeReverted < ActiveRecord::Migration[7.0]
   def up
     add_column :decidim_geo_geo_settings,
                :geo_mode,

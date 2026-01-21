@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_01_07_122144) do
+ActiveRecord::Schema[7.0].define(version: 2026_01_21_103300) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "fuzzystrmatch"
   enable_extension "ltree"
@@ -921,7 +921,6 @@ ActiveRecord::Schema[7.0].define(version: 2026_01_07_122144) do
     t.string "maptiler_api_key", default: ""
     t.string "maptiler_style_id", default: ""
     t.bigint "decidim_organization_id", null: false
-    t.boolean "esri_tile_enabled", default: false, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_geo_configs_on_organization_id"
   end
 
@@ -929,7 +928,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_01_07_122144) do
     t.bigint "decidim_organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "geo_mode", default: "enabled_empty", null: false
+    t.boolean "geo_enabled", default: true, null: false
     t.index ["decidim_organization_id"], name: "index_decidim_geo_geo_settings_on_decidim_organization_id"
   end
 
