@@ -12,7 +12,7 @@ Rails.application.config.to_prepare do
   PuzzleRailsPryPrompt.set_prompt
 
   INCLUDES = [
-    # [Decidim::Debates::CreateDebateEvent,       DecidimZuerich::Debates::CreateDebateEvent],
+    # [Decidim::Debates::CreateDebateEvent,      DecidimZuerich::Debates::CreateDebateEvent],
     [Decidim::FormBuilder,                       DecidimZuerich::FormBuilder],
     [Decidim::Forms::Admin::UpdateQuestionnaire, DecidimZuerich::Forms::Admin::UpdateQuestionnaire],
     [Decidim::Admin::AttachmentForm,             DecidimZuerich::Admin::AttachmentForm]
@@ -89,10 +89,10 @@ Rails.application.config.to_prepare do
     Rails.logger.info "#{event_name} Received!"
     questionnaire = data[:resource]
     has_component = questionnaire.questionnaire_for.respond_to? :component
-    return unless has_component
+    next unless has_component
 
     component = questionnaire.questionnaire_for.component
-    return unless component.manifest_name == 'surveys'
+    next unless component.manifest_name == 'surveys'
 
     email = component.try(:settings).try(:notified_email)
     id = data[:extra][:session_token]
