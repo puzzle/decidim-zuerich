@@ -125,7 +125,7 @@ Rails.application.config.to_prepare do
 
     user = Decidim::User.find_by(finders)
     next unless user.admin
-    user.notification_settings['close_meeting_reminder'] ||= 0
+    user.notification_settings['close_meeting_reminder'] ||= '0'
     user.save! if user.changed?
   end
 end
