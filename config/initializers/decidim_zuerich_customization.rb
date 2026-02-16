@@ -54,7 +54,7 @@ Rails.application.config.to_prepare do
   # request is processed. This is done through a notification to
   # get access to the `current_*` environment variables within
   # Decidim. Taken and adapted from the term_customizer module.
-  ActiveSupport::Notifications.subscribe 'start_processing.action_controller' do |_name, _started, _finished, _unique_id, data|
+  ActiveSupport::Notifications.subscribe 'start_processing.action_controller' do |_, _, _, _, data|
     DecidimZuerich::Verifications::Sms::AspsmsGateway.organization = data[:headers].env['decidim.current_organization']
   end
 
@@ -64,6 +64,7 @@ Rails.application.config.to_prepare do
   module Decidim
     module Map
       module Provider
+        # nodoc
         module DynamicMap
           autoload :Swisstopo, 'decidim/map/provider/dynamic_map/swisstopo'
           autoload :GisZh, 'decidim/map/provider/dynamic_map/gis_zh'
@@ -72,6 +73,7 @@ Rails.application.config.to_prepare do
     end
   end
 
+  # nodoc
   class Object
     def current_assembly
       @current_assembly ||= begin
@@ -98,6 +100,32 @@ Rails.application.config.to_prepare do
     id = data[:extra][:session_token]
 
     DecidimZuerich::Surveys::SurveyAnsweredMailer.answered(email, component, id).deliver_now if email.present?
+  end
+
+  # Decidim Zuerich Override
+  #
+  # Created at: 2026-02-16
+  # Author: Thomas Burkhalter
+  #
+  # Original: Not applicable
+  #
+  # Why?:
+  #   On User creation, set a default close_meeting_reminder setting,
+  #   that does not spam everyone
+  ActiveSupport::Notifications.subscribe(/sql.active_record/) do |event|
+    next unless event.payload[:name] == 'Decidim::User Create'
+
+    Rails.logger.info "#{event.payload[:name]} Received! Updating default close_meeting_reminder"
+
+    finders =
+      event
+      .payload[:binds]
+      .select { %w[email decidim_organization_id].include?(_1.name) }
+      .to_h { [_1.name, _1.value] }
+
+    user = Decidim::User.find_by(finders)
+    user.notification_settings['close_meeting_reminder'] ||= 0
+    user.save! if user.changed?
   end
 end
 
