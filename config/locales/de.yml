@@ -43,7 +43,7 @@ de:
         try_later: Bitte versuchen Sie es später nochmal.
       not_found:
         content_doesnt_exist: Diese Seite wurde leider nicht gefunden. Wir bitten um Verständnis.
-        title: Ups!
+        title: Entschuldigung!
       models:
         user:
           attributes:
@@ -51,22 +51,6 @@ de:
               expired: Sie haben zu lange gebraucht, um die Frage zu beantworten. Bitte versuchen Sie es erneut.
               incorrect: Die Antwort ist leider nicht korrekt, bitte versuchen Sie es erneut.
   decidim:
-    admin:
-      menu:
-        clean: Datenbereinigung
-      inactive_users_mailer:
-        warning_deletion:
-          body_1: Sie sind seit %{Tagen} Tagen bei <a href="%{Organisation_url}"> %{Organisation_name} </a> inaktiv.
-          body_2: Infolgedessen wurde Ihr Konto gelöscht.
-          greetings: Freundliche Grüsse,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-          hello: Guten Tag
-          subject: Ihr Konto wurde gelöscht.
-        warning_inactive:
-          body_1: Sie sind seit %{Tagen} Tagen bei %{Organisation_name} inaktiv.
-          body_2: <a href="%{organization_url}">Wenn Sie sich nicht innerhalb %{remaining_days} Tagen anmelden </a>, wird ihr Konto gelöscht.
-          greetings: Freundliche Grüsse,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-          hello: Guten Tag
-          subject: Ihr Konto ist inaktiv
     components:
       surveys:
         settings:
