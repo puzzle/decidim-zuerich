@@ -141,18 +141,6 @@ en:
     follows:
       create:
         participatory_space: Already following %{space_name}
-    forms:
-      admin:
-        questionnaires:
-          question:
-            down: Down
-            up: Up
-          separator:
-            down: Down
-            up: Up
-          title_and_description:
-            down: Down
-            up: Up
     menu:
       help: Info & Help
     pages:
