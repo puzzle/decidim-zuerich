@@ -121,57 +121,57 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: 181cfc4c82d241aa916f9797a65ebb79b2e9f915
-  ref: 181cfc4
+  revision: 13fd72f1338dbf445239a934c4b62e1b7169f7f9
+  ref: 13fd72f1338dbf445239a934c4b62e1b7169f7f9
   branch: 0.29-backports
   specs:
-    decidim (0.29.6)
-      decidim-accountability (= 0.29.6)
-      decidim-admin (= 0.29.6)
-      decidim-api (= 0.29.6)
-      decidim-assemblies (= 0.29.6)
-      decidim-blogs (= 0.29.6)
-      decidim-budgets (= 0.29.6)
-      decidim-comments (= 0.29.6)
-      decidim-core (= 0.29.6)
-      decidim-debates (= 0.29.6)
-      decidim-forms (= 0.29.6)
-      decidim-generators (= 0.29.6)
-      decidim-meetings (= 0.29.6)
-      decidim-pages (= 0.29.6)
-      decidim-participatory_processes (= 0.29.6)
-      decidim-proposals (= 0.29.6)
-      decidim-sortitions (= 0.29.6)
-      decidim-surveys (= 0.29.6)
-      decidim-system (= 0.29.6)
-      decidim-verifications (= 0.29.6)
-    decidim-accountability (0.29.6)
-      decidim-comments (= 0.29.6)
-      decidim-core (= 0.29.6)
-    decidim-admin (0.29.6)
+    decidim (0.29.7)
+      decidim-accountability (= 0.29.7)
+      decidim-admin (= 0.29.7)
+      decidim-api (= 0.29.7)
+      decidim-assemblies (= 0.29.7)
+      decidim-blogs (= 0.29.7)
+      decidim-budgets (= 0.29.7)
+      decidim-comments (= 0.29.7)
+      decidim-core (= 0.29.7)
+      decidim-debates (= 0.29.7)
+      decidim-forms (= 0.29.7)
+      decidim-generators (= 0.29.7)
+      decidim-meetings (= 0.29.7)
+      decidim-pages (= 0.29.7)
+      decidim-participatory_processes (= 0.29.7)
+      decidim-proposals (= 0.29.7)
+      decidim-sortitions (= 0.29.7)
+      decidim-surveys (= 0.29.7)
+      decidim-system (= 0.29.7)
+      decidim-verifications (= 0.29.7)
+    decidim-accountability (0.29.7)
+      decidim-comments (= 0.29.7)
+      decidim-core (= 0.29.7)
+    decidim-admin (0.29.7)
       active_link_to (~> 1.0)
-      decidim-core (= 0.29.6)
+      decidim-core (= 0.29.7)
       devise (~> 4.7)
       devise-i18n (~> 1.2)
       devise_invitable (~> 2.0, >= 2.0.9)
-    decidim-api (0.29.6)
-      decidim-core (= 0.29.6)
+    decidim-api (0.29.7)
+      decidim-core (= 0.29.7)
       graphql (~> 2.2.6)
       graphql-docs (~> 4.0)
       rack-cors (~> 1.0)
-    decidim-assemblies (0.29.6)
-      decidim-core (= 0.29.6)
-    decidim-blogs (0.29.6)
-      decidim-admin (= 0.29.6)
-      decidim-comments (= 0.29.6)
-      decidim-core (= 0.29.6)
-    decidim-budgets (0.29.6)
-      decidim-comments (= 0.29.6)
-      decidim-core (= 0.29.6)
-    decidim-comments (0.29.6)
-      decidim-core (= 0.29.6)
+    decidim-assemblies (0.29.7)
+      decidim-core (= 0.29.7)
+    decidim-blogs (0.29.7)
+      decidim-admin (= 0.29.7)
+      decidim-comments (= 0.29.7)
+      decidim-core (= 0.29.7)
+    decidim-budgets (0.29.7)
+      decidim-comments (= 0.29.7)
+      decidim-core (= 0.29.7)
+    decidim-comments (0.29.7)
+      decidim-core (= 0.29.7)
       redcarpet (~> 3.5, >= 3.5.1)
-    decidim-core (0.29.6)
+    decidim-core (0.29.7)
       active_link_to (~> 1.0)
       acts_as_list (~> 1.0)
       batch-loader (~> 1.2)
@@ -222,74 +222,74 @@ GIT
       valid_email2 (~> 4.0)
       web-push (~> 3.0)
       wisper (~> 2.0)
-    decidim-debates (0.29.6)
-      decidim-comments (= 0.29.6)
-      decidim-core (= 0.29.6)
-    decidim-forms (0.29.6)
-      decidim-core (= 0.29.6)
+    decidim-debates (0.29.7)
+      decidim-comments (= 0.29.7)
+      decidim-core (= 0.29.7)
+    decidim-forms (0.29.7)
+      decidim-core (= 0.29.7)
       wicked_pdf (~> 2.1)
-    decidim-generators (0.29.6)
-      decidim-core (= 0.29.6)
-    decidim-meetings (0.29.6)
-      decidim-core (= 0.29.6)
-      decidim-forms (= 0.29.6)
+    decidim-generators (0.29.7)
+      decidim-core (= 0.29.7)
+    decidim-meetings (0.29.7)
+      decidim-core (= 0.29.7)
+      decidim-forms (= 0.29.7)
       icalendar (~> 2.5)
-    decidim-pages (0.29.6)
-      decidim-core (= 0.29.6)
-    decidim-participatory_processes (0.29.6)
-      decidim-core (= 0.29.6)
-    decidim-sortitions (0.29.6)
-      decidim-admin (= 0.29.6)
-      decidim-comments (= 0.29.6)
-      decidim-core (= 0.29.6)
-      decidim-proposals (= 0.29.6)
-    decidim-surveys (0.29.6)
-      decidim-core (= 0.29.6)
-      decidim-forms (= 0.29.6)
-    decidim-system (0.29.6)
+    decidim-pages (0.29.7)
+      decidim-core (= 0.29.7)
+    decidim-participatory_processes (0.29.7)
+      decidim-core (= 0.29.7)
+    decidim-sortitions (0.29.7)
+      decidim-admin (= 0.29.7)
+      decidim-comments (= 0.29.7)
+      decidim-core (= 0.29.7)
+      decidim-proposals (= 0.29.7)
+    decidim-surveys (0.29.7)
+      decidim-core (= 0.29.7)
+      decidim-forms (= 0.29.7)
+    decidim-system (0.29.7)
       active_link_to (~> 1.0)
-      decidim-core (= 0.29.6)
+      decidim-core (= 0.29.7)
       devise (~> 4.7)
       devise-i18n (~> 1.2)
       devise_invitable (~> 2.0, >= 2.0.9)
-    decidim-verifications (0.29.6)
-      decidim-core (= 0.29.6)
+    decidim-verifications (0.29.7)
+      decidim-core (= 0.29.7)
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: 181cfc4c82d241aa916f9797a65ebb79b2e9f915
-  ref: 181cfc4
+  revision: 13fd72f1338dbf445239a934c4b62e1b7169f7f9
+  ref: 13fd72f1338dbf445239a934c4b62e1b7169f7f9
   branch: 0.29-backports
   glob: decidim-conferences/*.gemspec
   specs:
-    decidim-conferences (0.29.6)
-      decidim-core (= 0.29.6)
-      decidim-meetings (= 0.29.6)
+    decidim-conferences (0.29.7)
+      decidim-core (= 0.29.7)
+      decidim-meetings (= 0.29.7)
       wicked_pdf (~> 2.7)
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: 181cfc4c82d241aa916f9797a65ebb79b2e9f915
-  ref: 181cfc4
+  revision: 13fd72f1338dbf445239a934c4b62e1b7169f7f9
+  ref: 13fd72f1338dbf445239a934c4b62e1b7169f7f9
   branch: 0.29-backports
   glob: decidim-proposals/*.gemspec
   specs:
-    decidim-proposals (0.29.6)
-      decidim-comments (= 0.29.6)
-      decidim-core (= 0.29.6)
+    decidim-proposals (0.29.7)
+      decidim-comments (= 0.29.7)
+      decidim-core (= 0.29.7)
       doc2text (~> 0.4.7)
       redcarpet (~> 3.5, >= 3.5.1)
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: 181cfc4c82d241aa916f9797a65ebb79b2e9f915
-  ref: 181cfc4
+  revision: 13fd72f1338dbf445239a934c4b62e1b7169f7f9
+  ref: 13fd72f1338dbf445239a934c4b62e1b7169f7f9
   branch: 0.29-backports
   glob: decidim-templates/*.gemspec
   specs:
-    decidim-templates (0.29.6)
-      decidim-core (= 0.29.6)
-      decidim-forms (= 0.29.6)
+    decidim-templates (0.29.7)
+      decidim-core (= 0.29.7)
+      decidim-forms (= 0.29.7)
 
 GIT
   remote: https://github.com/puzzle/decidim-module-antivirus.git
@@ -480,11 +480,11 @@ GEM
     dbf (4.3.2)
       csv
     debug_inspector (1.2.0)
-    decidim-dev (0.29.6)
+    decidim-dev (0.29.7)
       bullet (~> 7.1.6)
       byebug (~> 11.0)
       capybara (~> 3.39)
-      decidim (= 0.29.6)
+      decidim (= 0.29.7)
       erb_lint (~> 0.4.0)
       factory_bot_rails (~> 6.2)
       faker (~> 3.2)
@@ -1157,7 +1157,7 @@ DEPENDENCIES
   decidim-conferences!
   decidim-decidim_awesome!
   decidim-decidim_geo!
-  decidim-dev (= 0.29.6)
+  decidim-dev (= 0.29.7)
   decidim-guest_meeting_registration!
   decidim-participatory_documents!
   decidim-proposals!

@@ -1256,11 +1256,11 @@
   integrity sha512-tAgvZQe/t2mlvpNosA4+CkMiZ2azISW5WPAcdSalZlEjQvUfghHxfQcrCiK/7/CrfAWVxyM88kGFYO82heIGDg==
 
 "@decidim/browserslist-config@file:packages/browserslist-config":
-  version "0.29.6"
+  version "0.29.7"
   resolved "file:packages/browserslist-config"
 
 "@decidim/core@file:packages/core":
-  version "0.29.6"
+  version "0.29.7"
   resolved "file:packages/core"
   dependencies:
     "@emoji-mart/data" "^1.1.2"
@@ -1306,7 +1306,7 @@
     emojibase "^6.1.0"
     foundation-sites "^6.7.0"
     graphiql "^3.0.10"
-    graphql-ws ">= 4.5.0"
+    graphql-ws "^5.16.2"
     html5sortable "0.10.0"
     identity-obj-proxy "^3.0.0"
     jquery "^3.2.1"
@@ -1327,7 +1327,7 @@
     wc-datepicker "^0.5.2"
 
 "@decidim/dev@file:packages/dev":
-  version "0.29.6"
+  version "0.29.7"
   resolved "file:packages/dev"
   dependencies:
     "@linthtml/linthtml" "^0.9.6"
@@ -1335,19 +1335,19 @@
     markdownlint-cli "^0.35.0"
 
 "@decidim/eslint-config@file:packages/eslint-config":
-  version "0.29.6"
+  version "0.29.7"
   resolved "file:packages/eslint-config"
 
 "@decidim/prettier-config@file:packages/prettier-config":
-  version "0.29.6"
+  version "0.29.7"
   resolved "file:packages/prettier-config"
 
 "@decidim/stylelint-config@file:packages/stylelint-config":
-  version "0.29.6"
+  version "0.29.7"
   resolved "file:packages/stylelint-config"
 
 "@decidim/webpacker@file:packages/webpacker":
-  version "0.29.6"
+  version "0.29.7"
   resolved "file:packages/webpacker"
   dependencies:
     "@rails/ujs" "^6.1.7"
@@ -6038,12 +6038,17 @@ graphql-language-service@^5.3.1, graphql-language-service@5.5.0:
     nullthrows "^1.0.0"
     vscode-languageserver-types "^3.17.1"
 
+graphql-ws@^5.16.2:
+  version "5.16.2"
+  resolved "https://registry.npmjs.org/graphql-ws/-/graphql-ws-5.16.2.tgz"
+  integrity sha512-E1uccsZxt/96jH/OwmLPuXMACILs76pKF2i3W861LpKBCYtGIyPQGtWLuBLkND4ox1KHns70e83PS4te50nvPQ==
+
 "graphql-ws@>= 4.5.0":
   version "6.0.6"
   resolved "https://registry.npmjs.org/graphql-ws/-/graphql-ws-6.0.6.tgz"
   integrity sha512-zgfER9s+ftkGKUZgc0xbx8T7/HMO4AV5/YuYiFc+AtgcO5T0v8AxYYNQ+ltzuzDZgNkYJaFspm5MMYLjQzrkmw==
 
-"graphql@^15.10.1 || ^16", "graphql@^15.5.0 || ^16.0.0 || ^17.0.0", graphql@^16.10.0:
+"graphql@^15.10.1 || ^16", "graphql@^15.5.0 || ^16.0.0 || ^17.0.0", graphql@^16.10.0, "graphql@>=0.11 <=16":
   version "16.10.0"
   resolved "https://registry.npmjs.org/graphql/-/graphql-16.10.0.tgz"
   integrity sha512-AjqGKbDGUFRKIRCP9tCKiIGHyriz2oHEbPIbEtcSLSs4YjReZOIPQQWek4+6hjw62H9QShXHyaGivGiYVLeYFQ==
