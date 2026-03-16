@@ -52,6 +52,14 @@ de:
               incorrect: Die Antwort ist leider nicht korrekt, bitte versuchen Sie es erneut.
   decidim:
     components:
+      proposals:
+        settings:
+          global:
+            default_view_mode_options:
+              automatic: Automatisch (falls Anhänge erlaubt sind dann Gitter, sonst Liste)
+              grid: Gitter mit Bildern
+              list: Liste
+            default_view_mode: Standard-Ansichtsmodus für die Liste der Vorschläge
       surveys:
         settings:
           global:

@@ -52,6 +52,14 @@ en:
           description: What projects would you allocate budget to? Vote on as many ideas as you wish before reaching the total spendable sum. You must invest at least CHF {}.-. Confirm your final selction by clicking on "Vote".
           title: Decide on the budget!
     components:
+      proposals:
+        settings:
+          global:
+            default_view_mode_options:
+              automatic: Automatic (grid if attachments are allowed, list otherwise)
+              grid: Grid with images
+              list: List
+            default_view_mode: Default view mode for the list of proposals
       accountability:
         name: Implementation
       budgets:
