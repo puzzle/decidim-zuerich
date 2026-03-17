@@ -10,7 +10,7 @@ class ReplaceGeoEnableWithGeoMode < ActiveRecord::Migration[7.0]
                null: false
 
     Decidim::Organization.find_each do |org|
-      Decidim::Geo::GeoSettings.create!(organization: org, geo_mode: "enabled_empty") unless org.respond_to?(:geo_settings)
+      Decidim::Geo::GeoSettings.create!(organization: org, geo_mode: "enabled_empty") unless org.geo_settings.present?
     end
 
     Decidim::Geo::GeoSettings.find_each do |geo_setting|
