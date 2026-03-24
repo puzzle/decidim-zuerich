@@ -10,7 +10,7 @@ ruby RUBY_VERSION
 gem 'decidim',
     github: 'openpoke/decidim',
     branch: '0.29-backports',
-    ref: '2881076f4ab3328afe1947c36e7cc7f76927c188'
+    ref: '03e5e7c205bd3f96373374df62d6c7d60132fe20'
 
 # Internal Modules
 ## gem 'decidim-consultations', DECIDIM_VERSION
@@ -22,19 +22,19 @@ gem 'decidim',
 gem 'decidim-proposals',
     github: 'openpoke/decidim',
     branch: '0.29-backports',
-    ref: '2881076f4ab3328afe1947c36e7cc7f76927c188',
+    ref: '03e5e7c205bd3f96373374df62d6c7d60132fe20',
     glob: 'decidim-proposals/*.gemspec'
 
 gem 'decidim-conferences',
     github: 'openpoke/decidim',
     branch: '0.29-backports',
-    ref: '2881076f4ab3328afe1947c36e7cc7f76927c188',
+    ref: '03e5e7c205bd3f96373374df62d6c7d60132fe20',
     glob: 'decidim-conferences/*.gemspec'
 
 gem 'decidim-templates',
     github: 'openpoke/decidim',
     branch: '0.29-backports',
-    ref: '2881076f4ab3328afe1947c36e7cc7f76927c188',
+    ref: '03e5e7c205bd3f96373374df62d6c7d60132fe20',
     glob: 'decidim-templates/*.gemspec'
 
 # HACK: Using patched version of deface, to fix decidim-geo JS Errors
