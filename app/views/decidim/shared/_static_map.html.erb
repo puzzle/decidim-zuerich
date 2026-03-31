@@ -2,9 +2,6 @@
   <div class="card card--secondary">
     <div class="card__content address">
       <div class="address__info">
-        <div class="address__icon">
-          <%= icon icon_name, width: 40, height: 70 %>
-        </div>
         <div class="address__details">
           <% if geolocalizable.respond_to? :location %>
             <strong><%= decidim_sanitize(translated_attribute(geolocalizable.location)) %></strong><br>
