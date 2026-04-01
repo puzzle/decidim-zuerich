@@ -2,40 +2,19 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.29.7'
+DECIDIM_VERSION = '0.30.0'
 
 ruby RUBY_VERSION
 
-# Decidim
-gem 'decidim',
-    github: 'openpoke/decidim',
-    branch: '0.29-backports',
-    ref: 'a3e489f19a5926f4d7bf748b5aeab3f2ec8fa158'
+gem 'decidim', DECIDIM_VERSION
 
 # Internal Modules
 ## gem 'decidim-consultations', DECIDIM_VERSION
 ## gem 'decidim-initiatives', DECIDIM_VERSION
-# gem 'decidim-proposals', DECIDIM_VERSION
-# gem 'decidim-conferences', DECIDIM_VERSION
-# gem 'decidim-templates', DECIDIM_VERSION
 
-gem 'decidim-proposals',
-    github: 'openpoke/decidim',
-    branch: '0.29-backports',
-    ref: 'a3e489f19a5926f4d7bf748b5aeab3f2ec8fa158',
-    glob: 'decidim-proposals/*.gemspec'
-
-gem 'decidim-conferences',
-    github: 'openpoke/decidim',
-    branch: '0.29-backports',
-    ref: 'a3e489f19a5926f4d7bf748b5aeab3f2ec8fa158',
-    glob: 'decidim-conferences/*.gemspec'
-
-gem 'decidim-templates',
-    github: 'openpoke/decidim',
-    branch: '0.29-backports',
-    ref: 'a3e489f19a5926f4d7bf748b5aeab3f2ec8fa158',
-    glob: 'decidim-templates/*.gemspec'
+gem 'decidim-proposals', DECIDIM_VERSION
+gem 'decidim-conferences', DECIDIM_VERSION
+gem 'decidim-templates', DECIDIM_VERSION
 
 # HACK: Using patched version of deface, to fix decidim-geo JS Errors
 gem 'deface',
@@ -43,43 +22,43 @@ gem 'deface',
     branch: 'fix/js-overrides'
 
 # External Modules
-gem 'decidim-anonymous_codes',
-    github: 'openpoke/decidim-module-anonymous_codes',
-    branch: 'main',
-    ref: '8323978'
-gem 'decidim-anonymous_proposals',
-    github: 'openpoke/decidim-module-anonymous_proposals',
-    branch: 'main',
-    ref: '54aa291'
-gem 'decidim-antivirus',
-    github: 'puzzle/decidim-module-antivirus',
-    branch: 'master',
-    ref: 'bc3cb4d'
-gem 'decidim-decidim_awesome',
-    github: 'decidim-ice/decidim-module-decidim_awesome',
-    branch: 'release/0.29-stable',
-    ref: 'a9f2077'
-gem 'decidim-decidim_geo',
-    git: 'https://git.octree.ch/decidim/decidim-module-geo',
-    branch: 'main',
-    ref: 'a9ad70e5221bbc5019589e6bd48aa38c2526fdaf'
-gem 'decidim-guest_meeting_registration',
-    github: 'OpenSourcePolitics/guest-meeting-registration',
-    branch: 'bump/module_to_0.29',
-    ref: '19e3998'
-gem 'decidim-participatory_documents',
-    github: 'openpoke/decidim-module-participatory-documents',
-    branch: 'main',
-    ref: '21501f8'
-gem 'decidim-survey_multiple_answers',
-    github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
-    branch: 'bump/0.29',
-    ref: '971ad38'
-
-gem 'decidim-term_customizer',
-    github: 'OpenSourcePolitics/decidim-module-term_customizer',
-    branch: 'master',
-    ref: '3da4973'
+# gem 'decidim-anonymous_codes',
+#     github: 'openpoke/decidim-module-anonymous_codes',
+#     branch: 'main',
+#     ref: '8323978'
+# gem 'decidim-anonymous_proposals',
+#     github: 'openpoke/decidim-module-anonymous_proposals',
+#     branch: 'main',
+#     ref: '54aa291'
+# gem 'decidim-antivirus',
+#     github: 'puzzle/decidim-module-antivirus',
+#     branch: 'master',
+#     ref: 'bc3cb4d'
+# gem 'decidim-decidim_awesome',
+#     github: 'decidim-ice/decidim-module-decidim_awesome',
+#     branch: 'release/0.29-stable',
+#     ref: 'a9f2077'
+# gem 'decidim-decidim_geo',
+#     git: 'https://git.octree.ch/decidim/decidim-module-geo',
+#     branch: 'main',
+#     ref: 'a9ad70e5221bbc5019589e6bd48aa38c2526fdaf'
+# gem 'decidim-guest_meeting_registration',
+#     github: 'OpenSourcePolitics/guest-meeting-registration',
+#     branch: 'bump/module_to_0.29',
+#     ref: '19e3998'
+# gem 'decidim-participatory_documents',
+#     github: 'openpoke/decidim-module-participatory-documents',
+#     branch: 'main',
+#     ref: '21501f8'
+# gem 'decidim-survey_multiple_answers',
+#     github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
+#     branch: 'bump/0.29',
+#     ref: '971ad38'
+#
+# gem 'decidim-term_customizer',
+#     github: 'OpenSourcePolitics/decidim-module-term_customizer',
+#     branch: 'master',
+#     ref: '3da4973'
 
 gem 'activerecord-postgis-adapter'
 gem 'aws-eventstream', '= 1.3.0'

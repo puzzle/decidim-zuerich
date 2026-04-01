@@ -2,7 +2,7 @@
 #                            Build Stage                         #
 ##################################################################
 
-FROM ruby:3.2.10-bookworm AS build
+FROM ruby:3.3.4-bookworm AS build
 
 # Set build shell
 SHELL ["/bin/bash", "-c"]
@@ -96,7 +96,7 @@ RUN rm -rf vendor/cache/ .git
 ##################################################################
 
 # This image will be replaced by Openshift
-FROM ruby:3.2.10-slim-bookworm AS app
+FROM ruby:3.3.4-slim-bookworm AS app
 
 # Set runtime shell
 SHELL ["/bin/bash", "-c"]

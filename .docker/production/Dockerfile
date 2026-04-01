@@ -3,7 +3,7 @@
 #################################
 
 # Versioning
-ARG RUBY_VERSION="3.2.6"
+ARG RUBY_VERSION="3.3.4"
 ARG BUNDLER_VERSION="2.5.23"
 ARG NODEJS_VERSION="18"
 ARG YARN_VERSION="1.22.22"

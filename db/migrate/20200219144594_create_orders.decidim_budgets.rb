@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_budgets (originally 20170130095615)
 
+# This migration comes from decidim_budgets (originally 20170130095615)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-31 11:41:59 UTC
 class CreateOrders < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_budgets_orders do |t|

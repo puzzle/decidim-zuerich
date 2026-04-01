@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_accountability (originally 20170620154712)
 
+# This migration comes from decidim_accountability (originally 20170620154712)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-31 11:41:59 UTC
 class CreateAccountabilityTimelineEntries < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_accountability_timeline_entries do |t|

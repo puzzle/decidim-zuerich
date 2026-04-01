@@ -2,12 +2,13 @@
 
 class IndexDecidimGeo < ActiveRecord::Migration[6.1]
   def change
-    Decidim::Component.all.each do |model|
+    Decidim::Component.with_deleted.all.each do |model|
       model.decidim_geo_avoid_index ||= Decidim::Geo::NoIndex.new
       model.save
       model.update_decidim_geo_index
     end
 
+    return unless defined? Decidim::Geo
     models = Decidim::Geo::ManifestRegistry.instance.active_manifests { |manifests| manifests.map { |_name, config| config[:model] } }
     models.each do |model_klass|
       Rails.logger.debug { "index class #{model_klass} " }

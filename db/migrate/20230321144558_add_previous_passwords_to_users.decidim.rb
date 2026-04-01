@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim (originally 20220518094535)
 
+# This migration comes from decidim (originally 20220518094535)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-31 11:42:00 UTC
 class AddPreviousPasswordsToUsers < ActiveRecord::Migration[6.1]
   class User < ApplicationRecord
     self.table_name = :decidim_users
