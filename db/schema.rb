@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_04_01_152971) do
+ActiveRecord::Schema[7.2].define(version: 2026_04_01_164903) do
   create_schema "tiger"
   create_schema "tiger_data"
   create_schema "topology"
@@ -1459,6 +1459,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_04_01_152971) do
     t.string "tenant_type"
     t.jsonb "content_security_policy", default: {}
     t.jsonb "name", default: {}, null: false
+    t.jsonb "short_name", default: {}, null: false
     t.index ["host"], name: "index_decidim_organizations_on_host", unique: true
   end
 
