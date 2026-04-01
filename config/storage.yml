@@ -6,37 +6,43 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
-ocp4_s3:
+s3:
   service: S3
-  endpoint: <%= ENV['OCP4_S3_ENDPOINT'] %>
-  access_key_id: <%= ENV['OCP4_S3_ACCESS_KEY_ID'] %>
-  secret_access_key: <%= ENV['OCP4_S3_SECRET_ACCESS_KEY'] %>
-  region: none
-  bucket: <%= ENV['OCP4_S3_BUCKET'] %>
+  public: <%= Decidim::Env.new("AWS_PUBLIC", "true").to_boolean_string %>
+  access_key_id: <%= Decidim::Env.new("AWS_ACCESS_KEY_ID").to_s %>
+  secret_access_key: <%= Decidim::Env.new("AWS_SECRET_ACCESS_KEY").to_s %>
+  bucket: <%= Decidim::Env.new("AWS_BUCKET").to_s %>
+  <%= "region: #{Decidim::Env.new("AWS_REGION").to_s}" if Decidim::Env.new("AWS_REGION").present? %>
+  <%= "endpoint: #{ Decidim::Env.new("AWS_ENDPOINT").to_s}" if Decidim::Env.new("AWS_ENDPOINT").present? %>
 
-# Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
-# amazon:
-#   service: S3
-#   access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
-#   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
-#   region: us-east-1
-#   bucket: your_own_bucket
+# Rails core team removed support for Azure Storage, as the official Azure Ruby gems are not maintained since 2024.
+# See https://github.com/rails/rails/issues/49983
+# You can use an unofficial gem: https://github.com/testdouble/azure-blob
+#azure:
+#  service: AzureBlob
+#  public: <%= Decidim::Env.new("AZURE_PUBLIC", "true").to_boolean_string %>
+#  storage_account_name: <%= Decidim::Env.new("AZURE_STORAGE_ACCOUNT_NAME").to_s %>
+#  storage_access_key: <%= Decidim::Env.new("AZURE_STORAGE_ACCESS_KEY").to_s %>
+#  container: <%= Decidim::Env.new("AZURE_CONTAINER").to_s %>
 
-# Remember not to checkin your GCS keyfile to a repository
-# google:
-#   service: GCS
-#   project: your_project
-#   credentials: <%= Rails.root.join("path/to/gcs.keyfile") %>
-#   bucket: your_own_bucket
-
-# Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
-# microsoft:
-#   service: AzureStorage
-#   storage_account_name: your_account_name
-#   storage_access_key: <%= Rails.application.credentials.dig(:azure_storage, :storage_access_key) %>
-#   container: your_container_name
+gcs:
+  service: GCS
+  project: <%= Decidim::Env.new("GCS_PROJECT").to_s %>
+  bucket: <%= Decidim::Env.new("GCS_BUCKET").to_s %>
+  public: <%= Decidim::Env.new("GCS_PUBLIC", "true").to_boolean_string %>
+  credentials:
+    type: <%= Decidim::Env.new("GCS_TYPE", "service_account").to_s %>
+    project_id: <%= Decidim::Env.new("GCS_PROJECT_ID").to_s %>
+    private_key_id: <%= Decidim::Env.new("GCS_PRIVATE_KEY_ID").to_s %>
+    private_key: <%= Decidim::Env.new("GCS_PRIVATE_KEY").to_s %>
+    client_email: <%= Decidim::Env.new("GCS_CLIENT_EMAIL").to_s %>
+    client_id: <%= Decidim::Env.new("GCS_CLIENT_ID").to_s %>
+    auth_uri: <%= Decidim::Env.new("GCS_AUTH_URI", "https://accounts.google.com/o/oauth2/auth").to_s %>
+    token_uri:  <%= Decidim::Env.new("GCS_TOKEN_URI", "https://accounts.google.com/o/oauth2/token").to_s %>
+    auth_provider_x509_cert_url: <%= Decidim::Env.new("GCS_AUTH_PROVIDER_X509_CERT_URL", "https://www.googleapis.com/oauth2/v1/certs").to_s %>
+    client_x509_cert_url: <%= Decidim::Env.new("GCS_CLIENT_X509_CERT_URL").to_s %>
 
 # mirror:
 #   service: Mirror
 #   primary: local
-#   mirrors: [ amazon, google, microsoft ]
+#   mirrors: [ s3, gcs, azure ]

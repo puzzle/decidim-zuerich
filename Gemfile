@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.30.0'
+DECIDIM_VERSION = '0.31.0'
 
 ruby RUBY_VERSION
 
@@ -69,6 +69,7 @@ gem 'aws-sdk-s3', '= 1.149.1'
 gem 'aws-sigv4', '= 1.8.0'
 gem 'bootsnap'
 gem 'byebug', platform: :mri
+gem 'connection_pool', '< 3.0.0' # rails 7.2 is not compatible with 3.0
 gem 'dalli'
 gem 'delayed_job_active_record'
 gem 'execjs'

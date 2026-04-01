@@ -1,8 +1,8 @@
-if Rails.application.secrets.dig(:omniauth, :oidc).present?
+if Decidim.omniauth_providers[:oidc]
   Rails.application.config.middleware.use OmniAuth::Builder do
     provider(
       :oidc,
-      setup: lambda { |env|
+      setup: ->(env) {
         request = Rack::Request.new(env)
         organization = Decidim::Organization.find_by(host: request.host)
         provider_config = organization.enabled_omniauth_providers[:oidc]

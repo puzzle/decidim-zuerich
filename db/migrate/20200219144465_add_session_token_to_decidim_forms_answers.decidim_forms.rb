@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_forms (originally 20190315203056)
-# This file has been modified by `decidim upgrade:migrations` task on 2026-03-31 11:42:00 UTC
+# This file has been modified by `decidim upgrade:migrations` task on 2026-04-01 15:29:41 UTC
 class AddSessionTokenToDecidimFormsAnswers < ActiveRecord::Migration[5.2]
   class Answer < ApplicationRecord
     self.table_name = :decidim_forms_answers
@@ -12,7 +12,7 @@ class AddSessionTokenToDecidimFormsAnswers < ActiveRecord::Migration[5.2]
     add_index :decidim_forms_answers, :session_token
 
     Answer.find_each do |answer|
-      answer.session_token = Digest::MD5.hexdigest("#{answer.decidim_user_id}-#{Rails.application.secret_key_base}")
+      answer.session_token = Digest::SHA256.hexdigest("#{answer.decidim_user_id}-#{Rails.application.secret_key_base}")
       answer.save!
     end
   end

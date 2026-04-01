@@ -34,10 +34,6 @@ Rails.application.configure do
   memcached_host = ENV['RAILS_MEMCACHED_HOST'] || 'localhost'
   memcached_port = ENV['RAILS_MEMCACHED_PORT'] || '11211'
   config.cache_store = :mem_cache_store, "#{memcached_host}:#{memcached_port}"
-  # Silence the cache store, the decidim-term_customizer module doesn't work otherwise
-  config.after_initialize do
-    # Rails.cache.logger.level = Logger::INFO
-  end
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = ENV.fetch('ACTIVE_STORAGE_SERVICE', nil)&.to_sym || :local

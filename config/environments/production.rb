@@ -1,16 +1,10 @@
-# frozen_string_literal: true
+require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
-  config.cache_classes = true
-
-  config.force_ssl = true
-  # Disable Deface dynamic overrides, and use precompiled files. 
-  # to compile: `SKIP_MEMCACHE_CHECK=1 DEFACE_ENABLED=1 bundle exec rails deface:precompile`
-  # to check compiled views: `./app/compiled_views`
-  config.deface.enabled = ENV.fetch("DEFACE_ENABLED", "0") == '1'
+  config.enable_reloading = false
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -19,50 +13,82 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
-  # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
-  # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
+  # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
+  # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
 
-  # Disable serving static files from the `/public` folder by default since
-  # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
+  # config.public_file_server.enabled = false
+
+  # Compress CSS using a preprocessor.
+  # 
+
+  # Do not fall back to assets pipeline if a precompiled asset is missed.
+  
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = 'http://assets.example.com'
+  config.asset_host = ENV['RAILS_ASSET_HOST'] if ENV['RAILS_ASSET_HOST'].present?
 
   # Specifies the header that your server uses for sending files.
-  # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
+  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
+  # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
-  # Store uploaded files on the local file system (see config/storage.yml for options)
-  config.active_storage.service = ENV['ACTIVE_STORAGE_SERVICE']&.to_sym || :ocp4_s3
+  # Store uploaded files on the local file system (see config/storage.yml for options).
+  config.active_storage.service = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s
 
-  # Mount Action Cable outside main process or domain
+  # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
-  # config.action_cable.url = 'wss://example.com/cable'
-  # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+  # config.action_cable.url = "wss://example.com/cable"
+  # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
 
-  # Use the lowest log level to ensure availability of diagnostic information
-  # when problems arise.
-  #config.log_level = :debug
-  # Use a more conservative log level for now, because lograge does not work (?)
-  config.log_level = :info
+  # Assume all access to the app is happening through a SSL-terminating reverse proxy.
+  # Can be used together with config.force_ssl for Strict-Transport-Security and secure cookies.
+  # config.assume_ssl = true
+
+  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  config.force_ssl = true
+
+  # Skip http-to-https redirect for the default health check endpoint.
+  # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
+
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  config.logger = ActiveSupport::Logger.new(STDOUT)
+    .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+    .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+end
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
+  config.action_mailer.smtp_settings = {
+    :address        => Decidim::Env.new("SMTP_ADDRESS").to_s,
+    :port           => Decidim::Env.new("SMTP_PORT", 587).to_i,
+    :authentication => Decidim::Env.new("SMTP_AUTHENTICATION", "plain").to_s,
+    :user_name      => Decidim::Env.new("SMTP_USERNAME").to_s,
+    :password       => Decidim::Env.new("SMTP_PASSWORD").to_s,
+    :domain         => Decidim::Env.new("SMTP_DOMAIN").to_s,
+    :enable_starttls_auto => Decidim::Env.new("SMTP_STARTTLS_AUTO").to_boolean_string,
+    :openssl_verify_mode => 'none'
+  }
+
+  # "info" includes generic and useful information about system operation, but avoids logging too much
+  # information to avoid inadvertent exposure of personally identifiable information (PII). If you
+  # want to log everything, set the level to "debug".
+  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
 
   # Use a different cache store in production.
   memcached_host = ENV['RAILS_MEMCACHED_HOST'] || 'localhost'
   memcached_port = ENV['RAILS_MEMCACHED_PORT'] || '11211'
   config.cache_store = :mem_cache_store, "#{memcached_host}:#{memcached_port}"
-  # Silence the cache store, the decidim-term_customizer module doesn't work otherwise
-  config.after_initialize do
-    # Rails.cache.logger.level = Logger::INFO
-  end
 
+  # Use a real queuing backend for Active Job (and separate queues per environment).
+  config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?
+  # config.active_job.queue_name_prefix = "decidim_development_app_production"
+
+  # Disable caching for Action Mailer templates even if Action Controller
+  # caching is enabled.
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -73,21 +99,17 @@ Rails.application.configure do
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
 
-  # Send deprecation notices to registered listeners.
-  config.active_support.deprecation = :notify
-
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-
-  # Use a different logger for distributed setups.
-  # require 'syslog/logger'
-  # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  # Don't log any deprecations.
+  config.active_support.report_deprecations = false
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
@@ -108,40 +130,20 @@ Rails.application.configure do
     config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
   end
 
-  # config.action_mailer.smtp_settings = {
-  #   :address        => Rails.application.secrets.smtp_address,
-  #   :port           => Rails.application.secrets.smtp_port,
-  #   :authentication => Rails.application.secrets.smtp_authentication,
-  #   :user_name      => Rails.application.secrets.smtp_username,
-  #   :password       => Rails.application.secrets.smtp_password,
-  #   :domain         => Rails.application.secrets.smtp_domain,
-  #   :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
-  #   :openssl_verify_mode => 'none'
-  # }
-
   config.aspsms = {
-      user_key: ENV['ASPSMS_API_USER_KEY'],
-      password: ENV['ASPSMS_API_PASSWORD'],
-      affiliate_id: ENV['ASPSMS_AFFILIATE_ID']
+    user_key: ENV['ASPSMS_API_USER_KEY'],
+    password: ENV['ASPSMS_API_PASSWORD'],
+    affiliate_id: ENV['ASPSMS_AFFILIATE_ID']
   }
 
-  # Use log rage
-  enabled = ENV.fetch('RAILS_LOGRAGE_ENABLED', 'true')
-  config.lograge.enabled = ActiveModel::Type::Boolean.new.cast(enabled)
-  config.lograge.logger = ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new($stdout))
-  config.lograge.ignore_actions = ['StatusController#health', 'StatusController#readiness']
-  config.lograge.custom_payload do |controller|
-    {
-      host: controller.request.host,
-      user_id: controller.current_user.try(:id)
-    }
-  end
-  config.lograge.custom_options = lambda do |event|
-    exceptions = %w[controller action format id]
-    {
-      time: Time.zone.now.utc,
-      params: event.payload[:params].except(*exceptions)
-    }
-  end
+  # Only use :id for inspections in production.
+  config.active_record.attributes_for_inspect = [ :id ]
 
+  # Enable DNS rebinding protection and other `Host` header attacks.
+  # config.hosts = [
+  #   "example.com",     # Allow requests from example.com
+  #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
+  # ]
+  # Skip DNS rebinding protection for the default health check endpoint.
+  # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end

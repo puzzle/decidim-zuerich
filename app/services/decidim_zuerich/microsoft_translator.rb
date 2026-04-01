@@ -24,8 +24,8 @@ module DecidimZuerich
     private
 
     def request_translation
-      endpoint = Rails.application.secrets.translator[:endpoint_url]
-      secret_key = Rails.application.secrets.translator[:secret_key]
+      endpoint = ENV["TRANSLATOR_ENDPOINT_URL"]
+      secret_key = ENV["TRANSLATOR_SECRET_KEY"]
       path = '/translator/text/v3.0/translate?api-version=3.0'
       params = "&from=#{source_locale}&to=#{target_locale}"
       uri = URI(endpoint + path + params)

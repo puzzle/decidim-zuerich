@@ -6,6 +6,7 @@ gem install bundler
 bundle install
 
 bin/rails db:migrate RAILS_ENV=development
+bin/rails data:migrate RAILS_ENV=development
 
 if [ ! -f "/db-init/done" ]; then
   echo 'ActiveRecord::Base.connection.execute(IO.read(".docker/development/database-init.sql"))' | bundle exec rails console
