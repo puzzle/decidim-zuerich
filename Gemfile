@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.31.1'
+DECIDIM_VERSION = '0.31.2'
 
 ruby RUBY_VERSION
 
