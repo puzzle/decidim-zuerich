@@ -22,6 +22,10 @@ gem 'deface',
     branch: 'fix/js-overrides'
 
 # External Modules
+gem 'decidim-decidim_awesome',
+    github: 'decidim-ice/decidim-module-decidim_awesome',
+    branch: 'main',
+    ref: '362ca4c'
 # gem 'decidim-anonymous_codes',
 #     github: 'openpoke/decidim-module-anonymous_codes',
 #     branch: 'main',
@@ -34,10 +38,6 @@ gem 'deface',
 #     github: 'puzzle/decidim-module-antivirus',
 #     branch: 'master',
 #     ref: 'bc3cb4d'
-# gem 'decidim-decidim_awesome',
-#     github: 'decidim-ice/decidim-module-decidim_awesome',
-#     branch: 'release/0.29-stable',
-#     ref: 'a9f2077'
 # gem 'decidim-decidim_geo',
 #     git: 'https://git.octree.ch/decidim/decidim-module-geo',
 #     branch: 'main',

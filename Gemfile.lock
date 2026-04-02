@@ -1,4 +1,17 @@
 GIT
+  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
+  revision: 362ca4cd1109a4144c7b964f9afcd5ad64bdd8a1
+  ref: 362ca4c
+  branch: main
+  specs:
+    decidim-decidim_awesome (0.14.1)
+      active_hashcash (~> 0.4.0)
+      decidim-admin (>= 0.31.0, < 0.32)
+      decidim-core (>= 0.31.0, < 0.32)
+      deface (>= 1.5)
+      sassc (~> 2.3)
+
+GIT
   remote: https://github.com/froger/deface.git
   revision: fe80c6bc7166d3adb5e99a5ab46a81138f52840a
   branch: fix/js-overrides
@@ -72,6 +85,8 @@ GEM
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
+    active_hashcash (0.4.0)
+      rails (>= 5.2.0)
     active_link_to (1.0.5)
       actionpack
       addressable
@@ -963,6 +978,8 @@ GEM
       google-protobuf (~> 4.31)
     sass-embedded (1.99.0-x86_64-linux-musl)
       google-protobuf (~> 4.31)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     securerandom (0.4.1)
     selenium-webdriver (4.38.0)
       base64 (~> 0.2)
@@ -1113,6 +1130,7 @@ DEPENDENCIES
   dalli
   decidim (= 0.31.2)
   decidim-conferences (= 0.31.2)
+  decidim-decidim_awesome!
   decidim-dev (= 0.31.2)
   decidim-proposals (= 0.31.2)
   decidim-templates (= 0.31.2)

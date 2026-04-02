@@ -388,7 +388,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_04_01_164903) do
   end
 
   create_table "decidim_awesome_config", force: :cascade do |t|
-    t.jsonb "var"
+    t.string "var"
     t.jsonb "value"
     t.integer "decidim_organization_id"
     t.datetime "created_at", precision: nil, null: false
