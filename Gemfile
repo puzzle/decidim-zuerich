@@ -26,6 +26,10 @@ gem 'decidim-decidim_awesome',
     github: 'decidim-ice/decidim-module-decidim_awesome',
     branch: 'main',
     ref: '362ca4c'
+gem 'decidim-term_customizer',
+    github: 'openpoke/decidim-module-term_customizer',
+    branch: 'main',
+    ref: '8cd8baf'
 # gem 'decidim-anonymous_codes',
 #     github: 'openpoke/decidim-module-anonymous_codes',
 #     branch: 'main',
@@ -54,11 +58,6 @@ gem 'decidim-decidim_awesome',
 #     github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
 #     branch: 'bump/0.29',
 #     ref: '971ad38'
-#
-# gem 'decidim-term_customizer',
-#     github: 'OpenSourcePolitics/decidim-module-term_customizer',
-#     branch: 'master',
-#     ref: '3da4973'
 
 gem 'activerecord-postgis-adapter'
 gem 'aws-eventstream', '= 1.3.0'
