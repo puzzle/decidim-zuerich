@@ -1263,15 +1263,13 @@
   resolved "https://registry.npmjs.org/@csstools/utilities/-/utilities-1.0.0.tgz"
   integrity sha512-tAgvZQe/t2mlvpNosA4+CkMiZ2azISW5WPAcdSalZlEjQvUfghHxfQcrCiK/7/CrfAWVxyM88kGFYO82heIGDg==
 
-"@decidim/browserslist-config@^0.31.3":
+"@decidim/browserslist-config@file:packages/browserslist-config":
   version "0.31.3"
-  resolved "https://registry.npmjs.org/@decidim/browserslist-config/-/browserslist-config-0.31.3.tgz"
-  integrity sha512-zq1DJEOD+W0RpSgnSomT2YWEYnASLq+xxsfJZs1MFJovMFkTdLTlJRG4PjGuf2+rUjVEbRF7ISjbPdqnhDSKBQ==
+  resolved "file:packages/browserslist-config"
 
-"@decidim/core@^0.31.3":
+"@decidim/core@file:packages/core":
   version "0.31.3"
-  resolved "https://registry.npmjs.org/@decidim/core/-/core-0.31.3.tgz"
-  integrity sha512-DmdwJvyERN+Ulj0wi6KTXI9Bul/ehaB1ds2ZANBCTSNRy6lRnkHyV8pEOiAisnhWrRQY0uWP1qufdY/iZh8sBA==
+  resolved "file:packages/core"
   dependencies:
     "@emoji-mart/data" "^1.1.2"
     "@rails/activestorage" "^7.2.201"
@@ -1337,34 +1335,29 @@
     tom-select "2.2.2"
     wc-datepicker "^0.5.2"
 
-"@decidim/dev@^0.31.3":
+"@decidim/dev@file:packages/dev":
   version "0.31.3"
-  resolved "https://registry.npmjs.org/@decidim/dev/-/dev-0.31.3.tgz"
-  integrity sha512-ooazAbNpxwgZBnS+EmtqOUDNl2Qbn2CfR0S9S+RWbDzq3gGbo7J7OPsNmsKRzxSo2EbSkTqdTcZLaEVlt73mqA==
+  resolved "file:packages/dev"
   dependencies:
     "@linthtml/linthtml" "^0.10.2"
     axe-core "^4.7.2"
     markdownlint-cli "^0.35.0"
 
-"@decidim/eslint-config@^0.31.3":
+"@decidim/eslint-config@file:packages/eslint-config":
   version "0.31.3"
-  resolved "https://registry.npmjs.org/@decidim/eslint-config/-/eslint-config-0.31.3.tgz"
-  integrity sha512-CkdKiZ9vbMIHuHt/t75OmykU7uGVzAHHnYEmPxSRHknrbfzttA6xIFJqnl3besP0nTJ+FeAr50RZ2dHvX/PZog==
+  resolved "file:packages/eslint-config"
 
-"@decidim/prettier-config@^0.31.3":
+"@decidim/prettier-config@file:packages/prettier-config":
   version "0.31.3"
-  resolved "https://registry.npmjs.org/@decidim/prettier-config/-/prettier-config-0.31.3.tgz"
-  integrity sha512-ZQLpRQKAod1aeglodsoZhWdHu8v1jeTSZM75Y6vnynGGd0ThOgqqZK7GVKmL31indvu8Zv7EiQbCITdlQJrnYA==
+  resolved "file:packages/prettier-config"
 
-"@decidim/stylelint-config@^0.31.3":
+"@decidim/stylelint-config@file:packages/stylelint-config":
   version "0.31.3"
-  resolved "https://registry.npmjs.org/@decidim/stylelint-config/-/stylelint-config-0.31.3.tgz"
-  integrity sha512-UZSBKEAMqT6WrLYvDc0fHpmyaxlGTKy43bkdGfZXVk7w60srsyB8oR50WmFVU2NABPf4rWrNxB1m4Kq4vOwdiA==
+  resolved "file:packages/stylelint-config"
 
-"@decidim/webpacker@^0.31.3":
+"@decidim/webpacker@file:packages/webpacker":
   version "0.31.3"
-  resolved "https://registry.npmjs.org/@decidim/webpacker/-/webpacker-0.31.3.tgz"
-  integrity sha512-iCYrQ2MYVBgFmX7v/Xg5K19DROyTKaZG+Bmtyd7lSjzsvHIh3Vj0ZnCANSUP7m+xB9OR0v0ZOx1KzKdC2eY3Nw==
+  resolved "file:packages/webpacker"
   dependencies:
     "@hotwired/stimulus" "^3.2.2"
     "@rails/ujs" "^6.1.7"
