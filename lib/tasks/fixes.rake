@@ -1,6 +1,6 @@
 task 'decidim_zuerich:mailers:notifications_digest_daily' => :environment do
   time = Time.now.utc
-  notification_users = Decidim::Notification.daily(time).select(:decidim_user_id)
+  notification_users = Decidim::Notification.daily(time).select(:decidim_user_id).distinct
   target_users = Decidim::User.where(id: notification_users,
                                      notifications_sending_frequency: :daily)
 
@@ -11,7 +11,7 @@ end
 
 task 'decidim_zuerich:mailers:notifications_digest_weekly' => :environment do
   time = Time.now.utc
-  notification_users = Decidim::Notification.weekly(time).select(:decidim_user_id)
+  notification_users = Decidim::Notification.weekly(time).select(:decidim_user_id).distinct
   target_users = Decidim::User.where(id: notification_users,
                                      notifications_sending_frequency: :weekly)
 
