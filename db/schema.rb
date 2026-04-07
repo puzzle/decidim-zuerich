@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_04_02_130455) do
+ActiveRecord::Schema[7.2].define(version: 2026_04_07_152417) do
   create_schema "tiger"
   create_schema "tiger_data"
   create_schema "topology"
@@ -67,6 +67,9 @@ ActiveRecord::Schema[7.2].define(version: 2026_04_02_130455) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "decidim_accountability_milestones", id: :serial, force: :cascade do |t|
@@ -1499,6 +1502,16 @@ ActiveRecord::Schema[7.2].define(version: 2026_04_02_130455) do
     t.index ["published_at"], name: "index_decidim_participatory_documents_documents_on_published_at"
   end
 
+  create_table "decidim_participatory_documents_evaluation_assignments", force: :cascade do |t|
+    t.bigint "decidim_participatory_documents_suggestion_id", null: false
+    t.string "evaluator_role_type", null: false
+    t.bigint "evaluator_role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_participatory_documents_suggestion_id"], name: "decidim_pd_evaluation_assignment_suggestion"
+    t.index ["evaluator_role_type", "evaluator_role_id"], name: "decidim_pd_evaluation_assignment_evaluator_role"
+  end
+
   create_table "decidim_participatory_documents_sections", force: :cascade do |t|
     t.bigint "document_id", null: false
     t.jsonb "title"
@@ -1540,16 +1553,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_04_02_130455) do
     t.index ["decidim_user_group_id"], name: "decidim_pd_suggestion_user_group"
     t.index ["state"], name: "decidim_pd_suggestion_state"
     t.index ["suggestable_type", "suggestable_id"], name: "decidim_pd_seggestions_suggestable"
-  end
-
-  create_table "decidim_participatory_documents_valuation_assignments", force: :cascade do |t|
-    t.bigint "decidim_participatory_documents_suggestion_id", null: false
-    t.string "valuator_role_type", null: false
-    t.bigint "valuator_role_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_participatory_documents_suggestion_id"], name: "decidim_pd_valuation_assignment_suggestion"
-    t.index ["valuator_role_type", "valuator_role_id"], name: "decidim_pd_valuation_assignment_valuator_role"
   end
 
   create_table "decidim_participatory_process_groups", id: :serial, force: :cascade do |t|

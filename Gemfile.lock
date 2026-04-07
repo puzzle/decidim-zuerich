@@ -37,6 +37,16 @@ GIT
       openid_connect (~> 1.2)
 
 GIT
+  remote: https://github.com/openpoke/decidim-module-participatory-documents.git
+  revision: 5d8bde9fa25dfc806cd76b1f5f10a18e9ad92c55
+  ref: 5d8bde9
+  branch: upgrade-0.31
+  specs:
+    decidim-participatory_documents (0.6.0)
+      decidim-admin (>= 0.31, < 0.32)
+      decidim-core (>= 0.31, < 0.32)
+
+GIT
   remote: https://github.com/openpoke/decidim-module-term_customizer.git
   revision: 8cd8bafc273b34ff7dae7c0dcbf231062aa68466
   ref: 8cd8baf
@@ -1173,6 +1183,7 @@ DEPENDENCIES
   decidim-conferences!
   decidim-decidim_awesome!
   decidim-dev (= 0.31.3)
+  decidim-participatory_documents!
   decidim-proposals!
   decidim-templates!
   decidim-term_customizer!

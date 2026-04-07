@@ -48,6 +48,10 @@ gem 'decidim-term_customizer',
     github: 'openpoke/decidim-module-term_customizer',
     branch: 'main',
     ref: '8cd8baf'
+gem 'decidim-participatory_documents',
+    github: 'openpoke/decidim-module-participatory-documents',
+    branch: 'upgrade-0.31',
+    ref: '5d8bde9'
 # gem 'decidim-anonymous_codes',
 #     github: 'openpoke/decidim-module-anonymous_codes',
 #     branch: 'main',
@@ -68,10 +72,6 @@ gem 'decidim-term_customizer',
 #     github: 'OpenSourcePolitics/guest-meeting-registration',
 #     branch: 'bump/module_to_0.29',
 #     ref: '19e3998'
-# gem 'decidim-participatory_documents',
-#     github: 'openpoke/decidim-module-participatory-documents',
-#     branch: 'main',
-#     ref: '21501f8'
 # gem 'decidim-survey_multiple_answers',
 #     github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
 #     branch: 'bump/0.29',
