@@ -52,14 +52,14 @@ gem 'decidim-participatory_documents',
     github: 'openpoke/decidim-module-participatory-documents',
     branch: 'upgrade-0.31',
     ref: '5d8bde9'
+gem 'decidim-anonymous_proposals',
+    github: 'openpoke/decidim-module-anonymous_proposals',
+    branch: 'main',
+    ref: 'af780d4'
 # gem 'decidim-anonymous_codes',
 #     github: 'openpoke/decidim-module-anonymous_codes',
 #     branch: 'main',
 #     ref: '8323978'
-# gem 'decidim-anonymous_proposals',
-#     github: 'openpoke/decidim-module-anonymous_proposals',
-#     branch: 'main',
-#     ref: '54aa291'
 # gem 'decidim-antivirus',
 #     github: 'puzzle/decidim-module-antivirus',
 #     branch: 'master',

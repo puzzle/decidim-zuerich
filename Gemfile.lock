@@ -37,6 +37,16 @@ GIT
       openid_connect (~> 1.2)
 
 GIT
+  remote: https://github.com/openpoke/decidim-module-anonymous_proposals.git
+  revision: af780d470ea6c1bf2b091fda4ab7492f31b6fd81
+  ref: af780d4
+  branch: main
+  specs:
+    decidim-anonymous_proposals (0.31)
+      decidim-core (>= 0.31)
+      deface (~> 1.9)
+
+GIT
   remote: https://github.com/openpoke/decidim-module-participatory-documents.git
   revision: 5d8bde9fa25dfc806cd76b1f5f10a18e9ad92c55
   ref: 5d8bde9
@@ -1180,6 +1190,7 @@ DEPENDENCIES
   connection_pool (< 3.0.0)
   dalli
   decidim!
+  decidim-anonymous_proposals!
   decidim-conferences!
   decidim-decidim_awesome!
   decidim-dev (= 0.31.3)
