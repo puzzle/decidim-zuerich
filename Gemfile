@@ -64,6 +64,10 @@ gem 'decidim-survey_multiple_answers',
     github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
     branch: 'bump/0.31',
     ref: '95eba87'
+gem 'decidim-guest_meeting_registration',
+    github: 'OpenSourcePolitics/guest-meeting-registration',
+    branch: 'bump/0.31',
+    ref: 'f0c5e2c'
 # gem 'decidim-anonymous_codes',
 #     github: 'openpoke/decidim-module-anonymous_codes',
 #     branch: 'main',
@@ -72,10 +76,6 @@ gem 'decidim-survey_multiple_answers',
 #     git: 'https://git.octree.ch/decidim/decidim-module-geo',
 #     branch: 'main',
 #     ref: 'a9ad70e5221bbc5019589e6bd48aa38c2526fdaf'
-# gem 'decidim-guest_meeting_registration',
-#     github: 'OpenSourcePolitics/guest-meeting-registration',
-#     branch: 'bump/module_to_0.29',
-#     ref: '19e3998'
 
 gem 'activerecord-postgis-adapter'
 gem 'aws-eventstream', '= 1.3.0'

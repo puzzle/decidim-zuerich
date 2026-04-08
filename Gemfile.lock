@@ -11,6 +11,17 @@ GIT
       decidim-surveys (~> 0.31.0)
 
 GIT
+  remote: https://github.com/OpenSourcePolitics/guest-meeting-registration.git
+  revision: f0c5e2cf9093356bd9910ea4206aab5677036d7f
+  ref: f0c5e2c
+  branch: bump/0.31
+  specs:
+    decidim-guest_meeting_registration (0.31.0)
+      decidim-core (~> 0.31.0)
+      decidim-meetings (~> 0.31.0)
+      deface (>= 1.9)
+
+GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
   revision: 362ca4cd1109a4144c7b964f9afcd5ad64bdd8a1
   ref: 362ca4c
@@ -1224,6 +1235,7 @@ DEPENDENCIES
   decidim-conferences!
   decidim-decidim_awesome!
   decidim-dev (= 0.31.3)
+  decidim-guest_meeting_registration!
   decidim-participatory_documents!
   decidim-proposals!
   decidim-survey_multiple_answers!
