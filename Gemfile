@@ -68,10 +68,10 @@ gem 'decidim-guest_meeting_registration',
     github: 'OpenSourcePolitics/guest-meeting-registration',
     branch: 'bump/0.31',
     ref: 'f0c5e2c'
-# gem 'decidim-anonymous_codes',
-#     github: 'openpoke/decidim-module-anonymous_codes',
-#     branch: 'main',
-#     ref: '8323978'
+gem 'decidim-anonymous_codes',
+    github: 'openpoke/decidim-module-anonymous_codes',
+    branch: 'upgrade-0.31',
+    ref: '180dfe0'
 # gem 'decidim-decidim_geo',
 #     git: 'https://git.octree.ch/decidim/decidim-module-geo',
 #     branch: 'main',
