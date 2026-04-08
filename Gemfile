@@ -34,6 +34,18 @@ gem 'decidim-templates',
     ref: '98d3f3a',
     glob: 'decidim-templates/*.gemspec'
 
+gem 'decidim-elections',
+  github: 'openpoke/decidim',
+  branch: '0.31-backports',
+  ref: '98d3f3a',
+  glob: 'decidim-elections/*.gemspec'
+
+gem 'decidim-collaborative_texts',
+  github: 'openpoke/decidim',
+  branch: '0.31-backports',
+  ref: '98d3f3a',
+  glob: 'decidim-collaborative_texts/*.gemspec'
+
 # HACK: Using patched version of deface, to fix decidim-geo JS Errors
 gem 'deface',
     github: 'froger/deface',

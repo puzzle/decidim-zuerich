@@ -247,11 +247,33 @@ GIT
   revision: 98d3f3aa66690930becd879e2bbd3e567044746a
   ref: 98d3f3a
   branch: 0.31-backports
+  glob: decidim-collaborative_texts/*.gemspec
+  specs:
+    decidim-collaborative_texts (0.31.3)
+      decidim-core (= 0.31.3)
+
+GIT
+  remote: https://github.com/openpoke/decidim.git
+  revision: 98d3f3aa66690930becd879e2bbd3e567044746a
+  ref: 98d3f3a
+  branch: 0.31-backports
   glob: decidim-conferences/*.gemspec
   specs:
     decidim-conferences (0.31.3)
       decidim-core (= 0.31.3)
       decidim-meetings (= 0.31.3)
+
+GIT
+  remote: https://github.com/openpoke/decidim.git
+  revision: 98d3f3aa66690930becd879e2bbd3e567044746a
+  ref: 98d3f3a
+  branch: 0.31-backports
+  glob: decidim-elections/*.gemspec
+  specs:
+    decidim-elections (0.31.3)
+      decidim-admin (= 0.31.3)
+      decidim-core (= 0.31.3)
+      decidim-forms (= 0.31.3)
 
 GIT
   remote: https://github.com/openpoke/decidim.git
@@ -1246,9 +1268,11 @@ DEPENDENCIES
   decidim-anonymous_codes!
   decidim-anonymous_proposals!
   decidim-antivirus!
+  decidim-collaborative_texts!
   decidim-conferences!
   decidim-decidim_awesome!
   decidim-dev (= 0.31.3)
+  decidim-elections!
   decidim-guest_meeting_registration!
   decidim-participatory_documents!
   decidim-proposals!
