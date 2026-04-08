@@ -53,7 +53,7 @@ RUN set -uex \
 
 # Sets workdir as /usr/src/app
 # We try to follow the Filesystem Hierarchy Standard (FHS)
-ENV APP_HOME /usr/src/app/
+ENV APP_HOME=/usr/src/app/
 RUN mkdir ${APP_HOME}
 WORKDIR ${APP_HOME}
 
