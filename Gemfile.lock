@@ -1,4 +1,16 @@
 GIT
+  remote: https://github.com/OpenSourcePolitics/decidim-module-survey_multiple_answers.git
+  revision: 95eba87ac4f7dbcd6b94277022709e011dc9d701
+  ref: 95eba87
+  branch: bump/0.31
+  specs:
+    decidim-survey_multiple_answers (0.31.0)
+      decidim-admin (~> 0.31.0)
+      decidim-core (~> 0.31.0)
+      decidim-forms (~> 0.31.0)
+      decidim-surveys (~> 0.31.0)
+
+GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
   revision: 362ca4cd1109a4144c7b964f9afcd5ad64bdd8a1
   ref: 362ca4c
@@ -1214,6 +1226,7 @@ DEPENDENCIES
   decidim-dev (= 0.31.3)
   decidim-participatory_documents!
   decidim-proposals!
+  decidim-survey_multiple_answers!
   decidim-templates!
   decidim-term_customizer!
   deface!

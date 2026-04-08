@@ -60,6 +60,10 @@ gem 'decidim-antivirus',
     github: 'puzzle/decidim-module-antivirus',
     branch: 'main',
     ref: '76a22d1'
+gem 'decidim-survey_multiple_answers',
+    github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
+    branch: 'bump/0.31',
+    ref: '95eba87'
 # gem 'decidim-anonymous_codes',
 #     github: 'openpoke/decidim-module-anonymous_codes',
 #     branch: 'main',
@@ -72,10 +76,6 @@ gem 'decidim-antivirus',
 #     github: 'OpenSourcePolitics/guest-meeting-registration',
 #     branch: 'bump/module_to_0.29',
 #     ref: '19e3998'
-# gem 'decidim-survey_multiple_answers',
-#     github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
-#     branch: 'bump/0.29',
-#     ref: '971ad38'
 
 gem 'activerecord-postgis-adapter'
 gem 'aws-eventstream', '= 1.3.0'
