@@ -115,6 +115,7 @@ gem 'sentry-rails'
 gem 'sentry-ruby'
 gem 'sprockets-rails'
 gem 'uglifier'
+gem 'wicked_pdf'
 
 group :development, :test do
   gem 'decidim-dev', DECIDIM_VERSION
