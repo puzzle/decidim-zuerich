@@ -56,14 +56,14 @@ gem 'decidim-anonymous_proposals',
     github: 'openpoke/decidim-module-anonymous_proposals',
     branch: 'main',
     ref: 'af780d4'
+gem 'decidim-antivirus',
+    github: 'puzzle/decidim-module-antivirus',
+    branch: 'main',
+    ref: '76a22d1'
 # gem 'decidim-anonymous_codes',
 #     github: 'openpoke/decidim-module-anonymous_codes',
 #     branch: 'main',
 #     ref: '8323978'
-# gem 'decidim-antivirus',
-#     github: 'puzzle/decidim-module-antivirus',
-#     branch: 'master',
-#     ref: 'bc3cb4d'
 # gem 'decidim-decidim_geo',
 #     git: 'https://git.octree.ch/decidim/decidim-module-geo',
 #     branch: 'main',
