@@ -62,4 +62,7 @@ Decidim.configure do |config|
   config.machine_translation_delay = 0.seconds
 
   config.machine_translation_service = 'DecidimZuerich::MicrosoftTranslator'
+
+  # Don't require changing passwords every 90 days, as this leads to worse security according to OWASP
+  config.admin_password_expiration_days = 0
 end
