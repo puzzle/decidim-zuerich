@@ -1,4 +1,4 @@
-name: 'Build Upgrade on push to upgrade branch'
+name: 'Deploy DEV on push to upgrade branch'
 
 on:
   workflow_dispatch:
