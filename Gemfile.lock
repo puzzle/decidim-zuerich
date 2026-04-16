@@ -121,8 +121,8 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: 37899392f633feb1f19cd15fd1515e685f406f4a
-  ref: 37899392f633feb1f19cd15fd1515e685f406f4a
+  revision: 9a4d36f316a2509e5d31ae3d20825d7af5a81523
+  ref: 9a4d36f316a2509e5d31ae3d20825d7af5a81523
   branch: 0.29-backports
   specs:
     decidim (0.29.7)
@@ -257,8 +257,8 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: 37899392f633feb1f19cd15fd1515e685f406f4a
-  ref: 37899392f633feb1f19cd15fd1515e685f406f4a
+  revision: 9a4d36f316a2509e5d31ae3d20825d7af5a81523
+  ref: 9a4d36f316a2509e5d31ae3d20825d7af5a81523
   branch: 0.29-backports
   glob: decidim-conferences/*.gemspec
   specs:
@@ -269,8 +269,8 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: 37899392f633feb1f19cd15fd1515e685f406f4a
-  ref: 37899392f633feb1f19cd15fd1515e685f406f4a
+  revision: 9a4d36f316a2509e5d31ae3d20825d7af5a81523
+  ref: 9a4d36f316a2509e5d31ae3d20825d7af5a81523
   branch: 0.29-backports
   glob: decidim-proposals/*.gemspec
   specs:
@@ -282,8 +282,8 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: 37899392f633feb1f19cd15fd1515e685f406f4a
-  ref: 37899392f633feb1f19cd15fd1515e685f406f4a
+  revision: 9a4d36f316a2509e5d31ae3d20825d7af5a81523
+  ref: 9a4d36f316a2509e5d31ae3d20825d7af5a81523
   branch: 0.29-backports
   glob: decidim-templates/*.gemspec
   specs:
