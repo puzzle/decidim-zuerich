@@ -58,7 +58,7 @@ gem 'decidim-antivirus',
 gem 'decidim-decidim_awesome',
     github: 'decidim-ice/decidim-module-decidim_awesome',
     branch: 'release/0.29-stable',
-    ref: 'a9f2077'
+    ref: '8148f25df903438a712ab24ed589a13a36846de2'
 gem 'decidim-decidim_geo',
     git: 'https://git.octree.ch/decidim/decidim-module-geo',
     branch: 'main',
