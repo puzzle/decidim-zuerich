@@ -5,10 +5,7 @@ class SendNotificationMailDigestWeeklyJob < CronJob
   self.cron_expression = '5 0 * * 6'
 
   def perform
-    Rails.application.load_tasks
-    # Rake::Task['decidim:mailers:notifications_digest_weekly'].invoke
-    Rake::Task['decidim_zuerich:mailers:notifications_digest_weekly'].invoke
-
-    true
+    # run_rake_task('decidim:mailers:notifications_digest_weekly')
+    run_rake_task('decidim_zuerich:mailers:notifications_digest_weekly')
   end
 end

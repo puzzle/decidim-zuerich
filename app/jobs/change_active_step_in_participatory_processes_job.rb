@@ -6,9 +6,6 @@ class ChangeActiveStepInParticipatoryProcessesJob < CronJob
 
 
   def perform
-    Rails.application.load_tasks
-    Rake::Task['decidim_participatory_processes:change_active_step'].invoke
-
-    true
+    run_rake_task('decidim_participatory_processes:change_active_step')
   end
 end

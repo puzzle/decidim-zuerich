@@ -5,9 +5,6 @@ class MoveUnupdatedToDiscardedJob < CronJob
   self.cron_expression = '0 7 * * * '
 
   def perform
-    Rails.application.load_tasks
-    Rake::Task['decidim_initiatives:check_validating'].invoke
-
-    true
+    run_rake_task('decidim_initiatives:check_validating')
   end
 end

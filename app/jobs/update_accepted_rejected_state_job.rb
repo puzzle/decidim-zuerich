@@ -6,9 +6,6 @@ class UpdateAcceptedRejectedStateJob < CronJob
   self.cron_expression = '30 7 * * *'
 
   def perform
-    Rails.application.load_tasks
-    Rake::Task['decidim_initiatives:check_published'].invoke
-
-    true
+    run_rake_task('decidim_initiatives:check_published')
   end
 end

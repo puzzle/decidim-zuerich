@@ -5,9 +5,6 @@ class NotifyProgressJob < CronJob
   self.cron_expression = '0 8 * * *'
 
   def perform
-    Rails.application.load_tasks
-    Rake::Task['decidim_initiatives:notify_progress'].invoke
-
-    true
+    run_rake_task('decidim_initiatives:notify_progress')
   end
 end

@@ -5,9 +5,6 @@ class DeleteOldRegistrationFormsJob < CronJob
   self.cron_expression = '3 0 * * *'
 
   def perform
-    Rails.application.load_tasks
-    Rake::Task['decidim_meetings:clean_registration_forms'].invoke
-
-    true
+    run_rake_task('decidim_meetings:clean_registration_forms')
   end
 end

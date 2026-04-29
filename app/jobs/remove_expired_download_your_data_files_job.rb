@@ -5,9 +5,6 @@ class RemoveExpiredDownloadYourDataFilesJob < CronJob
   self.cron_expression = '0 0 * * *'
 
   def perform
-    Rails.application.load_tasks
-    Rake::Task['decidim:delete_download_your_data_files'].invoke
-
-    true
+    run_rake_task('decidim:delete_download_your_data_files')
   end
 end

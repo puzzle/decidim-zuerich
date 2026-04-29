@@ -5,9 +5,6 @@ class ComputeMetricsJob < CronJob
   self.cron_expression = '1 0 * * *'
 
   def perform
-    Rails.application.load_tasks
-    Rake::Task['decidim:metrics:all'].invoke
-
-    true
+    run_rake_task('decidim:metrics:all')
   end
 end
