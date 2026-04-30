@@ -2,7 +2,7 @@
 
 # Send notification mail digest daily
 class SendNotificationMailDigestDailyJob < CronJob
-  self.cron_expression = '5 0 * * *'
+  self.cron_expression = '0 4 * * *'
 
   def perform
     # run_rake_task('decidim:mailers:notifications_digest_daily')
