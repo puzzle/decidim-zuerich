@@ -22,6 +22,7 @@ Rails.application.configure do
 
   # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
   # config.public_file_server.enabled = false
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress CSS using a preprocessor.
   # 
@@ -146,4 +147,30 @@ end
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  # Custom
+
+  # Disable Deface dynamic overrides, and use precompiled files. 
+  # to compile: `SKIP_MEMCACHE_CHECK=1 DEFACE_ENABLED=1 bundle exec rails deface:precompile`
+  # to check compiled views: `./app/compiled_views`
+  config.deface.enabled = ENV.fetch("DEFACE_ENABLED", "0") == '1'
+
+  # Use log rage
+  enabled = ENV.fetch('RAILS_LOGRAGE_ENABLED', 'true')
+  config.lograge.enabled = ActiveModel::Type::Boolean.new.cast(enabled)
+  config.lograge.logger = ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new($stdout))
+  config.lograge.ignore_actions = ['StatusController#health', 'StatusController#readiness']
+  config.lograge.custom_payload do |controller|
+    {
+      host: controller.request.host,
+      user_id: controller.current_user.try(:id)
+    }
+  end
+  config.lograge.custom_options = lambda do |event|
+    exceptions = %w[controller action format id]
+    {
+      time: Time.zone.now.utc,
+      params: event.payload[:params].except(*exceptions)
+    }
+  end
 end
