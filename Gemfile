@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.31.3'
+DECIDIM_VERSION = '0.31.4'
 
 ruby RUBY_VERSION
 
@@ -10,7 +10,7 @@ ruby RUBY_VERSION
 gem 'decidim',
     github: 'openpoke/decidim',
     branch: '0.31-backports',
-    ref: '98d3f3a'
+    ref: '8787fbc06213c4707f9a8534124e31ad69306bcf'
 
 # Internal Modules
 ## gem 'decidim-consultations', DECIDIM_VERSION
@@ -19,31 +19,31 @@ gem 'decidim',
 gem 'decidim-proposals',
     github: 'openpoke/decidim',
     branch: '0.31-backports',
-    ref: '98d3f3a',
+    ref: '8787fbc06213c4707f9a8534124e31ad69306bcf',
     glob: 'decidim-proposals/*.gemspec'
 
 gem 'decidim-conferences',
     github: 'openpoke/decidim',
     branch: '0.31-backports',
-    ref: '98d3f3a',
+    ref: '8787fbc06213c4707f9a8534124e31ad69306bcf',
     glob: 'decidim-conferences/*.gemspec'
 
 gem 'decidim-templates',
     github: 'openpoke/decidim',
     branch: '0.31-backports',
-    ref: '98d3f3a',
+    ref: '8787fbc06213c4707f9a8534124e31ad69306bcf',
     glob: 'decidim-templates/*.gemspec'
 
 gem 'decidim-elections',
   github: 'openpoke/decidim',
   branch: '0.31-backports',
-  ref: '98d3f3a',
+  ref: '8787fbc06213c4707f9a8534124e31ad69306bcf',
   glob: 'decidim-elections/*.gemspec'
 
 gem 'decidim-collaborative_texts',
   github: 'openpoke/decidim',
   branch: '0.31-backports',
-  ref: '98d3f3a',
+  ref: '8787fbc06213c4707f9a8534124e31ad69306bcf',
   glob: 'decidim-collaborative_texts/*.gemspec'
 
 # HACK: Using patched version of deface, to fix decidim-geo JS Errors
@@ -104,7 +104,6 @@ gem 'delayed_job_active_record'
 gem 'execjs'
 gem 'faker'
 gem 'lograge'
-gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect'
 gem 'omniauth_openid_connect'
 gem 'prometheus_exporter'
 gem 'pry-byebug'
