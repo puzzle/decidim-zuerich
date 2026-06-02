@@ -103,6 +103,7 @@ gem 'dalli'
 gem 'delayed_job_active_record'
 gem 'execjs'
 gem 'faker'
+gem 'jwt', '< 3.2.0' # https://github.com/decidim/decidim/issues/16824
 gem 'lograge'
 gem 'omniauth_openid_connect'
 gem 'prometheus_exporter'
