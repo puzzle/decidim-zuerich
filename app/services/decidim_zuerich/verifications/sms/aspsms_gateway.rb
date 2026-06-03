@@ -58,7 +58,7 @@ module DecidimZuerich
         end
 
         def translated(key, *args)
-          I18n.t("decidim_zuerich.verifications.sms.aspsms_gateway.#{key}", *args)
+          I18n.t("decidim_zuerich.verifications.sms.aspsms_gateway.#{key}", **args)
         end
 
         def organization
