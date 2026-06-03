@@ -66,7 +66,7 @@ module DecidimZuerich
         end
 
         def organization_name
-          organization.try(:name)
+          translated_attribute(organization.try(:name))
         end
 
       end
