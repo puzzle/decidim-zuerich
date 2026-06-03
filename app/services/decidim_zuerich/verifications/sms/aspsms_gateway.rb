@@ -8,19 +8,16 @@ module DecidimZuerich
       class AspsmsGateway
         attr_reader :mobile_phone_number, :code
 
-        def initialize(mobile_phone_number, code)
+        def initialize(mobile_phone_number, code, context = {})
           @mobile_phone_number = format_mobile_number(mobile_phone_number)
           @code = code
+          @context = context
         end
 
         def deliver_code
           return false unless @mobile_phone_number.present?
           response = Net::HTTP.post(uri, payload)
           response.code == '200' && (JSON(response.body)['StatusCode'] == '1' rescue false)
-        end
-
-        class << self
-          attr_accessor :organization
         end
 
         private
@@ -65,7 +62,7 @@ module DecidimZuerich
         end
 
         def organization
-          self.class.organization
+          @context[:organization]
         end
 
         def organization_name

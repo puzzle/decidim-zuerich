@@ -50,14 +50,6 @@ Rails.application.config.to_prepare do
     base + [org_scope] if I18n.t(org_scope, scope: base, default: nil)
   }
 
-  # Setup a controller hook to setup the sms gateway before the
-  # request is processed. This is done through a notification to
-  # get access to the `current_*` environment variables within
-  # Decidim. Taken and adapted from the term_customizer module.
-  ActiveSupport::Notifications.subscribe 'start_processing.action_controller' do |_, _, _, _, data|
-    DecidimZuerich::Verifications::Sms::AspsmsGateway.organization = data[:headers].env['decidim.current_organization']
-  end
-
   # Override default for surveys
   Decidim.find_component_manifest(:surveys).settings(:global).attributes[:clean_after_publish]&.default = false
 
