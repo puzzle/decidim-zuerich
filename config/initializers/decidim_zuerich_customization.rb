@@ -53,7 +53,7 @@ Rails.application.config.to_prepare do
   Decidim.find_component_manifest(:surveys).settings(:global).attributes[:clean_after_publish]&.default = false
 
   # Add a setting for default_view_mode to proposals components
-  Decidim.find_component_manifest(:proposals).settings(:global).attribute :default_view_mode, type: :select, default: "automatic", choices: -> { %w(automatic grid list).freeze }
+  Decidim.find_component_manifest(:proposals).settings(:global).attribute :default_view_mode, type: :select, default: "automatic", choices: ->(_context) { %w(automatic grid list).freeze }
 
   module Decidim
     module Map
