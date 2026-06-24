@@ -51,6 +51,36 @@ de:
               expired: Sie haben zu lange gebraucht, um die Frage zu beantworten. Bitte versuchen Sie es erneut.
               incorrect: Die Antwort ist leider nicht korrekt, bitte versuchen Sie es erneut.
   decidim:
+    authorization_handlers:
+      admin:
+        ephemeral_sms_authorization_handler:
+          help:
+            - Teilnehmende fordern einen Verifizierungscode an, der an ihr Telefon gesendet wird.
+            - Sie müssen den Code eingeben, um verifiziert zu werden.
+            - Wenn sie den Code nicht erhalten, können sie ihn erneut anfordern.
+      ephemeral_sms_authorization_handler:
+        explanation: Verifizierung per SMS ohne Konto (für einmalige Teilnahme).
+        name: SMS-Verifizierung (ephemeral)
+    verifications:
+      ephemeral_sms:
+        authorizations:
+          create:
+            error: Bei Ihrer Anfrage ist ein Problem aufgetreten.
+            success: Danke! Wir haben eine SMS an Ihr Telefon gesendet.
+          destroy:
+            success: Verifizierungscode erfolgreich zurückgesetzt. Bitte geben Sie Ihre Telefonnummer erneut ein.
+          edit:
+            confirm_destroy: Sind Sie sicher, dass Sie den Verifizierungscode zurücksetzen möchten?
+            destroy: Verifizierungscode zurücksetzen
+            resend: Verifizierungscode nicht erhalten?
+            send: Bestätigen
+            title: Geben Sie den erhaltenen Verifizierungscode ein
+          new:
+            send: SMS senden
+            title: Verifizierungscode anfordern
+          update:
+            error: Ihr Verifizierungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie die SMS, die wir Ihnen gesendet haben.
+            success: Herzlichen Glückwunsch. Sie wurden erfolgreich verifiziert.
     components:
       proposals:
         settings:

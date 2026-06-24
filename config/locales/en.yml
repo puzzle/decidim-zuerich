@@ -51,6 +51,36 @@ en:
         budget_summary:
           description: What projects would you allocate budget to? Vote on as many ideas as you wish before reaching the total spendable sum. You must invest at least CHF {}.-. Confirm your final selction by clicking on "Vote".
           title: Decide on the budget!
+    authorization_handlers:
+      admin:
+        ephemeral_sms_authorization_handler:
+          help:
+            - Participants request a verification code to be sent to their phone.
+            - They need to introduce the code to get verified.
+            - If they do not receive the code, they can request it again.
+      ephemeral_sms_authorization_handler:
+        explanation: SMS verification without an account (for one-time participation).
+        name: SMS verification (ephemeral)
+    verifications:
+      ephemeral_sms:
+        authorizations:
+          create:
+            error: There was a problem with your request.
+            success: Thanks! We have sent an SMS to your phone.
+          destroy:
+            success: Verification code successfully reset. Please re-enter your phone number.
+          edit:
+            confirm_destroy: Are you sure you want to reset the verification code?
+            destroy: Reset verification code
+            resend: Did not receive the verification code?
+            send: Confirm
+            title: Introduce the verification code you received
+          new:
+            send: Send me an SMS
+            title: Request your verification code
+          update:
+            error: Your verification code does not match ours. Please double-check the SMS we sent you.
+            success: Congratulations. You have been successfully verified.
     components:
       proposals:
         settings:

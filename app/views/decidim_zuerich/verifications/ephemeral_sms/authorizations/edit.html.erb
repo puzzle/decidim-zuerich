@@ -1,0 +1,29 @@
+<div class="text-center py-10">
+  <h1 class="title-decorator inline-block text-left">
+    <%= t("decidim.verifications.ephemeral_sms.authorizations.edit.title") %>
+  </h1>
+</div>
+
+<%= decidim_form_for(@form, url: authorization_path(redirect_url:), method: :put) do |form| %>
+  <%= form_required_explanation %>
+
+  <div class="form__wrapper">
+    <%= form.text_field :verification_code, placeholder: "XXXXXX" %>
+  </div>
+
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to authorizations_back_path(current_user, redirect_url:), class: "button button__sm md:button__lg button__text-secondary" do %>
+      <%= icon "arrow-left-line", class: "fill-current" %>
+      <span><%= t("decidim.wizard_step_form.wizard_aside.back") %></span>
+    <% end %>
+    <button type="submit" class="button button__sm md:button__lg button__secondary">
+      <span><%= t("decidim.verifications.ephemeral_sms.authorizations.edit.send") %></span>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    </button>
+  </div>
+
+  <p>
+    <%= t("decidim.verifications.ephemeral_sms.authorizations.edit.resend") %>
+    <%= link_to t("decidim.verifications.ephemeral_sms.authorizations.edit.destroy"), decidim_ephemeral_sms_authorization_handler.authorization_path, method: :delete, data: { confirm: t("decidim.verifications.ephemeral_sms.authorizations.edit.confirm_destroy") }, class: "underline text-secondary" %>
+  </p>
+<% end %>
