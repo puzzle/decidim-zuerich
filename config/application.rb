@@ -14,6 +14,8 @@ require 'rack/attack'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require_relative "../lib/decidim_zuerich/verifications/ephemeral_sms/engine"
+
 module DecidimZuerich
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
