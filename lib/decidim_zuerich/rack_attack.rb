@@ -73,7 +73,7 @@ module DecidimZuerich
           url = "url=#{request.url}"
           warning = "#{title}: #{match} | #{ip} | #{url}"
 
-          Rails.logger.warn warning
+          Rails.logger.warn warning if debug?
         end
       end
 
@@ -126,7 +126,7 @@ module DecidimZuerich
       def validate_ip(ip)
         IPAddr.new(ip)
       rescue IPAddr::InvalidAddressError => e
-        Rails.logger.warn "RACK ATTACK WHITELIST ERROR: #{ip}: Not a valid ip/subnet. Error: #{e.inspect}"
+        Rails.logger.warn "RACK ATTACK WHITELIST ERROR: #{ip}: Not a valid ip/subnet. Error: #{e.inspect}" if debug?
         nil
       end
 
