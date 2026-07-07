@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_07_07_120000) do
+ActiveRecord::Schema[7.2].define(version: 2026_07_07_142310) do
   create_schema "tiger"
   create_schema "tiger_data"
   create_schema "topology"
@@ -67,9 +67,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_07_120000) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "decidim_accountability_milestones", id: :serial, force: :cascade do |t|
@@ -1021,15 +1018,9 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_07_120000) do
     t.string "maptiler_style_id", default: ""
     t.bigint "decidim_organization_id", null: false
     t.boolean "esri_tile_enabled", default: false, null: false
+    t.bigint "decidim_geo_shapefiles_id"
+    t.index ["decidim_geo_shapefiles_id"], name: "index_decidim_geo_configs_on_decidim_geo_shapefiles_id"
     t.index ["decidim_organization_id"], name: "index_decidim_geo_configs_on_organization_id"
-  end
-
-  create_table "decidim_geo_geo_settings", force: :cascade do |t|
-    t.boolean "geo_enabled", default: true, null: false
-    t.bigint "decidim_organization_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_organization_id"], name: "index_decidim_geo_geo_settings_on_decidim_organization_id"
   end
 
   create_table "decidim_geo_indexes", force: :cascade do |t|
@@ -1047,15 +1038,15 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_07_120000) do
     t.string "resource_url", null: false
     t.string "resource_status"
     t.geography "lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
-    t.bigint "geo_scope_id"
-    t.date "start_date"
-    t.date "end_date"
+    t.bigint "geo_taxonomy_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "decidim_organization_id", null: false
     t.index ["decidim_organization_id"], name: "index_decidim_geo_indexes_on_organization_id"
     t.index ["end_date"], name: "index_decidim_geo_indexes_on_end_date"
-    t.index ["geo_scope_id"], name: "index_decidim_geo_indexes_on_geo_scope_id"
+    t.index ["geo_taxonomy_id"], name: "index_decidim_geo_indexes_on_geo_taxonomy_id"
     t.index ["resource_type", "resource_id"], name: "decidim_geo_indx_resource", unique: true
     t.index ["start_date"], name: "index_decidim_geo_indexes_on_start_date"
   end
@@ -1078,19 +1069,21 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_07_120000) do
     t.bigint "decidim_scopes_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "decidim_taxonomies_id"
     t.index ["decidim_geo_shapefiles_id"], name: "index_decidim_geo_shapefile_datas_on_decidim_geo_shapefiles_id"
     t.index ["decidim_scopes_id"], name: "index_decidim_geo_shapefile_datas_on_decidim_scopes_id"
+    t.index ["decidim_taxonomies_id"], name: "index_decidim_geo_shapefile_datas_on_decidim_taxonomies_id", unique: true
   end
 
   create_table "decidim_geo_shapefiles", force: :cascade do |t|
     t.string "title", null: false
     t.string "description"
-    t.bigint "decidim_scope_types_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "decidim_organization_id"
+    t.bigint "decidim_taxonomies_id"
     t.index ["decidim_organization_id"], name: "index_decidim_geo_shapefiles_on_decidim_organization_id"
-    t.index ["decidim_scope_types_id"], name: "index_decidim_geo_shapefiles_on_decidim_scope_types_id"
+    t.index ["decidim_taxonomies_id"], name: "index_decidim_geo_shapefiles_on_decidim_taxonomies_id", unique: true
   end
 
   create_table "decidim_geo_space_locations", force: :cascade do |t|
@@ -2208,6 +2201,16 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_07_120000) do
     t.index ["translation_set_id"], name: "decidim_term_customizer_translation_translation_set"
   end
 
+  create_table "decidim_toggle_organization_module_configs", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.string "module_name", null: false
+    t.jsonb "config", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id", "module_name"], name: "idx_dtoggle_org_module_configs_unique", unique: true
+    t.index ["decidim_organization_id"], name: "idx_dtoggle_omc_on_org"
+  end
+
   create_table "decidim_user_blocks", force: :cascade do |t|
     t.bigint "decidim_user_id"
     t.integer "blocking_user_id"
@@ -2481,12 +2484,13 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_07_120000) do
   add_foreign_key "decidim_elections_voters", "decidim_elections_elections", column: "election_id"
   add_foreign_key "decidim_elections_votes", "decidim_elections_questions", column: "question_id"
   add_foreign_key "decidim_elections_votes", "decidim_elections_response_options", column: "response_option_id"
-  add_foreign_key "decidim_geo_geo_settings", "decidim_organizations"
-  add_foreign_key "decidim_geo_indexes", "decidim_scopes", column: "geo_scope_id"
+  add_foreign_key "decidim_geo_configs", "decidim_geo_shapefiles", column: "decidim_geo_shapefiles_id"
+  add_foreign_key "decidim_geo_indexes", "decidim_taxonomies", column: "geo_taxonomy_id"
   add_foreign_key "decidim_geo_shapefile_datas", "decidim_geo_shapefiles", column: "decidim_geo_shapefiles_id"
   add_foreign_key "decidim_geo_shapefile_datas", "decidim_scopes", column: "decidim_scopes_id"
+  add_foreign_key "decidim_geo_shapefile_datas", "decidim_taxonomies", column: "decidim_taxonomies_id"
   add_foreign_key "decidim_geo_shapefiles", "decidim_organizations"
-  add_foreign_key "decidim_geo_shapefiles", "decidim_scope_types", column: "decidim_scope_types_id"
+  add_foreign_key "decidim_geo_shapefiles", "decidim_taxonomies", column: "decidim_taxonomies_id"
   add_foreign_key "decidim_guest_meeting_registration_registration_requests", "decidim_meetings_meetings", column: "decidim_meetings_meetings_id"
   add_foreign_key "decidim_guest_meeting_registration_registration_requests", "decidim_organizations"
   add_foreign_key "decidim_guest_meeting_registration_settings", "decidim_organizations"
@@ -2515,6 +2519,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_07_07_120000) do
   add_foreign_key "decidim_term_customizer_constraints", "decidim_organizations"
   add_foreign_key "decidim_term_customizer_constraints", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_term_customizer_translations", "decidim_term_customizer_translation_sets", column: "translation_set_id"
+  add_foreign_key "decidim_toggle_organization_module_configs", "decidim_organizations", on_delete: :cascade
   add_foreign_key "decidim_user_blocks", "decidim_users"
   add_foreign_key "decidim_user_blocks", "decidim_users", column: "blocking_user_id"
   add_foreign_key "decidim_user_moderations", "decidim_users"

@@ -17,6 +17,9 @@ else
   echo "Skipping database initialization because already done on $(cat /db-init/done)"
 fi
 
+# Create decidim geo indexes
+bin/rails decidim_geo:rebuild_index RAILS_ENV=development
+
 # Run deface compilation.
 if [ "$RAILS_ENV" = "production" ] && [ ! -d "app/compiled_views" ]; then
   SKIP_MEMCACHE_CHECK=1 DEFACE_ENABLED=1 bundle exec rails deface:precompile
