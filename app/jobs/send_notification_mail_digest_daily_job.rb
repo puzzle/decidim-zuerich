@@ -6,8 +6,7 @@ class SendNotificationMailDigestDailyJob < CronJob
 
   def perform
     Rails.application.load_tasks
-    # Rake::Task['decidim:mailers:notifications_digest_daily'].invoke
-    Rake::Task['decidim_zuerich:mailers:notifications_digest_daily'].invoke
+    Rake::Task['decidim:mailers:notifications_digest_daily'].invoke
 
     true
   end
