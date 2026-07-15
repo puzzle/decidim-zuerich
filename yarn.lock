@@ -1269,11 +1269,11 @@
   integrity sha512-lwYN/vDPeNRULcepoE/LO2Pgx+7/RV+S9ARfbc9lr2DtGkOD7pAiruHvbR1RX3Qyf6ja47EWJDMsNK5vK08DJg==
 
 "@decidim/browserslist-config@file:packages/browserslist-config":
-  version "0.31.5"
+  version "0.31.6"
   resolved "file:packages/browserslist-config"
 
 "@decidim/core@file:packages/core":
-  version "0.31.5"
+  version "0.31.6"
   resolved "file:packages/core"
   dependencies:
     "@emoji-mart/data" "^1.1.2"
@@ -1335,13 +1335,14 @@
     react "^18.2.0"
     react-dom "^18.2.0"
     react-i18nify "^6.1.2"
+    regenerator-runtime "^0.14.1"
     select "^1.1.2"
     svg4everybody "2.1.9"
     tom-select "2.2.2"
     wc-datepicker "^0.5.2"
 
 "@decidim/dev@file:packages/dev":
-  version "0.31.5"
+  version "0.31.6"
   resolved "file:packages/dev"
   dependencies:
     "@linthtml/linthtml" "^0.10.2"
@@ -1349,20 +1350,19 @@
     markdownlint-cli "^0.35.0"
 
 "@decidim/eslint-config@file:packages/eslint-config":
-  version "0.31.5"
+  version "0.31.6"
   resolved "file:packages/eslint-config"
 
-"@decidim/prettier-config@^0.29.7":
-  version "0.29.7"
-  resolved "https://registry.npmjs.org/@decidim/prettier-config/-/prettier-config-0.29.7.tgz"
-  integrity sha512-VaoGC/M/u6ITWbbRZmMcWIbFm3UCxwvwq13VvBQTwjTzg96Ftn7iap/0mdgxakqrJMGHyo4F4aPoRHBfz06Fvg==
+"@decidim/prettier-config@file:packages/prettier-config":
+  version "0.31.6"
+  resolved "file:packages/prettier-config"
 
 "@decidim/stylelint-config@file:packages/stylelint-config":
-  version "0.31.5"
+  version "0.31.6"
   resolved "file:packages/stylelint-config"
 
 "@decidim/webpacker@file:packages/webpacker":
-  version "0.31.5"
+  version "0.31.6"
   resolved "file:packages/webpacker"
   dependencies:
     "@hotwired/stimulus" "^3.2.2"
@@ -9076,6 +9076,11 @@ regenerator-runtime@^0.13.4:
   version "0.13.11"
   resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz"
   integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
+
+regenerator-runtime@^0.14.1:
+  version "0.14.1"
+  resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.14.1.tgz"
+  integrity sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==
 
 regexp.prototype.flags@^1.5.3, regexp.prototype.flags@^1.5.4:
   version "1.5.4"
