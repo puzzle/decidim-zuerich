@@ -27,7 +27,8 @@ Rails.application.config.to_prepare do
     [Decidim::PushNotificationMessage,               DecidimZuerich::PushNotificationMessage],
     [Decidim::PushNotificationPresenter,             DecidimZuerich::PushNotificationPresenter],
     [Decidim::LayoutHelper,                          DecidimZuerich::LayoutHelper],
-    [Decidim::Surveys::SurveyConfirmationMailer,     DecidimZuerich::Surveys::SurveyConfirmationMailer]
+    [Decidim::Surveys::SurveyConfirmationMailer,     DecidimZuerich::Surveys::SurveyConfirmationMailer],
+    [Decidim::Messaging::ReplyToConversation,        DecidimZuerich::Messaging::ReplyToConversation],
   ].freeze
 
   OVERRIDES = [
