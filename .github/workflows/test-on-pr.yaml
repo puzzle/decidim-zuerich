@@ -11,6 +11,6 @@ on:
 
 jobs:
   lint:
-    uses: ./.github/workflows/reusable-lint.yaml
+    uses: ./.github/workflows/reusable_lint.yaml
   test:
-    uses: ./.github/workflows/reusable-test.yaml
+    uses: ./.github/workflows/reusable_tests.yaml
