@@ -6,6 +6,8 @@ module DecidimZuerich
   module Verifications
     module Sms
       class AspsmsGateway
+        include Decidim::TranslatableAttributes
+
         attr_reader :mobile_phone_number, :code
 
         def initialize(mobile_phone_number, code, context = {})
