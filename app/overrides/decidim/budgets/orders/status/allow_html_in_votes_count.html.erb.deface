@@ -1,0 +1,32 @@
+<!--
+  replace "erb[loud]:contains('votes_count')"
+  original "92a2a9d44d4abb747e93f3b8273526f5f86d0b30"
+-->
+<%#
+  Decidim Zuerich Override
+
+  Created at: 2026-09-01
+  Author: Thomas Burkhalter
+
+  Original:
+    Module: decidim-budgets
+    Template: app/views/decidim/budgets/orders/status.html.erb
+
+  Why?:
+    The upstream key `decidim.budgets.order.status.votes_count` is plain text,
+    so any markup in the translation gets escaped. This switches the lookup to
+    `votes_count_html`, which ActionView marks as html_safe. The `_html` suffix
+    is matched against the key we pass, so pluralization still works below it:
+    `votes_count_html.one` / `.other`. Interpolated values are html-escaped
+    automatically, so `budget_name` stays safe.
+
+    `default: [:votes_count]` keeps the upstream key as fallback, so this is a
+    no-op until `votes_count_html` is defined in config/locales.
+%>
+      <%= t(
+        "votes_count_html",
+        scope: "decidim.budgets.order.status",
+        count: current_order.total_projects,
+        budget_name: translated_attribute(current_order.budget.title),
+        default: [:votes_count]
+      ) %>
