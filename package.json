@@ -54,7 +54,7 @@
     "webpack-assets-manifest": "5",
     "webpack-cli": "4",
     "webpack-merge": "5",
-    "zustand": "^5.0.14"
+    "zustand": "^5.0.15"
   },
   "version": "0.1.0",
   "browserslist": [
@@ -72,7 +72,7 @@
     "@babel/preset-react": "^7.27.1",
     "@decidim/dev": "file:packages/dev",
     "@decidim/eslint-config": "file:packages/eslint-config",
-    "@decidim/prettier-config": "file:packages/prettier-config",
+    "@decidim/prettier-config": "^0.29.7",
     "@decidim/stylelint-config": "file:packages/stylelint-config",
     "@tarekraafat/autocomplete.js": "^10.2.7",
     "eslint": "^8.7.0",

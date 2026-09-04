@@ -91,7 +91,7 @@ gem 'decidim-guest_meeting_registration',
 gem 'decidim-decidim_geo',
     git: 'https://git.octree.ch/decidim/decidim-module-geo',
     branch: 'main',
-    ref: 'cbb74fbcab6c80ed7c898bfe6ad6a5caf04c1392'
+    ref: '8d507206cf066f9495563f7f00c2b2e3c1c7177a'
 gem "decidim-toggle", # required to have this installed for decidim_geo
   git: "https://git.octree.ch/decidim/vocacity/decidim-modules/decidim-toggle",
   tag: "v0.1.1"

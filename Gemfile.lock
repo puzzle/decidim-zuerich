@@ -1,10 +1,10 @@
 GIT
   remote: https://git.octree.ch/decidim/decidim-module-geo
-  revision: cbb74fbcab6c80ed7c898bfe6ad6a5caf04c1392
-  ref: cbb74fbcab6c80ed7c898bfe6ad6a5caf04c1392
+  revision: 8d507206cf066f9495563f7f00c2b2e3c1c7177a
+  ref: 8d507206cf066f9495563f7f00c2b2e3c1c7177a
   branch: main
   specs:
-    decidim-decidim_geo (0.4.1)
+    decidim-decidim_geo (0.4.2)
       activerecord-postgis-adapter (~> 10.0)
       decidim-admin (>= 0.29, < 0.32)
       decidim-api (>= 0.29, < 0.32)
