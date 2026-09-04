@@ -72,6 +72,10 @@ gem 'decidim-antivirus',
     github: 'puzzle/decidim-module-antivirus',
     branch: 'main',
     ref: '76a22d1'
+gem 'decidim-ephemeral_verifications',
+    github: 'puzzle/decidim-module-ephemeral_verifications',
+    branch: 'main',
+    ref: 'a285c6f114187d685cd1a49dfb530efe692a5e32'
 gem 'decidim-survey_multiple_answers',
     github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
     branch: 'bump/0.31',

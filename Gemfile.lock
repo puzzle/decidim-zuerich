@@ -317,6 +317,16 @@ GIT
       ratonvirus (~> 0.5.0)
       ratonvirus-clamby (~> 0.5.0)
 
+GIT
+  remote: https://github.com/puzzle/decidim-module-ephemeral_verifications.git
+  revision: a285c6f114187d685cd1a49dfb530efe692a5e32
+  ref: a285c6f114187d685cd1a49dfb530efe692a5e32
+  branch: main
+  specs:
+    decidim-ephemeral_verifications (0.1.0)
+      decidim-core (>= 0.31.0, < 0.32)
+      decidim-verifications (>= 0.31.0, < 0.32)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -1310,6 +1320,7 @@ DEPENDENCIES
   decidim-decidim_geo!
   decidim-dev (= 0.31.6)
   decidim-elections!
+  decidim-ephemeral_verifications!
   decidim-guest_meeting_registration!
   decidim-participatory_documents!
   decidim-proposals!
