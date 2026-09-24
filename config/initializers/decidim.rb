@@ -10,10 +10,11 @@ Decidim.configure do |config|
     api_key: false, # ENV["MAPS_API_KEY"]
     dynamic: {
       tile_layer: {
-        url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+        url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=#{ENV["CARTO_API_KEY"]}",
         api_key: false,
         attribution: %(
-          <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
+          <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors,
+          <a href="https://carto.com/attributions" target="_blank">&copy; CARTO</a>
         ).strip
         # Translatable attribution:
         # attribution: -> { I18n.t("tile_layer_attribution") }
