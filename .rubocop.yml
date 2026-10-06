@@ -9,3 +9,5 @@ AllCops:
   Exclude:
     - 'db/migrate/*.rb'
     - 'db/schema.rb'
+    - 'db/data_schema.rb'
+    - 'vendor/bundle/**/*'
