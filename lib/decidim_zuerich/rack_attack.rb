@@ -98,8 +98,7 @@ module DecidimZuerich
         return default if env.blank?
 
         env.split(',')
-           .map { _1.split(':').map(&:strip) }
-           .to_h
+           .to_h { _1.split(':').map(&:strip) }
            .symbolize_keys
            .transform_values(&:to_i)
       end
