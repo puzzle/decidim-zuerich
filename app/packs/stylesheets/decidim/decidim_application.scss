@@ -16,4 +16,9 @@
 //   background-image: url("./organization-default-image.png");
 // }
 
+// Survey step scroll target (decidim_application.js) must clear core's sticky header (96px, fixed below md)
+.response-questionnaire__step {
+  @apply scroll-mt-24 md:scroll-mt-0;
+}
+
 // END MODIFICATIONS
