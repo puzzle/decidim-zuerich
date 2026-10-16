@@ -6,7 +6,13 @@ on:
 
 jobs:
   test:
+    name: 'rails ${{ matrix.suite }}'
     runs-on: 'ubuntu-latest'
+    strategy:
+      fail-fast: false
+      matrix:
+        # `rails test` skips test/system, so the two suites don't overlap
+        suite: ['test', 'test:system']
 
     services:
       postgres:
@@ -38,9 +44,19 @@ jobs:
           bundler-cache: true
       - name: 'Install required libraries'
         run: sudo apt-get install libpq-dev
+      - uses: actions/setup-node@v4
+        if: matrix.suite == 'test:system'
+        with:
+          node-version-file: '.tool-versions'
+      - name: 'Build assets for system tests'
+        if: matrix.suite == 'test:system'
+        run: |
+          corepack enable
+          yarn install --frozen-lockfile --ignore-engines
+          bin/shakapacker
       - name: 'Run tests'
         run: |
           bundle exec rails db:create
           bundle exec rails db:migrate
           bundle exec rails data:migrate
-          bundle exec rails test
+          bundle exec rails ${{ matrix.suite }}
