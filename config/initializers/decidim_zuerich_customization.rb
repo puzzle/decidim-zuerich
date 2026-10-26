@@ -13,7 +13,6 @@ Rails.application.config.to_prepare do
   INCLUDES = [
     # [Decidim::Debates::CreateDebateEvent,      DecidimZuerich::Debates::CreateDebateEvent],
     [Decidim::FormBuilder,                       DecidimZuerich::FormBuilder],
-    [Decidim::Forms::Admin::UpdateQuestionnaire, DecidimZuerich::Forms::Admin::UpdateQuestionnaire],
     [Decidim::Admin::AttachmentForm,             DecidimZuerich::Admin::AttachmentForm]
   ].freeze
 
