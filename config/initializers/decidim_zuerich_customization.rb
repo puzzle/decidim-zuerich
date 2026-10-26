@@ -29,6 +29,12 @@ Rails.application.config.to_prepare do
     [Decidim::LayoutHelper,                          DecidimZuerich::LayoutHelper],
     [Decidim::Surveys::SurveyConfirmationMailer,     DecidimZuerich::Surveys::SurveyConfirmationMailer],
     [Decidim::Messaging::ReplyToConversation,        DecidimZuerich::Messaging::ReplyToConversation],
+    [Decidim::Accountability::Result,                DecidimZuerich::Geo::UpdateGeoIndex],
+    [Decidim::Assembly,                              DecidimZuerich::Geo::UpdateGeoIndex],
+    [Decidim::Debates::Debate,                       DecidimZuerich::Geo::UpdateGeoIndex],
+    [Decidim::Meetings::Meeting,                     DecidimZuerich::Geo::UpdateGeoIndex],
+    [Decidim::ParticipatoryProcess,                  DecidimZuerich::Geo::UpdateGeoIndex],
+    [Decidim::Proposals::Proposal,                   DecidimZuerich::Geo::UpdateGeoIndex],
   ].freeze
 
   OVERRIDES = [
