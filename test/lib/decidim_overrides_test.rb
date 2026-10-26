@@ -8,9 +8,10 @@ require 'prism'
 # A failure means that Decidim code changed, usually with a Decidim update: re-test our file, then
 # update the MD5 (the failure shows the new value). Deface overrides: see deface_overrides_test.rb.
 #
-# Every app file replacing a Decidim file (same path) and every app/overrides/**/*_override.rb needs
-# an entry covering what it touches: the replaced file, or for Ruby overrides each method it defines,
-# its class, or the file defining its class.
+# Every app file replacing a Decidim file (same path), every app/overrides/**/*_override.rb and every
+# module in PREPENDS/INCLUDES (config/initializers/decidim_zuerich_customization.rb) needs an entry
+# covering what it touches: the replaced file, or for Ruby code each Decidim method it (re)defines,
+# its class, or the file defining it.
 #
 # our file => {
 #   description: what our file changes and why (required),
@@ -229,7 +230,7 @@ DECIDIM_OVERRIDE_CHECKS = {
     }
   },
   'app/views/layouts/decidim/_mailer_logo.html.erb' => {
-    description: 'Falls back to another logo URL when variant_url fails, because S3 is on a different domain',
+    description: 'Falls back to another logo URL when variant_url fails (S3 is on another domain)',
     targets: {
       files: {
         'app/views/layouts/decidim/_mailer_logo.html.erb' => '8c6978d195e708d7d85ccfe63b710fa8'
@@ -279,10 +280,57 @@ DECIDIM_OVERRIDE_CHECKS = {
     targets: {
       files: { 'decidim-decidim_geo/lib/decidim/geo/update_geo_index.rb' => 'a6c70fd9c17929c59a3744f01fd0cbae' }
     }
+  },
+  'app/commands/decidim_zuerich/messaging/reply_to_conversation.rb' => {
+    description: 'Notifies about every reply, not only the first unread message in a conversation',
+    tickets: ['https://github.com/puzzle/decidim-zuerich/issues/620'],
+    targets: {
+      methods: { 'Decidim::Messaging::ReplyToConversation#notify' => '9a0a3ef2bdec8e562ec57456350b953a' }
+    }
+  },
+  'app/forms/decidim_zuerich/admin/attachment_form.rb' => {
+    description: 'Validates the attachment link as URL only when a link is given, not for uploaded files',
+    targets: {
+      classes: { 'Decidim::Admin::AttachmentForm' => 'af189f74c849a5ba822094e719d1391b' }
+    }
+  },
+  'app/helpers/decidim_zuerich/layout_helper.rb' => {
+    description: 'Falls back to plain favicon variant URLs when variant_url fails (S3 is on another domain)',
+    targets: {
+      methods: {
+        'Decidim::LayoutHelper#favicon' => '01cf3a17cc22cd3f00fb423fc0bcd2b8',
+        'Decidim::LayoutHelper#apple_favicon' => '4932df30a2db6014f6d321fb98239867',
+        'Decidim::LayoutHelper#legacy_favicon' => 'd2ed5734aba470f4c732bdaf36ec886e'
+      }
+    }
+  },
+  'app/models/decidim_zuerich/push_notification_message.rb' => {
+    description: 'Falls back to a plain favicon variant URL when variant_url fails (S3 is on another domain)',
+    targets: {
+      methods: { 'Decidim::PushNotificationMessage#icon' => 'b38bd4b1586c61cf6533e6dcbdf0c208' }
+    }
+  },
+  'app/presenters/decidim_zuerich/push_notification_presenter.rb' => {
+    description: 'Falls back to a plain favicon variant URL when variant_url fails (S3 is on another domain)',
+    targets: {
+      methods: { 'Decidim::PushNotificationPresenter#icon' => 'e312c0770dc04a33d52b38de5cc6ac26' }
+    }
+  },
+  'lib/decidim_zuerich/form_builder.rb' => {
+    description: 'Lets form fields disable the client-side required validation with required: false',
+    targets: {
+      methods: { 'Decidim::FormBuilder#extract_validations' => '0e43a4174ee8d35e5033b0a3e0e453cf' }
+    }
+  },
+  'lib/decidim_zuerich/upgrade/wysiwyg_migrator.rb' => {
+    description: 'Fixes list conversion when migrating old WYSIWYG content',
+    targets: {
+      methods: { 'Decidim::Upgrade::WysiwygMigrator#convert_list' => '69cd79586b6501b585d03f29485a831e' }
+    }
   }
 }.freeze
 
-class DecidimOverridesTest < ActiveSupport::TestCase
+class DecidimOverridesTest < ActiveSupport::TestCase # rubocop:disable Metrics/ClassLength
   ENTRY_KEYS = %i[description tickets targets].freeze
   TARGET_KINDS = %i[files classes methods].freeze
 
@@ -305,8 +353,12 @@ class DecidimOverridesTest < ActiveSupport::TestCase
     DECIDIM_GEM_DIRS.values.any? { |dir| File.file?(File.join(dir, path)) }
   end - EXTENSION_POINTS
   RUBY_OVERRIDES = app_files('app/overrides/**/*_override.rb')
+  # Our modules prepended/included into Decidim (config/initializers/decidim_zuerich_customization.rb) => their bases
+  MIXINS = (INCLUDES + PREPENDS).group_by(&:last).to_h do |mixin, pairs|
+    [Pathname(Module.const_source_location(mixin.name).first).relative_path_from(Rails.root).to_s, pairs.map(&:first)]
+  end
 
-  (DECIDIM_OVERRIDE_CHECKS.keys | REPLACED | RUBY_OVERRIDES).sort.each do |file|
+  (DECIDIM_OVERRIDE_CHECKS.keys | REPLACED | RUBY_OVERRIDES | MIXINS.keys).sort.each do |file|
     test file do
       checks = DECIDIM_OVERRIDE_CHECKS.fetch(file) { flunk "#{file} has no entry in DECIDIM_OVERRIDE_CHECKS" }
       assert_valid_entry(file, checks)
@@ -338,6 +390,7 @@ class DecidimOverridesTest < ActiveSupport::TestCase
   def uncovered(file, targets)
     return [file] - targets.fetch(:files, {}).keys.map { |key| without_gem(key) } if REPLACED.include?(file)
     return uncovered_by_ruby_override(file, targets) if RUBY_OVERRIDES.include?(file)
+    return uncovered_by_mixin(file, targets) if MIXINS.key?(file)
 
     []
   end
@@ -352,9 +405,40 @@ class DecidimOverridesTest < ActiveSupport::TestCase
     methods.map { |method| "#{constant}##{method}" } - targets.fetch(:methods, {}).keys
   end
 
+  # Each Decidim method the mixin overrides, unless the targets cover it, its base class or the file defining it
+  def uncovered_by_mixin(file, targets)
+    covered = targets.values.flat_map(&:keys) + targets.fetch(:files, {}).keys.map { |key| decidim_file(key) }
+    mixin_overrides(file).reject { |override| override.intersect?(covered) }.map(&:first)
+  end
+
+  # ['Base#method', Decidim file defining it, 'Base'] for each Decidim method the mixin overrides
+  def mixin_overrides(file)
+    MIXINS[file].product(parse(file).grep(Prism::DefNode).map(&:name)).filter_map do |base, method|
+      path = upstream_file(base, method)
+      ["#{base.name}##{method}", path, base.name] if path
+    end
+  end
+
+  # Decidim file defining the method our mixin overrides: the next Decidim definition up the
+  # ancestors (prepend), or the base's own file when `included do` replaced the method there
+  def upstream_file(base, method)
+    upstream = base.instance_method(method)
+    upstream = upstream.super_method until upstream.nil? || decidim_path?(upstream.source_location.first)
+    upstream&.source_location&.first ||
+      (Module.const_source_location(base.name).first if method_node(base.name, method.to_s))
+  end
+
+  def decidim_path?(path)
+    DECIDIM_GEM_DIRS.values.any? { |dir| path.start_with?("#{dir}/") }
+  end
+
+  def parse(file)
+    all_nodes(Prism.parse_file(Rails.root.join(file).to_s).value)
+  end
+
   # The patched constant and the methods an override defines
   def parse_override(file)
-    nodes = all_nodes(Prism.parse_file(Rails.root.join(file).to_s).value)
+    nodes = parse(file)
     class_eval = nodes.find { |node| node.is_a?(Prism::CallNode) && node.name == :class_eval }
     [class_eval.receiver.full_name, nodes.grep(Prism::DefNode).map { |node| node.name.to_s }]
   end
@@ -389,7 +473,8 @@ class DecidimOverridesTest < ActiveSupport::TestCase
     return unless file
 
     all_nodes(Prism.parse_file(file).value).find do |node|
-      node.is_a?(Prism::ClassNode) && node.constant_path.full_name.end_with?(constant.demodulize)
+      [Prism::ClassNode, Prism::ModuleNode].include?(node.class) &&
+        node.constant_path.full_name.split('::').last == constant.demodulize
     end
   rescue NameError
     nil
