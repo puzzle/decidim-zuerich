@@ -272,6 +272,13 @@ DECIDIM_OVERRIDE_CHECKS = {
     targets: {
       methods: { 'Decidim::ApplicationMailer#set_from' => 'adbeafe13e864733c3252b1616a6a161' }
     }
+  },
+  'app/models/decidim_zuerich/geo/update_geo_index.rb' => {
+    description: 'Removes destroyed records from the Geo index instead of crashing after commit',
+    tickets: ['https://github.com/puzzle/decidim-zuerich/issues/641'],
+    targets: {
+      files: { 'decidim-decidim_geo/lib/decidim/geo/update_geo_index.rb' => 'a6c70fd9c17929c59a3744f01fd0cbae' }
+    }
   }
 }.freeze
 
