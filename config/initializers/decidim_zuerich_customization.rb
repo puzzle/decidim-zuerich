@@ -26,7 +26,6 @@ Rails.application.config.to_prepare do
     [Decidim::PushNotificationMessage,               DecidimZuerich::PushNotificationMessage],
     [Decidim::PushNotificationPresenter,             DecidimZuerich::PushNotificationPresenter],
     [Decidim::LayoutHelper,                          DecidimZuerich::LayoutHelper],
-    [Decidim::Surveys::SurveyConfirmationMailer,     DecidimZuerich::Surveys::SurveyConfirmationMailer],
     [Decidim::Messaging::ReplyToConversation,        DecidimZuerich::Messaging::ReplyToConversation],
     [Decidim::Accountability::Result,                DecidimZuerich::Geo::UpdateGeoIndex],
     [Decidim::Assembly,                              DecidimZuerich::Geo::UpdateGeoIndex],
