@@ -31,7 +31,7 @@ jobs:
       REVIEWDOG_GITHUB_API_TOKEN: ${{ github.token }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ruby/setup-ruby@v1
       - run: bundle install --jobs 4 --retry 3
       - uses: reviewdog/action-rubocop@v2.12.0

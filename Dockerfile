@@ -17,12 +17,12 @@ ARG BUILD_SCRIPT=" \
  && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
   | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
  && echo \"deb [signed-by=/etc/apt/keyrings/nodesource.gpg] \
-    https://deb.nodesource.com/node_18.x nodistro main\" \
+    https://deb.nodesource.com/node_22.x nodistro main\" \
   > /etc/apt/sources.list.d/nodesource.list \
  && apt-get update \
  && apt-get install nodejs -y \
  && npm install -g yarn \
- && yarn set version 1.22.19 \
+ && yarn set version 1.22.21 \
 "
 ARG BUNDLE_WITHOUT="development:metrics:test"
 ARG BUNDLER_VERSION="2.5.23"
@@ -41,22 +41,6 @@ ARG DEFACE_ENABLED="0"
 RUN apt-get update \
  && apt-get upgrade -y \
  && apt-get install -y ${BUILD_PACKAGES}
-
-# Installs nodejs as a dependency
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
- && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg \
-         -o /root/yarn-pubkey.gpg \
- && apt-key add /root/yarn-pubkey.gpg \
- && echo "deb https://dl.yarnpkg.com/debian/ stable main" \
-  > /etc/apt/sources.list.d/yarn.list \
- && apt-get update \
- && DEBIAN_FRONTEND=noninteractive \
-    apt-get install -yq --no-install-recommends \
-            nodejs \
- && apt-get clean \
- && rm -rf /var/cache/apt/archives/* \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
- && truncate -s 0 /var/log/*log
 
 RUN [[ ${BUILD_SCRIPT} ]] && bash -c "${BUILD_SCRIPT}"
 
@@ -103,7 +87,7 @@ SHELL ["/bin/bash", "-c"]
 
 ARG BUNDLE_WITHOUT="development:metrics:test"
 ARG BUNDLER_VERSION="2.5.6"
-ARG RUN_PACKAGES="git imagemagick libicu-dev libpq5 nodejs poppler-utils p7zip-full wkhtmltopdf libgeos-dev libgeos++-dev"
+ARG RUN_PACKAGES="git imagemagick libicu-dev libpq5 poppler-utils p7zip-full wkhtmltopdf libgeos-dev libgeos++-dev"
 ARG CUSTOMIZATION_OUTPUT="false"
 ENV TZ="Europe/Zurich"
 
