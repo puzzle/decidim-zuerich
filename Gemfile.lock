@@ -320,8 +320,8 @@ GIT
 
 GIT
   remote: https://github.com/puzzle/decidim-module-ephemeral_verifications.git
-  revision: ac94c80e3b88fe2706c56e5905df510a2aa88ca4
-  ref: ac94c80e3b88fe2706c56e5905df510a2aa88ca4
+  revision: cd0e7fb343c63f9c2d0dcfcb1974f7efdceaa490
+  ref: cd0e7fb343c63f9c2d0dcfcb1974f7efdceaa490
   branch: main
   specs:
     decidim-ephemeral_verifications (0.1.0)
