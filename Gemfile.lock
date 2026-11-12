@@ -319,13 +319,14 @@ GIT
 
 GIT
   remote: https://github.com/puzzle/decidim-module-ephemeral_verifications.git
-  revision: a285c6f114187d685cd1a49dfb530efe692a5e32
-  ref: a285c6f114187d685cd1a49dfb530efe692a5e32
+  revision: ac94c80e3b88fe2706c56e5905df510a2aa88ca4
+  ref: ac94c80e3b88fe2706c56e5905df510a2aa88ca4
   branch: main
   specs:
     decidim-ephemeral_verifications (0.1.0)
       decidim-core (>= 0.31.0, < 0.32)
       decidim-verifications (>= 0.31.0, < 0.32)
+      phonelib (~> 0.10)
 
 GEM
   remote: https://rubygems.org/
@@ -918,6 +919,7 @@ GEM
     pg_search (2.3.7)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
+    phonelib (0.11.0)
     polyglot (0.3.5)
     pp (0.6.4)
       prettyprint
