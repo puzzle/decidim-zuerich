@@ -1,33 +1,4 @@
 GIT
-  remote: https://git.octree.ch/decidim/decidim-module-geo
-  revision: 59b6ec549e5c03c60bd1611a9693581b426959bf
-  ref: 59b6ec549e5c03c60bd1611a9693581b426959bf
-  branch: main
-  specs:
-    decidim-decidim_geo (0.4.3)
-      activerecord-postgis-adapter (~> 10.0)
-      decidim-admin (>= 0.29, < 0.32)
-      decidim-api (>= 0.29, < 0.32)
-      decidim-core (>= 0.29, < 0.32)
-      decidim-system (>= 0.29, < 0.32)
-      decidim-toggle (~> 0.1.1)
-      deface (~> 1.9.0)
-      ffi-geos (~> 2.5)
-      rgeo (~> 3.0)
-      rgeo-geojson (~> 2.2)
-      rgeo-shapefile (~> 3.1)
-
-GIT
-  remote: https://git.octree.ch/decidim/vocacity/decidim-modules/decidim-toggle
-  revision: 7d57e8408cbc22afa42bdce9be7901d2626461ae
-  tag: v0.1.1
-  specs:
-    decidim-toggle (0.1.1)
-      decidim-core (~> 0.29)
-      decidim-system (~> 0.29)
-      deface (~> 1.9.0)
-
-GIT
   remote: https://github.com/OpenSourcePolitics/decidim-module-survey_multiple_answers.git
   revision: 95eba87ac4f7dbcd6b94277022709e011dc9d701
   ref: 95eba87
@@ -49,6 +20,36 @@ GIT
       decidim-core (~> 0.31.0)
       decidim-meetings (~> 0.31.0)
       deface (>= 1.9)
+
+GIT
+  remote: https://github.com/carlobeltrame/decidim-module-geo.git
+  revision: 59b6ec549e5c03c60bd1611a9693581b426959bf
+  ref: 59b6ec549e5c03c60bd1611a9693581b426959bf
+  branch: main
+  specs:
+    decidim-decidim_geo (0.4.3)
+      activerecord-postgis-adapter (~> 10.0)
+      decidim-admin (>= 0.29, < 0.32)
+      decidim-api (>= 0.29, < 0.32)
+      decidim-core (>= 0.29, < 0.32)
+      decidim-system (>= 0.29, < 0.32)
+      decidim-toggle (~> 0.1.1)
+      deface (~> 1.9.0)
+      ffi-geos (~> 2.5)
+      rgeo (~> 3.0)
+      rgeo-geojson (~> 2.2)
+      rgeo-shapefile (~> 3.1)
+
+GIT
+  remote: https://github.com/carlobeltrame/decidim-toggle.git
+  revision: 7d57e8408cbc22afa42bdce9be7901d2626461ae
+  ref: 7d57e8408cbc22afa42bdce9be7901d2626461ae
+  branch: main
+  specs:
+    decidim-toggle (0.1.1)
+      decidim-core (~> 0.29)
+      decidim-system (~> 0.29)
+      deface (~> 1.9.0)
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
