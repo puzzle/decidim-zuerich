@@ -33,7 +33,12 @@ on:
         type: string
         required: false
         default: 'stzh-dev'
-      
+      force_rebuild:
+        description: 'Always build the image, even if one already exists for this commit'
+        type: boolean
+        required: false
+        default: false
+
   push:
     branches:
       - 'upgrade'
@@ -51,6 +56,7 @@ jobs:
       configmanagement_branch: ${{ inputs.configmanagement_branch || 'main' }}
       kustomization_path: ${{ inputs.kustomization_path || './deployments/pitc-decidim-stzh-dev/kustomization.yaml' }}
       identifier: ${{ inputs.identifier || 'stzh-dev' }}
+      force_rebuild: ${{ inputs.force_rebuild || false }}
       lint: false
       test: false
     secrets: inherit

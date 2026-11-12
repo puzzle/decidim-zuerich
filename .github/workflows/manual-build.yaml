@@ -26,6 +26,11 @@ on:
           type=semver,pattern={{version}},priority=1000
           type=schedule,priority=900
           type=sha,format=long,prefix=git-,priority=800
+      force_rebuild:
+        description: 'Always build the image, even if one already exists for this commit'
+        type: boolean
+        required: false
+        default: false
 
 jobs:
   build:
@@ -36,3 +41,4 @@ jobs:
       images: ${{ inputs.images }}
       flavor: ${{ inputs.flavor }}
       tags: ${{ inputs.tags }}
+      force_rebuild: ${{ inputs.force_rebuild }}

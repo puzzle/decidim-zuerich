@@ -28,6 +28,19 @@ on:
         type: string
         required: false
         default: 'deployment'
+      reuse_images:
+        description: 'Images of other stages to reuse an existing build of the same commit from'
+        type: string
+        required: false
+        default: >-
+          harbor.puzzle.ch/decidim/stzh-dev-rails
+          harbor.puzzle.ch/decidim/stzh-int-rails
+          harbor.puzzle.ch/decidim/stzh-prod-rails
+      force_rebuild:
+        description: 'Always build the image, even if one already exists for the current commit'
+        type: boolean
+        required: false
+        default: false
       lint:
         description: 'Controls if linting should be performed'
         type: boolean
@@ -56,6 +69,8 @@ jobs:
     with:
       repository_url: ${{ inputs.image_repo }}
       images: ${{ inputs.image_url }}
+      reuse_images: ${{ inputs.reuse_images }}
+      force_rebuild: ${{ inputs.force_rebuild }}
       flavor: latest=true
 
   extract_info:
