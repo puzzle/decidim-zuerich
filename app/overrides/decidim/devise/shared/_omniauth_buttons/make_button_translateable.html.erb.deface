@@ -1,5 +1,6 @@
 <!--
   replace "span > erb[loud]:contains('normalize_provider_name(provider).titleize')"
+  original "fd9b45341efdae16efe81e0ca3785a1cb23ac8ba"
 -->
           <%= t(
             "devise.shared.links.log_in_with_provider_button",
