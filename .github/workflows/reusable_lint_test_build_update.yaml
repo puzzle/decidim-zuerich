@@ -59,8 +59,10 @@ jobs:
   test:
     if: inputs.test
     uses: ./.github/workflows/reusable_tests.yaml
+  # Lint and test are optional, so the build runs when they succeeded or were
+  # skipped, but not when one of them failed.
   build:
-    if: ${{ !cancelled() }}
+    if: ${{ !cancelled() && !failure() }}
     needs: [lint, test]
     uses: ./.github/workflows/reusable_build.yaml
     secrets:
@@ -74,7 +76,7 @@ jobs:
       flavor: latest=true
 
   extract_info:
-    if: ${{ !cancelled() }}
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
     needs: [build]
     runs-on: 'ubuntu-latest'
     outputs:
@@ -91,8 +93,10 @@ jobs:
         id: extracted
         run: echo 'version=${{ steps.get_version.outputs.result }}' >> "$GITHUB_OUTPUT"
 
+  # Only a successfully pushed image may be deployed: the tag is known before
+  # the build runs, so a failed build would otherwise still be rolled out.
   update_tag:
-    if: ${{ !cancelled() }}
+    if: ${{ !cancelled() && needs.build.result == 'success' && needs.extract_info.outputs.version != '' }}
     needs: [build, extract_info]
     uses: ./.github/workflows/reusable_update_image.yaml
     secrets: inherit
