@@ -17,7 +17,7 @@ Bundler.require(*Rails.groups)
 module DecidimZuerich
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.2
 
     # Rails used SHA1 to encrypt attributes before, now it uses SHA256
     # TODO: Reencrypt the secrets

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
-Clamby.configure(
-  stream: true
-)
+if defined? Clamby
+  Clamby.configure(
+    stream: true
+  )
+end

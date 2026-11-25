@@ -3,6 +3,7 @@
 # This migration comes from decidim_geo (originally 20251107143529)
 class ReplaceGeoEnableWithGeoMode < ActiveRecord::Migration[7.0]
   def up
+    return unless defined? Decidim::Geo::GeoSettings
     add_column :decidim_geo_geo_settings,
                :geo_mode,
                :string,

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_conferences (originally 20180626152015)
 
+# This migration comes from decidim_conferences (originally 20180626152015)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-31 11:41:59 UTC
 class AddConferenceUserRoles < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_conference_user_roles do |t|

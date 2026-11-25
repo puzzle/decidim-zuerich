@@ -6,21 +6,20 @@ module DecidimZuerich
   module Verifications
     module Sms
       class AspsmsGateway
+        include Decidim::TranslatableAttributes
+
         attr_reader :mobile_phone_number, :code
 
-        def initialize(mobile_phone_number, code)
+        def initialize(mobile_phone_number, code, context = {})
           @mobile_phone_number = format_mobile_number(mobile_phone_number)
           @code = code
+          @context = context
         end
 
         def deliver_code
           return false unless @mobile_phone_number.present?
           response = Net::HTTP.post(uri, payload)
           response.code == '200' && (JSON(response.body)['StatusCode'] == '1' rescue false)
-        end
-
-        class << self
-          attr_accessor :organization
         end
 
         private
@@ -60,16 +59,16 @@ module DecidimZuerich
           Rails.application.config.aspsms[:affiliate_id]
         end
 
-        def translated(key, *args)
-          I18n.t("decidim_zuerich.verifications.sms.aspsms_gateway.#{key}", *args)
+        def translated(key, **args)
+          I18n.t("decidim_zuerich.verifications.sms.aspsms_gateway.#{key}", **args)
         end
 
         def organization
-          self.class.organization
+          @context[:organization]
         end
 
         def organization_name
-          organization.try(:name)
+          translated_attribute(organization.try(:name))
         end
 
       end

@@ -13,7 +13,6 @@ Rails.application.config.to_prepare do
   INCLUDES = [
     # [Decidim::Debates::CreateDebateEvent,      DecidimZuerich::Debates::CreateDebateEvent],
     [Decidim::FormBuilder,                       DecidimZuerich::FormBuilder],
-    [Decidim::Forms::Admin::UpdateQuestionnaire, DecidimZuerich::Forms::Admin::UpdateQuestionnaire],
     [Decidim::Admin::AttachmentForm,             DecidimZuerich::Admin::AttachmentForm]
   ].freeze
 
@@ -27,7 +26,13 @@ Rails.application.config.to_prepare do
     [Decidim::PushNotificationMessage,               DecidimZuerich::PushNotificationMessage],
     [Decidim::PushNotificationPresenter,             DecidimZuerich::PushNotificationPresenter],
     [Decidim::LayoutHelper,                          DecidimZuerich::LayoutHelper],
-    [Decidim::Surveys::SurveyConfirmationMailer,     DecidimZuerich::Surveys::SurveyConfirmationMailer]
+    [Decidim::Messaging::ReplyToConversation,        DecidimZuerich::Messaging::ReplyToConversation],
+    [Decidim::Accountability::Result,                DecidimZuerich::Geo::UpdateGeoIndex],
+    [Decidim::Assembly,                              DecidimZuerich::Geo::UpdateGeoIndex],
+    [Decidim::Debates::Debate,                       DecidimZuerich::Geo::UpdateGeoIndex],
+    [Decidim::Meetings::Meeting,                     DecidimZuerich::Geo::UpdateGeoIndex],
+    [Decidim::ParticipatoryProcess,                  DecidimZuerich::Geo::UpdateGeoIndex],
+    [Decidim::Proposals::Proposal,                   DecidimZuerich::Geo::UpdateGeoIndex],
   ].freeze
 
   OVERRIDES = [
@@ -49,19 +54,11 @@ Rails.application.config.to_prepare do
     base + [org_scope] if I18n.t(org_scope, scope: base, default: nil)
   }
 
-  # Setup a controller hook to setup the sms gateway before the
-  # request is processed. This is done through a notification to
-  # get access to the `current_*` environment variables within
-  # Decidim. Taken and adapted from the term_customizer module.
-  ActiveSupport::Notifications.subscribe 'start_processing.action_controller' do |_, _, _, _, data|
-    DecidimZuerich::Verifications::Sms::AspsmsGateway.organization = data[:headers].env['decidim.current_organization']
-  end
-
   # Override default for surveys
-  Decidim.find_component_manifest(:surveys).settings(:global).attributes[:clean_after_publish].default = false
+  Decidim.find_component_manifest(:surveys).settings(:global).attributes[:clean_after_publish]&.default = false
 
   # Add a setting for default_view_mode to proposals components
-  Decidim.find_component_manifest(:proposals).settings(:global).attribute :default_view_mode, type: :select, default: "automatic", choices: -> { %w(automatic grid list).freeze }
+  Decidim.find_component_manifest(:proposals).settings(:global).attribute :default_view_mode, type: :select, default: "automatic", choices: ->(_context) { %w(automatic grid list).freeze }
 
   module Decidim
     module Map

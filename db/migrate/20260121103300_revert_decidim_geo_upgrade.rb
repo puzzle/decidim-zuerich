@@ -5,6 +5,7 @@ class RevertDecidimGeoUpgrade < ActiveRecord::Migration[7.0]
   require_relative '20260107122144_add_esri_tile_reverted.decidim_geo'
 
   def change
+    return unless defined? Decidim::Geo::GeoSettings
     revert AddEsriTileReverted
     revert ReplaceGeoEnableWithGeoModeReverted
   end

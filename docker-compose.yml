@@ -13,8 +13,6 @@ services:
     depends_on:
       - pg
       - cache
-      - mail
-      - worker
     environment:
       - PORT=3000
       - RAILS_DB_HOST=pg
@@ -58,7 +56,9 @@ services:
       - '1080:1080'
   worker:
     <<: *app
-    depends_on: []
+    depends_on:
+      - pg
+      - mail
     ports: []
     entrypoint: []
     command: [ rake, 'jobs:work' ]

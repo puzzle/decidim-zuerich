@@ -9,7 +9,7 @@
 #
 # Also we don't use -onbuild as they're deprecated
 # https://github.com/docker-library/official-images/issues/2076
-FROM ruby:3.2.10-bookworm AS dev
+FROM ruby:3.3.4-bookworm AS dev
 LABEL maintainer="beltrame@puzzle.ch"
 
 # Installs system dependencies
@@ -53,7 +53,7 @@ RUN set -uex \
 
 # Sets workdir as /usr/src/app
 # We try to follow the Filesystem Hierarchy Standard (FHS)
-ENV APP_HOME /usr/src/app/
+ENV APP_HOME=/usr/src/app/
 RUN mkdir ${APP_HOME}
 WORKDIR ${APP_HOME}
 

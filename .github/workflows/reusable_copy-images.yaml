@@ -27,21 +27,21 @@ jobs:
     steps:
 
       - name: Login Quay
-        uses: docker/login-action@v1
+        uses: docker/login-action@v4
         with:
           registry: 'quay.io'
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_TOKEN }}
 
       - name: Login Puzzle Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v4
         with:
           registry: registry.puzzle.ch
           username: ${{ secrets.PUZZLE_REGISTRY_USERNAME }}
           password: ${{ secrets.PUZZLE_REGISTRY_TOKEN }}
 
       - name: Push image
-        uses: akhilerm/tag-push-action@v2.0.0
+        uses: akhilerm/tag-push-action@v2.3.0
         with:
           src: ${{ github.event.inputs.sourceURI }}
           dst: registry.puzzle.ch/decidim/${{ github.event.inputs.targetImage }}

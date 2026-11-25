@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim (originally 20160920140207)
 
+# This migration comes from decidim (originally 20160920140207)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-31 11:41:59 UTC
 class DeviseInvitableAddToDecidimUsers < ActiveRecord::Migration[4.2]
   def up
     change_table :decidim_users do |t|

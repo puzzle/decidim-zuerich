@@ -6,6 +6,7 @@ gem install bundler
 bundle install
 
 bin/rails db:migrate RAILS_ENV=development
+bin/rails data:migrate RAILS_ENV=development
 
 if [ ! -f "/db-init/done" ]; then
   echo 'ActiveRecord::Base.connection.execute(IO.read(".docker/development/database-init.sql"))' | bundle exec rails console
@@ -15,6 +16,9 @@ if [ ! -f "/db-init/done" ]; then
 else
   echo "Skipping database initialization because already done on $(cat /db-init/done)"
 fi
+
+# Create decidim geo indexes
+bin/rails decidim_geo:rebuild_index RAILS_ENV=development
 
 # Run deface compilation.
 if [ "$RAILS_ENV" = "production" ] && [ ! -d "app/compiled_views" ]; then

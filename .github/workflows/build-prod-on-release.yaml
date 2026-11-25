@@ -6,8 +6,6 @@ on:
   release:
     types:
       - released
-    branches:
-      - master
 jobs:
   build-image:
     uses: ./.github/workflows/reusable_lint_test_build_update.yaml

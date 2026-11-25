@@ -31,7 +31,9 @@ module OmniAuth
         return @user_info if @user_info
         return nil unless access_token.id_token
 
-        decoded = decode_id_token(access_token.id_token).raw_attributes
+        decoded = decode_id_token(access_token.id_token).raw_attributes.with_indifferent_access
+        # Modification for Mein Konto:
+        decoded[:name] ||= [decoded[:given_name], decoded[:family_name]].compact_blank.join(' ').presence
         @user_info = ::OpenIDConnect::ResponseObject::UserInfo.new decoded
       end
     end

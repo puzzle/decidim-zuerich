@@ -2,40 +2,49 @@
 
 source 'https://rubygems.org'
 
-DECIDIM_VERSION = '0.29.7'
+DECIDIM_VERSION = '0.31.6'
 
 ruby RUBY_VERSION
 
 # Decidim
 gem 'decidim',
     github: 'openpoke/decidim',
-    branch: '0.29-backports',
-    ref: '9a4d36f316a2509e5d31ae3d20825d7af5a81523'
+    branch: '0.31-backports',
+    ref: 'd4439afdb9b035622079930053847096e1e23926'
 
 # Internal Modules
 ## gem 'decidim-consultations', DECIDIM_VERSION
 ## gem 'decidim-initiatives', DECIDIM_VERSION
-# gem 'decidim-proposals', DECIDIM_VERSION
-# gem 'decidim-conferences', DECIDIM_VERSION
-# gem 'decidim-templates', DECIDIM_VERSION
 
 gem 'decidim-proposals',
     github: 'openpoke/decidim',
-    branch: '0.29-backports',
-    ref: '9a4d36f316a2509e5d31ae3d20825d7af5a81523',
+    branch: '0.31-backports',
+    ref: 'd4439afdb9b035622079930053847096e1e23926',
     glob: 'decidim-proposals/*.gemspec'
 
 gem 'decidim-conferences',
     github: 'openpoke/decidim',
-    branch: '0.29-backports',
-    ref: '9a4d36f316a2509e5d31ae3d20825d7af5a81523',
+    branch: '0.31-backports',
+    ref: 'd4439afdb9b035622079930053847096e1e23926',
     glob: 'decidim-conferences/*.gemspec'
 
 gem 'decidim-templates',
     github: 'openpoke/decidim',
-    branch: '0.29-backports',
-    ref: '9a4d36f316a2509e5d31ae3d20825d7af5a81523',
+    branch: '0.31-backports',
+    ref: 'd4439afdb9b035622079930053847096e1e23926',
     glob: 'decidim-templates/*.gemspec'
+
+gem 'decidim-elections',
+  github: 'openpoke/decidim',
+  branch: '0.31-backports',
+  ref: 'd4439afdb9b035622079930053847096e1e23926',
+  glob: 'decidim-elections/*.gemspec'
+
+gem 'decidim-collaborative_texts',
+  github: 'openpoke/decidim',
+  branch: '0.31-backports',
+  ref: 'd4439afdb9b035622079930053847096e1e23926',
+  glob: 'decidim-collaborative_texts/*.gemspec'
 
 # HACK: Using patched version of deface, to fix decidim-geo JS Errors
 gem 'deface',
@@ -43,43 +52,49 @@ gem 'deface',
     branch: 'fix/js-overrides'
 
 # External Modules
-gem 'decidim-anonymous_codes',
-    github: 'openpoke/decidim-module-anonymous_codes',
+gem 'decidim-decidim_awesome',
+    github: 'decidim-ice/decidim-module-decidim_awesome',
     branch: 'main',
-    ref: '8323978'
+    ref: '362ca4c'
+gem 'decidim-term_customizer',
+    github: 'openpoke/decidim-module-term_customizer',
+    branch: 'main',
+    ref: '8cd8baf'
+gem 'decidim-participatory_documents',
+    github: 'openpoke/decidim-module-participatory-documents',
+    branch: 'upgrade-0.31',
+    ref: '5d8bde9'
 gem 'decidim-anonymous_proposals',
     github: 'openpoke/decidim-module-anonymous_proposals',
     branch: 'main',
-    ref: '54aa291'
+    ref: 'af780d4'
 gem 'decidim-antivirus',
     github: 'puzzle/decidim-module-antivirus',
-    branch: 'master',
-    ref: 'bc3cb4d'
-gem 'decidim-decidim_awesome',
-    github: 'decidim-ice/decidim-module-decidim_awesome',
-    branch: 'release/0.29-stable',
-    ref: '8148f25df903438a712ab24ed589a13a36846de2'
+    branch: 'main',
+    ref: '76a22d1'
+gem 'decidim-ephemeral_verifications',
+    github: 'puzzle/decidim-module-ephemeral_verifications',
+    branch: 'main',
+    ref: 'cd0e7fb343c63f9c2d0dcfcb1974f7efdceaa490'
+gem 'decidim-survey_multiple_answers',
+    github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
+    branch: 'bump/0.31',
+    ref: '95eba87'
+gem 'decidim-guest_meeting_registration',
+    github: 'OpenSourcePolitics/guest-meeting-registration',
+    branch: 'bump/0.31',
+    ref: 'f0c5e2c'
+# gem 'decidim-anonymous_codes',
+#     github: 'openpoke/decidim-module-anonymous_codes',
+#     branch: 'upgrade-0.31',
+#     ref: '180dfe0'
 gem 'decidim-decidim_geo',
     git: 'https://git.octree.ch/decidim/decidim-module-geo',
     branch: 'main',
-    ref: 'a9ad70e5221bbc5019589e6bd48aa38c2526fdaf'
-gem 'decidim-guest_meeting_registration',
-    github: 'OpenSourcePolitics/guest-meeting-registration',
-    branch: 'bump/module_to_0.29',
-    ref: '19e3998'
-gem 'decidim-participatory_documents',
-    github: 'openpoke/decidim-module-participatory-documents',
-    branch: 'main',
-    ref: '21501f8'
-gem 'decidim-survey_multiple_answers',
-    github: 'OpenSourcePolitics/decidim-module-survey_multiple_answers',
-    branch: 'bump/0.29',
-    ref: '971ad38'
-
-gem 'decidim-term_customizer',
-    github: 'OpenSourcePolitics/decidim-module-term_customizer',
-    branch: 'master',
-    ref: '3da4973'
+    ref: '59b6ec549e5c03c60bd1611a9693581b426959bf'
+gem "decidim-toggle", # required to have this installed for decidim_geo
+  git: "https://git.octree.ch/decidim/vocacity/decidim-modules/decidim-toggle",
+  tag: "v0.1.1"
 
 gem 'activerecord-postgis-adapter'
 gem 'aws-eventstream', '= 1.3.0'
@@ -90,12 +105,13 @@ gem 'aws-sdk-s3', '= 1.149.1'
 gem 'aws-sigv4', '= 1.8.0'
 gem 'bootsnap'
 gem 'byebug', platform: :mri
+gem 'connection_pool', '< 3.0.0' # rails 7.2 is not compatible with 3.0
 gem 'dalli'
 gem 'delayed_job_active_record'
 gem 'execjs'
 gem 'faker'
+gem 'jwt', '< 3.2.0' # https://github.com/decidim/decidim/issues/16824
 gem 'lograge'
-gem 'omniauth-openid-connect', git: 'https://github.com/netsphere-labs/omniauth-openid-connect'
 gem 'omniauth_openid_connect'
 gem 'prometheus_exporter'
 gem 'pry-byebug'
@@ -106,6 +122,7 @@ gem 'sentry-rails'
 gem 'sentry-ruby'
 gem 'sprockets-rails'
 gem 'uglifier'
+gem 'wicked_pdf'
 
 group :development, :test do
   gem 'decidim-dev', DECIDIM_VERSION

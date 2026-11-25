@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_templates (originally 20200518093819)
 
+# This migration comes from decidim_templates (originally 20200518093819)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-31 11:42:00 UTC
 class CreateDecidimTemplates < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_templates_templates do |t|

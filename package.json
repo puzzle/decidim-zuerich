@@ -4,6 +4,7 @@
   "dependencies": {
     "@babel/core": "7",
     "@babel/runtime": "7",
+    "@date-fns/tz": "^1.5.0",
     "@decidim/browserslist-config": "file:packages/browserslist-config",
     "@decidim/core": "file:packages/core",
     "@decidim/webpacker": "file:packages/webpacker",
@@ -16,7 +17,7 @@
     "buffer": "^6.0.3",
     "codemirror": "^5.65.19",
     "compression-webpack-plugin": "9",
-    "date-fns": "^4.1.0",
+    "date-fns": "^4.4.0",
     "esri-leaflet": "^3.0.19",
     "esri-leaflet-vector": "^4.3.2",
     "europa": "^4.0.0",
@@ -40,13 +41,12 @@
     "leaflet.markercluster": "^1.5.3",
     "markdown-it": "<13.0.0",
     "picmo": "^5.8.0",
-    "polylabel": "^2.0.1",
+    "polylabel": "^2.1.0",
     "proj4": "^2.8.0",
     "proj4leaflet": "^1.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "select2": "^4.1.0-rc.0",
-    "shakapacker": "7.1.0",
     "shpjs": "^6.1.0",
     "terser-webpack-plugin": "5",
     "tom-select": "^2.2.2",
@@ -54,7 +54,7 @@
     "webpack-assets-manifest": "5",
     "webpack-cli": "4",
     "webpack-merge": "5",
-    "zustand": "^5.0.11"
+    "zustand": "^5.0.15"
   },
   "version": "0.1.0",
   "browserslist": [
@@ -72,7 +72,7 @@
     "@babel/preset-react": "^7.27.1",
     "@decidim/dev": "file:packages/dev",
     "@decidim/eslint-config": "file:packages/eslint-config",
-    "@decidim/prettier-config": "file:packages/prettier-config",
+    "@decidim/prettier-config": "^0.29.7",
     "@decidim/stylelint-config": "file:packages/stylelint-config",
     "@tarekraafat/autocomplete.js": "^10.2.7",
     "eslint": "^8.7.0",
@@ -82,6 +82,7 @@
     "eslint-plugin-standard": "^3.1.0",
     "postcss-scss": "^4.0.9",
     "sass-embedded": "~1.57.1",
+    "shakapacker": "^8.3.0",
     "stylelint": "^15.3.0",
     "webpack-dev-server": "4.15.1"
   },
