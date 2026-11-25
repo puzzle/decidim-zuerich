@@ -88,13 +88,18 @@ gem 'decidim-guest_meeting_registration',
 #     github: 'openpoke/decidim-module-anonymous_codes',
 #     branch: 'upgrade-0.31',
 #     ref: '180dfe0'
+# Temporarily fetched from GitHub forks, same commits: git.octree.ch often does not
+# answer requests from GitHub Actions. Original sources:
+#   https://git.octree.ch/decidim/decidim-module-geo (main)
+#   https://git.octree.ch/decidim/vocacity/decidim-modules/decidim-toggle (tag v0.1.1)
 gem 'decidim-decidim_geo',
-    git: 'https://git.octree.ch/decidim/decidim-module-geo',
+    github: 'carlobeltrame/decidim-module-geo',
     branch: 'main',
     ref: '59b6ec549e5c03c60bd1611a9693581b426959bf'
-gem "decidim-toggle", # required to have this installed for decidim_geo
-  git: "https://git.octree.ch/decidim/vocacity/decidim-modules/decidim-toggle",
-  tag: "v0.1.1"
+gem 'decidim-toggle', # required to have this installed for decidim_geo
+    github: 'carlobeltrame/decidim-toggle',
+    branch: 'main',
+    ref: '7d57e8408cbc22afa42bdce9be7901d2626461ae'
 
 gem 'activerecord-postgis-adapter'
 gem 'aws-eventstream', '= 1.3.0'
