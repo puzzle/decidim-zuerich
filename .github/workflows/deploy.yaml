@@ -1,0 +1,73 @@
+name: 'Deploy'
+run-name: "Deploy ${{ github.ref_name }} to ${{ inputs.environment || 'dev' }}"
+
+# The only way to deploy. It builds the image of the selected commit, or reuses
+# an image already built from that commit for any environment, and writes its
+# tag into the deployment repository. ArgoCD rolls it out from there.
+#
+# Every push to master deploys to DEV. INT and PROD are deployed by running this
+# workflow by hand, and only from master.
+
+on:
+  push:
+    branches:
+      - 'master'
+    paths-ignore:
+      - 'doc/**'
+      - '**.md'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to (INT and PROD only from master)'
+        type: choice
+        options:
+          - dev
+          - int
+          - prod
+        required: true
+        default: dev
+      force_rebuild:
+        description: 'Always build the image, even if one already exists for this commit'
+        type: boolean
+        required: false
+        default: false
+
+# One deployment per environment at a time; a later one waits instead of
+# cancelling a deployment that may already have written its tag.
+concurrency:
+  group: deploy-${{ inputs.environment || 'dev' }}
+  cancel-in-progress: false
+
+jobs:
+  target:
+    runs-on: ubuntu-latest
+    outputs:
+      environment: ${{ steps.target.outputs.environment }}
+    steps:
+      - name: Determine the environment
+        id: target
+        env:
+          ENVIRONMENT: ${{ inputs.environment || 'dev' }}
+          REF: ${{ github.ref }}
+        run: |
+          if [[ "${ENVIRONMENT}" != "dev" && "${REF}" != "refs/heads/master" ]]; then
+            echo "::error::${ENVIRONMENT} is only deployed from master, not from ${REF}."
+            exit 1
+          fi
+          echo "Deploying ${REF} (${GITHUB_SHA}) to ${ENVIRONMENT}"
+          echo "environment=${ENVIRONMENT}" >> "${GITHUB_OUTPUT}"
+
+  deploy:
+    needs: target
+    uses: ./.github/workflows/reusable_lint_test_build_update.yaml
+    secrets: inherit
+    with:
+      image_repo: 'https://harbor.puzzle.ch'
+      image_url: harbor.puzzle.ch/decidim/stzh-${{ needs.target.outputs.environment }}-rails
+      configmanagement: 'gitlab.puzzle.ch/pitc_ruby/deployments/decidim/'
+      configmanagement_branch: 'main'
+      kustomization_path: ./deployments/pitc-decidim-stzh-${{ needs.target.outputs.environment }}/kustomization.yaml
+      identifier: stzh-${{ needs.target.outputs.environment }}
+      force_rebuild: ${{ inputs.force_rebuild || false }}
+      lint: false
+      test: false
