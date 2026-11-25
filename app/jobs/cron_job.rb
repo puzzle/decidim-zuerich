@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 # This is the base class for all cron jobs.
+#
+# `db:schedule_jobs` only loads files named `app/jobs/**/*_job.rb`, so a cron
+# job whose file lacks the `_job` suffix is never scheduled.
 class CronJob < ApplicationJob
 
   class_attribute :cron_expression

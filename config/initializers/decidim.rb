@@ -48,6 +48,12 @@ Decidim.configure do |config|
     }
   }
 
+  # Participants who have not signed in for this long are warned by email 30
+  # and 7 days ahead, then deleted (DeleteInactiveAccountsJob). Zürich keeps
+  # accounts for three years, see #643.
+  config.delete_inactive_users_after_days =
+    ENV.fetch('DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS', 3 * 365).to_i
+
   # SMS gateway configuration
   #
   # See Decidim docs at https://docs.decidim.org/en/develop/services/sms
